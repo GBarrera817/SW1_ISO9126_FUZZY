@@ -13,11 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace SW1_ISO9126_FUZZY {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class MainWindow {
         public MainWindow() {
             InitializeComponent();
         }

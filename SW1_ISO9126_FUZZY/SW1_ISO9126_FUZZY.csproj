@@ -76,7 +76,6 @@
     <Compile Include="FuzzyLogicLibrary\InferenceMethod.cs" />
     <Compile Include="FuzzyLogicLibrary\MamdaniFuzzySystem.cs" />
     <Compile Include="FuzzyLogicLibrary\MembershipFunction.cs" />
-    <Compile Include="FuzzyLogicLibrary\Properties\AssemblyInfo.cs" />
     <Compile Include="FuzzyLogicLibrary\RuleParser.cs" />
     <Compile Include="FuzzyLogicLibrary\SugenoFuzzySystem.cs" />
     <Compile Include="FuzzyLogicLibrary\SugenoVariable.cs" />

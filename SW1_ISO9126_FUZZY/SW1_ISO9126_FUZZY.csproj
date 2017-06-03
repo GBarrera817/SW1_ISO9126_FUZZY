@@ -69,6 +69,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FuzzyLogicLibrary\FuzzyRule.cs" />
+    <Compile Include="FuzzyLogicLibrary\FuzzyTerm.cs" />
+    <Compile Include="FuzzyLogicLibrary\FuzzyVariable.cs" />
+    <Compile Include="FuzzyLogicLibrary\GenericFuzzySystem.cs" />
+    <Compile Include="FuzzyLogicLibrary\InferenceMethod.cs" />
+    <Compile Include="FuzzyLogicLibrary\MamdaniFuzzySystem.cs" />
+    <Compile Include="FuzzyLogicLibrary\MembershipFunction.cs" />
+    <Compile Include="FuzzyLogicLibrary\Properties\AssemblyInfo.cs" />
+    <Compile Include="FuzzyLogicLibrary\RuleParser.cs" />
+    <Compile Include="FuzzyLogicLibrary\SugenoFuzzySystem.cs" />
+    <Compile Include="FuzzyLogicLibrary\SugenoVariable.cs" />
     <Compile Include="Subcaracteristicas\clsFuncionalidad.cs" />
     <Compile Include="Subcaracteristicas\clsMantenibilidad.cs" />
     <Compile Include="Subcaracteristicas\clsUsabilidad.cs" />
@@ -112,6 +123,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="FuzzyLogicLibrary\obj\Debug\CoreCompileInputs.cache" />
+    <None Include="FuzzyLogicLibrary\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,7 +142,11 @@
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FuzzyLogicLibrary\" />
+    <Content Include="FuzzyLogicLibrary\FuzzyLogicLibrary.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FuzzyLogicLibrary\bin\Debug\" />
+    <Folder Include="FuzzyLogicLibrary\obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

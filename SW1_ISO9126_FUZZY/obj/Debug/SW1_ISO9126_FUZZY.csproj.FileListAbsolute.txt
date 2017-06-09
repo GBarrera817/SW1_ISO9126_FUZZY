@@ -4,6 +4,7 @@ d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bi
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\itextsharp.dll
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\MahApps.Metro.dll
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\MahApps.Metro.IconPacks.dll
+d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\Newtonsoft.Json.dll
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\Npgsql.dll
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\System.Threading.Tasks.Extensions.dll
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\System.Windows.Interactivity.dll
@@ -12,9 +13,9 @@ d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bi
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\MahApps.Metro.xml
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\MahApps.Metro.IconPacks.pdb
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\MahApps.Metro.IconPacks.xml
+d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\Newtonsoft.Json.xml
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\Npgsql.xml
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\bin\Debug\System.Threading.Tasks.Extensions.xml
-d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.csprojResolveAssemblyReference.cache
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Resources\Icons.baml
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Resources\IconsNonShared.baml
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\MainWindow.g.cs
@@ -26,7 +27,6 @@ d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\ob
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Views\SettingsPage.g.cs
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Views\UserPage.g.cs
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\App.g.cs
-d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY_Content.g.cs
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\GeneratedInternalTypeHelper.g.cs
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY_MarkupCompile.cache
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY_MarkupCompile.lref
@@ -44,3 +44,5 @@ d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\ob
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.csproj.GenerateResource.Cache
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.exe
 d:\documentos\visual studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.pdb
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.csprojResolveAssemblyReference.cache
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.Form1.resources

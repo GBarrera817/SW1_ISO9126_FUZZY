@@ -34,8 +34,6 @@ namespace SW1_ISO9126_FUZZY.Archivos {
             
             string salida = JsonConvert.SerializeObject(pba, Formatting.Indented);
 
-
-
             Console.ReadLine();
         }
     }

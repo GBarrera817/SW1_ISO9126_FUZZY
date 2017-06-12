@@ -42,6 +42,4 @@
         public int[] Mantenibilidad_interna { get; set; }
         public int[] Mantenibilidad_externa { get; set; }
     }
-
-
 }

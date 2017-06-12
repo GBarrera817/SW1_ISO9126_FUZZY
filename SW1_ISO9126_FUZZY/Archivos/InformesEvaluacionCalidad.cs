@@ -1,11 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SW1_ISO9126_FUZZY.Archivos {
 
@@ -28,10 +24,10 @@ namespace SW1_ISO9126_FUZZY.Archivos {
             doc.Open();
 
             // Escribimos el encabezamiento en el documento
-            doc.Add(new iTextSharp.text.Paragraph("Mi primer documento PDF"));
+            doc.Add(new Paragraph("Mi primer documento PDF"));
             doc.Add(Chunk.NEWLINE);
 
-            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+            Font _standardFont = new Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.BLACK);
             // Creamos una tabla que contendrá el nombre, apellido y país 
             // de nuestros visitante.
             PdfPTable tblPrueba = new PdfPTable(3);

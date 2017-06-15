@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SW1_ISO9126_FUZZY.Archivos;
+
 
 namespace SW1_ISO9126_FUZZY.Views {
     /// <summary>
@@ -20,6 +13,10 @@ namespace SW1_ISO9126_FUZZY.Views {
     public partial class MainPage : Page {
         public MainPage() {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            InformesEvaluacionCalidad informe = new InformesEvaluacionCalidad();
         }
     }
 }

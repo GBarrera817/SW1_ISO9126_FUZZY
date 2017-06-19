@@ -90,6 +90,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="XAct.Diagrams.Uml.PlantUml, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XAct.Diagrams.Uml.PlantUml.1.1.17040.3290\lib\net452\XAct.Diagrams.Uml.PlantUml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -112,9 +115,9 @@
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
-    <Compile Include="Subcaracteristicas\clsFuncionalidad.cs" />
-    <Compile Include="Subcaracteristicas\clsMantenibilidad.cs" />
-    <Compile Include="Subcaracteristicas\clsUsabilidad.cs" />
+    <Compile Include="Subcaracteristicas\Funcionalidad.cs" />
+    <Compile Include="Subcaracteristicas\Mantenibilidad.cs" />
+    <Compile Include="Subcaracteristicas\Usabilidad.cs" />
     <Compile Include="ViewModels\MenuItem.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -147,7 +150,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\clsCaracteristica.cs" />
+    <Compile Include="Caracteristicas\Caracteristica.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

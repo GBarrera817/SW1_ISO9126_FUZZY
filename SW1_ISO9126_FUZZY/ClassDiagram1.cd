@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.EvaluacionSoftwareJSON">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.EvaluacionSoftware">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAQAAAAAAAAAAAAAACAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.Datos_Sw">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAACCAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.Metricas_Internas">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.Metricas_Externas">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SW1_ISO9126_FUZZY.Archivos.Estado_Modulos">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACEgAAAAAAAAAAAAAAAAAAAAABAAAAAKAA=</HashCode>
+      <FileName>Archivos\EvaluacionSoftwareJSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

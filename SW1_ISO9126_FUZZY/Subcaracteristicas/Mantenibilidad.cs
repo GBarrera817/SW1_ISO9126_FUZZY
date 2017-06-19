@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Subcaracteristicas {
 
-    class clsMantenibilidad {
+    class Mantenibilidad {
         private double facilidad_analisis = 0.0;
         private double modificabilidad = 0.0;
         private double estabilidad = 0.0;

@@ -9,60 +9,43 @@ using System;
 using System.Collections.Generic;
 
 
-namespace AI.Fuzzy.Library
-{
+namespace SW1_ISO9126_FUZZY.LogicaDifusa {
     /// <summary>
     /// Common functionality of Mamdani and Sugeno fuzzy systems
     /// </summary>
-    public class GenericFuzzySystem
-    {
-        List<FuzzyVariable> _input = new List<FuzzyVariable>();
-        AndMethod _andMethod = AndMethod.Min;
-        OrMethod _orMethod = OrMethod.Max;
+    public class GenericFuzzySystem {
+        List<VariableDifusa> _input = new List<VariableDifusa>();
+        MetodoAND _metodoAnd = MetodoAND.Min;
 
         /// <summary>
         /// Input linguistic variables
         /// </summary>
-        public List<FuzzyVariable> Input
-        {
+        public List<VariableDifusa> Input {
             get { return _input; }
         }
 
         /// <summary>
         /// And method
         /// </summary>
-        public AndMethod AndMethod
-        {
-            get { return _andMethod; }
-            set { _andMethod = value; }
-        }
-
-        /// <summary>
-        /// Or method
-        /// </summary>
-        public OrMethod OrMethod
-        {
-            get { return _orMethod; }
-            set { _orMethod = value; }
+        public MetodoAND MetodoAnd {
+            get { return _metodoAnd; }
+            set { _metodoAnd = value; }
         }
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        protected GenericFuzzySystem()
-        {
-        }
+        protected GenericFuzzySystem() { }
 
         /// <summary>
         /// Get input linguistic variable by its name
         /// </summary>
         /// <param name="name">Variable's name</param>
         /// <returns>Found variable</returns>
-        public FuzzyVariable InputByName(string name)
-        {
-            foreach (FuzzyVariable var in Input)
+        public VariableDifusa InputPorNombre(string nombre) {
+            foreach (VariableDifusa var in Input)
             {
-                if (var.Name == name)
+                if (var.Nombre == nombre)
                 {
                     return var;
                 }
@@ -117,23 +100,17 @@ namespace AI.Fuzzy.Library
         /// <param name="condition">Condition that should be evaluated</param>
         /// <param name="fuzzifiedInput">Input in fuzzified form</param>
         /// <returns>Result of evaluation</returns>
-        protected double EvaluateCondition(ICondition condition, Dictionary<FuzzyVariable, Dictionary<FuzzyTerm, double>> fuzzifiedInput)
+        protected double EvaluateCondition(ICondition condicion, Dictionary<VariableDifusa, Dictionary<TerminoDifuso, double>> fuzzifiedInput)
         {
-            if (condition is Conditions)
-            {
+            if (condicion is Conditions) {
                 double result = 0.0;
-                Conditions conds = (Conditions)condition;
+                Conditions conds = (Conditions)condicion;
 
-                if (conds.ConditionsList.Count == 0)
-                {
+                if (conds.ConditionsList.Count == 0) {
                     throw new Exception("Inner exception.");
-                }
-                else if (conds.ConditionsList.Count == 1)
-                {
+                } else if (conds.ConditionsList.Count == 1) {
                     result = EvaluateCondition(conds.ConditionsList[0], fuzzifiedInput);
-                }
-                else
-                {
+                } else {
                     result = EvaluateCondition(conds.ConditionsList[0], fuzzifiedInput);
                     for (int i = 1; i < conds.ConditionsList.Count; i++)
                     {
@@ -147,11 +124,9 @@ namespace AI.Fuzzy.Library
                 }
 
                 return result;
-            }
-            else if (condition is FuzzyCondition)
-            {
-                FuzzyCondition cond = (FuzzyCondition)condition;
-                double result = fuzzifiedInput[(FuzzyVariable)cond.Var][(FuzzyTerm)cond.Term];
+            } else if (condicion is CondicionDifusa) {
+                CondicionDifusa cond = (CondicionDifusa)condicion;
+                double result = fuzzifiedInput[(VariableDifusa)cond.Var][(TerminoDifuso)cond.Term];
 
                 switch (cond.Hedge)
                 {
@@ -179,7 +154,7 @@ namespace AI.Fuzzy.Library
             }
             else
             {
-                throw new Exception("Internal exception.");
+                throw new Exception("Excepcion interna.");
             }
         }
 
@@ -187,41 +162,19 @@ namespace AI.Fuzzy.Library
         {
             if (op == OperatorType.And)
             {
-                if (AndMethod == AndMethod.Min)
-                {
+                if (MetodoAND == MetodoAND.Min) {
                     return Math.Min(cond1, cond2);
-                }
-                else if (AndMethod == AndMethod.Production)
-                {
+                } else if (MetodoAND == MetodoAND.Production) {
                     return cond1 * cond2;
+                } else {
+                    throw new Exception("Error interno.");
                 }
-                else
-                {
-                    throw new Exception("Internal error.");
-                }
-            }
-            else if (op == OperatorType.Or)
-            {
-                if (OrMethod == OrMethod.Max)
-                {
-                    return Math.Max(cond1, cond2);
-                }
-                else if (OrMethod == OrMethod.Probabilistic)
-                {
-                    return cond1 + cond2 - cond1 * cond2;
-                }
-                else
-                {
-                    throw new Exception("Internal error.");
-                }
-            }
-            else
-            {
-                throw new Exception("Internal error.");
+            } else {
+                throw new Exception("Error interno.");
             }
         }
 
-        private bool ValidateInputValues(Dictionary<FuzzyVariable, double> inputValues, out string msg)
+        private bool ValidateInputValues(Dictionary<VariableDifusa, double> inputValues, out string msg)
         {
             msg = null;
             if (inputValues.Count != Input.Count)
@@ -230,7 +183,7 @@ namespace AI.Fuzzy.Library
                 return false;
             }
 
-            foreach (FuzzyVariable var in Input)
+            foreach (VariableDifusa var in Input)
             {
                 if (inputValues.ContainsKey(var))
                 {

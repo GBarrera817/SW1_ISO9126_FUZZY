@@ -1,76 +1,62 @@
-/*
- * 
- * fuzzynet: Fuzzy Logic Library for Microsoft .NET
- * Copyright (C) 2008 Dmitry Kaluzhny  (kaluzhny_dmitrie@mail.ru)
- * 
- * */
-
 using System;
 using System.Collections.Generic;
 
 
-namespace AI.Fuzzy.Library
-{
+namespace SW1_ISO9126_FUZZY.LogicaDifusa {
+
     /// <summary>
     /// Mamdani fuzzy inference system
     /// </summary>
     public class MamdaniFuzzySystem : GenericFuzzySystem
     {
-        List<FuzzyVariable> _output = new List<FuzzyVariable>();
-        List<MamdaniFuzzyRule> _rules = new List<MamdaniFuzzyRule>();
+        List<VariableDifusa> _output = new List<VariableDifusa>();
+        List<MamdaniFuzzyRule> _reglas = new List<MamdaniFuzzyRule>();
 
-        ImplicationMethod _implMethod = ImplicationMethod.Min;
-        AggregationMethod _aggrMethod = AggregationMethod.Max;
-        DefuzzificationMethod _defuzzMethod = DefuzzificationMethod.Centroid;
+        MetodoImplicacion _metodoImpl = MetodoImplicacion.Min;
+        MetodoAgregacion _metodoAggr = MetodoAgregacion.Max;
+        MetodoDefuzzificacion _metodoDefuzz = MetodoDefuzzificacion.Centroide;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public MamdaniFuzzySystem()
-        {
-        }
+        public MamdaniFuzzySystem() { }
 
         /// <summary>
         /// Output linguistic variables
         /// </summary>
-        public List<FuzzyVariable> Output
-        {
+        public List<VariableDifusa> Output {
             get { return _output; }
         }
 
         /// <summary>
         /// Fuzzy rules
         /// </summary>
-        public List<MamdaniFuzzyRule> Rules
-        {
-            get { return _rules; }
+        public List<MamdaniFuzzyRule> Reglas { 
+            get { return _reglas; }
         }
 
         /// <summary>
         /// Implication method
         /// </summary>
-        public ImplicationMethod ImplicationMethod
-        {
-            get { return _implMethod; }
-            set { _implMethod = value; }
+        public MetodoImplicacion ImplicationMethod {
+            get { return _metodoImpl; }
+            set { _metodoImpl = value; }
         }
 
         /// <summary>
         /// Aggregation method
         /// </summary>
-        public AggregationMethod AggregationMethod
-        {
-            get { return _aggrMethod; }
-            set { _aggrMethod = value; }
+        public MetodoAgregacion AggregationMethod {
+            get { return _metodoAggr; }
+            set { _metodoAggr = value; }
         }
 
         /// <summary>
         /// Defuzzification method
         /// </summary>
-        public DefuzzificationMethod DefuzzificationMethod
-        {
-            get { return _defuzzMethod; }
-            set { _defuzzMethod = value; }
+        public MetodoDefuzzificacion MetodoDefuzzificacion {
+            get { return _metodoDefuzz; }
+            set { _metodoDefuzz = value; }
         }
 
         /// <summary>
@@ -78,12 +64,9 @@ namespace AI.Fuzzy.Library
         /// </summary>
         /// <param name="name">Variable's name</param>
         /// <returns>Found variable</returns>
-        public FuzzyVariable OutputByName(string name)
-        {
-            foreach (FuzzyVariable var in _output)
-            {
-                if (var.Name == name)
-                {
+        public VariableDifusa OutputByName(string name) {
+            foreach (VariableDifusa var in _output) {
+                if (var.Name == name) {
                     return var;
                 }
             }

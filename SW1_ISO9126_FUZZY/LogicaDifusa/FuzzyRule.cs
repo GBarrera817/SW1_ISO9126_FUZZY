@@ -1,49 +1,37 @@
-/*
- * 
- * fuzzynet: Fuzzy Logic Library for Microsoft .NET
- * Copyright (C) 2008 Dmitry Kaluzhny  (kaluzhny_dmitrie@mail.ru)
- * 
- * */
-
 using System;
 using System.Collections.Generic;
 
 
-namespace AI.Fuzzy.Library
-{
+namespace SW1_ISO9126_FUZZY.LogicaDifusa {
     // Alias for a fuzzy conclusion for Mamdani systems
-    using FuzzyConclusion = SingleCondition<FuzzyVariable, FuzzyTerm>;
-
-    // Alias for a conclusion for Sugeno fuzzy systems
-    using SugenoConclusion = SingleCondition<SugenoVariable, ISugenoFunction>;
+    using ConclusionDifusa = SingleCondition<FuzzyVariable, FuzzyTerm>;
 
     /// <summary>
     /// Condition of fuzzy rule for the both Mamdani and Sugeno systems
     /// </summary>
-    public class FuzzyCondition : SingleCondition<FuzzyVariable, FuzzyTerm>
-    {
+    public class CondicionDifusa : SingleCondition<FuzzyVariable, FuzzyTerm> {
+
         HedgeType _hedge = HedgeType.None;
 
         /// <summary>
         /// Hedge modifier
         /// </summary>
-        public HedgeType Hedge
-        {
+        public HedgeType Hedge {
             get { return _hedge; }
             set { _hedge = value; }
         }
 
-        internal FuzzyCondition(FuzzyVariable var, FuzzyTerm term)
+        internal CondicionDifusa(FuzzyVariable var, FuzzyTerm term)
             : this(var, term, false)
         {
         }
 
-        internal FuzzyCondition(FuzzyVariable var, FuzzyTerm term, bool not)
+        internal CondicionDifusa(FuzzyVariable var, FuzzyTerm term, bool not)
             : this(var, term, not, HedgeType.None)
         {
         }
 
-        internal FuzzyCondition(FuzzyVariable var, FuzzyTerm term, bool not, HedgeType hedge)
+        internal CondicionDifusa(FuzzyVariable var, FuzzyTerm term, bool not, HedgeType hedge)
             : base(var, term, not)
         {
             _hedge = hedge;
@@ -96,8 +84,7 @@ namespace AI.Fuzzy.Library
     /// <summary>
     /// Interface of conditions used in the 'if' expression
     /// </summary>
-    public interface ICondition
-    {}
+    public interface ICondition {}
 
     /// <summary>
     /// Single condition
@@ -114,17 +101,14 @@ namespace AI.Fuzzy.Library
         /// <summary>
         /// Default constructor
         /// </summary>
-        internal SingleCondition()
-        {
-        }
+        internal SingleCondition() { }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="var">A linguistic variable to which the condition is related</param>
         /// <param name="term">A term in expression 'var is term'</param>
-        internal SingleCondition(VariableType var, ValueType term)
-        {
+        internal SingleCondition(VariableType var, ValueType term) { 
             _var = var;
             _term = term;
         }

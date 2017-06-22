@@ -1,23 +1,16 @@
-/*
- * 
- * fuzzynet: Fuzzy Logic Library for Microsoft .NET
- * Copyright (C) 2008 Dmitry Kaluzhny  (kaluzhny_dmitrie@mail.ru)
- * 
- * */
-
 using System;
 using System.Collections.Generic;
 
 
-namespace AI.Fuzzy.Library
-{
+namespace SW1_ISO9126_FUZZY.LogicaDifusa {
+
     /// <summary>
-    /// Linguistic variable
+    /// Variable Linguistica 
     /// </summary>
-    public class FuzzyVariable : NamedVariableImpl
+    public class VariableDifusa : NamedVariableImpl
     {
         double _min = 0.0, _max = 10.0;
-        List<FuzzyTerm> _terms = new List<FuzzyTerm>();
+        List<TerminoDifuso> _terms = new List<TerminoDifuso>();
 
         /// <summary>
         /// Constructor
@@ -25,11 +18,9 @@ namespace AI.Fuzzy.Library
         /// <param name="name">Name of the variable</param>
         /// <param name="min">Minimum value</param>
         /// <param name="max">Maximum value</param>
-        public FuzzyVariable(string name, double min, double max) : base (name)
-        {
-            if (min > max)
-            {
-                throw new ArgumentException("Maximum value must be greater than minimum one.");
+        public VariableDifusa(string name, double min, double max) : base (name) {
+            if (min > max) {
+                throw new ArgumentException("El valor máximo debe ser más grande que el valor mínimo.");
             }
 
             _min = min;
@@ -39,20 +30,20 @@ namespace AI.Fuzzy.Library
         /// <summary>
         /// Terms
         /// </summary>
-        public List<FuzzyTerm> Terms
+        public List<TerminoDifuso> Terminos
         {
-            get { return _terms; }
+            get { return _terminos; }
         }
 
         /// <summary>
         /// Named values
         /// </summary>
-        public override List<INamedValue> Values
+        public override List<INamedValue> Valores
         {
             get
             {
                 List<INamedValue> result = new List<INamedValue>();
-                foreach (FuzzyTerm term in _terms)
+                foreach (TerminoDifuso term in _terms)
                 {
                     result.Add(term);
                 }
@@ -65,12 +56,10 @@ namespace AI.Fuzzy.Library
         /// </summary>
         /// <param name="name">Term name</param>
         /// <returns></returns>
-        public FuzzyTerm GetTermByName(string name)
+        public TerminoDifuso GetTermByName(string name)
         {
-            foreach (FuzzyTerm term in _terms)
-            {
-                if (term.Name == name)
-                {
+            foreach (TerminoDifuso term in _terms) {
+                if (term.Name == name) {
                     return term;
                 }
             }
@@ -81,8 +70,7 @@ namespace AI.Fuzzy.Library
         /// <summary>
         /// Maximum value of the variable
         /// </summary>
-        public double Max
-        {
+        public double Max {
             get { return _max; }
             set { _max = value; }
         }
@@ -90,8 +78,7 @@ namespace AI.Fuzzy.Library
         /// <summary>
         /// Minimum value of the variable
         /// </summary>
-        public double Min
-        {
+        public double Min {
             get { return _min; }
             set { _min = value; }
         }

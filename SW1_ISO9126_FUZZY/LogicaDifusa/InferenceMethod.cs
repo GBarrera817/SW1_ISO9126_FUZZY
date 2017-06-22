@@ -1,21 +1,14 @@
-/*
- * 
- * fuzzynet: Fuzzy Logic Library for Microsoft .NET
- * Copyright (C) 2008 Dmitry Kaluzhny  (kaluzhny_dmitrie@mail.ru)
- * 
- * */
-
 using System;
 using System.Collections.Generic;
 
 
-namespace AI.Fuzzy.Library
-{
+namespace SW1_ISO9126_FUZZY.LogicaDifusa {
+
     /// <summary>
     /// And evaluating method
     /// </summary>
-    public enum AndMethod
-    {
+    public enum MetodoAND {
+
         /// <summary>
         /// Minimum: min(a, b)
         /// </summary>
@@ -26,26 +19,10 @@ namespace AI.Fuzzy.Library
         Production
     }
 
-
-    /// <summary>
-    /// Or evaluating method
-    /// </summary>
-    public enum OrMethod
-    {
-        /// <summary>
-        /// Maximum: max(a, b)
-        /// </summary>
-        Max,
-        /// <summary>
-        /// Probabilistic OR: a + b - a * b
-        /// </summary>
-        Probabilistic
-    }
-
     /// <summary>
     /// Fuzzy implication method
     /// </summary>
-    public enum ImplicationMethod
+    public enum MetodoImplicacion
     {
         /// <summary>
         /// Truncation of output fuzzy set
@@ -60,7 +37,7 @@ namespace AI.Fuzzy.Library
     /// <summary>
     /// Aggregation method for membership functions
     /// </summary>
-    public enum AggregationMethod
+    public enum MetodoAgregacion
     {
         /// <summary>
         /// Maximum of rule outpus
@@ -75,19 +52,10 @@ namespace AI.Fuzzy.Library
     /// <summary>
     /// Defuzzification method
     /// </summary>
-    public enum DefuzzificationMethod
-    {
+    public enum MetodoDefuzzificacion {
         /// <summary>
-        /// Center of area of fuzzy result MF
+        /// Centro del área del resultado de una Funcion de membresia difusa 
         /// </summary>
-        Centroid,
-        /// <summary>
-        /// Not implemented
-        /// </summary>
-        Bisector,
-        /// <summary>
-        /// Not implemented
-        /// </summary>
-        AverageMaximum
+        Centroide,
     }
 }

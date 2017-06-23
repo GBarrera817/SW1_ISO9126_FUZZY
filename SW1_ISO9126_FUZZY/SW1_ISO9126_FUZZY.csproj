@@ -98,17 +98,16 @@
     </ApplicationDefinition>
     <Compile Include="Archivos\EvaluacionSoftwareJSON.cs" />
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
+    <Compile Include="Archivos\MetricasFuncionalidadJSON.cs" />
     <Compile Include="Archivos\Program.cs" />
-    <Compile Include="FuzzyLogicLibrary\FuzzyRule.cs" />
-    <Compile Include="FuzzyLogicLibrary\FuzzyTerm.cs" />
-    <Compile Include="FuzzyLogicLibrary\FuzzyVariable.cs" />
-    <Compile Include="FuzzyLogicLibrary\GenericFuzzySystem.cs" />
-    <Compile Include="FuzzyLogicLibrary\InferenceMethod.cs" />
-    <Compile Include="FuzzyLogicLibrary\MamdaniFuzzySystem.cs" />
-    <Compile Include="FuzzyLogicLibrary\MembershipFunction.cs" />
-    <Compile Include="FuzzyLogicLibrary\RuleParser.cs" />
-    <Compile Include="FuzzyLogicLibrary\SugenoFuzzySystem.cs" />
-    <Compile Include="FuzzyLogicLibrary\SugenoVariable.cs" />
+    <Compile Include="LogicaDifusa\FuzzyRule.cs" />
+    <Compile Include="LogicaDifusa\FuzzyTerm.cs" />
+    <Compile Include="LogicaDifusa\FuzzyVariable.cs" />
+    <Compile Include="LogicaDifusa\GenericFuzzySystem.cs" />
+    <Compile Include="LogicaDifusa\InferenceMethod.cs" />
+    <Compile Include="LogicaDifusa\MamdaniFuzzySystem.cs" />
+    <Compile Include="LogicaDifusa\MembershipFunction.cs" />
+    <Compile Include="LogicaDifusa\RuleParser.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
@@ -207,6 +206,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="JSON\FuncionalidadExterna.json" />
+    <None Include="JSON\FuncionalidadInterna.json" />
+    <None Include="JSON\MantenibilidadExterna.json" />
+    <None Include="JSON\MantenibilidadInterna.json" />
+    <None Include="JSON\UsabilidadExterna.json" />
+    <None Include="JSON\UsabilidadInterna.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

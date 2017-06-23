@@ -1,0 +1,270 @@
+{
+  "Funcionalidad": {
+    "Subcaracteristicas": [
+      {
+        "Adecuación": {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Adecuación funcional",
+              "proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
+              "metodo": ["Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas."],
+              "formula": ["1-A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones en las que se detectan problemas en la evaluación",
+                "B: Número de funciones evaluadas."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Completitud de la implementación funcional",
+	            "proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
+	            "metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones perdidas detectadas en la evaluación.",
+	              "B: Número de funciones descritas en las especificaciones del requisito."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Cobertura funcional de la implementación",
+	            "proposito": ["¿Qué tan correcta es la implementación funcional?"],
+	            "metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones incorrectamente implementadas o faltantes detectadas.",
+	              "B: Número de funciones descritas en las especificaciones del requisito."
+              ]
+            },
+            {
+            	"id": 3,
+	            "nombre": "Estabilidad de la especificación funcional (volatilidad)",
+	            "proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
+	            "metodo": ["Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones modificadas después de introducir la operación a partir de la operación de entrada.",
+	              "B: Número de funciones descritas en las especificaciones del requisito."
+              ]
+            }
+          ]
+        },
+        "Exactitud" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Exactitud a la expectativa",
+              "proposito": ["¿Son aceptables las diferencias entre los resultados reales y razonables esperados?"],
+              "metodo": ["Haga la entrada.vs. Salida y comparar la salida con los resultados esperados razonables. Cuente el número de casos encontrados por los usuarios con una diferencia inaceptable de los resultados esperados razonables."],
+              "formula": ["A/T"],
+              "peor_valor": 10000,
+              "mejor_valor": 0,
+              "parametros": [
+                "A",
+                "T"
+              ],
+              "desc_param": [
+                "A: Número de casos encontrados por los usuarios con una diferencia en contra de resultados razonables esperados más allá de lo permitido",
+                "T: Tiempo de operación."
+              ]
+            },
+            {
+              "id": 1,
+              "nombre": "Exactitud computacional",
+              "proposito": ["¿Con qué frecuencia los usuarios finales se encuentran con resultados inexactos?"],
+              "metodo": ["Anote el número de cálculos inexactos basadas en las especificaciones."],
+              "formula": ["A/T"],
+              "peor_valor": 10000,
+              "mejor_valor": 0,
+              "parametros": [
+                "A",
+                "T"
+              ],
+              "desc_param": [
+                "A: Número de casos encontrados por los usuarios con una diferencia en contra de los resultados esperados razonables más allá de lo permitido.",
+                "T: Tiempo de operación."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Exactitud",
+	            "proposito": ["¿Con qué frecuencia los usuarios finales encuentran resultados con exactitud inadecuada?"],
+	            "metodo": ["Anote el número de resultados con una exactitud insuficiente."],
+	            "formula": ["A/T"],
+	            "peor_valor": 10000,
+	            "mejor_valor": 0,
+	            "parametros": [
+	              "A",
+	              "T"
+	            ],
+	            "desc_param": [
+	              "A: Número de resultados encontrados por los usuarios con el nivel de precisión diferente del requerido.",
+	              "T: Tiempo de Operación."
+              ]
+            }
+          ]
+        },
+        "Interoperabilidad" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Intercambio de datos (Basado en el formato de datos)",
+              "proposito": ["¿Qué tan correctamente se han implementado las funciones de interfaz de intercambio para la transferencia de datos especificada?"],
+              "metodo": ["Pruebe cada formato de registro de salida de función de interfaz descendente del sistema de acuerdo con las especificaciones de campos de datos. Cuente el número de formatos de datos que están aprobados para intercambiarse con otro software o sistema durante las pruebas en los intercambios de datos en comparación con el número total."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de formatos de datos que son aprobados para ser intercambiado con éxito con otro software o sistema durante las pruebas en el intercambio de datos.",
+                "B: Número total de formatos de intercambio de datos."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Intercambiabilidad de datos (Éxito del usuario basado en intentos)",
+	            "proposito": ["¿Con qué frecuencia el usuario final no puede intercambiar datos entre el software de destino y otro software?"],
+	            "metodo": ["Cuente el número de casos que se utilizan funciones de interfaz y fallaron."],
+	            "formula": ["1 - A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de casos en los que el usuario no pudo intercambiar datos con otro software o sistemas.",
+	              "B: Número de casos en los que el usuario intentó intercambiar datos."
+              ]
+            }
+          ]
+        },
+        "SeguridadAcceso" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Auditabilidad de Acceso",
+              "proposito": ["¿Qué tan completa es la pista de auditoría en relación con el acceso de los usuarios al sistema y sus datos?"],
+              "metodo": ["Evalúe la cantidad de accesos que el sistema registró en la base de datos de historial de acceso."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de accesos de usuario al sistema y datos registrados en la base de datos de historial de acceso.",
+                "B: Número de accesos de usuario al sistema y datos realizados durante la evaluación."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Control de Acceso",
+	            "proposito": ["¿Qué tan controlable es el acceso al sistema?"],
+	            "metodo": ["Cuente el número de operaciones ilegales detectadas con la comparación con el número de operaciones ilegales como en la especificación."],
+	            "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de tipos diferentes de operaciones ilegales detectadas.",
+                "B: Número de tipos de operaciones ilegales según la especificación."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Prevención de la corrupción de datos",
+	            "proposito": ["¿Cuál es la frecuencia de los eventos de corrupción de datos?"],
+	            "metodo": ["Cuente las ocurrencias de eventos de corrupción de datos."],
+	            "formula": ["1 - A/N"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "N"
+              ],
+              "desc_param": [
+                "A: Número de veces que ocurrió un evento de corrupción de datos mayor",
+                "N: Número de casos de prueba intentado causar evento de corrupción de datos."
+              ]
+            }
+          ]
+        },
+        "CumplimientoFuncional" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Cumplimiento funcional",
+              "proposito": ["¿Es compatible la funcionalidad del producto con las normas, normas y convenciones aplicables?"],
+              "metodo": [
+                  "Cuente el número de artículos que requieren cumplimiento que se han cumplido y compare con el número de artículos que requieren cumplimiento como en la especificación.",
+                  "Diseñe los casos de prueba de conformidad con los puntos de cumplimiento. Realizar pruebas funcionales para estos casos de prueba. Cuente el número de elementos de cumplimiento que se han cumplido."
+                ],
+              "formula": ["1 - A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de elementos de cumplimiento de funcionalidad especificados que no se han implementado durante las pruebas.",
+                "B: Número total de elementos de cumplimiento de funcionalidad especificados"
+              ]
+            },
+            {
+              "id": 1,
+              "nombre": "Cumplimiento de estándares de interfaz",
+              "proposito": ["¿Cuán completas son las interfaces con las regulaciones, estándares y convenciones aplicables?"],
+              "metodo": ["Cuente el número de interfaces que cumplen con el cumplimiento requerido y compare con el número de interfaces que requieren cumplimiento como en las especificaciones."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de interfaces correctamente implementadas como se especifica.",
+                "B: Número total de interfaces que requieren el cumplimiento."
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "Perspectiva" : "externa"
+  }
+}

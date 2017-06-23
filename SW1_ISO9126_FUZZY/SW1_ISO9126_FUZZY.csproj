@@ -112,6 +112,7 @@
     <Compile Include="FuzzyLogicLibrary\RuleParser.cs" />
     <Compile Include="FuzzyLogicLibrary\SugenoFuzzySystem.cs" />
     <Compile Include="FuzzyLogicLibrary\SugenoVariable.cs" />
+    <Compile Include="Metricas\ValorMetrica.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
@@ -210,6 +211,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +239,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Datos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

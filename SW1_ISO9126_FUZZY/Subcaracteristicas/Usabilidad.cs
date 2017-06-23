@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Subcaracteristicas {
 
-    class clsUsabilidad {
+    class Usabilidad {
         private double aprendizaje = 0.0;
         private double comprensibilidad = 0.0;
         private double operabilidad = 0.0;

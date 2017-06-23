@@ -2,13 +2,13 @@
 
 namespace SW1_ISO9126_FUZZY.Caracteristicas {
 
-    class clsCaracteristica {
+    class Caracteristica {
 
-        private clsFuncionalidad funcionalidad;
-        private clsMantenibilidad mantenibilidad;
-        private clsUsabilidad usabilidad;
+        private Funcionalidad funcionalidad;
+        private Mantenibilidad mantenibilidad;
+        private Usabilidad usabilidad;
 
-        public clsCaracteristica(clsFuncionalidad funcionalidad, clsMantenibilidad mantenibilidad, clsUsabilidad usabilidad) {
+        public Caracteristica(Funcionalidad funcionalidad, Mantenibilidad mantenibilidad, Usabilidad usabilidad) {
 
             this.funcionalidad = funcionalidad;
             this.mantenibilidad = mantenibilidad;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Subcaracteristicas {
 
-    class clsFuncionalidad {
+    class Funcionalidad {
         private double adecuacion = 0.0;
         private double exactitud = 0.0;
         private double interoperabilidad = 0.0;

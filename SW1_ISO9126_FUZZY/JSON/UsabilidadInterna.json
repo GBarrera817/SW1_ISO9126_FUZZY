@@ -1,0 +1,329 @@
+{
+  "Usabilidad": {
+    "Subcaracteristicas": [
+      {
+        "Comprensibilidad": {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Integridad de la descripción",
+              "proposito": ["¿Qué proporción de funciones (o tipos de funciones) se describen en la descripción del producto?"],
+              "metodo": ["Cuente el número de funciones que se describen adecuadamente y compare con el número total de funciones del producto."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones (o tipos de funciones) se describe en la descripción del producto.",
+                "B: Número total de funciones (o tipos de funciones)."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Capacidad de demostración",
+	            "proposito": ["¿Qué proporción de las funciones que requieren demostración tienen capacidad de demostración?"],
+	            "metodo": ["Cuente el número de funciones que son adecuadamente demostrables y compare con el número total de funciones que requieren capacidad de demostración."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones demostradas y confirmadas en la revisión.",
+	              "B: Número total de funciones que requieren capacidad de demostración."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Funciones evidentes",
+	            "proposito": ["¿Qué proporción de las funciones del producto son evidentes para el usuario?"],
+	            "metodo": ["Cuente el número de funciones que son evidentes para el usuario y compare con el número total de funciones."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones (o tipos de funciones) evidente para el usuario.",
+	              "B: Número total de funciones (o tipos de funciones) evidentes para el usuario."
+              ]
+            },
+            {
+            	"id": 3,
+	            "nombre": "Comprensibilidad de la función ",
+	            "proposito": ["¿Qué proporción de las funciones del producto el usuario podrá entender correctamente?"],
+	            "metodo": ["Cuente el número de funciones de interfaz de usuario donde los propósitos sean entendidos por el usuario y compare con el número de funciones de interfaz de usuario."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones de la interfaz de usuario cuyo propósito es entendido por el usuario.",
+	              "B: Número de funciones de la interfaz de usuario."
+              ]
+            }
+          ]
+        },
+        "Aprendizaje" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Exhaustividad de la documentación del usuario y/o facilidad de ayuda",
+              "proposito": ["¿Qué proporción de funciones se describen en la documentación del usuario y/o en la facilidad de ayuda?"],
+              "metodo": ["Cuente el número de funciones implementadas con ayuda y/o documentación y compare con el número total de funciones en el producto."],
+              "formula": "A/B",
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones descritas.",
+                "B: Número total de funciones proporcionadas."
+              ]
+            }
+          ]
+        },
+        "Operabilidad" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Comprobación de la validez de entrada",
+              "proposito": ["¿Qué proporción de elementos de entrada proporciona comprobación para datos válidos?"],
+              "metodo": ["Cuente el número de elementos de entrada, los cuales comprueban los datos válidos y compare con el número de elementos de entrada, que se podrían comprobar si hay datos válidos."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de elementos de entrada que comprueban datos válidos",
+                "B: Número de elementos de entrada que podrían comprobar datos válidos."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Operación del usuario: Habilidad de Cancelar",
+	            "proposito": ["¿Qué proporción de funciones se puede cancelar antes de completarse?"],
+	            "metodo": ["Cuente el número de funciones implementadas que pueden ser canceladas por el usuario antes de su finalización y compárelas con el número de funciones que requieren la capacidad de precancelación."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones implementadas que el usuario puede cancelar.",
+	              "B: Número de funciones que requieren la capacidad de precancelación."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Operación del usuario: Habilidad de Deshacer",
+	            "proposito": ["¿Qué proporción de funciones se puede deshacer?"],
+	            "metodo": ["Cuente el número de funciones implementadas, que el usuario puede deshacer después de la finalización y compararlas con el número de funciones."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones implementadas que el usuario puede deshacer.",
+	              "B: Número de funciones."
+              ]
+            },
+            {
+            	"id": 3,
+	            "nombre": "Personalización",
+	            "proposito": ["¿Qué proporción de las funciones se pueden personalizar durante la operación?"],
+	            "metodo": ["Cuente el número de funciones implementadas que pueden ser personalizadas por el usuario durante el funcionamiento y compárelas con el número de funciones que requieren la capacidad de personalización."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones personalizables durante el funcionamiento.",
+	              "B: Número de funciones que requieren la capacidad de personalización."
+              ]
+            },
+            {
+            	"id": 4,
+	            "nombre": "Accesibilidad física",
+	            "proposito": ["¿Qué proporción de funciones se puede personalizar para el acceso de los usuarios con discapacidades físicas?"],
+	            "metodo": ["Cuenta el número de funciones implementadas, que se pueden personalizar y comparar con el número de funciones totales."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones personalizables.",
+	              "B: Número total de funciones."
+              ]
+            },
+            {
+            	"id": 5,
+	            "nombre": "Capacidad de monitoreo del estado de operación",
+	            "proposito": ["¿Qué proporción de funciones tiene capacidad de monitoreo del estado de las operaciones?"],
+	            "metodo": ["Contar el número de funciones implementadas, cuyo estado puede ser monitoreado y compárelas con el número de funciones que requieren la capacidad de monitoreo."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones con capacidad de monitoreo de estado.",
+	              "B: Número de funciones que se requieren para tener capacidad de monitoreo."
+              ]
+            },
+            {
+            	"id": 6,
+	            "nombre": "Consistencia operativa ",
+	            "proposito": ["¿Qué proporción de operaciones se comportan de la misma manera con operaciones similares en otras partes del sistema?"],
+	            "metodo": ["Cuente el número de instancias de operaciones con un comportamiento inconsistente y compárelas con el número total de operaciones."],
+	            "formula": ["1 - A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de instancias de operaciones con comportamiento incoherente.",
+	              "B: Número total de operaciones "
+              ]
+            },
+            {
+            	"id": 7,
+	            "nombre": "Claridad del mensaje",
+	            "proposito": ["¿Qué proporción de mensajes se explican por sí mismos?"],
+	            "metodo": ["Cuente los números de mensajes implementados con explicaciones claras y compárelos con el número total de mensajes implementados."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de mensajes implementados con explicaciones claras.",
+	              "B: Número de mensajes implementados."
+              ]
+            },
+            {
+            	"id": 8,
+	            "nombre": "Claridad del elemento de interfaz",
+	            "proposito": ["¿Qué proporción de elementos de la interfaz son autoexplicativos?"],
+	            "metodo": ["Cuente el número de elementos de la interfaz que se explican por sí mismos y compárelos con el número total de elementos de la interfaz."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de elementos de la interfaz que se explican por sí mismos.",
+	              "B: Número total de elementos de interfaz."
+              ]
+            },
+            {
+            	"id": 9,
+	            "nombre": "Recuperación de errores operacionales ",
+	            "proposito": ["¿Qué proporción de funciones puede tolerar errores del usuario?"],
+	            "metodo": ["Cuente el número de funciones implementadas con tolerancia de error del usuario y compárelas con el número total de funciones que requieren la capacidad de tolerancia."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones implementadas con tolerancia a errores del usuario",
+	              "B: Número total de funciones que requieren la capacidad de tolerancia a errores del usuario."
+              ]
+            }
+          ]
+        },
+        "Atractividad" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Interacción atractiva",
+              "proposito": "¿Qué tan atractiva es la interfaz para el usuario?",
+              "metodo": ["Cuestionario a los usuarios."],
+              "formula": ["Cuestionario para evaluar el atractivo de la interfaz a los usuarios, teniendo en cuenta atributos como el color y el diseño gráfico."],
+              "peor_valor": 0,
+              "mejor_valor": 100000,
+              "parametros": [ ],
+              "desc_param": [ ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Personalización de la apariencia de la interfaz de usuario",
+	            "proposito": ["¿Qué proporción de elementos de la interfaz de usuario se pueden personalizar en apariencia?"],
+	            "metodo": ["Inspección (por el experto)"],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de tipos de elementos de la interfaz que se pueden personalizar.",
+	              "B: Número total de tipos de elementos de la interfaz."
+              ]
+            }
+          ]
+        },
+        "CumplimientoUsabilidad" : {
+          "Metricas": [
+            {
+              "id": 0,
+              "nombre": "Cumplimiento de la Usabilidad",
+              "proposito": ["¿Es compatible el producto con las normas, estándares y convenciones aplicables para usabilidad?"],
+              "metodo": ["Cuente el número de ítems que requieren cumplimiento que se han cumplido y compare con el número de ítem que requieren cumplimiento como en la especificación."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de elementos correctamente implementados relacionados con el cumplimiento de la usabilidad confirmados en la evaluación.",
+                "B: Número total de elementos de cumplimiento."
+              ]
+            }
+          ]
+        }
+      }
+    ],
+	"Perspectiva" : "interna"
+  }
+}

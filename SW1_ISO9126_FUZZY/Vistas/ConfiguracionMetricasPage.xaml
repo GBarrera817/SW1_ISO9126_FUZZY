@@ -1,0 +1,15 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.ConfiguracionMetricasPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      mc:Ignorable="d" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      Foreground="{DynamicResource TextBrush}"
+      Title="ConfiguracionMetricasPage" Width="800" Height="600">
+
+    <Grid Background="{DynamicResource AccentColorBrush4}">
+        
+    </Grid>
+</Page>

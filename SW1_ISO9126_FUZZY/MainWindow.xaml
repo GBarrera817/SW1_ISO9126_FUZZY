@@ -6,8 +6,8 @@
                       mc:Ignorable="d"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                      xmlns:viewModels="clr-namespace:SW1_ISO9126_FUZZY.ViewModels"
-                      Title="MainWindow" Height="450" Width="600" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen">
+                      xmlns:viewModels="clr-namespace:SW1_ISO9126_FUZZY.ModelosVistas"
+                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF33A033">
 
     <controls:MetroWindow.DataContext>
         <viewModels:ShellViewModel />
@@ -56,9 +56,8 @@
                                 OptionsItemClick="HamburgerMenuControl_OnItemClick"
                                 ItemTemplate="{StaticResource MenuItemTemplate}"
                                 OptionsItemTemplate="{StaticResource MenuItemTemplate}"
-                                DisplayMode="CompactInline"
+                                DisplayMode="CompactInline" Background="#FF444444"
                                 >
         </controls:HamburgerMenu>
     </Grid>
-    
 </controls:MetroWindow>

@@ -4,12 +4,43 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       Foreground="{DynamicResource TextBrush}"
       Title="ConfiguracionMetricasPage" Width="800" Height="600">
 
-    <Grid Background="{DynamicResource AccentColorBrush4}">
+    <Grid Background="White">
+        <TextBlock x:Name="tblckTitulo" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Nombre de la característica" VerticalAlignment="Top" Width="800" Background="#FF0AAE0A" Foreground="White"/>
+        <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="48,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="177,103,0,0" VerticalAlignment="Top" Width="266"/>
+
+        <Button Content="Anterior" HorizontalAlignment="Left" Margin="177,542,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Siguiente" HorizontalAlignment="Left" Margin="471,542,0,0" VerticalAlignment="Top" Width="190"/>
+
+        <Expander Margin="10,137,10,63" Background="#FF0AAE0A">
+            <Expander.Header>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="chckDetallesMetricas" VerticalAlignment="Center" IsChecked="True" IsEnabled="True"></CheckBox>
+                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White">DETALLES DE LA MÉTRICA</TextBlock>
+                </StackPanel>
+            </Expander.Header>
+            <StackPanel Margin="10,4,0,0">
+                <RadioButton Margin="4" Content="Opción 1"/>
+                <RadioButton Margin="4" Content="Opción 2"/>
+                <RadioButton Margin="4" Content="Opción 3"/>
+            </StackPanel>
+        </Expander>
+
+
+        <!-- Flyout Selección de métricas -->
         
+
+
+
+
+
+
     </Grid>
+
 </Page>

@@ -8,5 +8,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public ConfiguracionMetricasPage() {
             InitializeComponent();
         }
+
     }
 }

@@ -9,13 +9,13 @@
       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       Foreground="{DynamicResource TextBrush}"
-      Title="MainPage" Width="800" Height="600" Background="Black">
+      Title="MainPage" Width="800" Height="600" Background="#FF80BA45">
 
     <Grid Background="#FFDFE0E0">
         <controls:MetroAnimatedTabControl HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800">
             <TabItem x:Name="tabDatosSoftware" Header="Datos del Software" >
                 <Grid Background="White">
-                    <GroupBox Header="Registro del software" HorizontalAlignment="Left" Height="289" Margin="10,81,0,0" VerticalAlignment="Top" Width="780" Background="#FF0AAE0A" BorderBrush="#FF0AAE0A">
+                    <GroupBox Header="Registro del software" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Background="#FF0AAE0A" BorderBrush="#FF0AAE0A">
                         <Grid Margin="0,0,0,0" Background="White">
                             <Label Content="Nombre del Software: " HorizontalAlignment="Left" Margin="58,20,0,0" VerticalAlignment="Top" FontSize="14" Background="Transparent" Foreground="Black"/>
                             <Label Content="Desarrollador(es): " HorizontalAlignment="Left" Margin="58,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,0.577" FontSize="14" Foreground="Black"/>
@@ -33,7 +33,18 @@
                             </ComboBox>
                         </Grid>
                     </GroupBox>
-                    <Button Content="Siguiente" FontSize="12" HorizontalAlignment="Left" Margin="673,388,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF0AAE0A" RenderTransformOrigin="0.935,1.65"/>
+
+                    <GroupBox Header="Datos del evaluador" HorizontalAlignment="Left" Height="155" Margin="10,318,0,0" VerticalAlignment="Top" Width="780" Background="#FF0AAE0A">
+                        <Grid>
+                            <Label Content="Nombre del evaluador: " FontSize="14" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="165" Background="{x:Null}" Height="34"/>
+                            <TextBox x:Name="txtNombreEvaluador" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="257,10,0,0" Width="476" controls:TextBoxHelper.ClearTextButton="True"/>
+                            <Label Content="Tipo de evaluador" FontSize="14" HorizontalAlignment="Left" Margin="62,49,0,0" VerticalAlignment="Top" Width="154"/>
+                            <ComboBox x:Name="cmboxTipoEvaluador" HorizontalAlignment="Left" Margin="257,49,0,0" VerticalAlignment="Top" Width="140"/>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <Button Content="Siguiente" FontSize="12" HorizontalAlignment="Left" Margin="692,487,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF0AAE0A" RenderTransformOrigin="0.935,1.65"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabImportancia" Header="Importancia" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="#FFDFE0E0">
@@ -86,8 +97,10 @@
                             <xctk:DoubleUpDown x:Name="dudFacAnalisis" FontSize="14" Margin="179,44,531,42" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
                         </Grid>
                     </GroupBox>
-                    <Button Content="Siguiente" HorizontalAlignment="Left" Margin="679,486,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.635,-0.217"/>
-                    <Button Content="Volver" HorizontalAlignment="Left" Margin="565,486,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Grid HorizontalAlignment="Left" Height="63" Margin="490,472,0,0" VerticalAlignment="Top" Width="300">
+                        <Button Content="Siguiente" HorizontalAlignment="Left" Margin="679,486,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.635,-0.217"/>
+                        <Button Content="Volver" HorizontalAlignment="Left" Margin="565,486,0,0" VerticalAlignment="Top" Width="75"/>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabEvaluacion" Header="Evaluación" BorderBrush="#FF0AAE0A" Background="#FFDFE0E0">
@@ -103,10 +116,9 @@
                             <controls:Tile x:Name="btnUsabInterna" Title="Usabilidad" Margin="575,28,53,44" TiltFactor="6" Click="btnUsabInterna_Click">
                                 <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" Height="130" Width="130"></Image>
                             </controls:Tile>
-                            <Label Content="10/19" Margin="118,168,610,17" />
-                            <Label Content="10/19" Margin="378,168,350,17" />
-                            <Label Content="10/19" Margin="625,168,103,17" />
-
+                            <Label x:Name="cantFuncInterna" Content="10/19" Margin="118,168,610,17" />
+                            <Label x:Name="cantUsabInterna" Content="10/19" Margin="378,168,350,17" />
+                            <Label x:Name="cantMantInterna" Content="10/19" Margin="625,168,103,17" />
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Características Externas" HorizontalAlignment="Left" Height="251" Margin="10,266,0,0" VerticalAlignment="Top" Width="780">
@@ -120,13 +132,11 @@
                             <controls:Tile x:Name="btnUsabExterna" Title="Usabilidad" Margin="578,28,50,44" Click="btnUsabExterna_Click">
                                 <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" Height="130" Width="130"></Image>
                             </controls:Tile>
-                            <Label Content="10/19" Margin="118,168,610,17" />
-                            <Label Content="10/19" Margin="372,168,356,17" />
-                            <Label Content="10/19" Margin="630,173,98,12" />
+                            <Label x:Name="cantFuncExterna" Content="10/19" Margin="118,168,610,17" />
+                            <Label x:Name="cantUsabExterna" Content="10/19" Margin="372,168,356,17" />
+                            <Label x:Name="cantMantExterna" Content="10/19" Margin="630,173,98,12" />
                         </Grid>
                     </GroupBox>
-
-
                 </Grid>
             </TabItem>
         </controls:MetroAnimatedTabControl>

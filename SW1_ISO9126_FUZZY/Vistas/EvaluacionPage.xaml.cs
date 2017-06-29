@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System;
 using SW1_ISO9126_FUZZY.Archivos;
 using Xceed.Wpf.Toolkit;
 
@@ -14,7 +15,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
         private void btnFuncInterna_Click(object sender, RoutedEventArgs e) {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn func interna");
+            // Cambia de página
+            this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnMantInterna_Click(object sender, RoutedEventArgs e) {

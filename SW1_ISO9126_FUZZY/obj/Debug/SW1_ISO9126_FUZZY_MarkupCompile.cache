@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\
+C:\Users\Gonzalo Santander\Documents\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\
 SW1_ISO9126_FUZZY
 none
 false
 DEBUG;TRACE
-d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\App.xaml
+C:\Users\Gonzalo Santander\Documents\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\App.xaml
 6-623292720
 
-221254073708
-80-83175306
+27953929626
+801715800551
 MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;Vistas\AcercaPage.xaml;Vistas\EvaluacionPage.xaml;Vistas\ConfiguracionMetricasPage.xaml;
 
 False

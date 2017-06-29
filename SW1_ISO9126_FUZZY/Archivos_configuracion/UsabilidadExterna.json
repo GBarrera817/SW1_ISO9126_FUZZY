@@ -1,10 +1,7 @@
 {
-  "Usabilidad": {
-    "Subcaracteristicas": [
-      {
-        "Comprensibilidad": {
-          "Metricas": [
-            {
+	"Perspectiva":"Externa",
+  	"Comprensibilidad": [
+			{
               "id": 0,
               "nombre": "Integridad de la descripción",
               "proposito": ["¿Qué proporción de funciones (o tipos de funciones) se entiende después de leer la descripción del producto?"],
@@ -123,16 +120,14 @@
 	              "B: Número de elementos de datos de entrada y salida disponibles desde la interfaz."
               ]
             }
-          ]
-        },
-        "Aprendizaje" : {
-          "Metricas": [
-            {
+   	],
+  	"Aprendizaje": [
+			{
               "id": 0,
               "nombre": "Facilidad de aprendizaje de funciones",
               "proposito": ["¿Cuánto tarda el usuario en aprender a utilizar una función?"],
               "metodo": ["Lleve a cabo la prueba del usuario y observe su comportamiento."],
-              "formula": "T",
+              "formula": ["T"],
               "peor_valor": 1000,
               "mejor_valor": 0,
               "parametros": [
@@ -147,7 +142,7 @@
               "nombre": "Facilidad de aprendizaje para realizar una tarea en uso",
               "proposito": ["¿Cuánto tarda el usuario en aprender cómo realizar la tarea especificada de manera eficiente?"],
               "metodo": ["Observe el comportamiento del usuario desde cuando empiezan a aprender hasta que empiezan a funcionar eficientemente."],
-              "formula": "T",
+              "formula": ["T"],
               "peor_valor": 1000,
               "mejor_valor": 0,
               "parametros": [
@@ -162,7 +157,7 @@
               "nombre": "Eficacia de la documentación del usuario y / o del sistema de ayuda",
               "proposito": ["¿Qué proporción de tareas se puede completar correctamente después de usar la documentación del usuario y / o el sistema de ayuda?"],
               "metodo": ["Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de tareas completadas con éxito después de acceder a la ayuda y / o documentación en línea y compare con el número total de tareas probadas."],
-              "formula": "A/B",
+              "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
               "parametros": [
@@ -179,7 +174,7 @@
               "nombre": "Eficacia de la documentación del usuario y / o sistemas de ayuda en uso",
               "proposito": ["¿Qué proporción de funciones se pueden utilizar correctamente después de leer la documentación o usar sistemas de ayuda?"],
               "metodo": ["Observe el comportamiento del usuario. Cuente el número de funciones utilizadas correctamente después de leer la documentación o utilizando sistemas de ayuda y comparar con el número total de funciones."],
-              "formula": "A/B",
+              "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
               "parametros": [
@@ -196,7 +191,7 @@
               "nombre": "Ayuda a la accesibilidad",
               "proposito": ["¿Qué proporción de los temas de ayuda puede localizar el usuario?"],
               "metodo": ["Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de tareas para las que está localizada la ayuda en línea correcta y compare con el número total de tareas probadas."],
-              "formula": "A/B",
+              "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
               "parametros": [
@@ -213,7 +208,7 @@
               "nombre": "Frecuencia de Ayuda",
               "proposito": ["¿Con qué frecuencia un usuario tiene que acceder a la ayuda para aprender la operación para completar su tarea?"],
               "metodo": ["Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de casos a los que un usuario accede para completar su tarea."],
-              "formula": "A",
+              "formula": ["A"],
               "peor_valor": 1000,
               "mejor_valor": 0,
               "parametros": [
@@ -222,12 +217,10 @@
               "desc_param": [
                 "A: Número de accesos para ayudar hasta que un usuario complete su tarea."
               ]
-            }
-          ]
-        },
-        "Operabilidad" : {
-          "Metricas": [
-            {
+            } 
+  	],
+  	"Operabilidad" : [
+			{
               "id": 0,
               "nombre": "Consistencia operativa en el uso",
               "proposito": ["¿Qué tan consistente es el componente de la interfaz de usuario?"],
@@ -440,14 +433,12 @@
 	              "B: Número de funciones."
               	]
             }
-          ]
-        },
-        "Atractividad" : {
-          "Metricas": [
-            {
+	],
+	"Atractividad": [
+			{
               "id": 0,
               "nombre": "Interacción atractiva",
-              "proposito": "¿Qué tan atractiva es la interfaz para el usuario?",
+              "proposito": ["¿Qué tan atractiva es la interfaz para el usuario?"],
               "metodo": ["Cuestionario a los usuarios."],
               "formula": ["Cuestionario para evaluar el atractivo de la interfaz a los usuarios, después de la experiencia de uso"],
               "peor_valor": 0,
@@ -472,11 +463,9 @@
 	              "B: Número de elementos de la interfaz que el usuario desea personalizar."
               ]
             }
-          ]
-        },
-        "CumplimientoUsabilidad" : {
-          "Metricas": [
-            {
+  	],
+  	"CumplimientoUsabilidad": [
+			{
               "id": 0,
               "nombre": "Cumplimiento de la Usabilidad",
               "proposito": ["¿Qué tan completamente el software se adhiere a las normas, convenciones, guías de estilo o las regulaciones relacionadas con la usabilidad?"],
@@ -493,10 +482,5 @@
                 "B: Número total de elementos de cumplimiento de usabilidad especificados."
               ]
             }
-          ]
-        }
-      }
-    ],
-	"Perspectiva" : "externa"
-  }
+  	]
 }

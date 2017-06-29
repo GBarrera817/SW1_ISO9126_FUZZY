@@ -1,10 +1,7 @@
 {
-  "Funcionalidad": {
-    "Subcaracteristicas": [
-      {
-        "Adecuación": {
-          "Metricas": [
-            {
+	"Perspectiva":"Interna",
+  	"Adecuacion": [
+  			{
               "id": 0,
               "nombre": "Adecuación funcional",
               "proposito": ["¿Cuán adecuadas son las funciones comprobadas?"],
@@ -43,7 +40,7 @@
 	            "nombre": "Cobertura funcional de la implementación",
 	            "proposito": ["¿Qué tan correcta es la implementación funcional?"],
 	            "metodo": ["Cuente el número de funciones incorrectamente implementadas o que faltan y compare con el número de funciones descritas en las especificaciones del requisito"],
-	            "formula": "1-A/B",
+	            "formula": ["1-A/B"],
 	            "peor_valor": 0,
 	            "mejor_valor": 1,
 	            "parametros": [
@@ -71,12 +68,10 @@
 	              "A: Número de funciones cambia durante las fases del ciclo de vida de desarrollo",
 	              "B: Número de funciones descritas en las especificaciones de requisitos."
               ]
-            }
-          ]
-        },
-        "Exactitud" : {
-          "Metricas": [
-            {
+            } 
+   	],
+  	"Exactitud": [
+  			{
               "id": 0,
               "nombre": "Exactitud computacional",
               "proposito": ["¿Cuán completos se han aplicado los requisitos de exactitud?"],
@@ -110,11 +105,9 @@
 	              "B: Número de elementos de datos que requieren niveles específicos de exactitud."
               ]
             }
-          ]
-        },
-        "Interoperabilidad" : {
-          "Metricas": [
-            {
+  	],
+  	"Interoperabilidad" : [
+  			{
               "id": 0,
               "nombre": "Intercambio de datos (Basado en el formato de datos)",
               "proposito": ["¿Cuán correctamente se han implementado los formatos de datos de la interfaz?"],
@@ -148,11 +141,9 @@
 	              "B: Número de protocolos de interfaz a implementar como en las especificaciones."
               ]
             }
-          ]
-        },
-        "SeguridadAcceso" : {
-          "Metricas": [
-            {
+	],
+	"SeguridadAcceso": [
+  			{
               "id": 0,
               "nombre": "Auditabilidad de Acceso",
               "proposito": ["¿Cuán auditable es el acceso de inicio de sesión?"],
@@ -220,11 +211,9 @@
 	              "B: Número de elementos de datos que requieren facilidad de cifrado/descifrado de datos como en las especificaciones."
               ]
             }
-          ]
-        },
-        "CumplimientoFuncional" : {
-          "Metricas": [
-            {
+  	],
+  	"CumplimientoFuncional": [
+	  		{
               "id": 0,
               "nombre": "Cumplimiento funcional",
               "proposito": ["¿Es compatible la funcionalidad del producto con las regulaciones, estándares y convenciones aplicables?"],
@@ -257,11 +246,6 @@
                 "A: Número de interfaces implementadas correctamente como se especificó, confirmadas en la revisión",
                 "B: Número total de las interfaces que requieren el cumplimiento."
               ]
-            }
-          ]
-        }
-      }
-    ],
-    "Perspectiva" : "interna"
-  }
+            } 
+  	]
 }

@@ -1,0 +1,251 @@
+{
+	"Perspectiva":"Interna",
+  	"Adecuacion": [
+  			{
+              "id": 0,
+              "nombre": "Adecuación funcional",
+              "proposito": ["¿Cuán adecuadas son las funciones comprobadas?"],
+              "metodo": ["Cuente el número de funciones implementadas que son adecuadas para realizar las tareas especificadas, y luego mida la proporción de las funciones implementadas. Se puede medir lo siguiente: -todos o partes de especificaciones de diseño - módulos / partes de productos de software completados."],
+              "formula": ["1-A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones en las que se detectan problemas en la evaluación.",
+                "B: Número de funciones verificadas."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Completitud de la implemetación funcional",
+	            "proposito": ["¿Qué tan completa es la implementación funcional?"],
+	            "metodo": ["Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito "],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones perdidas detectadas en la evaluación.",
+	              "B: Número de funciones descritas en las especificaciones del requisito."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Cobertura funcional de la implementación",
+	            "proposito": ["¿Qué tan correcta es la implementación funcional?"],
+	            "metodo": ["Cuente el número de funciones incorrectamente implementadas o que faltan y compare con el número de funciones descritas en las especificaciones del requisito"],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones incorrectamente implementadas o faltantes detectadas.",
+	              "B: Número de funciones descritas en las especificaciones del requisito."
+              ]
+            },
+            {
+            	"id": 3,
+	            "nombre": "Estabilidad de la especificación funcional (volatilidad)",
+	            "proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
+	            "metodo": ["Cuente el número de funciones modificadas (agregadas, modificadas o eliminadas) durante la fase de ciclo de vida del desarrollo, y luego compare con el número de funciones descritas en las especificaciones del requisito."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de funciones cambia durante las fases del ciclo de vida de desarrollo",
+	              "B: Número de funciones descritas en las especificaciones de requisitos."
+              ]
+            } 
+   	],
+  	"Exactitud": [
+  			{
+              "id": 0,
+              "nombre": "Exactitud computacional",
+              "proposito": ["¿Cuán completos se han aplicado los requisitos de exactitud?"],
+              "metodo": ["Cuente el número de funciones que han implementado los requisitos de exactitud y compare con el número de funciones con requisitos de exactitud específicos."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones en las que se han aplicado requisitos específicos de exactitud, como se confirmó en la evaluación.",
+                "B: Número de funciones para las que se deben implementar requisitos específicos de exactitud."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Exactitud",
+	            "proposito": ["¿Qué tan completa fue la implementación de niveles específicos de exactitud para los elementos de datos?"],
+	            "metodo": ["Cuente el número de elementos de datos que cumplen los requisitos de niveles específicos de exactitud y compararlos con el número total de elementos de datos con un nivel específico de requisitos de exactitud."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de elementos de datos implementados con niveles específicos de exactitud, confirmados en la evaluación.",
+	              "B: Número de elementos de datos que requieren niveles específicos de exactitud."
+              ]
+            }
+  	],
+  	"Interoperabilidad" : [
+  			{
+              "id": 0,
+              "nombre": "Intercambio de datos (Basado en el formato de datos)",
+              "proposito": ["¿Cuán correctamente se han implementado los formatos de datos de la interfaz?"],
+              "metodo": ["Cuente el número de formatos de datos de interfaz que se han implementado correctamente como en las especificaciones y comparar con el número de formatos de datos que se intercambiarán como en las especificaciones."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de formatos de datos de interfaz que se han implementado correctamente como en las especificaciones.",
+                "B: Número de formatos de datos a intercambiar según las especificaciones."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Coherencia de la interfaz (protocolo)",
+	            "proposito": ["¿Cuán correctamente se han implementado los protocolos de interfaz?"],
+	            "metodo": ["Cuente el número de protocolos de interfaz que se implementaron correctamente como en las especificaciones y compare con el número de protocolos de interfaz que se implementarán como en las especificaciones."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de protocolos de interfaz que implementan un formato coherente como en la especificación confirmada en la revisión",
+	              "B: Número de protocolos de interfaz a implementar como en las especificaciones."
+              ]
+            }
+	],
+	"SeguridadAcceso": [
+  			{
+              "id": 0,
+              "nombre": "Auditabilidad de Acceso",
+              "proposito": ["¿Cuán auditable es el acceso de inicio de sesión?"],
+              "metodo": ["Cuente el número de tipos de acceso que se registran correctamente como en las especificaciones y compare con el número de tipos de acceso que se requieren para registrar en las especificaciones."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de tipos de acceso que se están registrando como en las especificaciones.",
+                "B: Número de tipos de acceso que se deben registrar en las especificaciones."
+              ]
+            },
+            {
+            	"id": 1,
+	            "nombre": "Control de Acceso",
+	            "proposito": ["¿Qué tan controlable es el acceso al sistema?"],
+	            "metodo": ["Contar el número de requisitos de control de acceso implementado correctamente como en las especificaciones y comparar con el número de requisitos de control de acceso en las especificaciones."],
+	            "formula": ["1-A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de requisitos de control de acceso implementados correctamente como en las especificaciones.",
+	              "B: Número de requisitos de control de acceso en las especificaciones."
+              ]
+            },
+            {
+            	"id": 2,
+	            "nombre": "Prevención de la corrupción de datos",
+	            "proposito": ["¿Qué tan completa es la implementación de la prevención de corrupción de datos?"],
+	            "metodo": ["Cuente el número de casos implementados de prevención de la corrupción de datos según lo especificado y comparar con el número de casos de operaciones/accesos especificadas en los requisitos como capaz de corromper/destruir datos."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de casos implementados de prevención de corrupción de datos como se especifica confirmado en la revisión.",
+	              "B: Número de casos de operación/accesos identificados en los requisitos como capaces de corromper/destruir datos."
+              ]
+            },
+            {
+            	"id": 3,
+	            "nombre": "Cifrado de datos",
+	            "proposito": ["¿Qué tan completa es la implementación de cifrado de datos?"],
+	            "metodo": ["Contar el número de instancias implementadas de elementos de datos cifrados/descifrables según se especifica y comparar con el número de instancias de elementos de datos que requieren facilidad de cifrado/descifrado de datos como en las especificaciones."],
+	            "formula": ["A/B"],
+	            "peor_valor": 0,
+	            "mejor_valor": 1,
+	            "parametros": [
+	              "A",
+	              "B"
+	            ],
+	            "desc_param": [
+	              "A: Número de instancias implementadas de elementos de datos cifrados/descifrables como se especificaron confirmadas en la revisión",
+	              "B: Número de elementos de datos que requieren facilidad de cifrado/descifrado de datos como en las especificaciones."
+              ]
+            }
+  	],
+  	"CumplimientoFuncional": [
+	  		{
+              "id": 0,
+              "nombre": "Cumplimiento funcional",
+              "proposito": ["¿Es compatible la funcionalidad del producto con las regulaciones, estándares y convenciones aplicables?"],
+              "metodo": ["Cuente el número de artículos que requieren cumplimiento que se han cumplido y compare con el número de artículos que requieren cumplimiento como en la especificación."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de elementos correctamente implementados relacionados con el cumplimiento de la funcionalidad confirmados en la evaluación.",
+                "B: Número total de elementos de cumplimiento."
+              ]
+            },
+            {
+              "id": 1,
+              "nombre": "Cumplimiento del estándar InterSistema",
+              "proposito": ["¿Cuán completas son las interfaces con las regulaciones, estándares y convenciones aplicables?"],
+              "metodo": ["Cuente el número de interfaces que cumplen con el cumplimiento requerido y compare con el número de interfaces que requieren cumplimiento como en las especificaciones."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de interfaces implementadas correctamente como se especificó, confirmadas en la revisión",
+                "B: Número total de las interfaces que requieren el cumplimiento."
+              ]
+            } 
+  	]
+}

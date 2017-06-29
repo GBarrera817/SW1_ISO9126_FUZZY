@@ -187,12 +187,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="JSON\FuncionalidadExterna.json" />
-    <None Include="JSON\FuncionalidadInterna.json" />
-    <None Include="JSON\MantenibilidadExterna.json" />
-    <None Include="JSON\MantenibilidadInterna.json" />
-    <None Include="JSON\UsabilidadExterna.json" />
-    <None Include="JSON\UsabilidadInterna.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -247,6 +241,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Data-Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archivos_configuracion\" />
+    <Folder Include="JSON\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

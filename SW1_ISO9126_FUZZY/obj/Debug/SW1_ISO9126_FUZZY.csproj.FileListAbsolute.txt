@@ -35,7 +35,6 @@ d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\ob
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Resources\IconsNonShared.baml
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\MainWindow.g.cs
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\AcercaPage.g.cs
-d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\EvaluacionPage.g.cs
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\ConfiguracionMetricasPage.g.cs
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\App.g.cs
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -44,10 +43,15 @@ d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\ob
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\App.baml
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\MainWindow.baml
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\AcercaPage.baml
-d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\EvaluacionPage.baml
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\ConfiguracionMetricasPage.baml
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.g.resources
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.Properties.Resources.resources
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.csproj.GenerateResource.Cache
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.exe
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\SW1_ISO9126_FUZZY.pdb
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\EvaluacionSWPage.g.cs
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\RegistroSWPage.g.cs
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\EvaluacionSWPage.baml
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\RegistroSWPage.baml
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\MuestraPage.g.cs
+d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\obj\Debug\Vistas\MuestraPage.baml

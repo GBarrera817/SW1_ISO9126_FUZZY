@@ -1,0 +1,17 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.MuestraPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      
+      mc:Ignorable="d" 
+      Title="MuestraPage" Width="800" Height="600" Background="#FF80BA45">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/70089326-metro-wallpapers.png"/>
+        </Grid.Background>
+
+    </Grid>
+</Page>

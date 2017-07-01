@@ -11,14 +11,14 @@
       Title="ConfiguracionMetricasPage" Width="800" Height="600">
 
     <Grid Background="White">
-        <TextBlock x:Name="tblckTitulo" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Nombre de la característica" VerticalAlignment="Top" Width="800" Background="#FF0AAE0A" Foreground="White"/>
+        <TextBlock x:Name="tblckTitulo" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Nombre de la característica" VerticalAlignment="Top" Width="800" Background="#FF99332B" Foreground="White"/>
         <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="48,103,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="177,103,0,0" VerticalAlignment="Top" Width="266"/>
 
         <Button Content="Anterior" HorizontalAlignment="Left" Margin="177,542,0,0" VerticalAlignment="Top" Width="190"/>
         <Button Content="Siguiente" HorizontalAlignment="Left" Margin="471,542,0,0" VerticalAlignment="Top" Width="190"/>
 
-        <Expander Margin="10,137,10,63" Background="#FF0AAE0A">
+        <Expander Margin="10,137,10,63" Background="#FF99332B">
             <Expander.Header>
                 <StackPanel Orientation="Horizontal">
                     <CheckBox x:Name="chckDetallesMetricas" VerticalAlignment="Center" IsChecked="True" IsEnabled="True"></CheckBox>
@@ -34,8 +34,52 @@
 
 
         <!-- Flyout Selección de métricas -->
-        
 
+        <controls:Flyout Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF143A84">
+            <Canvas>
+                <!-- Métricas Internas -->
+                <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF99332B"/>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="48" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Width="40" />
+                        <TextBlock Text="Funcionalidad Interna" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" Height="35" />
+                    </DockPanel>
+                </Border>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="104" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" Width="40"/>
+                        <TextBlock Text="Usabilidad Interna" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" />
+                    </DockPanel>
+                </Border>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="160" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" Width="40"/>
+                        <TextBlock Text="Mantenibilidad Interna" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent"  Foreground="White" />
+                    </DockPanel>
+                </Border>
+
+                <!-- Métricas Externas -->
+                <Label Content="Métricas Externas" FontSize="18" Foreground="White" Canvas.Top="238" Background="#FF99332B" Width="265"/>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="277" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Gear.png" Width="40"/>
+                        <TextBlock Text="Funcionalidad Externa" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" />
+                    </DockPanel>
+                </Border>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="333" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" Width="40"/>
+                        <TextBlock Text="Usabilidad Externa" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" />
+                    </DockPanel>
+                </Border>
+                <Border Padding="5" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" Canvas.Left="28" Canvas.Top="389" Width="227">
+                    <DockPanel Grid.Row="1" Grid.Column="1" Margin="-7,1,1,1" Height="35" >
+                        <Image DockPanel.Dock="Left" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" Width="40"/>
+                        <TextBlock Text="Mantenibilidad Interna" FontSize="16" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" />
+                    </DockPanel>
+                </Border>
+            </Canvas>
+        </controls:Flyout>
 
 
 

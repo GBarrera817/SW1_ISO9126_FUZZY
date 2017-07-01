@@ -30,6 +30,7 @@ namespace SW1_ISO9126_FUZZY {
             if (menuItem != null && menuItem.IsNavigation) {
                 Navigation.Navigation.Navigate(menuItem.NavigationDestination);
             }
+            
         }
 
         private void GoBack_OnClick(object sender, RoutedEventArgs e) {

@@ -130,8 +130,14 @@
     <Compile Include="Vistas\AcercaPage.xaml.cs">
       <DependentUpon>AcercaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\EvaluacionPage.xaml.cs">
-      <DependentUpon>EvaluacionPage.xaml</DependentUpon>
+    <Compile Include="Vistas\EvaluacionSWPage.xaml.cs">
+      <DependentUpon>EvaluacionSWPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MuestraPage.xaml.cs">
+      <DependentUpon>MuestraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RegistroSWPage.xaml.cs">
+      <DependentUpon>RegistroSWPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ConfiguracionMetricasPage.xaml.cs">
       <DependentUpon>ConfiguracionMetricasPage.xaml</DependentUpon>
@@ -160,7 +166,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\EvaluacionPage.xaml">
+    <Page Include="Vistas\EvaluacionSWPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\MuestraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\RegistroSWPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,6 +261,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Data-Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Agreement-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\70089326-metro-wallpapers.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

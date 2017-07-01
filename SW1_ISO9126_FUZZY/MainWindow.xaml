@@ -7,12 +7,13 @@
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                       xmlns:viewModels="clr-namespace:SW1_ISO9126_FUZZY.ModelosVistas"
-                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF33A033">
+                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF2D364C" Background="#FF353F59" BorderBrush="#FF353F59">
 
     <controls:MetroWindow.DataContext>
         <viewModels:ShellViewModel />
     </controls:MetroWindow.DataContext>
 
+    <!-- Control Botón Atrás -->
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
             <Button x:Name="GoBackButton"
@@ -22,6 +23,7 @@
         </controls:WindowCommands>
     </controls:MetroWindow.LeftWindowCommands>
 
+    <!-- Plantilla Menú -->
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type viewModels:MenuItem}">
@@ -43,12 +45,12 @@
                                Text="{Binding Text}" />
                 </Grid>
             </DataTemplate>
-
         </Grid.Resources>
 
+        <!-- Control Hamburger Menu -->
         <controls:HamburgerMenu x:Name="HamburgerMenuControl"
                                 Foreground="White"
-                                PaneBackground="#FF444444"
+                                PaneBackground="#FF2D364C"
                                 IsPaneOpen="False"
                                 ItemsSource="{Binding Menu}"
                                 OptionsItemsSource="{Binding OptionsMenu}"
@@ -56,8 +58,7 @@
                                 OptionsItemClick="HamburgerMenuControl_OnItemClick"
                                 ItemTemplate="{StaticResource MenuItemTemplate}"
                                 OptionsItemTemplate="{StaticResource MenuItemTemplate}"
-                                DisplayMode="CompactInline" Background="#FF444444"
-                                >
-        </controls:HamburgerMenu>
+                                DisplayMode="CompactInline" Background="#FF2D364C"
+                                />
     </Grid>
 </controls:MetroWindow>

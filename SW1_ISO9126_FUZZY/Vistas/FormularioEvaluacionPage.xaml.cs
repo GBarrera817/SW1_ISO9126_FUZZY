@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SW1_ISO9126_FUZZY.Vistas
@@ -13,8 +14,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnFuncInterna_Click(object sender, RoutedEventArgs e)
         {
+			
             // Cambia de página
-            //this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+            //this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnMantInterna_Click(object sender, RoutedEventArgs e)

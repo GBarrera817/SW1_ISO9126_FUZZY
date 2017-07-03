@@ -15,7 +15,7 @@
         <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40"/>
 
         <!-- Identificación de la Característica y subcaracterítisca asociada-->
-        <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="800" Background="#FF33A133" Foreground="White"/>
+        <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,0,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="790" Background="#FF33A133" Foreground="White"/>
         <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="47,87,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="172,87,0,0" VerticalAlignment="Top" Width="166"/>
         <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="47,116,0,0" VerticalAlignment="Top"/>
@@ -36,18 +36,18 @@
                 <Grid Height="74">
                     <Label Content="ID: " HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
                     <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="28,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
-                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="54"/>
+                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="60,8,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label x:Name="lblNombreMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="181,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="244"/>
                 </Grid>
 
-                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="191">
+                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="181">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Opción"></DataGridTextColumn>
                         <DataGridTextColumn Header="Propósito de la métrica" />
                         <DataGridTextColumn Header="Método de medición" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="110" Margin="10,0,0,0" Width="740" Background="#FF33A133"/>
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="95" Margin="10,0,0,0" Width="740" Background="#FF33A133"/>
             </StackPanel>
         </Expander>
 

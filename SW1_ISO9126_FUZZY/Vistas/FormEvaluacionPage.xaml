@@ -1,0 +1,62 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.FormEvaluacionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      mc:Ignorable="d" 
+     
+      Title="FormEvaluacionPage" Width="800" Height="600">
+
+    <Grid Background="White">
+        <TextBlock FontSize="36" HorizontalAlignment="Left" Margin="194,10,0,0" TextWrapping="Wrap" Text="Formulario de evaluación" VerticalAlignment="Top" Width="408" Foreground="#FF209FC1"/>
+
+        <GroupBox x:Name="groupBox1" Header="Detalle de la Métrica" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="780" Height="205" Background="#FF33A133" BorderBrush="#FF33A133">
+            <Grid HorizontalAlignment="Left" Height="175" Margin="0,-5,-2,-4" VerticalAlignment="Top" Width="770">
+                <Label FontSize="14" Content="Nombre:" HorizontalAlignment="Left" Margin="58,38,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+                <Label x:Name="lblNombre" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="254,38,0,0" VerticalAlignment="Top" Width="155"/>
+                <Label x:Name="lblID" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="254,5,0,0" VerticalAlignment="Top" Width="110"/>
+                <Label Content="ID:" HorizontalAlignment="Left" Margin="58,7,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy" FontSize="14" Content="Propósito:" HorizontalAlignment="Left" Margin="58,72,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold"/>
+                <Label FontSize="14" Content="Método:" HorizontalAlignment="Left" Margin="58,115,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" RenderTransformOrigin="0.493,0.483"/>
+                <TextBox x:Name="labelMetodo" FontSize="14" BorderBrush="{x:Null}" IsReadOnly="True"  HorizontalAlignment="Left" Height="48" Margin="254,116,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="516"/>
+                <TextBox x:Name="labelProposito" FontSize="14" BorderBrush="{x:Null}" IsReadOnly="True"  HorizontalAlignment="Left" Height="45" Margin="254,73,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="506"/>
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupboxPerspectiva" Header="Perspectiva" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" Height="75" Background="#FF33A133" BorderBrush="#FF33A133">
+            <Grid HorizontalAlignment="Left" Height="40" Margin="10,0,-2,-4" VerticalAlignment="Top" Width="760">
+                <Label FontSize="14" Content="Característica:" HorizontalAlignment="Left" Margin="44,0,0,0" VerticalAlignment="Top" Width="103" FontWeight="Bold"/>
+                <Label FontSize="14" Content="Subcaracterística:" HorizontalAlignment="Left" Margin="392,0,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold"/>
+                <Label x:Name="lblCaracteristica" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="152,0,0,0" VerticalAlignment="Top" Width="181"/>
+                <Label x:Name="lblSubcaracteristica" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="519,1,0,0" VerticalAlignment="Top" Width="246"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox3" Header="Método de medición" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Width="780" Height="160" BorderBrush="#FF33A133" Background="#FF33A133">
+            <Grid HorizontalAlignment="Left" Height="130" Margin="10,-5,-2,-4" VerticalAlignment="Top" Width="760">
+                <Label x:Name="lblParam0" Content="P1:" HorizontalAlignment="Left" Margin="19,48,0,0" VerticalAlignment="Top" Width="25" FontWeight="Bold"/>
+                <TextBox x:Name="txtParam0" HorizontalAlignment="Left" Height="23" Margin="54,48,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="textBoxA_TextChanged"/>
+                <Slider x:Name="sliderParam0" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="109,52,0,0" VerticalAlignment="Top" Width="115" Maximum="100" Minimum="0" ValueChanged="slider_ValueChanged" SmallChange="10"/>
+                <Label x:Name="lblParam1" Content="P2:" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold"/>
+                <TextBox x:Name="txtParam1" HorizontalAlignment="Left" Height="23" Margin="54,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="textBoxB_TextChanged"/>
+                <Slider x:Name="sliderParam1" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="109,95,0,0" VerticalAlignment="Top" Width="115" Maximum="100" Minimum="0" ValueChanged="slider_Copy_ValueChanged" SmallChange="10"/>
+                <Label FontSize="14" Content="Fórmula:" HorizontalAlignment="Left" Margin="14,3,0,0" VerticalAlignment="Top" Width="65" FontWeight="Bold"/>
+                <Label x:Name="label1_formula" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="84,3,0,0" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.532,0.448"/>
+                <Label FontSize="14" Content="Mejor Valor:" HorizontalAlignment="Left" Margin="250,3,0,0" VerticalAlignment="Top" Width="89" FontWeight="Bold"/>
+                <Label x:Name="lblMejorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="344,3,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label FontSize="14" Content="Peor Valor:" HorizontalAlignment="Left" Margin="419,3,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold"/>
+                <Label x:Name="lblPeorValor" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="504,3,0,0" VerticalAlignment="Top" Width="65"/>
+                <Label x:Name="lblDescripParam0" Content="Label" FontSize="14" BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="33" Margin="244,48,0,0" VerticalAlignment="Top" Width="506"/>
+                <Label x:Name="lblDescripParam1" Content="Label" FontSize="14" BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="31" Margin="244,86,0,0" VerticalAlignment="Top" Width="506"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="566,534,0,0" VerticalAlignment="Top" Width="190" Click="buttonSig_Click"/>
+        <Button x:Name="btAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="355,534,0,0" VerticalAlignment="Top" Width="190" Click="buttonAnt_Click"/>
+        <Button x:Name="btnFinalizarCuestionario" Content="Finalizar Evaluacion" IsEnabled="false" HorizontalAlignment="Left" Margin="90,534,0,0" VerticalAlignment="Top" Width="135" Click="buttonFinalizarCuestionario_Click"/>
+        <Button x:Name="btnGuardar" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" Width="48" Height="41" ToolTip="Guardar el estado del formuario">
+            <Button.Background>
+                <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>

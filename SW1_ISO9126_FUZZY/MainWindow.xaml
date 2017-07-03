@@ -7,17 +7,17 @@
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                       xmlns:viewModels="clr-namespace:SW1_ISO9126_FUZZY.ModelosVistas"
-                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF2D364C" Background="#FF353F59" BorderBrush="#FF353F59">
+                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF2D364C" Background="#FF2D364C" BorderBrush="#FF353F59" Icon="Imagenes/logo4btnrel.png" ResizeMode="NoResize">
 
     <controls:MetroWindow.DataContext>
-        <viewModels:ShellViewModel />
+        <viewModels:ModeloHamburgerMenu />
     </controls:MetroWindow.DataContext>
 
     <!-- Control Botón Atrás -->
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
-            <Button x:Name="GoBackButton"
-                    Click="GoBack_OnClick">
+            <Button x:Name="btnAtrás"
+                    Click="IrAtras_OnClick">
                 <iconPacks:PackIconMaterial Kind="ArrowLeft" />
             </Button>
         </controls:WindowCommands>
@@ -60,5 +60,6 @@
                                 OptionsItemTemplate="{StaticResource MenuItemTemplate}"
                                 DisplayMode="CompactInline" Background="#FF2D364C"
                                 />
+
     </Grid>
 </controls:MetroWindow>

@@ -1,0 +1,111 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.SeleccionMetricasPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      Foreground="{DynamicResource TextBrush}"
+      Title="ConfiguracionMetricasPage" Width="800" Height="600">
+
+    <Grid Background="White">
+
+        <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40"/>
+
+        <!-- Identificación de la Característica y subcaracterítisca asociada-->
+        <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="800" Background="#FF33A133" Foreground="White"/>
+        <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="47,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="172,87,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="47,116,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPerpectiva" Content="Label" FontSize="14" HorizontalAlignment="Left" Margin="172,116,0,0" VerticalAlignment="Top" Width="157"/>
+
+
+        <!-- Detalle de la métrica -->
+        <Expander Margin="10,154,10,54" Background="#FF33A133">
+            <Expander.Header>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="chckDetallesMetricas" VerticalAlignment="Center" IsChecked="True" IsEnabled="True"></CheckBox>
+                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White">DETALLES DE LA MÉTRICA</TextBlock>
+                </StackPanel>
+            </Expander.Header>
+
+
+            <StackPanel Margin="10,0,-2,0" Height="355">
+                <Grid Height="74">
+                    <Label Content="ID: " HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+                    <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="28,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
+                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="54"/>
+                    <Label x:Name="lblNombreMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="181,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="244"/>
+                </Grid>
+
+                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="191">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Opción"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Propósito de la métrica" />
+                        <DataGridTextColumn Header="Método de medición" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="110" Margin="10,0,0,0" Width="740" Background="#FF33A133"/>
+            </StackPanel>
+        </Expander>
+
+
+
+        <Button Content="Anterior" HorizontalAlignment="Left" Margin="172,551,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Siguiente" HorizontalAlignment="Left" Margin="497,551,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="622,87,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <!-- Flyout Selección de métricas -->
+        <controls:Flyout Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C">
+            <Canvas>
+                <!-- Métricas Internas -->
+                <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF33A133" />
+                <Button x:Name="btnFuncInterna" Height="64" Width="221" Canvas.Top="50" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Interna</Label>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnUsabInterna" Height="64" Width="221" Canvas.Top="119" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Interna</Label>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnMantInterna" Height="64" Width="221" Canvas.Top="188" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Interna</Label>
+                    </StackPanel>
+                </Button>
+
+
+                <!--Mètricas externas-->
+                <Label Content="Métricas Externas" FontSize="18" Foreground="White" Canvas.Top="268" Background="#FF33A133" Width="265"/>
+                <Button x:Name="btnFuncExterna" Height="64" Width="221" Canvas.Top="307" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Externa</Label>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnUsabExterna" Height="64" Width="221" Canvas.Top="372" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Externa</Label>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnMantExterna" Height="64" Width="221" Canvas.Top="441" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C">
+                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Externa</Label>
+                    </StackPanel>
+                </Button>
+            </Canvas>
+        </controls:Flyout>
+
+    </Grid>
+
+</Page>

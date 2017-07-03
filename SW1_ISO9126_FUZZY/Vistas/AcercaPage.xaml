@@ -11,7 +11,7 @@
 
     <Grid Background="White">
         <TextBox HorizontalAlignment="Left" Margin="0,53,0,447"  TextAlignment="Center" FontSize="52" TextWrapping="Wrap" Text="Fuzzisoft 9126" Width="800" Background="#FF0860A8" BorderBrush="#FF0860A8" Foreground="White"/>
-        <Image HorizontalAlignment="Left" Height="218" Margin="280,163,0,0" VerticalAlignment="Top" Width="213" Source="/SW1_ISO9126_FUZZY;component/Imagenes/logoiso9126.jpg"/>
+        <Image HorizontalAlignment="Left" Height="218" Margin="297,163,0,0" VerticalAlignment="Top" Width="213" Source="/SW1_ISO9126_FUZZY;component/Imagenes/iso-logo-9126.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="326,497,0,0" TextWrapping="Wrap" Text="Este proyecto fue realizado por:" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="361,518,0,0" TextWrapping="Wrap" Text="Gonzalo Santander" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="371,534,0,0" TextWrapping="Wrap" Text="Gabriela Barrera" VerticalAlignment="Top" Foreground="Black"/>

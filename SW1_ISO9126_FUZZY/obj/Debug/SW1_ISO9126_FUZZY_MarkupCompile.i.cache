@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 d:\Documentos\Visual Studio 2017\Projects\SW1_ISO9126_FUZZY\SW1_ISO9126_FUZZY\App.xaml
-8690983548
+6339798395
 
-28-13183015
+28-1417836529
 80-83175306
-MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;Vistas\AcercaPage.xaml;Vistas\EvaluacionSWPage.xaml;Vistas\MuestraPage.xaml;Vistas\RegistroSWPage.xaml;Vistas\ConfiguracionMetricasPage.xaml;
+MainWindow.xaml;Vistas\AcercaPage.xaml;Vistas\FormularioEvaluacionPage.xaml;Vistas\MainPage.xaml;Vistas\RegistroSWPage.xaml;Vistas\SeleccionMetricasPage.xaml;
 
-False
+True
 

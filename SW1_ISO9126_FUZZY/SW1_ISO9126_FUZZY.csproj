@@ -52,6 +52,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SW1_ISO9126_FUZZY.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
@@ -118,6 +121,10 @@
     <Compile Include="Archivos\MetricasFuncionalidadJSON.cs" />
     <Compile Include="Archivos\Program.cs" />
     <Compile Include="Caracteristicas\Caracteristica.cs" />
+    <Compile Include="JSON\JFuncionabilidad.cs" />
+    <Compile Include="JSON\JMantenibilidad.cs" />
+    <Compile Include="JSON\JMetrica.cs" />
+    <Compile Include="JSON\JUsabilidad.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
@@ -193,12 +200,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="JSON\FuncionalidadExterna.json" />
-    <None Include="JSON\FuncionalidadInterna.json" />
-    <None Include="JSON\MantenibilidadExterna.json" />
-    <None Include="JSON\MantenibilidadInterna.json" />
-    <None Include="JSON\UsabilidadExterna.json" />
-    <None Include="JSON\UsabilidadInterna.json" />
+    <None Include="Archivos_configuracion\FuncionalidadExterna.json" />
+    <None Include="Archivos_configuracion\FuncionalidadInterna.json" />
+    <None Include="Archivos_configuracion\MantenibilidadExterna.json" />
+    <None Include="Archivos_configuracion\MantenibilidadInterna.json" />
+    <None Include="Archivos_configuracion\UsabilidadExterna.json" />
+    <None Include="Archivos_configuracion\UsabilidadInterna.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -241,5 +248,6 @@
   <ItemGroup>
     <Resource Include="Imagenes\Note-Memo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

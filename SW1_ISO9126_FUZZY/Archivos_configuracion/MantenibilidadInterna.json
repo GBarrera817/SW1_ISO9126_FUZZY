@@ -1,10 +1,7 @@
 {
-  "Mantenibilidad": {
-    "Subcaracteristicas": [
-      {
-        "Analizabilidad": {
-          "Metricas": [
-            {
+	"Perspectiva":"Interna",
+  	"Analizabilidad": [
+	  		{
               "id": 0,
               "nombre": "Grabación de Actividad",
               "proposito": ["¿Cuán completa es la grabación del estado del sistema?"],
@@ -22,27 +19,25 @@
               ]
             },
             {
-            	"id": 1,
-	            "nombre": "Disponibilidad de la función de diagnóstico",
-	            "proposito": ["¿Cuán completa es la provisión de las funciones de diagnóstico?"],
-	            "metodo": ["Cuente el número de funciones de diagnóstico implementadas según lo especificado y compárelo con el número de funciones de diagnóstico requerido en las especificaciones."],
-	            "formula": ["A/B"],
-	            "peor_valor": 0,
-	            "mejor_valor": 1,
-	            "parametros": [
-	              "A",
-	              "B"
-	            ],
-	            "desc_param": [
-	              "A: Número de funciones de diagnóstico implementadas como se especifica confirmado en la revisión",
-	              "B: Número de funciones de diagnóstico necesarias."
+              "id": 1,
+              "nombre": "Disponibilidad de la función de diagnóstico",
+              "proposito": ["¿Cuán completa es la provisión de las funciones de diagnóstico?"],
+              "metodo": ["Cuente el número de funciones de diagnóstico implementadas según lo especificado y compárelo con el número de funciones de diagnóstico requerido en las especificaciones."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de funciones de diagnóstico implementadas como se especifica confirmado en la revisión",
+                "B: Número de funciones de diagnóstico necesarias."
               ]
             }
-          ]
-        },
-        "Modificabilidad" : {
-          "Metricas": [
-            {
+   	],
+  	"Modificabilidad": [
+  			{
               "id": 0,
               "nombre": "Capacidad de cambio de los registros ",
               "proposito": ["¿Los cambios en las especificaciones y módulos de programa están registrados adecuadamente en el código con las líneas de comentario?"],
@@ -59,10 +54,8 @@
                 "B: Número total de funciones/módulos cambiados del código original."
               ]
             }
-          ]
-        },
-        "Estabilidad" : {
-          "Metricas": [
+  	],
+  	"Estabilidad" : [
             {
               "id": 0,
               "nombre": "Impacto de cambio",
@@ -81,27 +74,25 @@
               ]
             },
             {
-            	"id": 1,
-	            "nombre": "Localización del impacto de una modificación ",
-	            "proposito": ["¿Qué tan grande es el impacto de la modificación en el producto de software?"],
-	            "metodo": ["Cuente el número de variables afectadas de una modificación y compárelo con el número total de variables del producto."],
-	            "formula": ["A/B"],
-	            "peor_valor": 1,
-	            "mejor_valor": 0,
-	            "parametros": [
-	              "A",
-	              "B"
-	            ],
-	            "desc_param": [
-	              "A: Número de datos de las variables afectadas por modificación, confirmado en la revisión.",
-	              "B: Número total de variables."
+              "id": 1,
+              "nombre": "Localización del impacto de una modificación ",
+              "proposito": ["¿Qué tan grande es el impacto de la modificación en el producto de software?"],
+              "metodo": ["Cuente el número de variables afectadas de una modificación y compárelo con el número total de variables del producto."],
+              "formula": ["A/B"],
+              "peor_valor": 1,
+              "mejor_valor": 0,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de datos de las variables afectadas por modificación, confirmado en la revisión.",
+                "B: Número total de variables."
               ]
             }
-          ]
-        },
-        "Testeabilidad" : {
-          "Metricas": [
-            {
+	],
+	"Testeabilidad": [
+  			{
               "id": 0,
               "nombre": "Integridad de la función de prueba incorporada",
               "proposito": ["¿Qué tan completa es la capacidad de prueba incorporada?"],
@@ -119,44 +110,42 @@
               ]
             },
             {
-            	"id": 1,
-	            "nombre": "Autonomía de la capacidad de prueba",
-	            "proposito": ["¿Cómo se puede probar independientemente el software?"],
-	            "metodo": ["Cuente el número de dependencias de otros sistemas para las pruebas que se han simulado con talones y compárelo con el número total de las dependencias de la prueba en otros sistemas."],
-	            "formula": "A/B",
-	            "peor_valor": 0,
-	            "mejor_valor": 1,
-	            "parametros": [
-	              "A",
-	              "B"
-	            ],
-	            "desc_param": [
-	              "A: Número de dependencias de otros sistemas para las pruebas que se han simulado con talones",
-	              "B: Número total de las dependencias de la prueba en otros sistemas."
+              "id": 1,
+              "nombre": "Autonomía de la capacidad de prueba",
+              "proposito": ["¿Cómo se puede probar independientemente el software?"],
+              "metodo": ["Cuente el número de dependencias de otros sistemas para las pruebas que se han simulado con talones y compárelo con el número total de las dependencias de la prueba en otros sistemas."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de dependencias de otros sistemas para las pruebas que se han simulado con talones",
+                "B: Número total de las dependencias de la prueba en otros sistemas."
               ]
             },
             {
-            	"id": 2,
-	            "nombre": "Observabilidad del progreso de la prueba",
-	            "proposito": ["¿Cuán completas son las visualizaciones de resultados de prueba incorporadas durante las pruebas?"],
-	            "metodo": ["Cuente el número de puntos de control implementados según lo especificado y compárelo con el número de puntos de verificación especificado requerido por el diseño."],
-	            "formula": ["A/B"],
-	            "peor_valor": 0,
-	            "mejor_valor": 1,
-	            "parametros": [
-	              "A",
-	              "B"
-	            ],
-	            "desc_param": [
-	              "A: Número de puntos de control implementados según los especificados confirmados en la revisión.",
-	              "B: Número de puntos de control diseñados."
+              "id": 2,
+              "nombre": "Observabilidad del progreso de la prueba",
+              "proposito": ["¿Cuán completas son las visualizaciones de resultados de prueba incorporadas durante las pruebas?"],
+              "metodo": ["Cuente el número de puntos de control implementados según lo especificado y compárelo con el número de puntos de verificación especificado requerido por el diseño."],
+              "formula": ["A/B"],
+              "peor_valor": 0,
+              "mejor_valor": 1,
+              "parametros": [
+                "A",
+                "B"
+              ],
+              "desc_param": [
+                "A: Número de puntos de control implementados según los especificados confirmados en la revisión.",
+                "B: Número de puntos de control diseñados."
               ]
             }
-          ]
-        },
-        "CumplimientoMantenibilidad" : {
-          "Metricas": [
-            {
+  	],
+  	"CumplimientoMantenibilidad": [
+			{
               "id": 0,
               "nombre": "Cumplimiento de la Mantenibilidad",
               "proposito": ["¿En qué medida es compatibles la mantenibildiad del producto de software a las regulaciones, normas y convenciones?"],
@@ -173,10 +162,5 @@
                 "B: Número total de elementos de cumplimiento."
               ]
             }
-          ]
-        }
-      }
-    ],
-    "Perspectiva" : "interna"
-  }
+  	]
 }

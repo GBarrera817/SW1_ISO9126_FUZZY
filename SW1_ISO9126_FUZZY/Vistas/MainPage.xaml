@@ -1,0 +1,19 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      
+      Title="MainPage" Width="800" Height="600" Background="#FF353F59">
+
+    <Grid>
+
+        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,76,172,90"  />
+        <TextBlock Foreground="White" HorizontalAlignment="Stretch" FontSize="36" Margin="116,19,112,0" TextWrapping="Wrap" Text="Evaluación de Calidad del Software" VerticalAlignment="Top" Height="52" Width="572"/>
+        <Button Content="Comenzar evaluación" HorizontalAlignment="Left" Margin="203,515,0,0" VerticalAlignment="Top" Width="132"/>
+        <Button Content="Cargar formulario" HorizontalAlignment="Left" Margin="443,515,0,0" VerticalAlignment="Top" Width="130"/>
+    </Grid>
+</Page>

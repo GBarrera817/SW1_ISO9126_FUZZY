@@ -3,12 +3,12 @@ using System.Collections.ObjectModel;
 
 namespace SW1_ISO9126_FUZZY.ModelosVistas {
 
-    internal class ViewModelBase : BindableBase {
+    internal class ModeloVistaBase : BindableBase {
 
         private static readonly ObservableCollection<MenuItem> AppMenu = new ObservableCollection<MenuItem>();
         private static readonly ObservableCollection<MenuItem> AppOptionsMenu = new ObservableCollection<MenuItem>();
 
-        public ViewModelBase() { }
+        public ModeloVistaBase() { }
 
         public ObservableCollection<MenuItem> Menu => AppMenu;
 

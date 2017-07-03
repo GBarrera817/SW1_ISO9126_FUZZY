@@ -22,7 +22,7 @@ namespace SW1_ISO9126_FUZZY {
 
         private void SplitViewFrame_OnNavigated(object sender, NavigationEventArgs e) {
             HamburgerMenuControl.Content = e.Content;
-            GoBackButton.Visibility = Navigation.Navigation.Frame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+            btnAtrás.Visibility = Navigation.Navigation.Frame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void HamburgerMenuControl_OnItemClick(object sender, ItemClickEventArgs e) {
@@ -30,9 +30,10 @@ namespace SW1_ISO9126_FUZZY {
             if (menuItem != null && menuItem.IsNavigation) {
                 Navigation.Navigation.Navigate(menuItem.NavigationDestination);
             }
+            
         }
 
-        private void GoBack_OnClick(object sender, RoutedEventArgs e) {
+        private void IrAtras_OnClick(object sender, RoutedEventArgs e) {
             Navigation.Navigation.GoBack();
         }
     }

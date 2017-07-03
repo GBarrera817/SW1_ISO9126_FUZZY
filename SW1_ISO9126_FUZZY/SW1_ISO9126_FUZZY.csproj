@@ -132,17 +132,22 @@
     <Compile Include="Subcaracteristicas\Mantenibilidad.cs" />
     <Compile Include="Subcaracteristicas\Usabilidad.cs" />
     <Compile Include="ModelosVistas\MenuItem.cs" />
-    <Compile Include="ModelosVistas\ShellViewModel.cs" />
-    <Compile Include="ModelosVistas\ViewModelBase.cs" />
-    <Compile Include="Test\Test_JMetricas.cs" />
+    <Compile Include="ModelosVistas\ModeloHamburgerMenu.cs" />
+    <Compile Include="ModelosVistas\ModeloVistaBase.cs" />
     <Compile Include="Vistas\AcercaPage.xaml.cs">
       <DependentUpon>AcercaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\EvaluacionPage.xaml.cs">
-      <DependentUpon>EvaluacionPage.xaml</DependentUpon>
+    <Compile Include="Vistas\FormularioEvaluacionPage.xaml.cs">
+      <DependentUpon>FormularioEvaluacionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\ConfiguracionMetricasPage.xaml.cs">
-      <DependentUpon>ConfiguracionMetricasPage.xaml</DependentUpon>
+    <Compile Include="Vistas\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RegistroSWPage.xaml.cs">
+      <DependentUpon>RegistroSWPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
+      <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -156,23 +161,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resources\Icons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\IconsNonShared.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Vistas\AcercaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\EvaluacionPage.xaml">
+    <Page Include="Vistas\FormularioEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\ConfiguracionMetricasPage.xaml">
+    <Page Include="Vistas\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\RegistroSWPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\SeleccionMetricasPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,16 +211,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\WindowsIcons-license.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -230,31 +228,25 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\logoiso9126.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Touch.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Gear.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Hand-Sign-06.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Double-Check.png" />
+    <Resource Include="Imagenes\logo4btnrel.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Branch-Engineering.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Tools-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Toolbox.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\Data-Edit.png" />
+    <Resource Include="Imagenes\Gear.png" />
+    <Resource Include="Imagenes\Hand-Sign-06.png" />
+    <Resource Include="Imagenes\Toolbox.png" />
+    <Resource Include="Imagenes\Tools-01.png" />
+    <Resource Include="Imagenes\Touch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\iso-logo-9126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Note-Memo.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

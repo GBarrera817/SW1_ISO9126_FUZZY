@@ -10,12 +10,14 @@
       Title="AboutPage" Width="800" Height="600" Background="#FFFEFEFE">
 
     <Grid Background="White">
-        <TextBox HorizontalAlignment="Left" Margin="0,53,0,447"  TextAlignment="Center" FontSize="52" TextWrapping="Wrap" Text="Fuzzisoft 9126" Width="800" Background="#FF0860A8" BorderBrush="#FF0860A8" Foreground="White"/>
-        <Image HorizontalAlignment="Left" Height="218" Margin="297,163,0,0" VerticalAlignment="Top" Width="213" Source="/SW1_ISO9126_FUZZY;component/Imagenes/iso-logo-9126.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,36,0,462"  TextAlignment="Center"   FontSize="52" TextWrapping="Wrap" Width="800" Background="#FF0860A8" Foreground="White"><InlineUIContainer>
+                <Label Content="Fuzzisoft 9126" Foreground="White" Height="103"/>
+            </InlineUIContainer></TextBlock>
+        <Image HorizontalAlignment="Left" Height="218" Margin="297,161,0,0" VerticalAlignment="Top" Width="213" Source="/SW1_ISO9126_FUZZY;component/Imagenes/iso-logo-9126.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="326,497,0,0" TextWrapping="Wrap" Text="Este proyecto fue realizado por:" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="361,518,0,0" TextWrapping="Wrap" Text="Gonzalo Santander" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="371,534,0,0" TextWrapping="Wrap" Text="Gabriela Barrera" VerticalAlignment="Top" Foreground="Black"/>
-        <Rectangle Fill="#FF0860A8" HorizontalAlignment="Left" Height="100" Margin="0,381,0,0" Stroke="#FF0167B7" VerticalAlignment="Top" Width="800" OpacityMask="#FFF5F6F5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,401,0,132"  TextAlignment="Center" FontSize="38" TextWrapping="Wrap" Text="Evaluación de calidad utilizando lógica difusa" Width="800" Background="#FF0860A8" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" 
                  Height="23" Width="681" Margin="63,555,0,0" 
                  VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center"               

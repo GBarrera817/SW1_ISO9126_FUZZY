@@ -290,3 +290,12 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Cosas que "the real" molestan
+
+.vs/SWLIS09126_FUZZY/v15/.suo
+SW1_ISO9126_FUZZY/obj/Debug/CoreCompileInputs.cache
+SW1_ISO9126_FUZZY/obj/Debug/SW1_ISO9126_FUZZY.csproj.FileListAbsolute.txt
+SW1_ISO9126_FUZZY/obj/Debug/SW1_ISO9126_FUZZY_MarkupCompile.cache
+SW1_ISO9126_FUZZY/obj/Debug/SW1_ISO9126_FUZZY_MarkupCompile.i.cache
+SW1_ISO9126_FUZZY/obj/Debug/SW1_ISO9126_FUZZY_ MarkupCompile.lref

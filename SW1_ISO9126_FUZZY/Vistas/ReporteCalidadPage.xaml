@@ -1,0 +1,66 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.ReporteCalidadPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      mc:Ignorable="d" 
+      
+      Title="ReporteCalidadPage" Width="800" Height="600">
+
+    <Grid Background="White">
+        <TextBlock FontSize="52" HorizontalAlignment="Left" Margin="209,10,0,0" TextWrapping="Wrap" Text="Reporte de Calidad" VerticalAlignment="Top" Foreground="#FF209ED6"/>
+        <TreeView HorizontalAlignment="Left" Height="488" Margin="10,102,0,0" VerticalAlignment="Top" Width="264">
+            <TreeViewItem Header="Nivel de calidad Subcaracterísticas" Width="236">
+                <TreeViewItem Header="Interna">
+                    <TreeViewItem Header="Funcionalidad">
+                        <TreeViewItem Header="Adecuación"/>
+                        <TreeViewItem Header="Exactitud" />
+                        <TreeViewItem Header="Interoperabilidad"/>
+                        <TreeViewItem Header="Seguridad de acceso" />
+                        <TreeViewItem Header="Cumplimiento de Funcionalidad"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Usabilidad">
+                        <TreeViewItem Header="Comprensibilidad"/>
+                        <TreeViewItem Header="Aprendizaje" />
+                        <TreeViewItem Header="Operabilidad"/>
+                        <TreeViewItem Header="Atractividad" />
+                        <TreeViewItem Header="Cumplimiento de Usabilidad"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Mantenibilidad">
+                        <TreeViewItem Header="Analizabilidad"/>
+                        <TreeViewItem Header="Modificabilidad" />
+                        <TreeViewItem Header="Estabilidad"/>
+                        <TreeViewItem Header="Testeabilidad" />
+                        <TreeViewItem Header="Cumplimiento de Mantenibilidad"/>
+                    </TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Externa">
+                    <TreeViewItem Header="Funcionalidad">
+                        <TreeViewItem Header="Adecuación"/>
+                        <TreeViewItem Header="Exactitud" />
+                        <TreeViewItem Header="Interoperabilidad"/>
+                        <TreeViewItem Header="Seguridad de acceso" />
+                        <TreeViewItem Header="Cumplimiento de Funcionalidad"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Usabilidad">
+                        <TreeViewItem Header="Comprensibilidad"/>
+                        <TreeViewItem Header="Aprendizaje" />
+                        <TreeViewItem Header="Operabilidad"/>
+                        <TreeViewItem Header="Atractividad" />
+                        <TreeViewItem Header="Cumplimiento de Usabilidad"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Mantenibilidad">
+                        <TreeViewItem Header="Analizabilidad"/>
+                        <TreeViewItem Header="Modificabilidad" />
+                        <TreeViewItem Header="Estabilidad"/>
+                        <TreeViewItem Header="Testeabilidad" />
+                        <TreeViewItem Header="Cumplimiento de Mantenibilidad"/>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+
+
+    </Grid>
+</Page>

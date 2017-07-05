@@ -24,5 +24,40 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
 			InitializeComponent();
 		}
+
+		private void txtxParam0_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void sliderParam0_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+
+		}
+
+		private void sliderParam1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+
+		}
+
+		private void txtParam1_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnAnterior_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnFinalizarCuestionario_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

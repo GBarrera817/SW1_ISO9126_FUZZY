@@ -59,7 +59,7 @@
         <Button Content="Salir" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75"/>
 
         <!-- Flyout Selección de métricas -->
-        <controls:Flyout Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C">
+        <controls:Flyout Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C" CloseButtonVisibility="Visible">
             <Canvas>
                 <!-- Métricas Internas -->
                 <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF33A133" />

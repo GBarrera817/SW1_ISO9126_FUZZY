@@ -40,7 +40,7 @@
               "nombre": "Funciones evidentes",
               "proposito": ["¿Qué proporción de las funciones del producto son evidentes para el usuario?"],
               "metodo": ["Cuente el número de funciones que son evidentes para el usuario y compare con el número total de funciones."],
-              "formula": ["1-A/B"],
+              "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
               "parametros": [
@@ -179,7 +179,7 @@
               "id": 5,
               "nombre": "Capacidad de monitoreo del estado de operación",
               "proposito": ["¿Qué proporción de funciones tiene capacidad de monitoreo del estado de las operaciones?"],
-              "metodo": ["Contar el número de funciones implementadas, cuyo estado puede ser monitoreado y compárelas con el número de funciones que requieren la capacidad de monitoreo."],
+              "metodo": ["Cuente el número de funciones implementadas, cuyo estado puede ser monitoreado y compárelas con el número de funciones que requieren la capacidad de monitoreo."],
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,

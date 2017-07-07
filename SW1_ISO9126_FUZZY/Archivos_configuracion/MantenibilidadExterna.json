@@ -217,7 +217,10 @@
                   "Observe el comportamiento del usuario o del mantenedor que está operando el sistema de software después del mantenimiento.", 
                   "Contar errores que el usuario o el mantenedor encontraron durante el funcionamiento del software antes y después del mantenimiento."
               ],
-              "formula": ["Na/Ta", "(Na/Ta)/(Nb/Tb)"],
+              "formula": [
+                "Na/Ta", 
+                "(Na/Ta)/(Nb/Tb)"
+              ],
               "peor_valor": 100000,
               "mejor_valor": 0,
               "parametros": [

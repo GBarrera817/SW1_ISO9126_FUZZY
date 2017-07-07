@@ -6,7 +6,7 @@
 				"nombre": "Adecuación funcional",
 				"proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
 				"metodo": ["Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -23,7 +23,7 @@
 				"nombre": "Completitud de la implementación funcional",
 				"proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
 				"metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -40,7 +40,7 @@
 				"nombre": "Cobertura funcional de la implementación",
 				"proposito": ["¿Qué tan correcta es la implementación funcional?"],
 				"metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -57,7 +57,7 @@
 				"nombre": "Estabilidad de la especificación funcional (volatilidad)",
 				"proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
 				"metodo": ["Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -218,7 +218,7 @@
 				"nombre": "Adecuación funcional",
 				"proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
 				"metodo": ["Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -235,7 +235,7 @@
 				"nombre": "Completitud de la implementación funcional",
 				"proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
 				"metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -252,7 +252,7 @@
 				"nombre": "Cobertura funcional de la implementación",
 				"proposito": ["¿Qué tan correcta es la implementación funcional?"],
 				"metodo": ["Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -269,7 +269,7 @@
 				"nombre": "Estabilidad de la especificación funcional (volatilidad)",
 				"proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
 				"metodo": ["Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito."],
-				"formula": ["1-A/B"],
+				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [

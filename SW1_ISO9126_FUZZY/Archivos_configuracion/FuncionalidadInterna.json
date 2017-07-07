@@ -6,7 +6,7 @@
               "nombre": "Adecuación funcional",
               "proposito": ["¿Cuán adecuadas son las funciones comprobadas?"],
               "metodo": ["Cuente el número de funciones implementadas que son adecuadas para realizar las tareas especificadas, y luego mida la proporción de las funciones implementadas. Se puede medir lo siguiente: -todos o partes de especificaciones de diseño - módulos / partes de productos de software completados."],
-              "formula": ["1-A/B"],
+              "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
               "parametros": [
@@ -23,7 +23,7 @@
 	            "nombre": "Completitud de la implemetación funcional",
 	            "proposito": ["¿Qué tan completa es la implementación funcional?"],
 	            "metodo": ["Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito "],
-	            "formula": ["1-A/B"],
+	            "formula": ["1 - A/B"],
 	            "peor_valor": 0,
 	            "mejor_valor": 1,
 	            "parametros": [
@@ -40,7 +40,7 @@
 	            "nombre": "Cobertura funcional de la implementación",
 	            "proposito": ["¿Qué tan correcta es la implementación funcional?"],
 	            "metodo": ["Cuente el número de funciones incorrectamente implementadas o que faltan y compare con el número de funciones descritas en las especificaciones del requisito"],
-	            "formula": ["1-A/B"],
+	            "formula": ["1 - A/B"],
 	            "peor_valor": 0,
 	            "mejor_valor": 1,
 	            "parametros": [
@@ -57,7 +57,7 @@
 	            "nombre": "Estabilidad de la especificación funcional (volatilidad)",
 	            "proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
 	            "metodo": ["Cuente el número de funciones modificadas (agregadas, modificadas o eliminadas) durante la fase de ciclo de vida del desarrollo, y luego compare con el número de funciones descritas en las especificaciones del requisito."],
-	            "formula": ["1-A/B"],
+	            "formula": ["1 - A/B"],
 	            "peor_valor": 0,
 	            "mejor_valor": 1,
 	            "parametros": [
@@ -165,7 +165,7 @@
 	            "nombre": "Control de Acceso",
 	            "proposito": ["¿Qué tan controlable es el acceso al sistema?"],
 	            "metodo": ["Contar el número de requisitos de control de acceso implementado correctamente como en las especificaciones y comparar con el número de requisitos de control de acceso en las especificaciones."],
-	            "formula": ["1-A/B"],
+	            "formula": ["1 - A/B"],
 	            "peor_valor": 0,
 	            "mejor_valor": 1,
 	            "parametros": [

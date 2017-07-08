@@ -8,7 +8,7 @@
                   "¿Puede el usuario identificar una operación específica que causó falla?", 
                   "¿Puede el mantenedor encontrar fácilmente una operación específica que causó falla?"
               ],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos.",
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -29,7 +29,7 @@
                   "¿Puede el usuario identificar la operación específica que causó el fallo? (El usuario puede Evitar caer de nuevo en la misma ocurrencia de falla con una operación alternativa).", 
                   "¿Puede el mantenedor encontrar fácilmente la causa del fracaso?"
               ],
-              "metodo": ["Observar el comportamiento del usuario o mantenedor que está tratando de resolver las fallas utilizando funciones de diagnóstico."],
+              "metodo": "Observar el comportamiento del usuario o mantenedor que está tratando de resolver las fallas utilizando funciones de diagnóstico.",
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -49,7 +49,7 @@
                   "¿Puede el usuario identificar una operación específica que causó falla?", 
                   "¿Puede el mantenedor encontrar fácilmente la causa del fracaso?"
               ],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos.",
               "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -70,7 +70,7 @@
                   "¿Puede el mantenedor encontrar fácilmente la causa del fracaso?", 
                   "¿Qué tan fácil es analizar la causa del fracaso?"
               ],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor que intenta resolver los fallos.",
               "formula": ["Sum(Tout-Tin)/N"],
               "peor_valor": 10000,
               "mejor_valor": 0,
@@ -92,7 +92,7 @@
                   "¿Puede el usuario identificar una operación específica que causó falla al obtener datos monitorizados durante el funcionamiento?", 
                   "¿Puede el mantenedor encontrar fácilmente la causa del fallo obteniendo datos monitorizados durante la operación?"
               ],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor que intenta obtener el estado de registro de datos supervisados del software durante el funcionamiento"],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor que intenta obtener el estado de registro de datos supervisados del software durante el funcionamiento",
               "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -111,7 +111,7 @@
               "id": 0,
               "nombre": "Cambio de la eficiencia del ciclo",
               "proposito": ["¿Se puede resolver el problema del usuario a su satisfacción dentro de una escala de tiempo aceptable?"],
-              "metodo": ["Supervisar la interacción entre el usuario y el proveedor. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema."],
+              "metodo": "Supervisar la interacción entre el usuario y el proveedor. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
               "formula": ["Sum(Trc-Tsn)/N"],
               "peor_valor": 100000,
               "mejor_valor": 0,
@@ -130,10 +130,7 @@
               "id": 1,
               "nombre": "Cambio del tiempo de ejecución de la implementación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema de falla?"],
-              "metodo": [
-                  "Supervisar la interacción entre el usuario y el proveedor. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
-                  "Observe el comportamiento del usuario y del mantenedor mientras intenta cambiar el software."
-                ],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
               "formula": ["Sum(Tout-Tin)/N"],
               "peor_valor": 100000,
               "mejor_valor": 0,
@@ -152,7 +149,7 @@
               "id": 2,
               "nombre": "Complejidad de la Modificación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema?"],
-              "metodo": ["Observe el comportamiento del mantenedor que intenta cambiar el software."],
+              "metodo": "Observe el comportamiento del mantenedor que intenta cambiar el software.",
               "formula": ["Sum(A/B)/N"],
               "peor_valor": 100000,
               "mejor_valor": 0,
@@ -171,7 +168,7 @@
               "id": 3,
               "nombre": "Modificabilidad parametrizada",
               "proposito": ["¿Puede el usuario o el mantenedor cambiar fácilmente el parámetro para cambiar el software y resolver problemas?"],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software.",
               "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -191,7 +188,7 @@
                   "¿Puede el usuario identificar fácilmente versiones revisadas?", 
                   "¿Puede el mantenedor cambiar fácilmente el software para resolver problemas?"
               ],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software.",
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -213,14 +210,8 @@
                   "¿Puede el usuario operar el sistema de software sin fallas después del mantenimiento?", 
                   "¿Puede el mantenedor mitigar fácilmente los fallos causados por los efectos secundarios del mantenimiento?"
               ],
-              "metodo": [
-                  "Observe el comportamiento del usuario o del mantenedor que está operando el sistema de software después del mantenimiento.", 
-                  "Contar errores que el usuario o el mantenedor encontraron durante el funcionamiento del software antes y después del mantenimiento."
-              ],
-              "formula": [
-                "Na/Ta", 
-                "(Na/Ta)/(Nb/Tb)"
-              ],
+              "metodo": "Contar errores que el usuario o el mantenedor encontraron durante el funcionamiento del software antes y después del mantenimiento.",
+              "formula": ["(Na/Ta)/(Nb/Tb)"],
               "peor_valor": 100000,
               "mejor_valor": 0,
               "parametros": [
@@ -243,7 +234,7 @@
                   "¿Puede el usuario operar el sistema de software sin fallas después del mantenimiento?",
                   "¿Puede el facilitador mitigar fácilmente los fallos causados por los efectos secundarios de mantenimiento?"
               ],
-              "metodo": ["Cuente la ocurrencia de los fallos después del cambio, que se encadenan mutuamente y se ven afectados por el cambio."],
+              "metodo": "Cuente la ocurrencia de los fallos después del cambio, que se encadenan mutuamente y se ven afectados por el cambio.",
               "formula": ["A/B"],
               "peor_valor": 10000,
               "mejor_valor": 0,
@@ -262,7 +253,7 @@
               "id": 0,
               "nombre": "Disponibilidad de la función de prueba incorporada",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas sin preparación adicional de la instalación de prueba?"],
-              "metodo": ["Observe el comportamiento del usuario o del mantenedor que está probando el sistema de software después del mantenimiento."],
+              "metodo": "Observe el comportamiento del usuario o del mantenedor que está probando el sistema de software después del mantenimiento.",
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -279,7 +270,7 @@
               "id": 1,
               "nombre": "Eficiencia de volver a probar",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operacionales y determinar si el software está listo para funcionar o no?"],
-              "metodo": ["Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento."],
+              "metodo": "Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento.",
               "formula": ["Sum(T)/N"],
               "peor_valor": 10000,
               "mejor_valor": 0,
@@ -296,7 +287,7 @@
               "id": 2,
               "nombre": "Capacidad de volver a empezar la prueba",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas con puntos de verificación después del mantenimiento?"],
-              "metodo": ["Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento."],
+              "metodo": "Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento.",
               "formula": ["A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,
@@ -315,7 +306,7 @@
               "id": 0,
               "nombre": "Cumplimiento de la Mantenibilidad",
               "proposito": ["¿En qué medida es compatibles la mantenibildiad del producto de software a las regulaciones, normas y convenciones?"],
-              "metodo": ["Cuente el número de ítems que requieren cumplimiento que se han cumplido y compare con el número de ítems que requieren cumplimiento en la especificación."],
+              "metodo": "Cuente el número de ítems que requieren cumplimiento que se han cumplido y compare con el número de ítems que requieren cumplimiento en la especificación.",
               "formula": ["1 - A/B"],
               "peor_valor": 0,
               "mejor_valor": 1,

@@ -15,7 +15,7 @@
         <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Identificación de la Característica y subcaracterítisca asociada-->
-        <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="800" Background="#FF33A133" Foreground="White"/>
+        <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>
         <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="47,87,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="172,87,0,0" VerticalAlignment="Top" Width="166"/>
         <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="47,116,0,0" VerticalAlignment="Top"/>
@@ -23,43 +23,44 @@
 
 
         <!-- Detalle de la métrica -->
-        <Expander Margin="10,154,10,54" Background="#FF33A133">
+        <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133">
             <Expander.Header>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox x:Name="chckDetallesMetricas" VerticalAlignment="Center" IsChecked="True" IsEnabled="True"></CheckBox>
-                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White">DETALLES DE LA MÉTRICA</TextBlock>
+                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White" Width="320">DETALLES DE LA MÉTRICA</TextBlock>
+                    <CheckBox x:Name="chckDetallesMetricas" Content="ACTIVAR" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True" IsEnabled="True" Checked="chckDetallesMetricas_Checked" Unchecked="chckDetallesMetricas_Unchecked" Width="285" Foreground="#FFFBFBFC"/>
                 </StackPanel>
             </Expander.Header>
 
 
             <StackPanel Margin="10,0,-2,0" Height="355">
                 <Grid Height="74">
-                    <Label Content="ID: " HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+                    <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="28,6,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="60,6,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="28,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
-                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label x:Name="lblNombreMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="181,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="244"/>
                 </Grid>
 
-                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="191">
+                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended"  CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="167">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Opción"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Propósito de la métrica" />
-                        <DataGridTextColumn Header="Método de medición" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="110" Margin="10,0,0,0" Width="740" Background="#FF33A133"/>
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="110" Margin="0" Width="750" Background="#FF33A133">
+                    <ScrollViewer HorizontalAlignment="Left" Height="70" Margin="10,0,0,0" VerticalAlignment="Top" Width="709">
+                        <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="TextBlock"/>
+                    </ScrollViewer>
+                </GroupBox>
             </StackPanel>
         </Expander>
 
 
 
-        <Button Content="Anterior" HorizontalAlignment="Left" Margin="172,551,0,0" VerticalAlignment="Top" Width="190"/>
-        <Button Content="Siguiente" HorizontalAlignment="Left" Margin="497,551,0,0" VerticalAlignment="Top" Width="190"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="622,87,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="172,557,0,0" VerticalAlignment="Top" Width="190" Click="btnAnterior_Click"/>
+        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="497,557,0,0" VerticalAlignment="Top" Width="190" Click="btnSiguiente_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="622,87,0,0" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75" Click="btnSalir_Click"/>
 
         <!-- Flyout Selección de métricas -->
-        <controls:Flyout Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C">
+        <controls:Flyout x:Name="menuMetricas" Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C">
             <Canvas>
                 <!-- Métricas Internas -->
                 <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF33A133" />

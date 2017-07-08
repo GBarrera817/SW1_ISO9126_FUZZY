@@ -30,5 +30,40 @@ namespace SW1_ISO9126_FUZZY.JSON
         public int Mejor_valor { get => mejor_valor; set => mejor_valor = value; }
         public string[] Parametros { get => parametros; set => parametros = value; }
         public string[] Desc_param { get => desc_param; set => desc_param = value; }
+
+        public override string ToString()
+        {
+            string str = "";
+            str += "\nID: " + id;
+            str += "\nNombre: " + nombre;
+
+            for (int i = 0; i < proposito.Length; i++)
+            {
+                str += "\nProposito: " + proposito[i];
+            }
+
+            str += "\nMetodo: " + metodo;
+
+            for (int i = 0; i < formula.Length; i++)
+            {
+                str += "\nFormula: " + formula[i];
+            }
+
+            str += "\nPeor valor: " + peor_valor;
+            str += "\nMejor valor " + mejor_valor;
+
+            for (int i = 0; i < parametros.Length; i++)
+            {
+                str += "\nParametro: " + parametros[i];
+            }
+
+            for (int i = 0; i < desc_param.Length; i++)
+            {
+                str += "\nDescripción parametro: " + desc_param[i];
+            }
+
+            return str;
+        }
+
     }
 }

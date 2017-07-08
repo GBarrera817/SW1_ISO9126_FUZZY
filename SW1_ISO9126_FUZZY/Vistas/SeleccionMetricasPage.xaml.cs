@@ -21,11 +21,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private JMantenibilidad manInt;
         private JMantenibilidad manExt;
 
-        private int control;
-
         public SeleccionMetricasPage()
         {
-            this.control = 0;
             InitializeComponent();
             cargarJsonMetricas();
         }
@@ -60,21 +57,26 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("proposito", typeof(string));
-            dtColumnas.Columns.Add("metodo", typeof(string));
             dtColumnas.Columns.Add("formula", typeof(string));
             dataGridDetalleMetrica.ItemsSource = dtColumnas.DefaultView;
             dataGridDetalleMetrica.Columns[0].Header = "Propósito de la métrica";
-            dataGridDetalleMetrica.Columns[1].Header = "Método de medición";
-            dataGridDetalleMetrica.Columns[2].Header = "Formula";
+            dataGridDetalleMetrica.Columns[1].Header = "Formula";
 
             int preguntas = 0;
             int formulas = 0;
 
             lblIDMetrica.Content = metrica.Id;
             lblNombreMetrica.Content = metrica.Nombre;
+            txbkMetodo.Text = metrica.Metodo;
 
-            preguntas = metrica.Metodo.Length;
+            preguntas = metrica.Proposito.Length;
             formulas = metrica.Formula.Length;
+            
+            /*
+            MessageBox.Show("preguntas: " + preguntas);
+            MessageBox.Show("formulas: " + formulas);
+            MessageBox.Show(metrica.ToString());
+            */
 
             if (preguntas == formulas)
             {
@@ -108,24 +110,20 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-
-        private void cargarusabilidadInterna()
+        private void cargarFuncionabilidadInterna()
         {
 
-            tblckTituloCaracteristica.Text = "Funcionalidad Interna";
+            tblckTituloCaracteristica.Text = "Funcionabilidad Interna";
             lblPerpectiva.Content = "Interna";
-
-            lblSubcaracterística.Content = "Cambiando contenido";
+            lblSubcaracterística.Content = UsaInt.Subcaracteristicas[0];
 
             ArrayList metricas = new ArrayList();
+
+            
             metricas.Add(funInt.Adecuacion[0]);
            
 
             cargarMetrica(funInt.Adecuacion[0]);
-
-
-
-
 
             //return metricas;
         }
@@ -135,9 +133,11 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Funcionalidad Interna";
+            tblckTituloCaracteristica.Text = "Funcionabilidad Interna";
             lblPerpectiva.Content = "Interna";
-            crearArchivoEstadoMetrica();
+            cargarFuncionabilidadInterna();
+
+
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -206,7 +206,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            cargarusabilidadInterna();
+            //cargarusabilidadInterna();
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -214,7 +214,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         }
 
-        private void btnSalir_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = true;
         }
@@ -234,11 +234,10 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             {
                 sb.AppendLine("ID: " + subcaracateristica[i].Id);
                 sb.AppendLine("Nombre: " + subcaracateristica[i].Nombre);
-                sb.AppendLine("Proposito: " + subcaracateristica[i].Proposito.Length);
                 sb.AppendLine("Metodo: " + subcaracateristica[i].Metodo.Length);
                 sb.AppendLine("Formula: " + subcaracateristica[i].Formula.Length);
 
-                if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Metodo.Length > 1 || subcaracateristica[i].Formula.Length > 1)
+                if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Formula.Length > 1)
                 {
                     sb.AppendLine("<========================== METRICA ESPECIAL ==========================>");
                 }

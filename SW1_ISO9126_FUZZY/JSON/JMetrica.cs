@@ -12,7 +12,7 @@ namespace SW1_ISO9126_FUZZY.JSON
         private int id;
         private string nombre;
         private string[] proposito;
-        private string[] metodo;
+        private string metodo;
         private string[] formula;
         private int peor_valor;
         private int mejor_valor;
@@ -24,7 +24,7 @@ namespace SW1_ISO9126_FUZZY.JSON
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string[] Proposito { get => proposito; set => proposito = value; }
-        public string[] Metodo { get => metodo; set => metodo = value; }
+        public string Metodo { get => metodo; set => metodo = value; }
         public string[] Formula { get => formula; set => formula = value; }
         public int Peor_valor { get => peor_valor; set => peor_valor = value; }
         public int Mejor_valor { get => mejor_valor; set => mejor_valor = value; }

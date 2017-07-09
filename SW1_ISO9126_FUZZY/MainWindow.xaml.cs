@@ -26,7 +26,9 @@ namespace SW1_ISO9126_FUZZY {
         }
 
         private void HamburgerMenuControl_OnItemClick(object sender, ItemClickEventArgs e) {
-            var menuItem = e.ClickedItem as MenuItem;
+
+			var menuItem = e.ClickedItem as MenuItem;
+
             if (menuItem != null && menuItem.IsNavigation) {
                 Navigation.Navigation.Navigate(menuItem.NavigationDestination);
             }

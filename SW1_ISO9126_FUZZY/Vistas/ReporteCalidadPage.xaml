@@ -10,7 +10,5 @@
 
     <Grid Background="White">
         <TextBlock FontSize="52" HorizontalAlignment="Left" Margin="209,10,0,0" TextWrapping="Wrap" Text="Reporte de Calidad" VerticalAlignment="Top" Foreground="#FF209ED6"/>
-
-
     </Grid>
 </Page>

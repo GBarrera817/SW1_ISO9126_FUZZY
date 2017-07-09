@@ -25,7 +25,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			InitializeComponent();
 		}
 
-		private void txtxParam0_TextChanged(object sender, TextChangedEventArgs e)
+		private void txtParam1_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void txtParam0_TextChanged(object sender, TextChangedEventArgs e)
 		{
 
 		}
@@ -36,11 +41,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		}
 
 		private void sliderParam1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-		{
-
-		}
-
-		private void txtParam1_TextChanged(object sender, TextChangedEventArgs e)
 		{
 
 		}
@@ -65,5 +65,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
 
 		}
+    
+		private void btnGuardar_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+    
 	}
 }

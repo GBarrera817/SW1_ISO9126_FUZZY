@@ -137,6 +137,9 @@
     <Compile Include="Vistas\AcercaPage.xaml.cs">
       <DependentUpon>AcercaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\EvaluacionCalidadPage.xaml.cs">
+      <DependentUpon>EvaluacionCalidadPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FormEvaluacionPage.xaml.cs">
       <DependentUpon>FormEvaluacionPage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Vistas\AcercaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\EvaluacionCalidadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

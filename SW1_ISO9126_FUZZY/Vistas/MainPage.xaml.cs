@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -11,5 +13,32 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             InitializeComponent();
         }
-    }
+
+		
+		private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			this.NavigationService.Navigate(new Uri("Vistas/SeleccionMetricasPage.xaml", UriKind.Relative));
+		}
+
+		private void btnCargarEvaluación_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			
+			OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+			// Set filter options and filter index.
+			openFileDialog1.Filter = "JSON Files (.json)|*.json|All Files (*.*)|*.*";
+			openFileDialog1.FilterIndex = 1;
+
+			openFileDialog1.Multiselect = true;
+
+			// Call the ShowDialog method to show the dialog box.
+
+
+			// Process input if the user clicked OK.
+			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				
+			}
+		}
+	}
 }

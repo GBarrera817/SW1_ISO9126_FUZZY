@@ -52,7 +52,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnAnterior_Click(object sender, RoutedEventArgs e)
 		{
-
+			if(e.OriginalSource != sender)
+			{
+				e.Handled = true;
+			}
+			else{
+				MessageBox.Show("Hola");
+			}
 		}
 
 		private void btnFinalizarCuestionario_Click(object sender, RoutedEventArgs e)

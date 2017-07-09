@@ -135,6 +135,12 @@
     <Compile Include="Vistas\AcercaPage.xaml.cs">
       <DependentUpon>AcercaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\EvaluacionCalidadPage.xaml.cs">
+      <DependentUpon>EvaluacionCalidadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormEvaluacionPage.xaml.cs">
+      <DependentUpon>FormEvaluacionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FormularioEvaluacionPage.xaml.cs">
       <DependentUpon>FormularioEvaluacionPage.xaml</DependentUpon>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
     <Compile Include="Vistas\RegistroSWPage.xaml.cs">
       <DependentUpon>RegistroSWPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ReporteCalidadPage.xaml.cs">
+      <DependentUpon>ReporteCalidadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
       <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
@@ -163,6 +172,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\EvaluacionCalidadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\FormEvaluacionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\FormularioEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\RegistroSWPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\ReporteCalidadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +267,11 @@
   <ItemGroup>
     <Resource Include="Imagenes\Note-Memo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Imagenes\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\report.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,7 @@
 
         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,76,172,90"  />
         <TextBlock Foreground="White" HorizontalAlignment="Stretch" FontSize="36" Margin="116,19,112,0" TextWrapping="Wrap" Text="Evaluación de Calidad del Software" VerticalAlignment="Top" Height="52" Width="572"/>
-        <Button Content="Comenzar evaluación" HorizontalAlignment="Left" Margin="203,515,0,0" VerticalAlignment="Top" Width="132"/>
-        <Button Content="Cargar formulario" HorizontalAlignment="Left" Margin="443,515,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="btnComenzarEvaluacion" Content="Iniciar evaluación" HorizontalAlignment="Left" Margin="203,515,0,0" VerticalAlignment="Top" Width="132" Click="btnComenzarEvaluacion_Click"/>
+        <Button x:Name="btnCargarEvaluación" Content="Cargar evaluación" HorizontalAlignment="Left" Margin="443,515,0,0" VerticalAlignment="Top" Width="130" Click="btnCargarEvaluación_Click"/>
     </Grid>
 </Page>

@@ -1,0 +1,103 @@
+﻿<Page x:Class="SW1_ISO9126_FUZZY.Vistas.EvaluacionCalidadPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      
+      Title="EvaluacionCalidadPage" Width="800" Height="600">
+
+    <Grid Background="White">
+        <TextBlock FontSize="42" HorizontalAlignment="Center" Margin="213,0,181,0" TextWrapping="Wrap" Text="Evaluación de Calidad" VerticalAlignment="Top" Width="406" Foreground="#FF76B4DF"/>
+
+        <controls:MetroAnimatedSingleRowTabControl x:Name="tabControlEvaluacionCalidad" HorizontalAlignment="Left" Margin="0,61,0,0" Width="800">
+            <TabItem x:Name="tabSucaracteristica" Header="N. Subcaracterísticas">
+                <Grid Background="White">
+                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,0,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
+                                <Button x:Name="btnCalcSubInterna" Content="Calcular" Width="68" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+
+                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,212,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
+                                <Button x:Name="btnCalcSubExterna" Content="Calcular" Width="68" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" HorizontalAlignment="Left" Margin="680,449,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCaracterística_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabCaracteristicas" Header="N. Características">
+                <Grid Background="White">
+                    <GroupBox HorizontalAlignment="Left" Height="157" Margin="10,61,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
+                                <Button x:Name="btnCalcCaractInterna" Content="Calcular" Width="68" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+
+                    <GroupBox HorizontalAlignment="Left" Height="166" Margin="10,256,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
+                                <Button x:Name="btnCalcCaractExterna" Content="Calcular" Width="68" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+                    <Button x:Name="btnSiguienteCalidadInterna" Content="Siguiente" HorizontalAlignment="Left" Margin="673,449,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCalidadInterna_Click"/>
+                    <Button x:Name="btnAnteriorSubcaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="555,449,0,0" VerticalAlignment="Top" Width="75" Click="btnAnteriorSubcaracteristica_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final">
+                <Grid Background="White">
+                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,34,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="661"/>
+                                <Button x:Name="btnCalcCalidadInterna" Content="Calcular" Width="68" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="555,449,0,0" VerticalAlignment="Top" Width="75" Click="btnAnteriorCaracteristica_Click"/>
+                    <controls:Tile x:Name="tileGenerarPDF" Title="Generar PDF" Click="tileGenerarPDF_Click" Margin="385,276,297,101" Background="#FF33A133" BorderBrush="Black" Height="Auto" Width="Auto" >
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Agreement-01.png" />
+                    </controls:Tile>
+
+
+                </Grid>
+            </TabItem>
+
+
+        </controls:MetroAnimatedSingleRowTabControl>
+    </Grid>
+</Page>

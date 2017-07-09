@@ -21,9 +21,32 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private JMantenibilidad manInt;
         private JMantenibilidad manExt;
 
+        private ArrayList funcionalidadInterna;
+        private ArrayList funcionalidadExterna;
+        private ArrayList usabilidadInterna;
+        private ArrayList usabilidadExterna;
+        private ArrayList mantenibilidadInterna;
+        private ArrayList mantenibilidadExterna;
+
+        private int indexFunInt;
+        private int indexFunExt;
+        private int indexUsaInt;
+        private int indexUsaExt;
+        private int indexManint;
+        private int indexManExt;
+
+        private bool isFunIntAct;
+        private bool isFunExtAct;
+        private bool isUsaIntAct;
+        private bool isUsaExtAct;
+        private bool isManIntAct;
+        private bool isManExtAct;
+
         public SeleccionMetricasPage()
         {
             InitializeComponent();
+            inicializarEstadoCaracteristica();
+            inicializarIndexListas();
             cargarJsonMetricas();
         }
 
@@ -36,8 +59,37 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public JMantenibilidad ManInt { get => manInt; set => manInt = value; }
         public JMantenibilidad ManExt { get => manExt; set => manExt = value; }
 
+        public ArrayList FuncionalidadInterna { get => funcionalidadInterna; set => funcionalidadInterna = value; }
+        public ArrayList FuncionalidadExterna { get => funcionalidadExterna; set => funcionalidadExterna = value; }
+        public ArrayList UsabilidadInterna { get => usabilidadInterna; set => usabilidadInterna = value; }
+        public ArrayList UsabilidadExterna { get => usabilidadExterna; set => usabilidadExterna = value; }
+        public ArrayList MantenibilidadInterna { get => mantenibilidadInterna; set => mantenibilidadInterna = value; }
+        public ArrayList MantenibilidadExterna { get => mantenibilidadExterna; set => mantenibilidadExterna = value; }
+
 
         // Metodos
+
+        private void inicializarEstadoCaracteristica()
+        {
+            this.isFunIntAct = false;
+            this.isFunExtAct = false;
+            this.isUsaIntAct = false;
+            this.isUsaExtAct = false;
+            this.isManIntAct = false;
+            this.isManExtAct = false;
+
+        }
+
+        private void inicializarIndexListas()
+        {
+            this.indexFunInt = 0;
+            this.indexFunExt = 0;
+            this.indexUsaInt = 0;
+            this.indexUsaExt = 0;
+            this.indexManint = 0;
+            this.indexManExt = 0;
+
+        }
 
         private void cargarJsonMetricas()
         {
@@ -239,59 +291,84 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
+        // Retroceder
+
+        private void retroceder(ref int indice, ArrayList lista)
+        {
+            if (indice - 1 > -1)
+            {
+                indice--;
+                cargarMetrica((JMetrica)lista[indice]);
+
+                if (btnSiguiente.IsEnabled == false)
+                {
+                    btnSiguiente.IsEnabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+                btnAnterior.IsEnabled = false;
+            }
+        }
+
+        // Avanzar
+
+        private void avanzar(ref int indice, ArrayList lista)
+        {
+            if (indice + 1 < lista.Count)
+            {
+                indice++;
+                cargarMetrica((JMetrica)lista[indice]);
+
+                if (btnAnterior.IsEnabled == false)
+                {
+                    btnAnterior.IsEnabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+                btnSiguiente.IsEnabled = false;
+            }
+        }
+
         // Eventos menu flotante
 
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Funcionabilidad Interna";
-            lblPerpectiva.Content = "Interna";
-            cargarFuncionabilidadInterna();
-
-
+            isFunIntAct = true;
+            funcionalidadInterna = cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna");
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Usabilidad Interna";
-            lblPerpectiva.Content = "Interna";
-
-
-
+            isUsaIntAct = true;
+            usabilidadInterna = cargarUsabilidad(usaInt,"Usabilidad Interna", "Interna");
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Mantenibilidad Interna";
-            lblPerpectiva.Content = "Interna";
-
-
-
+            isManIntAct = true;
+            mantenibilidadInterna = cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna");
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Funcionalidad Externa";
-            lblPerpectiva.Content = "Externa";
-
-
+            isFunExtAct = true;
+            funcionalidadExterna = cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa");
         }
-
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Usabilidad Externa";
-            lblPerpectiva.Content = "Externa";
-
-
+            isUsaExtAct = true;
+            usabilidadExterna = cargarUsabilidad(usaExt,"Usabilidad Externa","Externa");
         }
-
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tblckTituloCaracteristica.Text = "Mantenibilidad Externa";
-            lblPerpectiva.Content = "Externa";
-
-
+            isManExtAct = true;
+            mantenibilidadExterna = cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa");
         }
 
 
@@ -311,21 +388,135 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            
+            if (isFunIntAct)
+            {
+                retroceder(ref indexFunInt, funcionalidadInterna);
+            }
+
+            if (isFunExtAct)
+            {
+                retroceder(ref indexFunExt, funcionalidadExterna);
+            }
+
+            if (isUsaIntAct)
+            {
+                retroceder(ref indexUsaInt, usabilidadInterna);
+            }
+
+            if (isUsaExtAct)
+            {
+                retroceder(ref indexUsaExt, usabilidadExterna);
+            }
+
+            if (isManIntAct)
+            {
+                retroceder(ref indexManint, mantenibilidadInterna);
+            }
+
+            if (isManExtAct)
+            {
+                retroceder(ref indexManExt, mantenibilidadExterna);
+            }
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            //cargarusabilidadInterna();
+            if (isFunIntAct)
+            {
+                avanzar(ref indexFunInt, funcionalidadInterna);
+            }
+
+            if (isFunExtAct)
+            {
+                avanzar(ref indexFunExt, funcionalidadExterna);
+            }
+
+            if (isUsaIntAct)
+            {
+                avanzar(ref indexUsaInt, usabilidadInterna);
+            }
+
+            if (isUsaExtAct)
+            {
+                avanzar(ref indexUsaExt, usabilidadExterna);
+            }
+
+            if (isManIntAct)
+            {
+                avanzar(ref indexManint, mantenibilidadInterna);
+            }
+
+            if (isManExtAct)
+            {
+                avanzar(ref indexManExt, mantenibilidadExterna);
+            }
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (isFunIntAct)
+            {
 
+            }
+
+            if (isFunExtAct)
+            {
+
+            }
+
+            if (isUsaIntAct)
+            {
+
+            }
+
+            if (isUsaExtAct)
+            {
+
+            }
+
+            if (isManIntAct)
+            {
+
+            }
+
+            if (isManExtAct)
+            {
+
+            }
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (isFunIntAct)
+            {
+                isFunIntAct = false;
+            }
+
+            if (isFunExtAct)
+            {
+                isFunExtAct = false;
+            }
+
+            if (isUsaIntAct)
+            {
+                isUsaIntAct = false;
+            }
+
+            if (isUsaExtAct)
+            {
+                isUsaExtAct = false;
+            }
+
+            if (isManIntAct)
+            {
+                isManIntAct = false;
+            }
+
+            if (isManExtAct)
+            {
+                isManExtAct = false;
+            }
+
             menuMetricas.IsOpen = true;
         }
 
@@ -344,7 +535,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             {
                 sb.AppendLine("ID: " + subcaracateristica[i].Id);
                 sb.AppendLine("Nombre: " + subcaracateristica[i].Nombre);
-                sb.AppendLine("Metodo: " + subcaracateristica[i].Metodo.Length);
+                sb.AppendLine("Proposito: " + subcaracateristica[i].Proposito.Length);
                 sb.AppendLine("Formula: " + subcaracateristica[i].Formula.Length);
 
                 if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Formula.Length > 1)
@@ -419,5 +610,22 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             }
 
         }
+
+
+
+        /*
+         
+         DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+        if(dialogResult == DialogResult.Yes)
+        {
+            //do something
+        }
+        else if (dialogResult == DialogResult.No)
+        {
+            //do something else
+        }
+         
+         
+         */
     }
 }

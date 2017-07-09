@@ -117,7 +117,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
-    <Compile Include="Archivos\Program.cs" />
     <Compile Include="Caracteristicas\Caracteristica.cs" />
     <Compile Include="JSON\JFuncionabilidad.cs" />
     <Compile Include="JSON\JMantenibilidad.cs" />

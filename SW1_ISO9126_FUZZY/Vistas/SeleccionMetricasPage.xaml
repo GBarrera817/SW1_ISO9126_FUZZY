@@ -22,7 +22,7 @@
         <Label x:Name="lblPerpectiva" Content="Label" FontSize="14" HorizontalAlignment="Left" Margin="168,116,0,0" VerticalAlignment="Top" Width="157"/>
 
         <!-- Detalle de la métrica -->
-        <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133">
+        <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133" BorderBrush="#FF33A133">
             <Expander.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White" Width="320">DETALLES DE LA MÉTRICA</TextBlock>
@@ -45,7 +45,7 @@
  
                 <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="138" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
                 
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133">
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
                     <ScrollViewer HorizontalAlignment="Left" Height="50" Margin="0,0,-2,-4" VerticalAlignment="Top" Width="740">
                         <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="TextBlock" Height="46"/>
                     </ScrollViewer>

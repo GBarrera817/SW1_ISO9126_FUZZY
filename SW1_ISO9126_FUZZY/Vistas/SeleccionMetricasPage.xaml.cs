@@ -50,6 +50,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         }
 
+        // Cargar una metrica
 
         private void cargarMetrica (JMetrica metrica)
         {
@@ -110,22 +111,131 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        private void cargarFuncionabilidadInterna()
+        // Crear listas de metricas por caracteristicas
+
+        private ArrayList cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, string perspectiva)
         {
+            // Etiquetas pricipales 
+            tblckTituloCaracteristica.Text = nombre;
+            lblPerpectiva.Content = perspectiva;
+            lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
-            tblckTituloCaracteristica.Text = "Funcionabilidad Interna";
-            lblPerpectiva.Content = "Interna";
-            lblSubcaracterística.Content = UsaInt.Subcaracteristicas[0];
-
+            // Crear lista de todas las metricas de las caracteristicas
             ArrayList metricas = new ArrayList();
 
-            
-            metricas.Add(funInt.Adecuacion[0]);
-           
+            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
+            {
+                metricas.Add(funcionalidad.Adecuacion[i]);
+            }
 
-            cargarMetrica(funInt.Adecuacion[0]);
+            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
+            {
+                metricas.Add(funcionalidad.Exactitud[i]);
+            }
 
-            //return metricas;
+            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
+            {
+                metricas.Add(funcionalidad.Interoperabilidad[i]);
+            }
+
+            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
+            {
+                metricas.Add(funcionalidad.SeguridadAcceso[i]);
+            }
+
+            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
+            {
+                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
+            }
+
+            // Cargar metrica de primera subcaracteristica
+            cargarMetrica(funcionalidad.Adecuacion[0]);
+
+            return metricas;
+        }
+
+
+        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, string perspectiva)
+        {
+            // Etiquetas pricipales 
+            tblckTituloCaracteristica.Text = nombre;
+            lblPerpectiva.Content = perspectiva;
+            lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
+
+            // Crear lista de todas las metricas de las caracteristicas
+            ArrayList metricas = new ArrayList();
+
+            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
+            {
+                metricas.Add(usabilidad.Comprensibilidad[i]);
+            }
+
+            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
+            {
+                metricas.Add(usabilidad.Aprendizaje[i]);
+            }
+
+            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
+            {
+                metricas.Add(usabilidad.Operabilidad[i]);
+            }
+
+            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
+            {
+                metricas.Add(usabilidad.Atractividad[i]);
+            }
+
+            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
+            {
+                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
+            }
+
+            // Cargar metrica de primera subcaracteristica
+            cargarMetrica(usabilidad.Comprensibilidad[0]);
+
+            return metricas;
+        }
+
+
+        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, string perspectiva)
+        {
+            // Etiquetas pricipales 
+            tblckTituloCaracteristica.Text = nombre;
+            lblPerpectiva.Content = perspectiva;
+            lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
+
+            // Crear lista de todas las metricas de las caracteristicas
+            ArrayList metricas = new ArrayList();
+
+            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
+            {
+                metricas.Add(mantenibilidad.Analizabilidad[i]);
+            }
+
+            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
+            {
+                metricas.Add(mantenibilidad.Modificabilidad[i]);
+            }
+
+            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
+            {
+                metricas.Add(mantenibilidad.Estabilidad[i]);
+            }
+
+            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
+            {
+                metricas.Add(mantenibilidad.Testeabilidad[i]);
+            }
+
+            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
+            {
+                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+            }
+
+            // Cargar metrica de primera subcaracteristica
+            cargarMetrica(mantenibilidad.Analizabilidad[0]);
+
+            return metricas;
         }
 
 
@@ -253,7 +363,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void crearArchivoEstadoMetrica()
         {
-
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
             sb.AppendLine("\n---------------------------- Funcionalidad Interna ----------------------------\n");

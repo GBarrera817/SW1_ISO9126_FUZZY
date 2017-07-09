@@ -152,9 +152,6 @@
     <Compile Include="Vistas\RegistroSWPage.xaml.cs">
       <DependentUpon>RegistroSWPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\ReporteCalidadPage.xaml.cs">
-      <DependentUpon>ReporteCalidadPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
       <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
     </Compile>
@@ -191,10 +188,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\RegistroSWPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\ReporteCalidadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -270,10 +263,7 @@
     <Resource Include="Imagenes\Note-Memo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\report.png" />
+    <Resource Include="Imagenes\Agreement-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,6 +11,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             InitializeComponent();
         }
 
-        
+        private void btnSigSW_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex + 1;
+        }
     }
 }

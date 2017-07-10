@@ -12,7 +12,7 @@
 
     <Grid Background="White">
 
-        <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
+        <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="220,10,236,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Identificación de la Característica y subcaracterítisca asociada --> 
         <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>
@@ -22,7 +22,7 @@
         <Label x:Name="lblPerpectiva" Content="Label" FontSize="14" HorizontalAlignment="Left" Margin="153,87,0,0" VerticalAlignment="Top" Width="209"/>
 
         <!-- Detalle de la métrica -->
-        <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133">
+        <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133" BorderBrush="#FF33A133">
             <Expander.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White" Width="320">DETALLES DE LA MÉTRICA</TextBlock>
@@ -44,8 +44,7 @@
                 </Grid>
 
                 <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="138" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
-
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133">
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
                     <ScrollViewer HorizontalAlignment="Left" Height="50" Margin="0,0,-2,-4" VerticalAlignment="Top" Width="740">
                         <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="TextBlock" Height="46"/>
                     </ScrollViewer>
@@ -107,7 +106,6 @@
                 </Button>
             </Canvas>
         </controls:Flyout>
-
     </Grid>
 
 </Page>

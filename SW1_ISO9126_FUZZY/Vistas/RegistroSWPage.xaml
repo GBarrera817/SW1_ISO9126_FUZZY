@@ -19,18 +19,13 @@
                         <Grid Margin="0,0,0,0">
                             <Label Content="Nombre del Software: " HorizontalAlignment="Left" Margin="58,20,0,0" VerticalAlignment="Top" FontSize="14" Background="Transparent" Foreground="Black"/>
                             <Label Content="Desarrollador(es): " HorizontalAlignment="Left" Margin="58,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,0.577" FontSize="14" Foreground="Black"/>
-                            <Label Content="Descripción del Software: " HorizontalAlignment="Left" Margin="58,151,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Black"/>
+                            <Label Content="Descripción del Software: " HorizontalAlignment="Left" Margin="58,117,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Black"/>
                             <Label Content="Manual de Usuario:" HorizontalAlignment="Left" Margin="58,83,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Black"/>
-                            <Label Content="Tipo de Usuario:" HorizontalAlignment="Left" Margin="58,117,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Black"/>
                             <RadioButton Content="Si" FontSize="14" HorizontalAlignment="Left" Margin="260,94,0,0" VerticalAlignment="Top" Foreground="Black"/>
                             <RadioButton Content="No" FontSize="14" HorizontalAlignment="Left" Margin="322,94,0,0" VerticalAlignment="Top" Foreground="Black"/>
                             <TextBox x:Name="txtnombreSW" FontSize="14" HorizontalAlignment="Left" Height="23" Margin="260,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" controls:TextBoxHelper.ClearTextButton="True"/>
                             <TextBox x:Name="txtDesarrolladores" FontSize="14" HorizontalAlignment="Left" Height="23" Margin="260,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" controls:TextBoxHelper.Watermark="Separados por coma" controls:TextBoxHelper.ClearTextButton="True"/>
-                            <TextBox x:Name="txtDescripcion" FontSize="14"  HorizontalAlignment="Left" Height="84" Margin="260,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" controls:TextBoxHelper.Watermark="Ingrese una breve descripción del producto de software"/>
-                            <ComboBox x:Name="cmbTipoUsuario" FontSize="14" HorizontalAlignment="Left" Margin="260,116,0,0" VerticalAlignment="Top" Width="120">
-                                <ComboBoxItem>Evaluador</ComboBoxItem>
-                                <ComboBoxItem>Desarrollador</ComboBoxItem>
-                            </ComboBox>
+                            <TextBox x:Name="txtDescripcion" FontSize="14"  HorizontalAlignment="Left" Height="84" Margin="260,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" controls:TextBoxHelper.Watermark="Ingrese una breve descripción del producto de software"/>
                         </Grid>
                     </GroupBox>
 
@@ -38,9 +33,11 @@
                         <Grid>
                             <Label Content="Nombre del evaluador: " FontSize="14" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="165" Background="{x:Null}" Height="34"/>
                             <TextBox x:Name="txtNombreEvaluador" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="257,10,0,0" Width="476" controls:TextBoxHelper.ClearTextButton="True"/>
-                            <Label Content="Tipo de evaluador" FontSize="14" HorizontalAlignment="Left" Margin="62,49,0,0" VerticalAlignment="Top" Width="154"/>
-                            <ComboBox x:Name="cmboxTipoEvaluador" HorizontalAlignment="Left" Margin="257,49,0,0" VerticalAlignment="Top" Width="140"/>
-
+                            <Label Content="Tipo de Usuario" FontSize="14" HorizontalAlignment="Left" Margin="62,49,0,0" VerticalAlignment="Top" Width="154"/>
+                            <ComboBox x:Name="cmboxTipoEvaluador" HorizontalAlignment="Left" Margin="257,49,0,0" VerticalAlignment="Top" Width="140" SelectedIndex="0">
+                                <ComboBoxItem>Evaluador</ComboBoxItem>
+                                <ComboBoxItem>Desarrollador</ComboBoxItem>
+                            </ComboBox>
                         </Grid>
                     </GroupBox>
                     <Button Content="Siguiente" FontSize="12" HorizontalAlignment="Left" Margin="692,487,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF33A133" />

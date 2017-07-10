@@ -10,10 +10,13 @@
       Title="MainPage" Width="800" Height="600" Background="#FF353F59">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png"/>
+        </Grid.Background>
 
         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,76,172,90"  />
-        <TextBlock Foreground="White" HorizontalAlignment="Stretch" FontSize="36" Margin="116,19,112,0" TextWrapping="Wrap" Text="Evaluación de Calidad del Software" VerticalAlignment="Top" Height="52" Width="572"/>
-        <Button x:Name="btnComenzarEvaluacion" Content="Iniciar evaluación" HorizontalAlignment="Left" Margin="203,515,0,0" VerticalAlignment="Top" Width="132" Click="btnComenzarEvaluacion_Click"/>
-        <Button x:Name="btnCargarEvaluación" Content="Cargar evaluación" HorizontalAlignment="Left" Margin="443,515,0,0" VerticalAlignment="Top" Width="130" Click="btnCargarEvaluación_Click"/>
+        <TextBlock Foreground="#FF73B3DF" HorizontalAlignment="Stretch" FontSize="36" Margin="126,37,118,0" TextWrapping="Wrap" Text="Evaluación de Calidad del Software" VerticalAlignment="Top" Height="52"/>
+        <Button x:Name="btnComenzarEvaluacion" Content="Iniciar evaluación" HorizontalAlignment="Left" Margin="203,492,0,0" VerticalAlignment="Top" Width="132" Click="btnComenzarEvaluacion_Click"/>
+        <Button x:Name="btnCargarEvaluación" Content="Cargar evaluación" HorizontalAlignment="Left" Margin="443,492,0,0" VerticalAlignment="Top" Width="130" Click="btnCargarEvaluación_Click"/>
     </Grid>
 </Page>

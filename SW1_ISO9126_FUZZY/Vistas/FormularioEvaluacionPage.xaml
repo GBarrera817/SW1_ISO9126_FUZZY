@@ -10,49 +10,87 @@
 
     <Grid>
         <Grid Background="White">
-            <TextBlock FontSize="36" HorizontalAlignment="Left" Margin="194,10,0,0" TextWrapping="Wrap" Text="Formulario de evaluación" VerticalAlignment="Top" Width="408" Foreground="#FF209FC1"/>
+            <TextBlock FontSize="36" HorizontalAlignment="Left" Margin="194,10,0,0" TextWrapping="Wrap" Text="Formulario de evaluación" VerticalAlignment="Top" Width="408" Foreground="#FF149FDA"/>
             <!-- Características Internas -->
             <GroupBox Header="Características Internas" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" OpacityMask="Black" Background="#FF33A133" BorderBrush="#FF33A133">
                 <Grid>
-                    <Label x:Name="lblEstadoFuncInterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="74,-3,0,0" VerticalAlignment="Top" Width="140"/>
-                    <controls:Tile x:Name="btnFuncInterna" Title="Funcionabilidad" Margin="74,28,554,44" Click="btnFuncInterna_Click" Background="#FFFF3A00">
+                    <Grid Margin="74,8,554,179" Background="#FF353F59" >
+                        <Label x:Name="lblEstadoFuncInterna" FontSize="12" Content="Estado" VerticalAlignment="Center" Width="140" Foreground="White" Height="25" HorizontalContentAlignment="Center" />
+                    </Grid>
+                    <controls:Tile x:Name="btnFuncInterna" Title="Funcionabilidad" Margin="74,40,554,32" Click="btnFuncInterna_Click" Background="#FFFF3A00" BorderBrush="#FF009976">
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Stretch="Fill" />
                     </controls:Tile>
-                    <Label x:Name="cantFuncInterna" Content="10/19" Margin="118,168,610,17" />
+                    <Label x:Name="cantFuncInterna" Content="10/19" Margin="118,180,610,5" />
 
-                    <Label x:Name="lblEstadoUsabInterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="328,-3,0,0" VerticalAlignment="Top" Width="140"/>
-                    <controls:Tile x:Name="btnUsabInterna" Title="Usabilidad" Margin="328,28,300,44" TiltFactor="6" Click="btnUsabInterna_Click" Background="#FFFF3A00">
+                    <Grid Margin="328,8,300,179" Background="#FF353F59" >
+                        <Label x:Name="lblEstadoUsabInterna" Foreground="White" FontSize="12" Content="Estado" HorizontalAlignment="Left" Width="140" BorderBrush="White" HorizontalContentAlignment="Center"/>
+                    </Grid>
+
+                    <controls:Tile x:Name="btnUsabInterna" Title="Usabilidad" Margin="328,40,300,32" TiltFactor="6" Click="btnUsabInterna_Click" Background="#FFFF3A00">
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" />
                     </controls:Tile>
-                    <Label x:Name="cantUsabInterna" Content="10/19" Margin="378,168,350,17" />
+                    <Label x:Name="cantUsabInterna" Content="10/19" Margin="378,180,350,5" />
 
-                    <Label x:Name="lblEstadoMantInterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="575,-3,0,0" VerticalAlignment="Top" Width="140"/>
-                    <controls:Tile x:Name="btnMantInterna" Title="Mantenibilidad" Margin="575,28,53,44" Click="btnMantInterna_Click" Background="#FFFF3A00" >
+                    <Grid Margin="575,8,53,179" Background="#FF353F59">
+                        <Label x:Name="lblEstadoMantInterna" FontSize="12" Content="Estado" VerticalAlignment="Center" Foreground="White" Height="25" HorizontalContentAlignment="Center" />
+                    </Grid>
+
+                    <controls:Tile x:Name="btnMantInterna" Title="Mantenibilidad" Margin="575,40,53,28" Click="btnMantInterna_Click" Background="#FFFF3A00" >
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" />
                     </controls:Tile>
-                    <Label x:Name="cantMantInterna" Content="10/19" Margin="625,168,103,17" />
+                    <Label x:Name="cantMantInterna" Content="10/19" Margin="625,180,103,5" />
                 </Grid>
             </GroupBox>
             <!-- Características Externas -->
             <GroupBox Header="Características Externas" HorizontalAlignment="Left" Height="251" Margin="10,323,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                 <Grid>
-                    <Label x:Name="lblEstadoFuncExterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="74,4,0,0" VerticalAlignment="Top" Background="White"/>
-                    <controls:Tile x:Name="btnFuncExterna" Title="Funcionabilidad" Margin="74,30,554,42" Click="btnFuncExterna_Click" Background="#FFFF3A00">
+                    <Grid Margin="74,4,554,182" Background="#FF353F59">
+                        <Label x:Name="lblEstadoFuncExterna" FontSize="12" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" Width="140" Height="26"/>
+                    </Grid>
+
+
+                    <controls:Tile x:Name="btnFuncExterna" Title="Funcionabilidad" Margin="74,37,554,35" Click="btnFuncExterna_Click" Background="#FFFF3A00">
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png" />
                     </controls:Tile>
-                    <Label x:Name="cantFuncExterna" Content="10/19" Margin="118,175,610,10" />
+                    <Label x:Name="cantFuncExterna" Content="10/19" Margin="117,177,611,8" />
 
-                    <Label x:Name="lblEstadoUsabExterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="140"/>
-                    <controls:Tile x:Name="btnUsabExterna" Title="Usabilidad" Margin="325,28,303,44" Click="btnUsabExterna_Click" Background="#FFFF3A00">
+
+                    <Grid Margin="325,4,303,182" Background="#FF353F59" >
+                        <Label x:Name="lblEstadoUsabExterna" FontSize="12" Content="Estado" VerticalAlignment="Top" Height="26" Foreground="White" HorizontalContentAlignment="Center"/>
+
+                    </Grid>
+                    <controls:Tile x:Name="btnUsabExterna" Title="Usabilidad" Margin="325,35,303,37" Click="btnUsabExterna_Click" Background="#FFFF3A00">
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" />
                     </controls:Tile>
-                    <Label x:Name="cantUsabExterna" Content="10/19" Margin="372,173,356,12" />
+                    <Label x:Name="cantUsabExterna" Content="10/19" Margin="371,175,357,10" />
 
-                    <Label x:Name="lblEstadoMantExterna" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="578,4,0,0" VerticalAlignment="Top"/>
-                    <controls:Tile x:Name="btnMantExterna" Title="Mantenibilidad" Margin="578,28,50,44" Click="btnMantExterna_Click" Background="#FFFF3A00">
+
+                    <Grid Margin="578,4,50,182" Background="#FF353F59" >
+                        <Label x:Name="lblEstadoMantExterna" FontSize="12" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" Width="140" Height="26"/>
+
+                    </Grid>
+                    <controls:Tile x:Name="btnMantExterna" Title="Mantenibilidad" Margin="578,35,50,37" Click="btnMantExterna_Click" Background="#FFFF3A00">
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" />
                     </controls:Tile>
-                    <Label x:Name="cantMantExterna" Content="10/19" Margin="630,173,98,12" />
+                    <Label x:Name="cantMantExterna" Content="10/19" Margin="629,175,99,10" />
                 </Grid>
             </GroupBox>
         </Grid>

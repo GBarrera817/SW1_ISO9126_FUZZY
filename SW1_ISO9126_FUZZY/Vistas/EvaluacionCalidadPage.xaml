@@ -27,7 +27,8 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
-                                <DataGridTextColumn Header="Valor Real"/>
+                                <DataGridTextColumn Header="Grado importancia"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
                             </DataGrid.Columns>
                             <ScrollViewer>
 
@@ -44,6 +45,12 @@
                         </GroupBox.Header>
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="subcaracterística"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                            </DataGrid.Columns>
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
@@ -61,6 +68,11 @@
                         </GroupBox.Header>
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Característica"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                            </DataGrid.Columns>
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
@@ -74,6 +86,11 @@
                         </GroupBox.Header>
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                            </DataGrid.Columns>
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
@@ -83,37 +100,41 @@
             </TabItem>
             <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final" Margin="10,0,-3,0">
                 <Grid Background="White">
-                    <GroupBox Height="207" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="154" Margin="10,10,418,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
-                                <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="661"/>
+                                <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="260"/>
                                 <Button x:Name="btnCalcCalidadInterna" Content="Calcular" Width="70" />
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,25">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="atributo"/>
+                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                            </DataGrid.Columns>
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <GroupBox Height="207" Margin="10,222,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="435" Margin="387,10,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
-                                <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="661"/>
+                                <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="280"/>
                                 <Button x:Name="btnGenerarPDF" Content="Crear PDF" Width="70" />
                             </StackPanel>
                         </GroupBox.Header>
-
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <ScrollViewer></ScrollViewer>
-                        </DataGrid>
+                        <Calendar Margin="203,38,9,168"/>
                     </GroupBox>
 
-                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="679,449,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
+                    <GroupBox Header="observaciones evaluacion del software" HorizontalAlignment="Left" Margin="10,169,0,55" Width="372" Background="#FF33A133" BorderBrush="#FF33A133"/>
+
+                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="117,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
+                    <ScrollViewer HorizontalAlignment="Left" Height="248" Margin="10,197,0,0" VerticalAlignment="Top" Width="372">
+                        <TextBox Height="244" TextWrapping="Wrap" Text="" Width="351"/>
+                    </ScrollViewer>
 
                 </Grid>
             </TabItem>
-
-
         </controls:MetroAnimatedSingleRowTabControl>
     </Grid>
 </Page>

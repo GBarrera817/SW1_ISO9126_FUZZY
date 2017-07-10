@@ -21,8 +21,8 @@ namespace SW1_ISO9126_FUZZY.JSON
         {
             this.subcaracteristicas = new string[] {"Comprensibilidad",
                                                     "Aprendizaje",
-                                                    "Estabilidad",
                                                     "Operabilidad",
+                                                    "Atractividad",
                                                     "Cumplimiento Usabilidad"
                                                    };
         }

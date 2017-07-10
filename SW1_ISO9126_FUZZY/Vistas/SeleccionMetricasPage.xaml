@@ -14,12 +14,12 @@
 
         <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
-        <!-- Identificación de la Característica y subcaracterítisca asociada-->
+        <!-- Identificación de la Característica y subcaracterítisca asociada --> 
         <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>
-        <Label x:Name="lblTipoSubcaracteristica" FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="40,87,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="168,87,0,0" VerticalAlignment="Top" Width="166"/>
-        <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="40,116,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblPerpectiva" Content="Label" FontSize="14" HorizontalAlignment="Left" Margin="168,116,0,0" VerticalAlignment="Top" Width="157"/>
+        <Label FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSubcaracterística" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="153,116,0,0" VerticalAlignment="Top" Width="264"/>
+        <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="25,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPerpectiva" Content="Label" FontSize="14" HorizontalAlignment="Left" Margin="153,87,0,0" VerticalAlignment="Top" Width="209"/>
 
         <!-- Detalle de la métrica -->
         <Expander x:Name="expDetMet" Margin="10,154,10,54" Background="#FF33A133">
@@ -33,18 +33,18 @@
 
             <StackPanel Margin="10,0,-2,0" Height="355">
                 <Grid Height="122">
-                    <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="14,2,0,0" VerticalAlignment="Top"/>
-                    <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="14,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
-                    <Label FontSize="14" Content="Metodo:" HorizontalAlignment="Left" Margin="14,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
-                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="48,2,0,0" VerticalAlignment="Top" Width="54"/>
-                    <Label x:Name="lblNombreMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="181,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="569"/>
+                    <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="-1,2,0,0" VerticalAlignment="Top"/>
+                    <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="-1,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
+                    <Label FontSize="14" Content="Metodo:" HorizontalAlignment="Left" Margin="-1,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
+                    <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="33,2,0,0" VerticalAlignment="Top" Width="54"/>
+                    <Label x:Name="lblNombreMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="159,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="569"/>
                     <ScrollViewer Margin="96,69,10,10" BorderBrush="Aquamarine" BorderThickness="1">
                         <TextBlock x:Name="txbkMetodo" Width="635" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
                     </ScrollViewer>
                 </Grid>
- 
+
                 <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="138" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
-                
+
                 <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133">
                     <ScrollViewer HorizontalAlignment="Left" Height="50" Margin="0,0,-2,-4" VerticalAlignment="Top" Width="740">
                         <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="TextBlock" Height="46"/>
@@ -59,7 +59,7 @@
         <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="497,557,0,0" VerticalAlignment="Top" Width="190" Click="btnSiguiente_Click"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="622,87,0,0" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click"/>
         <Button x:Name="btnTerminar" Content="Terminar" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75" Click="btnTerminar_Click"/>
-        
+
         <!-- Flyout Selección de métricas -->
         <controls:Flyout x:Name="menuMetricas" Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="False" Background="#FF2D364C" CloseButtonVisibility="Visible">
             <Canvas>

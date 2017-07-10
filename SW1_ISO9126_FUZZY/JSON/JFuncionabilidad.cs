@@ -18,7 +18,7 @@ namespace SW1_ISO9126_FUZZY.JSON
 
         public JFuncionabilidad()
         {
-            this.subcaracteristicas = new string[] {"Adecuacion",
+            this.subcaracteristicas = new string[] {"Adecuación",
                                                     "Exactitud",
                                                     "Interoperabilidad",
                                                     "Seguridad Acceso",

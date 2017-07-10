@@ -108,7 +108,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,25">
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="atributo"/>
                                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
@@ -123,12 +123,11 @@
                                 <Button x:Name="btnGenerarPDF" Content="Crear PDF" Width="70" />
                             </StackPanel>
                         </GroupBox.Header>
-                        <Calendar Margin="203,38,9,168"/>
                     </GroupBox>
 
                     <GroupBox Header="observaciones evaluacion del software" HorizontalAlignment="Left" Margin="10,169,0,55" Width="372" Background="#FF33A133" BorderBrush="#FF33A133"/>
 
-                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="117,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
+                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="150,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
                     <ScrollViewer HorizontalAlignment="Left" Height="248" Margin="10,197,0,0" VerticalAlignment="Top" Width="372">
                         <TextBox Height="244" TextWrapping="Wrap" Text="" Width="351"/>
                     </ScrollViewer>

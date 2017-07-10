@@ -14,7 +14,7 @@
             <!-- Características Internas -->
             <GroupBox Header="Características Internas" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" OpacityMask="Black" Background="#FF33A133" BorderBrush="#FF33A133">
                 <Grid>
-                    <Grid Margin="75,8,553,179" Background="#FF353F59" >
+                    <Grid Margin="75,8,553,179" Background="#FF353F59">
                         <Label x:Name="lblEstadoFuncInterna" FontSize="12" Content="Estado" VerticalAlignment="Center" Width="140" Foreground="White" Height="25" HorizontalContentAlignment="Center" />
                     </Grid>
                     <controls:Tile x:Name="btnFuncInterna" HorizontalTitleAlignment="Center"  Title="Funcionabilidad" Margin="75,40,553,32" Click="btnFuncInterna_Click" Background="#FFFF3A00" BorderBrush="#FF009976">

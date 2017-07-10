@@ -52,13 +52,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnAnterior_Click(object sender, RoutedEventArgs e)
 		{
-			if(e.OriginalSource != sender)
+			/*if(e.OriginalSource != sender)
 			{
 				e.Handled = true;
 			}
 			else{
 				MessageBox.Show("Hola");
-			}
+			}*/
 		}
 
 		private void btnFinalizarCuestionario_Click(object sender, RoutedEventArgs e)
@@ -68,8 +68,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
     
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+        }
     
 	}
 }

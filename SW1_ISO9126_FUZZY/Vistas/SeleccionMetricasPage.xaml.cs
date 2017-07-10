@@ -517,7 +517,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 isManExtAct = false;
             }
 
-            menuMetricas.IsOpen = true;
+            //menuMetricas.IsOpen = true;
         }
 
         // Revisar metricas

@@ -152,6 +152,9 @@
     <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
       <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\VistaPreviaSeleccionMetricaPage.xaml.cs">
+      <DependentUpon>VistaPreviaSeleccionMetricaPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\SeleccionMetricasPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VistaPreviaSeleccionMetricaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,7 +249,6 @@
     <Resource Include="Imagenes\logo4btnrel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Branch-Engineering.png" />
     <Resource Include="Imagenes\Data-Edit.png" />
     <Resource Include="Imagenes\Gear.png" />
     <Resource Include="Imagenes\Hand-Sign-06.png" />
@@ -257,10 +263,28 @@
     <Resource Include="Imagenes\iso-logo-9126.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Note-Memo.png" />
+    <Resource Include="Imagenes\Agreement-01.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Agreement-01.png" />
+    <Resource Include="Imagenes\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\OData-Edit.png" />
+    <Resource Include="Imagenes\OEditor.png" />
+    <Resource Include="Imagenes\OGear.png" />
+    <Resource Include="Imagenes\OHand-Sign-06.png" />
+    <Resource Include="Imagenes\OToolbox.png" />
+    <Resource Include="Imagenes\OTools-01.png" />
+    <Resource Include="Imagenes\OTouch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Branch-Engineering.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\OBranch-Engineering.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

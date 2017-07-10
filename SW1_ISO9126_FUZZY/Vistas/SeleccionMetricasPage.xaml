@@ -12,7 +12,7 @@
 
     <Grid Background="White">
 
-        <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="239,10,288,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
+        <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="220,10,236,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Identificación de la Característica y subcaracterítisca asociada-->
         <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>

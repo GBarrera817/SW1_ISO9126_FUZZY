@@ -286,5 +286,8 @@
   <ItemGroup>
     <Resource Include="Imagenes\OBranch-Engineering.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

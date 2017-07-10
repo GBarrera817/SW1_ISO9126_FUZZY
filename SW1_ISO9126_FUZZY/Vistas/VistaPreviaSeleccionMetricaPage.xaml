@@ -80,11 +80,7 @@
                 </Button>
 
                 <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="134,9,10,10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Subcaracterística" CanUserSort="False" CanUserReorder="False"/>
-                        <DataGridTextColumn Header="Seleccionadas" CanUserSort="False" CanUserReorder="False" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Total" CanUserSort="False" CanUserReorder="False" />
-                    </DataGrid.Columns>
+                    
                 </DataGrid>
             </Grid>
         </GroupBox>

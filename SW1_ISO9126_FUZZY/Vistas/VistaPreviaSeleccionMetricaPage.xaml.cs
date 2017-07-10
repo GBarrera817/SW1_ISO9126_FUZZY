@@ -46,7 +46,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			InitializeComponent();
             inicializarListas();
             cargarJsonMetricas();
-            cargarFuncionabilidad(funInt);
+            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
 
 
@@ -72,7 +73,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad)
+        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
@@ -81,12 +82,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             //DataGrid tabla = new DataGrid();
 
-            DataGridEstadoMetricasInternas.ItemsSource = dtColumnas.DefaultView;
+            tabla.ItemsSource = dtColumnas.DefaultView;
             /*DataGridEstadoMetricasInternas.Columns[0].Header = "Subcaracterística";
             DataGridEstadoMetricasInternas.Columns[1].Header = "Seleccionadas";
             DataGridEstadoMetricasInternas.Columns[2].Header = "Total";*/
 
-            dtColumnas.Rows.Add(new object[] {funcionalidad.Subcaracteristicas[0], 0 , funcionalidad.Adecuacion.Length});
+            dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[0], 0, funcionalidad.Adecuacion.Length});
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[1], 0, funcionalidad.Exactitud.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[2], 0, funcionalidad.Interoperabilidad.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[3], 0, funcionalidad.SeguridadAcceso.Length });
@@ -95,73 +96,39 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private void cargarUsabilidad(JUsabilidad usabilidad)
+        private void cargarUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
+            tabla.ItemsSource = dtColumnas.DefaultView;
 
-            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[0], 0, usabilidad.Comprensibilidad.Length });
-            }
-
-            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[1], 0, usabilidad.Aprendizaje.Length });
-            }
-
-            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[2], 0, usabilidad.Operabilidad.Length });
-            }
-
-            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[3], 0, usabilidad.Atractividad.Length });
-            }
-
-            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[4], 0, usabilidad.CumplimientoUsabilidad.Length });
-            }
+            dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[0], 0, usabilidad.Comprensibilidad.Length });
+            dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[1], 0, usabilidad.Aprendizaje.Length });
+            dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[2], 0, usabilidad.Operabilidad.Length });
+            dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[3], 0, usabilidad.Atractividad.Length });
+            dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[4], 0, usabilidad.CumplimientoUsabilidad.Length });
+            
         }
 
 
-        private void cargarMantenibilidad(JMantenibilidad mantenibilidad)
+        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
+            tabla.ItemsSource = dtColumnas.DefaultView;
 
-            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[0], 0, mantenibilidad.Analizabilidad.Length });
-            }
-
-            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[1], 0, mantenibilidad.Modificabilidad.Length });
-            }
-
-            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[2], 0, mantenibilidad.Estabilidad.Length });
-            }
-
-            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[3], 0, mantenibilidad.Testeabilidad.Length });
-            }
-
-            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
-            {
-                dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });
-            }
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[0], 0, mantenibilidad.Analizabilidad.Length });        
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[1], 0, mantenibilidad.Modificabilidad.Length });
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[2], 0, mantenibilidad.Estabilidad.Length });
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[3], 0, mantenibilidad.Testeabilidad.Length });
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });
+            
         }
 
 
@@ -174,32 +141,38 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarFuncionabilidad(funInt);
+     
+            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+
         }
 
 		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarUsabilidad(usaInt);
+            
+            cargarUsabilidad(usaInt, DataGridEstadoMetricasInternas);
         }
 
 		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarMantenibilidad(manInt);
+            
+            cargarMantenibilidad(manInt, DataGridEstadoMetricasInternas);
         }
+
+
 
 		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+        }
 
 		private void btnEstadoUsabExterna_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            cargarUsabilidad(usaExt, DataGridEstadoMetricasExternas);
+        }
 
 		private void btnEstadoMantExterna_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            cargarMantenibilidad(manExt, DataGridEstadoMetricasExternas);
+        }
 	}
 }

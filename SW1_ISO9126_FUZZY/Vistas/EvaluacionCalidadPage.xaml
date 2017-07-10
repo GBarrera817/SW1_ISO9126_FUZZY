@@ -10,12 +10,12 @@
       Title="EvaluacionCalidadPage" Width="800" Height="600">
 
     <Grid Background="White">
-        <TextBlock FontSize="42" HorizontalAlignment="Center" Margin="213,0,181,0" TextWrapping="Wrap" Text="Evaluación de Calidad" VerticalAlignment="Top" Width="406" Foreground="#FF76B4DF"/>
+        <TextBlock FontSize="36" HorizontalAlignment="Center" Margin="239,10,210,0" TextWrapping="Wrap" Text="Evaluación de Calidad" VerticalAlignment="Top" Width="351" Foreground="#FF76B4DF"/>
 
         <controls:MetroAnimatedSingleRowTabControl x:Name="tabControlEvaluacionCalidad" HorizontalAlignment="Left" Margin="0,61,0,0" Width="800">
-            <TabItem x:Name="tabSucaracteristica" Header="N. Subcaracterísticas">
+            <TabItem x:Name="tabSucaracteristica" Header="N. Subcaracterísticas" Margin="10,0,-7,0">
                 <Grid Background="White">
-                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,0,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
@@ -28,7 +28,7 @@
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,212,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,229,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
@@ -40,10 +40,10 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" HorizontalAlignment="Left" Margin="680,449,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCaracterística_Click"/>
+                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" HorizontalAlignment="Left" Margin="688,463,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCaracterística_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabCaracteristicas" Header="N. Características">
+            <TabItem x:Name="tabCaracteristicas" Header="N. Características" Margin="12,0,-7,0">
                 <Grid Background="White">
                     <GroupBox HorizontalAlignment="Left" Height="157" Margin="10,61,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
@@ -74,7 +74,7 @@
                     <Button x:Name="btnAnteriorSubcaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="555,449,0,0" VerticalAlignment="Top" Width="75" Click="btnAnteriorSubcaracteristica_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final">
+            <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final" Margin="10,0,-3,0">
                 <Grid Background="White">
                     <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,34,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
@@ -89,8 +89,11 @@
                         </DataGrid>
                     </GroupBox>
                     <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="555,449,0,0" VerticalAlignment="Top" Width="75" Click="btnAnteriorCaracteristica_Click"/>
-                    <controls:Tile x:Name="tileGenerarPDF" Title="Generar PDF" Click="tileGenerarPDF_Click" Margin="385,276,297,101" Background="#FF33A133" BorderBrush="Black" Height="Auto" Width="Auto" >
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Agreement-01.png" />
+                    <controls:Tile x:Name="tileGenerarPDF" Title="Generar PDF" Click="tileGenerarPDF_Click" Margin="385,276,297,101" Background="#FFFF3A00" BorderBrush="Black" Height="Auto" Width="Auto" >
+                        <controls:Tile.Effect>
+                            <DropShadowEffect ShadowDepth="3"/>
+                        </controls:Tile.Effect>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Agreement.png" />
                     </controls:Tile>
 
 

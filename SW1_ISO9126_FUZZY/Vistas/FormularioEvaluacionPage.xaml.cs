@@ -21,27 +21,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnMantInterna_Click(object sender, RoutedEventArgs e)
         {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn mant interna");
+            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnUsabInterna_Click(object sender, RoutedEventArgs e)
         {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn usab interna");
+            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnFuncExterna_Click(object sender, RoutedEventArgs e)
         {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn func externa");
+            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnMantExterna_Click(object sender, RoutedEventArgs e)
         {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn mant externa");
+            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
 
         private void btnUsabExterna_Click(object sender, RoutedEventArgs e)
         {
-            Xceed.Wpf.Toolkit.MessageBox.Show("btn usab externa");
+            // Xceed.Wpf.Toolkit.MessageBox.Show("btn usab externa");
+            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
     }
 }

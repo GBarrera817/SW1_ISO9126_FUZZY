@@ -24,11 +24,18 @@
                         </GroupBox.Header>
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <ScrollViewer></ScrollViewer>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Subcaracterística"/>
+                                <DataGridTextColumn Header="Característica"/>
+                                <DataGridTextColumn Header="Valor Real"/>
+                            </DataGrid.Columns>
+                            <ScrollViewer>
+
+                            </ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,229,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,222,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
@@ -40,7 +47,7 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" HorizontalAlignment="Left" Margin="688,463,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCaracterística_Click"/>
+                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" HorizontalAlignment="Left" Margin="676,456,0,0" VerticalAlignment="Top" Width="75" Click="btnSiguienteCaracterística_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCaracteristicas" Header="N. Características" Margin="12,0,-7,0">
@@ -76,7 +83,7 @@
             </TabItem>
             <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final" Margin="10,0,-3,0">
                 <Grid Background="White">
-                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,34,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="207" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="661"/>
@@ -88,13 +95,21 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
+                    <GroupBox Height="207" Margin="10,222,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="661"/>
+                                <Button x:Name="btnGenerarPDF" Content="Generar PDF" Width="83" />
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer></ScrollViewer>
+                        </DataGrid>
+                    </GroupBox>
+
                     <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="555,449,0,0" VerticalAlignment="Top" Width="75" Click="btnAnteriorCaracteristica_Click"/>
-                    <controls:Tile x:Name="tileGenerarPDF" Title="Generar PDF" Click="tileGenerarPDF_Click" Margin="385,276,297,101" Background="#FFFF3A00" BorderBrush="Black" Height="Auto" Width="Auto" >
-                        <controls:Tile.Effect>
-                            <DropShadowEffect ShadowDepth="3"/>
-                        </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Agreement.png" />
-                    </controls:Tile>
+                    
 
 
                 </Grid>

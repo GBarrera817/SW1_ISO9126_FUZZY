@@ -31,7 +31,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			openFileDialog1.Multiselect = true;
 
-			// Call the ShowDialog method to show the dialog box.
+			
 
 
 			// Process input if the user clicked OK.

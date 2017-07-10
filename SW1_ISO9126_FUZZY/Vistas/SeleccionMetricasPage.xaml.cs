@@ -28,6 +28,13 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        private ArrayList subCarFunInt;
+        private ArrayList subCarFunExt;
+        private ArrayList subCarUsaInt;
+        private ArrayList subCarUsaExt;
+        private ArrayList subCarManint;
+        private ArrayList subCarManExt;
+
         private int indexFunInt;
         private int indexFunExt;
         private int indexUsaInt;
@@ -45,9 +52,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public SeleccionMetricasPage()
         {
             InitializeComponent();
-            inicializarEstadoCaracteristica();
-            inicializarIndexListas();
-            cargarJsonMetricas();
+            cargarEntorno();
+
         }
 
         // Accesores
@@ -66,8 +72,31 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public ArrayList MantenibilidadInterna { get => mantenibilidadInterna; set => mantenibilidadInterna = value; }
         public ArrayList MantenibilidadExterna { get => mantenibilidadExterna; set => mantenibilidadExterna = value; }
 
+        public ArrayList SubCarFunInt { get => subCarFunInt; set => subCarFunInt = value; }
+        public ArrayList SubCarFunExt { get => subCarFunExt; set => subCarFunExt = value; }
+        public ArrayList SubCarUsaInt { get => subCarUsaInt; set => subCarUsaInt = value; }
+        public ArrayList SubCarUsaExt { get => subCarUsaExt; set => subCarUsaExt = value; }
+        public ArrayList SubCarManint { get => subCarManint; set => subCarManint = value; }
+        public ArrayList SubCarManExt { get => subCarManExt; set => subCarManExt = value; }
+
+
 
         // Metodos
+
+        private void cargarEntorno()
+        {
+            inicializarBotones();
+            inicializarEstadoCaracteristica();
+            inicializarListas();
+            inicializarIndexListas();
+            cargarJsonMetricas();
+        }
+
+        private void inicializarBotones()
+        {
+            btnAnterior.IsEnabled = false;
+            btnSiguiente.IsEnabled = true;
+        }
 
         private void inicializarEstadoCaracteristica()
         {
@@ -78,6 +107,23 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.isManIntAct = false;
             this.isManExtAct = false;
 
+        }
+
+        private void inicializarListas()
+        {
+            this.funcionalidadInterna = new ArrayList();
+            this.funcionalidadExterna = new ArrayList();
+            this.usabilidadInterna = new ArrayList();
+            this.usabilidadExterna = new ArrayList();
+            this.mantenibilidadInterna = new ArrayList();
+            this.mantenibilidadExterna = new ArrayList();
+
+            this.subCarFunInt = new ArrayList();
+            this.subCarFunExt = new ArrayList();
+            this.subCarUsaInt = new ArrayList();
+            this.subCarUsaExt = new ArrayList();
+            this.subCarManint = new ArrayList();
+            this.subCarManExt = new ArrayList();
         }
 
         private void inicializarIndexListas()
@@ -104,7 +150,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Cargar una metrica
 
-        private void cargarMetrica (JMetrica metrica)
+        private void cargarMetrica (JMetrica metrica, string subcaracteristica)
         {
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
@@ -120,6 +166,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             lblIDMetrica.Content = metrica.Id;
             lblNombreMetrica.Content = metrica.Nombre;
+            lblSubcaracterística.Content = subcaracteristica;
             txbkMetodo.Text = metrica.Metodo;
 
             preguntas = metrica.Proposito.Length;
@@ -163,142 +210,155 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        // Crear listas de metricas por caracteristicas
+        // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
 
-        private ArrayList cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, string perspectiva)
+        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, string perspectiva, ArrayList subcaracteristicas, ArrayList metricas)
         {
             // Etiquetas pricipales 
             tblckTituloCaracteristica.Text = nombre;
             lblPerpectiva.Content = perspectiva;
             lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
-            // Crear lista de todas las metricas de las caracteristicas
-            ArrayList metricas = new ArrayList();
-
             for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
             {
                 metricas.Add(funcionalidad.Adecuacion[i]);
+                subcaracteristicas.Add(funcionalidad.Subcaracteristicas[0]);
             }
 
             for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
             {
                 metricas.Add(funcionalidad.Exactitud[i]);
+                subcaracteristicas.Add(funcionalidad.Subcaracteristicas[1]);
             }
 
             for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
             {
                 metricas.Add(funcionalidad.Interoperabilidad[i]);
+                subcaracteristicas.Add(funcionalidad.Subcaracteristicas[2]);
             }
 
             for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
             {
                 metricas.Add(funcionalidad.SeguridadAcceso[i]);
+                subcaracteristicas.Add(funcionalidad.Subcaracteristicas[3]);
             }
 
             for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
             {
                 metricas.Add(funcionalidad.CumplimientoFuncional[i]);
+                subcaracteristicas.Add(funcionalidad.Subcaracteristicas[4]);
             }
 
             // Cargar metrica de primera subcaracteristica
-            cargarMetrica(funcionalidad.Adecuacion[0]);
+            cargarMetrica(funcionalidad.Adecuacion[0],funcionalidad.Subcaracteristicas[0]);
 
-            return metricas;
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, string perspectiva)
+        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, string perspectiva, ArrayList subcaracteristicas, ArrayList metricas)
         {
             // Etiquetas pricipales 
             tblckTituloCaracteristica.Text = nombre;
             lblPerpectiva.Content = perspectiva;
             lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
 
-            // Crear lista de todas las metricas de las caracteristicas
-            ArrayList metricas = new ArrayList();
 
             for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
             {
                 metricas.Add(usabilidad.Comprensibilidad[i]);
+                subcaracteristicas.Add(usabilidad.Subcaracteristicas[0]);
             }
 
             for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
             {
                 metricas.Add(usabilidad.Aprendizaje[i]);
+                subcaracteristicas.Add(usabilidad.Subcaracteristicas[1]);
             }
 
             for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
             {
                 metricas.Add(usabilidad.Operabilidad[i]);
+                subcaracteristicas.Add(usabilidad.Subcaracteristicas[2]);
             }
 
             for (int i = 0; i < usabilidad.Atractividad.Length; i++)
             {
                 metricas.Add(usabilidad.Atractividad[i]);
+                subcaracteristicas.Add(usabilidad.Subcaracteristicas[3]);
             }
 
             for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
             {
                 metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
+                subcaracteristicas.Add(usabilidad.Subcaracteristicas[4]);
             }
 
             // Cargar metrica de primera subcaracteristica
-            cargarMetrica(usabilidad.Comprensibilidad[0]);
+            cargarMetrica(usabilidad.Comprensibilidad[0],usabilidad.Subcaracteristicas[0]);
 
             return metricas;
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, string perspectiva)
+        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, string perspectiva, ArrayList subcaracteristicas, ArrayList metricas)
         {
             // Etiquetas pricipales 
             tblckTituloCaracteristica.Text = nombre;
             lblPerpectiva.Content = perspectiva;
             lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
-            // Crear lista de todas las metricas de las caracteristicas
-            ArrayList metricas = new ArrayList();
 
             for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
             {
                 metricas.Add(mantenibilidad.Analizabilidad[i]);
+                subcaracteristicas.Add(mantenibilidad.Subcaracteristicas[0]);
             }
 
             for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
             {
                 metricas.Add(mantenibilidad.Modificabilidad[i]);
+                subcaracteristicas.Add(mantenibilidad.Subcaracteristicas[1]);
             }
 
             for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
             {
                 metricas.Add(mantenibilidad.Estabilidad[i]);
+                subcaracteristicas.Add(mantenibilidad.Subcaracteristicas[2]);
             }
 
             for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
             {
                 metricas.Add(mantenibilidad.Testeabilidad[i]);
+                subcaracteristicas.Add(mantenibilidad.Subcaracteristicas[3]);
             }
 
             for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
             {
                 metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+                subcaracteristicas.Add(mantenibilidad.Subcaracteristicas[4]);
             }
 
             // Cargar metrica de primera subcaracteristica
-            cargarMetrica(mantenibilidad.Analizabilidad[0]);
+            cargarMetrica(mantenibilidad.Analizabilidad[0],mantenibilidad.Subcaracteristicas[0]);
 
             return metricas;
         }
-
+        
 
         // Retroceder
 
-        private void retroceder(ref int indice, ArrayList lista)
+        private void retroceder(ref int indice, ArrayList tipo, ArrayList lista)
         {
-            if (indice - 1 > -1)
+            if ((indice - 1) > -1)
             {
                 indice--;
-                cargarMetrica((JMetrica)lista[indice]);
+
+                if (indice == 0)
+                {
+                    btnAnterior.IsEnabled = false;
+                }
+
+                cargarMetrica((JMetrica)lista[indice], (string)tipo[indice]);
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -314,12 +374,18 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Avanzar
 
-        private void avanzar(ref int indice, ArrayList lista)
+        private void avanzar(ref int indice, ArrayList tipo, ArrayList lista)
         {
-            if (indice + 1 < lista.Count)
+            if ((indice + 1) < lista.Count)
             {
                 indice++;
-                cargarMetrica((JMetrica)lista[indice]);
+
+                if (indice == (lista.Count - 1))
+                {
+                    btnSiguiente.IsEnabled = false;
+                }
+
+                cargarMetrica((JMetrica)lista[indice], (string)tipo[indice]);
 
                 if (btnAnterior.IsEnabled == false)
                 {
@@ -337,38 +403,44 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isFunIntAct = true;
-            funcionalidadInterna = cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna");
+            cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna",subCarFunInt,funcionalidadInterna);
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isUsaIntAct = true;
-            usabilidadInterna = cargarUsabilidad(usaInt,"Usabilidad Interna", "Interna");
+            cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",subCarUsaInt,usabilidadInterna);
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isManIntAct = true;
-            mantenibilidadInterna = cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna");
+            cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna",subCarManint,mantenibilidadInterna);
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isFunExtAct = true;
-            funcionalidadExterna = cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa");
+            cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa",subCarFunExt,funcionalidadExterna);
         }
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isUsaExtAct = true;
-            usabilidadExterna = cargarUsabilidad(usaExt,"Usabilidad Externa","Externa");
+            cargarUsabilidad(usaExt,"Usabilidad Externa","Externa",subCarUsaExt, usabilidadExterna);
         }
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isManExtAct = true;
-            mantenibilidadExterna = cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa");
+            cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa",SubCarManExt,mantenibilidadExterna);
         }
 
 
@@ -390,32 +462,32 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             if (isFunIntAct)
             {
-                retroceder(ref indexFunInt, funcionalidadInterna);
+                retroceder(ref indexFunInt, subCarFunInt, funcionalidadInterna);
             }
 
             if (isFunExtAct)
             {
-                retroceder(ref indexFunExt, funcionalidadExterna);
+                retroceder(ref indexFunExt, subCarFunExt, funcionalidadExterna);
             }
 
             if (isUsaIntAct)
             {
-                retroceder(ref indexUsaInt, usabilidadInterna);
+                retroceder(ref indexUsaInt, subCarUsaInt, usabilidadInterna);
             }
 
             if (isUsaExtAct)
             {
-                retroceder(ref indexUsaExt, usabilidadExterna);
+                retroceder(ref indexUsaExt, subCarUsaExt, usabilidadExterna);
             }
 
             if (isManIntAct)
             {
-                retroceder(ref indexManint, mantenibilidadInterna);
+                retroceder(ref indexManint, subCarManint, mantenibilidadInterna);
             }
 
             if (isManExtAct)
             {
-                retroceder(ref indexManExt, mantenibilidadExterna);
+                retroceder(ref indexManExt, subCarManExt, mantenibilidadExterna);
             }
         }
 
@@ -423,33 +495,33 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             if (isFunIntAct)
             {
-                avanzar(ref indexFunInt, funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                avanzar(ref indexFunExt, funcionalidadExterna);
-            }
-
-            if (isUsaIntAct)
-            {
-                avanzar(ref indexUsaInt, usabilidadInterna);
-            }
-
-            if (isUsaExtAct)
-            {
-                avanzar(ref indexUsaExt, usabilidadExterna);
-            }
-
-            if (isManIntAct)
-            {
-                avanzar(ref indexManint, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                avanzar(ref indexManExt, mantenibilidadExterna);
-            }
+                avanzar(ref indexFunInt,subCarFunInt,funcionalidadInterna);
+            }                           
+                                        
+            if (isFunExtAct)            
+            {                           
+                avanzar(ref indexFunExt,subCarFunExt,funcionalidadExterna);
+            }                           
+                                        
+            if (isUsaIntAct)            
+            {                           
+                avanzar(ref indexUsaInt,subCarUsaInt,usabilidadInterna);
+            }                           
+                                        
+            if (isUsaExtAct)            
+            {                           
+                avanzar(ref indexUsaExt,subCarUsaExt,usabilidadExterna);
+            }                           
+                                        
+            if (isManIntAct)            
+            {                           
+                avanzar(ref indexManint,subCarManint,mantenibilidadInterna);
+            }                           
+                                        
+            if (isManExtAct)            
+            {                           
+                avanzar(ref indexManExt,subCarManExt,mantenibilidadExterna);
+            }                          
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -487,37 +559,46 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+
+
             if (isFunIntAct)
             {
+                indexFunInt = 0;
                 isFunIntAct = false;
             }
 
             if (isFunExtAct)
             {
+                indexFunExt = 0;
                 isFunExtAct = false;
             }
 
             if (isUsaIntAct)
             {
+                indexUsaInt = 0;
                 isUsaIntAct = false;
             }
 
             if (isUsaExtAct)
             {
+                indexUsaExt = 0;
                 isUsaExtAct = false;
             }
 
             if (isManIntAct)
             {
+                indexManint = 0;
                 isManIntAct = false;
             }
 
             if (isManExtAct)
             {
+                indexManExt = 0;
                 isManExtAct = false;
             }
 
-            //menuMetricas.IsOpen = true;
+            // Mostrar menu caracteristicas
+            menuMetricas.IsOpen = true;
         }
 
         // Revisar metricas

@@ -44,7 +44,7 @@
                 <Label x:Name="label1_formula" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.532,0.448"/>
                 <Label FontSize="14" Content="Valor deseable:" HorizontalAlignment="Left" Margin="22,14,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
                 <Label x:Name="lblMejorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="144,14,0,0" VerticalAlignment="Top" Width="60"/>
-                <Label FontSize="14" Content="Valordeficiente :" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold"/>
+                <Label FontSize="14" Content="Valor deficiente :" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold"/>
                 <Label x:Name="lblPeorValor" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="99,254,0,-153" VerticalAlignment="Top" Width="65"/>
                 <Label x:Name="lblDescripParam0" Content="Label" FontSize="14" BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="33" Margin="422,46,0,0" VerticalAlignment="Top" Width="95"/>
                 <Label x:Name="lblDescripParam1" Content="Label" FontSize="14" BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="31" Margin="422,76,0,0" VerticalAlignment="Top" Width="95"/>

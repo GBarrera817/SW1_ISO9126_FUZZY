@@ -63,8 +63,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnFinalizarCuestionario_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+        }
     
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{

@@ -29,6 +29,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
 		{
 			//flyoutSeleccionMetricas.IsOpen = true;
+			this.NavigationService.Navigate(new Uri("Vistas/SeleccionMetricasPage.xaml", UriKind.Relative));
 		}
 
 		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)

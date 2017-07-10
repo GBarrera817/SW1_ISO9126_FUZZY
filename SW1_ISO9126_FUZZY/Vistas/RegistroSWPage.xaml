@@ -15,7 +15,7 @@
         <controls:MetroAnimatedTabControl HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Background="White">
             <TabItem x:Name="tabDatosSoftware" Header="Datos del Software" Background="White" BorderBrush="#FF99332B" >
                 <Grid>
-                    <GroupBox Header="Registro del software" HorizontalAlignment="Left" Height="289" Margin="10,170,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Header="Registro del software" HorizontalAlignment="Left" Height="289" Margin="10,193,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid Margin="0,0,0,0">
                             <Label Content="Nombre del Software: " HorizontalAlignment="Left" Margin="58,20,0,0" VerticalAlignment="Top" FontSize="14" Background="Transparent" Foreground="Black"/>
                             <Label Content="Desarrollador(es): " HorizontalAlignment="Left" Margin="58,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,0.577" FontSize="14" Foreground="Black"/>
@@ -29,12 +29,12 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Datos del evaluador" HorizontalAlignment="Left" Height="155" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Header="Datos del evaluador" HorizontalAlignment="Left" Height="155" Margin="10,21,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid>
-                            <Label Content="Nombre del evaluador: " FontSize="14" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="165" Background="{x:Null}" Height="34"/>
-                            <TextBox x:Name="txtNombreEvaluador" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="257,10,0,0" Width="476" controls:TextBoxHelper.ClearTextButton="True"/>
-                            <Label Content="Tipo de Usuario" FontSize="14" HorizontalAlignment="Left" Margin="62,49,0,0" VerticalAlignment="Top" Width="154"/>
-                            <ComboBox x:Name="cmboxTipoEvaluador" HorizontalAlignment="Left" Margin="257,49,0,0" VerticalAlignment="Top" Width="140" SelectedIndex="0">
+                            <Label Content="Nombre del evaluador: " FontSize="14" HorizontalAlignment="Left" Margin="62,23,0,0" VerticalAlignment="Top" Width="165" Background="{x:Null}" Height="34"/>
+                            <TextBox x:Name="txtNombreEvaluador" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="257,23,0,0" Width="476" controls:TextBoxHelper.ClearTextButton="True"/>
+                            <Label Content="Tipo de Usuario" FontSize="14" HorizontalAlignment="Left" Margin="62,62,0,0" VerticalAlignment="Top" Width="154"/>
+                            <ComboBox x:Name="cmboxTipoEvaluador" HorizontalAlignment="Left" Margin="257,62,0,0" VerticalAlignment="Top" Width="140" SelectedIndex="0">
                                 <ComboBoxItem>Evaluador</ComboBoxItem>
                                 <ComboBoxItem>Desarrollador</ComboBoxItem>
                             </ComboBox>
@@ -45,52 +45,52 @@
             </TabItem>
             <TabItem x:Name="tabImportancia" Header="Grados de Importancia" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="White">
                 <Grid Background="White">
-                    <GroupBox Header="Característica: Funcionalidad" HorizontalAlignment="Left" Height="140" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Header="Característica: Funcionalidad" HorizontalAlignment="Left" Height="140" Margin="10,21,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid>
-                            <Label x:Name="lblFuncionalidad" FontSize="14" Content="Funcionalidad: " HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
-                            <Label x:Name="lblAdecuacion" FontSize="14" Content="Adecuación: " HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblExactitud" FontSize="14" Content="Exactitud: " HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblInteroperabilidad" FontSize="14" Content="Interoperabilidad: " HorizontalAlignment="Left" Margin="296,7,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblSeguridad" FontSize="14" Content="Seguridad de Acceso: " HorizontalAlignment="Left" Margin="296,38,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="Black"/>
-                            <Label x:Name="lblCumpFuncionalidad" FontSize="14" Content="Cumplimiento de Funcionalidad: " HorizontalAlignment="Left" Margin="296,69,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <xctk:DoubleUpDown x:Name="dudFuncionalidad" FontSize="14"  Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Margin="178,10,532,65"/>
-                            <xctk:DoubleUpDown x:Name="dudAdecuacion" FontSize="14" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Margin="178,41,532,34"/>
-                            <xctk:DoubleUpDown x:Name="dudExactitud" FontSize="14" Margin="178,72,532,3" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudInteroperabilidad" FontSize="14" Margin="530,10,180,65" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudSeguridad" FontSize="14" Margin="530,41,180,34" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudCumpFuncionalidad" FontSize="14" Margin="530,72,180,3" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" />
+                            <Label x:Name="lblFuncionalidad" FontSize="14" Content="Funcionalidad: " HorizontalAlignment="Left" Margin="88,7,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+                            <Label x:Name="lblAdecuacion" FontSize="14" Content="Adecuación: " HorizontalAlignment="Left" Margin="88,38,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblExactitud" FontSize="14" Content="Exactitud: " HorizontalAlignment="Left" Margin="88,69,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblInteroperabilidad" FontSize="14" Content="Interoperabilidad: " HorizontalAlignment="Left" Margin="374,7,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblSeguridad" FontSize="14" Content="Seguridad de Acceso: " HorizontalAlignment="Left" Margin="374,38,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="Black"/>
+                            <Label x:Name="lblCumpFuncionalidad" FontSize="14" Content="Cumplimiento de Funcionalidad: " HorizontalAlignment="Left" Margin="374,69,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <xctk:DoubleUpDown x:Name="dudFuncionalidad" FontSize="14"  Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Margin="256,10,454,65"/>
+                            <xctk:DoubleUpDown x:Name="dudAdecuacion" FontSize="14" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Margin="256,41,454,34"/>
+                            <xctk:DoubleUpDown x:Name="dudExactitud" FontSize="14" Margin="256,72,454,3" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudInteroperabilidad" FontSize="14" Margin="608,10,102,65" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudSeguridad" FontSize="14" Margin="608,41,102,34" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudCumpFuncionalidad" FontSize="14" Margin="608,72,102,3" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Característica: Usabilidad" HorizontalAlignment="Left" Height="141" Margin="10,155,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Header="Característica: Usabilidad" HorizontalAlignment="Left" Height="141" Margin="10,166,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid>
-                            <Label x:Name="lblUsabilidad" FontSize="14" Content="Usabilidad: " HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
-                            <Label x:Name="lblAprendizaje" FontSize="14" Content="Aprendizaje: " HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblComprensibilidad" FontSize="14" Content="Comprensibilidad: " HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblOperabilidad" FontSize="14" Content="Operabilidad: " HorizontalAlignment="Left" Margin="303,2,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblAtractividad" FontSize="14" Content="Atractividad: " HorizontalAlignment="Left" Margin="303,36,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblCumpUsabilidad" FontSize="14" Content="Cumplimiento de Usabilidad: " HorizontalAlignment="Left" Margin="303,71,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <xctk:DoubleUpDown x:Name="dudUsabilidad" FontSize="14" Margin="179,3,531,73" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudCumpUsabilidad" FontSize="14" Margin="529,71,181,5" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudAtractividad" FontSize="14" Margin="529,37,181,39" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudOperabilidad" FontSize="14" Margin="529,3,181,73" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudComprensibilidad" FontSize="14" Margin="179,70,531,5" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudAprendizaje" FontSize="14" Margin="179,37,531,39" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <Label x:Name="lblUsabilidad" FontSize="14" Content="Usabilidad: " HorizontalAlignment="Left" Margin="89,3,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+                            <Label x:Name="lblAprendizaje" FontSize="14" Content="Aprendizaje: " HorizontalAlignment="Left" Margin="89,37,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblComprensibilidad" FontSize="14" Content="Comprensibilidad: " HorizontalAlignment="Left" Margin="89,69,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblOperabilidad" FontSize="14" Content="Operabilidad: " HorizontalAlignment="Left" Margin="382,3,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblAtractividad" FontSize="14" Content="Atractividad: " HorizontalAlignment="Left" Margin="382,37,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblCumpUsabilidad" FontSize="14" Content="Cumplimiento de Usabilidad: " HorizontalAlignment="Left" Margin="382,72,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <xctk:DoubleUpDown x:Name="dudUsabilidad" FontSize="14" Margin="258,4,452,72" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudCumpUsabilidad" FontSize="14" Margin="608,72,102,4" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudAtractividad" FontSize="14" Margin="608,38,102,38" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudOperabilidad" FontSize="14" Margin="608,4,102,72" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudComprensibilidad" FontSize="14" Margin="258,71,452,4" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudAprendizaje" FontSize="14" Margin="258,38,452,38" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Característica: Mantenibilidad" HorizontalAlignment="Left" Height="153" Margin="10,301,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Header="Característica: Mantenibilidad" HorizontalAlignment="Left" Height="153" Margin="10,312,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid>
-                            <Label x:Name="lblMantenibilidad" FontSize="14" Content="Mantenibilidad: " HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
-                            <Label x:Name="lblFacAnalisis" FontSize="14" Content="Facilidad de Análisis: " HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblModificabilidad"  FontSize="14" Content="Modificabilidad: " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblEstabilidad" FontSize="14" Content="Estabilidad: " HorizontalAlignment="Left" Margin="303,6,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblTesteabilidad" FontSize="14" Content="Testeabilidad: " HorizontalAlignment="Left" Margin="303,44,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <Label x:Name="lblCumpMantenibilidad" FontSize="14" Content="Cumplimiento de Mantenibilidad: " HorizontalAlignment="Left" Margin="303,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
-                            <xctk:DoubleUpDown x:Name="dudMantenibilidad" FontSize="14" Margin="179,10,531,78" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudCumpMantenibilidad" FontSize="14" Margin="528,81,182,0" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Height="26" VerticalAlignment="Top"/>
-                            <xctk:DoubleUpDown x:Name="dudTesteabilidad" FontSize="14" Margin="527,46,182,42" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudEstabilidad" FontSize="14" Margin="528,10,182,78" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudModificabilidad" FontSize="14" Margin="179,81,531,7" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
-                            <xctk:DoubleUpDown x:Name="dudFacAnalisis" FontSize="14" Margin="179,46,531,42" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <Label x:Name="lblMantenibilidad" FontSize="14" Content="Mantenibilidad: " HorizontalAlignment="Left" Margin="89,3,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+                            <Label x:Name="lblFacAnalisis" FontSize="14" Content="Facilidad de Análisis: " HorizontalAlignment="Left" Margin="89,40,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblModificabilidad"  FontSize="14" Content="Modificabilidad: " HorizontalAlignment="Left" Margin="89,77,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblEstabilidad" FontSize="14" Content="Estabilidad: " HorizontalAlignment="Left" Margin="382,3,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblTesteabilidad" FontSize="14" Content="Testeabilidad: " HorizontalAlignment="Left" Margin="382,41,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblCumpMantenibilidad" FontSize="14" Content="Cumplimiento de Mantenibilidad: " HorizontalAlignment="Left" Margin="382,77,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                            <xctk:DoubleUpDown x:Name="dudMantenibilidad" FontSize="14" Margin="258,7,452,81" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudCumpMantenibilidad" FontSize="14" Margin="607,78,103,0" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0" Height="26" VerticalAlignment="Top"/>
+                            <xctk:DoubleUpDown x:Name="dudTesteabilidad" FontSize="14" Margin="606,43,103,45" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudEstabilidad" FontSize="14" Margin="607,7,103,81" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudModificabilidad" FontSize="14" Margin="258,78,452,10" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
+                            <xctk:DoubleUpDown x:Name="dudFacAnalisis" FontSize="14" Margin="258,43,452,45" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
                         </Grid>
                     </GroupBox>
                     <Button Content="Finalizar" FontSize="12" HorizontalAlignment="Left" Margin="692,487,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF33A133" />

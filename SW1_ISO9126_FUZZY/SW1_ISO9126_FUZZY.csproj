@@ -263,9 +263,6 @@
     <Resource Include="Imagenes\iso-logo-9126.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Agreement-01.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\Save.png" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +285,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Windows 8.1 Lock Screen Wallpaper....png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Agreement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo6btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

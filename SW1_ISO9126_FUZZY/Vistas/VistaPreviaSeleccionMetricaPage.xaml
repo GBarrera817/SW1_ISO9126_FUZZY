@@ -10,12 +10,12 @@
       Title="VistaPreviaSeleccionMetricaPage" Width="800" Height="600">
 
     <Grid Background="White">
-        <TextBlock FontSize="28" HorizontalAlignment="Stretch" Margin="242,10,285,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
+        <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="220,21,232,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Groupbox de Metricas de calidad Internas-->
         <GroupBox Header="Métricas de Calidad Internas" HorizontalAlignment="Left" Height="238" Margin="10,81,0,0" VerticalAlignment="Top" Width="505" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid>
-                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncInterna_Click">
+                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncInterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -42,7 +42,7 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="121,9,54,10">
+                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="129,9,54,10">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Subcaracterística" CanUserSort="False" CanUserReorder="False"/>
                         <DataGridTextColumn Header="Seleccionadas" CanUserSort="False" CanUserReorder="False" IsReadOnly="True" />
@@ -54,9 +54,9 @@
 
 
         <!-- Groupbox de Metricas de calidad Externa-->
-        <GroupBox Header="Métricas de Calidad Externa" HorizontalAlignment="Left" Height="250" Margin="10,340,0,0" VerticalAlignment="Top" Width="505" BorderBrush="#FF01A221" Background="#FF01A221">
+        <GroupBox Header="Métricas de Calidad Externa" HorizontalAlignment="Left" Height="250" Margin="10,324,0,0" VerticalAlignment="Top" Width="505" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid>
-                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncExterna_Click">
+                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncExterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -83,7 +83,7 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="121,9,54,10">
+                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="132,9,52,10">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Subcaracterística" CanUserSort="False" CanUserReorder="False"/>
                         <DataGridTextColumn Header="Seleccionadas" CanUserSort="False" CanUserReorder="False" IsReadOnly="True" />
@@ -94,26 +94,33 @@
         </GroupBox>
 
         <!-- Groupbox Estado de seleccion de metricas INTERNAS-->
-        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="238" Margin="538,81,0,0" VerticalAlignment="Top" Width="252" Background="#FF01A221" BorderBrush="#FF01A221">
+        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="238" Margin="520,81,0,0" VerticalAlignment="Top" Width="270" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid Margin="0,0,0,1">
-                <Label x:Name="lblEstadoMetricasFuncInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="50" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="lblEstadoMetricasUsabInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="60" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="lblEstadoMetricasMantInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Height="50" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Content="Funcionalidad Interna: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="147" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblEstadoMetricasFuncInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="152,0,0,0" VerticalAlignment="Top" Height="50" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblEstadoMetricasUsabInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="152,64,0,0" VerticalAlignment="Top" Height="60" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblEstadoMetricasMantInterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="152,138,0,0" VerticalAlignment="Top" Height="50" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label FontSize="14" Content="Mant. Interna: " HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Width="147" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
             </Grid>
         </GroupBox>
 
         <!-- Groupbox Estado de seleccion de metricas eXTERNAS-->
-        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="538,340,0,0" VerticalAlignment="Top" Width="252" BorderBrush="#FF01A221" Background="#FF01A221">
+        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,324,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid Margin="0,0,0,1">
-                <Label x:Name="lblEstadoMetricasFuncExterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="50" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="lblEstadoMetricasUsabExterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Height="50" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="lblEstadoMetricasMantExterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Height="50" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label FontSize="14" Content="Funcionalidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label FontSize="14" Content="Usabilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,73,0,0"/>
+                <Label FontSize="14" Content="Mantenibilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,138,0,0"/>
+                <Label x:Name="lblEstadoMetricasFuncExterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="159,0,0,0" VerticalAlignment="Top" Height="50" Width="89" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblEstadoMetricasUsabExterna" Content="Estado" FontSize="14" HorizontalAlignment="Left" Margin="153,73,0,0" VerticalAlignment="Top" Height="50" Width="95" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblEstadoMetricasMantExterna" Content="Estado" FontSize="14" Margin="159,138,0,0" VerticalAlignment="Top" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="89"/>
             </Grid>
         </GroupBox>
 
 
         <!-- Botón para abrir el flyout -->
-        <Button x:Name="btnAbrirFlyout" Margin="558,21,28,534" Click="btnAbrirFlyout_Click">
+        <Button x:Name="btnAbrirFlyout" Margin="573,31,13,524" Click="btnAbrirFlyout_Click">
             <StackPanel Orientation="Horizontal" Height="32" Width="242">
                 <Image Stretch="Fill" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Open.png" Height="31" Width="35" RenderTransformOrigin="0.571,0.258" Margin="0,0,0,-1" />
                 <Label Content="Abrir Selección de métricas" FontSize="12" Height="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>

@@ -42,12 +42,8 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="133,9,50,10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Subcaracterística" CanUserSort="False" CanUserReorder="False"/>
-                        <DataGridTextColumn Header="Seleccionadas" CanUserSort="False" CanUserReorder="False" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Total" CanUserSort="False" CanUserReorder="False" />
-                    </DataGrid.Columns>
+                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="133,9,10,10" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False">
+
                 </DataGrid>
             </Grid>
         </GroupBox>
@@ -83,12 +79,8 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="134,9,50,10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Subcaracterística" CanUserSort="False" CanUserReorder="False"/>
-                        <DataGridTextColumn Header="Seleccionadas" CanUserSort="False" CanUserReorder="False" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Total" CanUserSort="False" CanUserReorder="False" />
-                    </DataGrid.Columns>
+                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="134,9,10,10">
+                    
                 </DataGrid>
             </Grid>
         </GroupBox>

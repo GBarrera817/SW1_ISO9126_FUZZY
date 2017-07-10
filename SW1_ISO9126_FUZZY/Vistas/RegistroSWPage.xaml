@@ -40,7 +40,7 @@
                             </ComboBox>
                         </Grid>
                     </GroupBox>
-                    <Button x:Name="btnSigSW" Content="Siguiente" FontSize="12" HorizontalAlignment="Left" Margin="692,505,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF33A133" Click="btnSigSW_Click" />
+                    <Button x:Name="btnSigSW" Content="Siguiente" FontSize="10" HorizontalAlignment="Left" Margin="630,505,0,0" VerticalAlignment="Top" Width="70" Click="btnSigSW_Click" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabImportancia" Header="Grados de Importancia" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="White">
@@ -93,7 +93,7 @@
                             <xctk:DoubleUpDown x:Name="dudFacAnalisis" FontSize="14" Margin="232,43,476,45" Value="0.0" Increment="0.1" Minimum="0.0" Maximum="1.0"/>
                         </Grid>
                     </GroupBox>
-                    <Button Content="Finalizar" FontSize="12" HorizontalAlignment="Left" Margin="692,487,0,0" VerticalAlignment="Top" Width="74" BorderBrush="#FF33A133" />
+                    <Button Content="Finalizar" FontSize="10" HorizontalAlignment="Left" Margin="630,500,0,0" VerticalAlignment="Top" Width="70"/>
                 </Grid>
             </TabItem>
             <!--<TabItem x:Name="tabImportanciaExterna" Header="Importancia Externa" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="White">

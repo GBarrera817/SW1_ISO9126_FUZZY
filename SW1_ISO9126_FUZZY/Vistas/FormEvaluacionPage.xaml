@@ -54,10 +54,10 @@
                 <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="" Height="113"/>
             </ScrollViewer>
         </GroupBox>
-        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="297,534,0,0" VerticalAlignment="Top" Width="92" Click="btnSiguiente_Click" Height="37" RenderTransformOrigin="1.181,0.288"/>
-        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="128,534,0,0" VerticalAlignment="Top" Width="82" Click="btnAnterior_Click" Height="37" RenderTransformOrigin="1.084,0.588"/>
+        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="297,534,0,0" VerticalAlignment="Top" Width="70" Click="btnSiguiente_Click" Height="37" RenderTransformOrigin="1.181,0.288"/>
+        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="128,534,0,0" VerticalAlignment="Top" Width="70" Click="btnAnterior_Click" Height="37" RenderTransformOrigin="1.084,0.588"/>
         <Button x:Name="btnFinalizarCuestionario" Content="Finalizar Evaluacion" HorizontalAlignment="Left" Margin="623,534,0,0" VerticalAlignment="Top" Width="135" Click="btnFinalizarCuestionario_Click" Height="37"/>
-        <Button x:Name="btnGuardar" HorizontalAlignment="Left" Margin="559,534,0,0" VerticalAlignment="Top" Width="48" Height="41" ToolTip="Guardar el estado del formuario" Click="btnGuardar_Click">
+        <Button x:Name="btnGuardar" HorizontalAlignment="Left" Margin="559,534,0,0" VerticalAlignment="Top" Width="48" Height="37" ToolTip="Guardar el estado del formuario" Click="btnGuardar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Stretch="Uniform"/>
             </Button.Background>

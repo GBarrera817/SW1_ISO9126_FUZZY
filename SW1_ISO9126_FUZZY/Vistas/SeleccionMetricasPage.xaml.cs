@@ -52,10 +52,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public SeleccionMetricasPage()
         {
             InitializeComponent();
-            inicializarEstadoCaracteristica();
-            inicializarListas();
-            inicializarIndexListas();
-            cargarJsonMetricas();
+            cargarEntorno();
+
         }
 
         // Accesores
@@ -85,6 +83,21 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Metodos
 
+        private void cargarEntorno()
+        {
+            inicializarBotones();
+            inicializarEstadoCaracteristica();
+            inicializarListas();
+            inicializarIndexListas();
+            cargarJsonMetricas();
+        }
+
+        private void inicializarBotones()
+        {
+            btnAnterior.IsEnabled = false;
+            btnSiguiente.IsEnabled = true;
+        }
+
         private void inicializarEstadoCaracteristica()
         {
             this.isFunIntAct = false;
@@ -111,7 +124,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.subCarUsaExt = new ArrayList();
             this.subCarManint = new ArrayList();
             this.subCarManExt = new ArrayList();
-    }
+        }
 
         private void inicializarIndexListas()
         {
@@ -390,36 +403,42 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isFunIntAct = true;
             cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna",subCarFunInt,funcionalidadInterna);
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isUsaIntAct = true;
             cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",subCarUsaInt,usabilidadInterna);
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isManIntAct = true;
             cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna",subCarManint,mantenibilidadInterna);
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isFunExtAct = true;
             cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa",subCarFunExt,funcionalidadExterna);
         }
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isUsaExtAct = true;
             cargarUsabilidad(usaExt,"Usabilidad Externa","Externa",subCarUsaExt, usabilidadExterna);
         }
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            cargarEntorno();
             isManExtAct = true;
             cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa",SubCarManExt,mantenibilidadExterna);
         }
@@ -540,9 +559,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // Condiciones por defecto
-            btnAnterior.IsEnabled = false;
-            btnSiguiente.IsEnabled = true;
+
 
             if (isFunIntAct)
             {

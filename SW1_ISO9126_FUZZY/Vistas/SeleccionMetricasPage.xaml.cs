@@ -406,6 +406,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isFunIntAct = true;
             cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna",subCarFunInt,funcionalidadInterna);
+            menuMetricas.IsOpen = false;
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -413,6 +414,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isUsaIntAct = true;
             cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",subCarUsaInt,usabilidadInterna);
+            menuMetricas.IsOpen = false;
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -420,6 +422,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isManIntAct = true;
             cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna",subCarManint,mantenibilidadInterna);
+            menuMetricas.IsOpen = false;
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -427,6 +430,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isFunExtAct = true;
             cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa",subCarFunExt,funcionalidadExterna);
+            menuMetricas.IsOpen = false;
         }
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -434,6 +438,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isUsaExtAct = true;
             cargarUsabilidad(usaExt,"Usabilidad Externa","Externa",subCarUsaExt, usabilidadExterna);
+            menuMetricas.IsOpen = false;
         }
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -441,6 +446,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isManExtAct = true;
             cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa",SubCarManExt,mantenibilidadExterna);
+            menuMetricas.IsOpen = false;
         }
 
 
@@ -598,7 +604,9 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             }
 
             // Mostrar menu caracteristicas
-            menuMetricas.IsOpen = true;
+            // menuMetricas.IsOpen = true;
+
+            this.NavigationService.Navigate(new Uri("Vistas/VistaPreviaSeleccionMetricaPage.xaml", UriKind.Relative));
         }
 
         // Revisar metricas

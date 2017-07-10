@@ -17,7 +17,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		
 		private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			this.NavigationService.Navigate(new Uri("Vistas/SeleccionMetricasPage.xaml", UriKind.Relative));
+			this.NavigationService.Navigate(new Uri("Vistas/VistaPreviaSeleccionMetricaPage.xaml", UriKind.Relative));
 		}
 
 		private void btnCargarEvaluación_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -30,9 +30,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			openFileDialog1.FilterIndex = 1;
 
 			openFileDialog1.Multiselect = true;
-
-			
-
 
 			// Process input if the user clicked OK.
 			if (openFileDialog1.ShowDialog() == DialogResult.OK)

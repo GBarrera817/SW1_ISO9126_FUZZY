@@ -69,13 +69,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnAnteriorSubcaracteristica_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            retrocederTabControl();
+        }
 
 		private void btnAnteriorCaracteristica_Click(object sender, RoutedEventArgs e)
 		{
-
-		}
+            retrocederTabControl();
+        }
 
 		private void tileGenerarPDF_Click(object sender, RoutedEventArgs e)
 		{

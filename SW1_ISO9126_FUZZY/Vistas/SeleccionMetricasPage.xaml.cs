@@ -336,9 +336,15 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void retroceder(ref int indice, ArrayList tipo, ArrayList lista)
         {
-            if (indice - 1 > -1)
+            if ((indice - 1) > -1)
             {
                 indice--;
+
+                if (indice == 0)
+                {
+                    btnAnterior.IsEnabled = false;
+                }
+
                 cargarMetrica((JMetrica)lista[indice], (string)tipo[indice]);
 
                 if (btnSiguiente.IsEnabled == false)
@@ -357,9 +363,15 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void avanzar(ref int indice, ArrayList tipo, ArrayList lista)
         {
-            if (indice + 1 < lista.Count)
+            if ((indice + 1) < lista.Count)
             {
                 indice++;
+
+                if (indice == (lista.Count - 1))
+                {
+                    btnSiguiente.IsEnabled = false;
+                }
+
                 cargarMetrica((JMetrica)lista[indice], (string)tipo[indice]);
 
                 if (btnAnterior.IsEnabled == false)
@@ -385,7 +397,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             isUsaIntAct = true;
-            cargarUsabilidad(usaInt,"Usabilidad Interna", "Interna",subCarUsaInt,usabilidadInterna);
+            cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",subCarUsaInt,usabilidadInterna);
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -534,31 +546,37 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             if (isFunIntAct)
             {
+                indexFunInt = 0;
                 isFunIntAct = false;
             }
 
             if (isFunExtAct)
             {
+                indexFunExt = 0;
                 isFunExtAct = false;
             }
 
             if (isUsaIntAct)
             {
+                indexUsaInt = 0;
                 isUsaIntAct = false;
             }
 
             if (isUsaExtAct)
             {
+                indexUsaExt = 0;
                 isUsaExtAct = false;
             }
 
             if (isManIntAct)
             {
+                indexManint = 0;
                 isManIntAct = false;
             }
 
             if (isManExtAct)
             {
+                indexManExt = 0;
                 isManExtAct = false;
             }
 

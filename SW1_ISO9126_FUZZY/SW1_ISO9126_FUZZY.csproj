@@ -118,10 +118,16 @@
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
     <Compile Include="Caracteristicas\Caracteristica.cs" />
+    <Compile Include="Logica Difusa\Funciones Membresia\IFuncionMembresia.cs" />
+    <Compile Include="Logica Difusa\Funciones Membresia\FunctionMembresia.cs" />
+    <Compile Include="Logica Difusa\Funciones Membresia\FuncionMembresiaTrapezoidal.cs" />
+    <Compile Include="Logica Difusa\Funciones Membresia\FuncionMembresiaTriangular.cs" />
     <Compile Include="JSON\JFuncionabilidad.cs" />
     <Compile Include="JSON\JMantenibilidad.cs" />
     <Compile Include="JSON\JMetrica.cs" />
     <Compile Include="JSON\JUsabilidad.cs" />
+    <Compile Include="Logica Difusa\InferenciaDifusa.cs" />
+    <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />

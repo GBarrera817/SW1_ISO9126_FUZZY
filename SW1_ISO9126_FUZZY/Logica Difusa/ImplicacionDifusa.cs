@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Clase para la Inferencia de la lógica difusa.
 	/// </summary>
-	class InferenciaDifusa
+	class ImplicacionDifusa
 	{
 		/// <summary>
 		/// Realiza la inferencia, recibe el valor resultante de aplicar el operador
@@ -12,7 +12,7 @@
 		/// <param name="resultadoOperadorDifuso"></param>
 		/// <param name="valorLinguistico"></param>
 		/// <returns></returns>
-		public static ValorLinguistico EjecutarInferencia( double resultadoOperadorDifuso,  ValorLinguistico valorLinguistico)
+		public static ValorLinguistico EjecutarImplicacion( double resultadoOperadorDifuso,  ValorLinguistico valorLinguistico)
 		{
 			ValorLinguistico resultado = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
 

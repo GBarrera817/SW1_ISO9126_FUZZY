@@ -1,6 +1,6 @@
 ﻿namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 {
-	class FuncionMembresia : IFuncionMembresia
+	public class FuncionMembresia : IFuncionMembresia
 	{
 		public double AlfaCorte { get { return -1; } set { } }
 

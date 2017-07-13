@@ -10,7 +10,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 	/// <summary>
 	/// Clase para crear las variables lingüísticas del controlador difuso
 	/// </summary>
-	class VariableLinguistica
+	public class VariableLinguistica
 	{
 		private string _nombreVariable;
 		private double _valorMinimo, _valorMaximo;
@@ -73,7 +73,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 
 		/// <summary>
 		/// Fuzzifica la variable, obteniendo el grado de pertenencia por cada valor
-		/// lingüístico.
+		/// lingüístico
 		/// </summary>
 		/// <param name="valorEntrada"></param>
 		/// <returns></returns>

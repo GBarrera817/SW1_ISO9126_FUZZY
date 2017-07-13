@@ -9,7 +9,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 	/// <summary>
 	/// Clase para generar las reglas difusas
 	/// </summary>
-	class ReglaDifusa
+	public class ReglaDifusa
 	{
 		private string _id;
 		private string _operadorDifuso;
@@ -79,9 +79,9 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			foreach (KeyValuePair<string, ValorLinguistico> actual in antecedente)
 			{
 				if (contador > 0)
-					this._texto += "("  + ")" + operadorDifuso;
+					this._texto += " " + operadorDifuso;
 
-				this._texto += " (" + actual.Key + " IS " + actual.Value.Nombre + ") ";
+				this._texto += " " + actual.Key + " IS " + actual.Value.Nombre;
 				AgregarAntedente(actual.Key, actual.Value);
 				contador += 1;
 			}
@@ -132,7 +132,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			else if (_operadorDifuso == "OR")
 				resultado = valoresLinguisticos.Max();
 
-			return resultado
+			return resultado;
 		}
 
 		//Accesores

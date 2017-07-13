@@ -117,23 +117,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
-    <Compile Include="Caracteristicas\Caracteristica.cs" />
+    <Compile Include="Logica Difusa\AgregacionReglas.cs" />
+    <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />
     <Compile Include="Logica Difusa\Funciones Membresia\IFuncionMembresia.cs" />
-    <Compile Include="Logica Difusa\Funciones Membresia\FunctionMembresia.cs" />
+    <Compile Include="Logica Difusa\Funciones Membresia\FuncionMembresia.cs" />
     <Compile Include="Logica Difusa\Funciones Membresia\FuncionMembresiaTrapezoidal.cs" />
     <Compile Include="Logica Difusa\Funciones Membresia\FuncionMembresiaTriangular.cs" />
     <Compile Include="JSON\JFuncionabilidad.cs" />
     <Compile Include="JSON\JMantenibilidad.cs" />
     <Compile Include="JSON\JMetrica.cs" />
     <Compile Include="JSON\JUsabilidad.cs" />
-    <Compile Include="Logica Difusa\InferenciaDifusa.cs" />
+    <Compile Include="Logica Difusa\ImplicacionDifusa.cs" />
+    <Compile Include="InferenciaDifusa\InferenciaDifusa.cs" />
+    <Compile Include="Logica Difusa\Integral\SimpsonIntegrator.cs" />
+    <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
+    <Compile Include="Logica Difusa\VariableLinguistica.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
-    <Compile Include="Subcaracteristicas\Funcionalidad.cs" />
-    <Compile Include="Subcaracteristicas\Mantenibilidad.cs" />
-    <Compile Include="Subcaracteristicas\Usabilidad.cs" />
     <Compile Include="ModelosVistas\MenuItem.cs" />
     <Compile Include="ModelosVistas\ModeloHamburgerMenu.cs" />
     <Compile Include="ModelosVistas\ModeloVistaBase.cs" />
@@ -303,6 +305,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\inte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FuzzyTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

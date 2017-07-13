@@ -10,7 +10,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 	/// <summary>
 	/// Clase para crear los valores linguisticos del controlador difuso
 	/// </summary>
-	class ValorLinguistico
+	public class ValorLinguistico
 	{
 		private string _nombre;
 		private FuncionMembresia _funcionMembresia;

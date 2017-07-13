@@ -12,8 +12,8 @@
     <controls:MetroWindow.DataContext>
         <viewModels:ModeloHamburgerMenu />
     </controls:MetroWindow.DataContext>
-
-    <!-- Control Botón Atrás -->
+    
+    <!-- Control Botón Atrás
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
             <Button x:Name="btnAtrás"
@@ -21,7 +21,7 @@
                 <iconPacks:PackIconMaterial Kind="ArrowLeft" />
             </Button>
         </controls:WindowCommands>
-    </controls:MetroWindow.LeftWindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>  -->
 
     <!-- Plantilla Menú -->
     <Grid>

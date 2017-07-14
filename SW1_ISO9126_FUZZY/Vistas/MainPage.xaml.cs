@@ -17,7 +17,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		
 		private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			this.NavigationService.Navigate(new Uri("Vistas/VistaPreviaSeleccionMetricaPage.xaml", UriKind.Relative));
+			this.NavigationService.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
 		}
 
 		private void btnCargarEvaluación_Click(object sender, System.Windows.RoutedEventArgs e)

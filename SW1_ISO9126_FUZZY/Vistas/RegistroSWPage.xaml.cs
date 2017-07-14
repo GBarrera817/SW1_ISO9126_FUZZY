@@ -37,15 +37,199 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return true;
         }
 
-        public bool validar_grados()
+        public bool validar_seleccion_caracteristicas()
         {
             if((lblFuncionalidad.IsChecked == false ) && (lblUsabilidad.IsChecked == false ) && (lblMantenibilidad.IsChecked == false))
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
+            
+            return true;
+        }
+
+        // validar seleccion de subcaracteristicas
+
+        public bool validar_seleccion_caracteristicas_funcionabilidad()
+        {
+            int contador = 0;
+
+            if (lblAdecuacion.IsChecked == true)
+                contador++;
+
+            if (lblExactitud.IsChecked == true)
+                contador++;
+
+            if (lblInteroperabilidad.IsChecked == true)
+                contador++;
+
+            if (lblSeguridad.IsChecked == true)
+                contador++;
+
+            if (lblCumpFuncionalidad.IsChecked == true)
+                contador++;
+
+            if (contador != 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool validar_seleccion_caracteristicas_usabilidad()
+        {
+            int contador = 0;
+
+            if (lblAprendizaje.IsChecked == true)
+                contador++;
+
+            if (lblComprensibilidad.IsChecked == true)
+                contador++;
+
+            if (lblOperabilidad.IsChecked == true)
+                contador++;
+
+            if (lblAtractividad.IsChecked == true)
+                contador++;
+
+            if (lblCumpUsabilidad.IsChecked == true)
+                contador++;
+
+            if (contador != 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool validar_seleccion_caracteristicas_mantenibilidad()
+        {
+            int contador = 0;
+
+            if (lblFacAnalisis.IsChecked == true)
+                contador++;
+
+            if (lblModificabilidad.IsChecked == true)
+                contador++;
+
+            if (lblEstabilidad.IsChecked == true)
+                contador++;
+
+            if (lblTesteabilidad.IsChecked == true)
+                contador++;
+
+            if (lblCumpMantenibilidad.IsChecked == true)
+                contador++;
+
+            if (contador != 0)
+                return true;
+            else
+                return false;
+        }
+
+        // validar valores 
+
+        public bool validar_valores_subcaracteristicas_funcionabilidad()
+        {
+            if (lblAdecuacion.IsChecked == true)
+            {
+                if ((dudAdecuacion.Value == 0) || (dudAdecuacion.Value < 0) || (dudAdecuacion.Value > 1))
+                    return false;
+            }
+
+            if (lblExactitud.IsChecked == true)
+            {
+                if ((dudExactitud.Value == 0) || (dudExactitud.Value < 0) || (dudExactitud.Value > 1))
+                    return false;
+            }
+
+            if (lblInteroperabilidad.IsChecked == true)
+            {
+                if ((dudInteroperabilidad.Value == 0) || (dudInteroperabilidad.Value < 0) || (dudInteroperabilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblSeguridad.IsChecked == true)
+            {
+                if ((dudSeguridad.Value == 0) || (dudSeguridad.Value < 0) || (dudSeguridad.Value > 1))
+                    return false;
+            }
+
+            if (lblCumpFuncionalidad.IsChecked == true)
+            {
+                if ((lblCumpFuncionalidad.Value == 0) || (lblCumpFuncionalidad.Value < 0) || (lblCumpFuncionalidad.Value > 1))
+                    return false;
             }
 
             return true;
+
+        }
+
+        public bool validar_valores_subcaracteristicas_usabilidad()
+        {
+            if (lblAprendizaje.IsChecked == true)
+            {
+                if ((dudAprendizaje.Value == 0) || (dudAprendizaje.Value < 0) || (dudAprendizaje.Value > 1))
+                    return false;
+            }
+
+            if (lblComprensibilidad.IsChecked == true)
+            {
+                if ((dudComprensibilidad.Value == 0) || (dudComprensibilidad.Value < 0) || (dudComprensibilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblOperabilidad.IsChecked == true)
+            {
+                if ((dudOperabilidad.Value == 0) || (dudOperabilidad.Value < 0) || (dudOperabilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblAtractividad.IsChecked == true)
+            {
+                if ((dudAtractividad.Value == 0) || (dudAtractividad.Value < 0) || (dudAtractividad.Value > 1))
+                    return false;
+            }
+
+            if (lblCumpUsabilidad.IsChecked == true)
+            {
+                if ((dudCumpUsabilidad.Value == 0) || (dudCumpUsabilidad.Value < 0) || (dudCumpUsabilidad.Value > 1))
+                    return false;
+            }
+
+            return true;
+
+        }
+
+        public bool validar_validar_subcaracteristicas_mantenibilidad()
+        {
+            if (lblFacAnalisis.IsChecked == true)
+            {
+                if ((dudFacAnalisis.Value == 0) || (dudFacAnalisis.Value < 0) || (dudFacAnalisis.Value > 1))
+                    return false;
+            }
+
+            if (lblModificabilidad.IsChecked == true)
+            {
+                if ((dudModificabilidad.Value == 0) || (dudModificabilidad.Value < 0) || (dudModificabilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblEstabilidad.IsChecked == true)
+            {
+                if ((dudEstabilidad.Value == 0) || (dudEstabilidad.Value < 0) || (dudEstabilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblTesteabilidad.IsChecked == true)
+            {
+                if ((dudTesteabilidad.Value == 0) || (dudTesteabilidad.Value < 0) || (dudTesteabilidad.Value > 1))
+                    return false;
+            }
+
+            if (lblCumpMantenibilidad.IsChecked == true)
+            {
+                if ((dudCumpMantenibilidad.Value == 0) || (dudCumpMantenibilidad.Value < 0) || (dudCumpMantenibilidad.Value > 1))
+                    return false;
+            }
+
+            return true;
+
         }
 
         // Eventos botones
@@ -64,13 +248,48 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            if (validar_grados())
+            if (validar_seleccion_caracteristicas())
             {
+                if(lblFuncionalidad.IsChecked == true)
+                {
+                    if (validar_seleccion_caracteristicas_funcionabilidad())
+                    {
+
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+
+                if (lblUsabilidad.IsChecked == true)
+                {
+                    if (validar_seleccion_caracteristicas_usabilidad())
+                    {
+
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+
+                if (lblMantenibilidad.IsChecked == true)
+                {
+                    if (validar_seleccion_caracteristicas_mantenibilidad())
+                    {
+
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
 
             }
             else
             {
-
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

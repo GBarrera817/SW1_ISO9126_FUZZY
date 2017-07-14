@@ -12,10 +12,7 @@
       Title="MainPage" Width="800" Height="600" Background="#FF33A133">
 
     <Grid Background="#FFDFE0E0">
-
-
-
-
+        
         <controls:MetroAnimatedTabControl x:Name="tabInfoSoftware" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Background="White">
             <TabItem x:Name="tabDatosSoftware" Header="Datos del Software" Background="White" BorderBrush="#FF99332B" >
                 <Grid>

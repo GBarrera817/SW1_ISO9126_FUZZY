@@ -117,6 +117,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
+    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasMantenibilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasUsabilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresMantebilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresUsabilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesMantenibilidad.cs" />
+    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesUsabilidad.cs" />
     <Compile Include="Logica Difusa\AgregacionReglas.cs" />
     <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />
     <Compile Include="Logica Difusa\Funciones Membresia\IFuncionMembresia.cs" />
@@ -306,8 +315,6 @@
   <ItemGroup>
     <Resource Include="Imagenes\inte.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FuzzyTest\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

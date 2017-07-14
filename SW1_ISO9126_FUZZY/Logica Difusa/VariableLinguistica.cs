@@ -27,6 +27,11 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			ValoresLinguisticos = new Dictionary<string, ValorLinguistico>();
 		}
 
+		internal void AgregarValorLinguistico(object a_Muy_Mala)
+		{
+			throw new NotImplementedException();
+		}
+
 		/// <summary>
 		/// Constructor. Forma segura de clonar una Variable Lingüística
 		/// </summary>

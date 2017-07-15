@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SW1_ISO9126_FUZZY.Vistas"
       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       
       Title="EvaluacionCalidadPage" Width="800" Height="600">
@@ -59,7 +60,7 @@
             </TabItem>
             <TabItem x:Name="tabCaracteristicas" Header="N. Características" Margin="12,0,-7,0">
                 <Grid Background="White">
-                    <GroupBox HorizontalAlignment="Left" Height="157" Margin="10,61,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Margin="10,0,0,282" Width="780" Background="#FF33A133" BorderBrush="#FF33A133" Height="180" VerticalAlignment="Bottom">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
@@ -77,7 +78,7 @@
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="166" Margin="10,256,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="180" Margin="10,242,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
@@ -116,21 +117,40 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <GroupBox Height="435" Margin="387,10,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="279" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
-                                <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="280"/>
+                                <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="667"/>
                                 <Button x:Name="btnGenerarPDF" Content="Crear PDF" Width="70" />
                             </StackPanel>
                         </GroupBox.Header>
+                        <Grid>
+                            <Calendar Margin="10,28,579,2"/>
+                        </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="observaciones evaluacion del software" HorizontalAlignment="Left" Margin="10,169,0,55" Width="372" Background="#FF33A133" BorderBrush="#FF33A133"/>
+                    <GroupBox Margin="387,10,10,336" Background="#FF33A133" BorderBrush="#FF33A133">
+                        <GroupBox.Header>
+                            <StackPanel Height="27" Orientation="Horizontal">
+                                <Label Content="CONFIGURACION REPORTE CALIDAD" Foreground="White" Width="209"/>
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Label Content="Nombre archivo: " FontSize="14" HorizontalAlignment="Left" Width="120" Background="{x:Null}" FontWeight="Bold" Margin="20,3,0,73"/>
+                            <TextBox x:Name="txtNombreArchivor" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="157,5,0,0" Width="213" controls:TextBoxHelper.ClearTextButton="True"/>
+                            <Label Content="Tipo fuente: " FontSize="14" HorizontalAlignment="Left" Width="90" Background="{x:Null}" FontWeight="Bold" Margin="50,39,0,37"/>
+                            <ComboBox x:Name="cmboxTipoFuente" HorizontalAlignment="Left" Margin="157,41,0,0" VerticalAlignment="Top" Width="140" SelectedIndex="0">
+                                <ComboBoxItem>TIMES ROMAN</ComboBoxItem>
+                                <ComboBoxItem>HELVETICA</ComboBoxItem>
+                                <ComboBoxItem>COURIER</ComboBoxItem>
+                            </ComboBox>
+                            <Label Content="Tamaño fuente: " FontSize="14" HorizontalAlignment="Left" Width="114" Background="{x:Null}" FontWeight="Bold" Margin="26,72,0,4"/>
+                            <xctk:DoubleUpDown x:Name="dudtTamFuente" TextAlignment="Center" FontSize="14"  Value="10" Increment="1" Minimum="10" Maximum="20" Margin="157,72,187,3" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </GroupBox>
 
-                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="150,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
-                    <ScrollViewer HorizontalAlignment="Left" Height="248" Margin="10,197,0,0" VerticalAlignment="Top" Width="372">
-                        <TextBox Height="244" TextWrapping="Wrap" Text="" Width="351"/>
-                    </ScrollViewer>
+                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="277,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
+
 
                 </Grid>
             </TabItem>

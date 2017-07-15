@@ -16,9 +16,9 @@
 
         <!-- Identificación de la Característica y subcaracterítisca asociada --> 
         <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Caracteristica" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>
-        <Label FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblSubcaracterística" FontSize="14" Content="" HorizontalAlignment="Left" Margin="153,116,0,0" VerticalAlignment="Top" Width="264"/>
-        <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="25,87,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" Margin="25,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblPerpectiva" Content="" FontSize="14" HorizontalAlignment="Left" Margin="153,87,0,0" VerticalAlignment="Top" Width="209"/>
 
         <!-- Detalle de la métrica -->
@@ -33,12 +33,12 @@
 
             <StackPanel Margin="10,0,-2,0" Height="355">
                 <Grid Height="122">
-                    <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="-1,2,0,0" VerticalAlignment="Top"/>
-                    <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="-1,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
-                    <Label FontSize="14" Content="Metodo:" HorizontalAlignment="Left" Margin="-1,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
+                    <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="-1,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label FontSize="14" Content="Nombre de la métrica:" HorizontalAlignment="Left" Margin="-1,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29" FontWeight="Bold"/>
+                    <Label FontSize="14" Content="Metodo:" HorizontalAlignment="Left" Margin="-1,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29" FontWeight="Bold"/>
                     <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="33,2,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label x:Name="lblNombreMetrica" FontSize="14" Content="" HorizontalAlignment="Left" Margin="159,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="569"/>
-                    <ScrollViewer Margin="66,69,10,10" BorderBrush="Aquamarine" BorderThickness="1">
+                    <ScrollViewer Margin="66,69,10,10" BorderBrush="Black" BorderThickness="5">
                         <TextBlock x:Name="txbkMetodo" Width="666" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
                     </ScrollViewer>
                 </Grid>

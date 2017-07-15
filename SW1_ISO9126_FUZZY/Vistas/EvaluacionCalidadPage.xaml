@@ -125,7 +125,14 @@
                             </StackPanel>
                         </GroupBox.Header>
                         <Grid>
-                            <Calendar Margin="10,28,579,2"/>
+
+                            <Label Content="Observaciones" FontSize="14" HorizontalAlignment="Left" Width="110" Background="{x:Null}" FontWeight="Bold" Margin="22,105,0,99"/>
+                            <TextBox x:Name="txtObjetivos" FontSize="14"  HorizontalAlignment="Left" Height="60" Margin="22,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" controls:TextBoxHelper.Watermark="Ingrese información acerca del objetivo, alcances o restricciones de la evaluación"/>
+                            <Label Content="Objetivo evaluación" FontSize="14" HorizontalAlignment="Left" Width="141" Background="{x:Null}" FontWeight="Bold" Margin="22,10,0,189"/>
+                            <TextBox x:Name="txtObservacion" FontSize="14"  HorizontalAlignment="Left" Height="84" Margin="22,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" controls:TextBoxHelper.Watermark="Ingrese comentarios sobre la evaluación del producto software"/>
+                            <Label Content="Fecha evaluación" FontSize="14" HorizontalAlignment="Left" Width="121" Background="{x:Null}" FontWeight="Bold" Margin="597,-3,0,204"/>
+                            <Calendar Margin="568,25,21,10"/>
+
                         </Grid>
                     </GroupBox>
 

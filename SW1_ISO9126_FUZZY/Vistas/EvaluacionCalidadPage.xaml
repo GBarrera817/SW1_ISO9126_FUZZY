@@ -20,7 +20,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
-                                <Button x:Name="btnCalcSubInterna" Content="Calcular" Width="70" />
+                                <Button x:Name="btnCalcSubInterna" Content="Calcular" Width="70" Click="btnCalcSubInterna_Click" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -41,7 +41,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
-                                <Button x:Name="btnCalcSubExterna" Content="Calcular" Width="68" />
+                                <Button x:Name="btnCalcSubExterna" Content="Calcular" Width="68" Click="btnCalcSubExterna_Click" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -55,7 +55,7 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnSiguienteCaracterística" Content="Siguiente" Margin="674,463,50,0" VerticalAlignment="Top" Width="70" Click="btnSiguienteCaracterística_Click"/>
+                    <Button x:Name="btnSiguienteSubCaracterística" Content="Siguiente" Margin="674,463,50,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCaracteristicas" Header="N. Características" Margin="12,0,-7,0">
@@ -64,7 +64,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
-                                <Button x:Name="btnCalcCaractInterna" Content="Calcular" Width="70" />
+                                <Button x:Name="btnCalcCaractInterna" Content="Calcular" Width="70" Click="btnCalcCaractInterna_Click" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -82,7 +82,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
-                                <Button x:Name="btnCalcCaractExterna" Content="Calcular" Width="70" />
+                                <Button x:Name="btnCalcCaractExterna" Content="Calcular" Width="70" Click="btnCalcCaractExterna_Click" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -95,8 +95,8 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnSiguienteCalidadInterna" Content="Siguiente" HorizontalAlignment="Left" Margin="678,449,0,0" VerticalAlignment="Top" Width="70" Click="btnSiguienteCalidadInterna_Click"/>
-                    <Button x:Name="btnAnteriorSubcaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="540,449,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorSubcaracteristica_Click"/>
+                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="540,449,0,0" VerticalAlignment="Top" Width="70" Click="retrocederTabControl"/>
+                    <Button x:Name="btnSiguienteCaracteristica" Content="Siguiente" HorizontalAlignment="Left" Margin="678,449,0,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final" Margin="10,0,-3,0">
@@ -105,7 +105,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="260"/>
-                                <Button x:Name="btnCalcCalidadInterna" Content="Calcular" Width="70" />
+                                <Button x:Name="btnCalcCalidadInterna" Content="Calcular" Width="70" Click="btnCalcCalidadInterna_Click" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -117,11 +117,11 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <GroupBox Height="279" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="289" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="667"/>
-                                <Button x:Name="btnGenerarPDF" Content="Crear PDF" Width="70" />
+                                <Button x:Name="btnGenerarPDF" Content="Crear PDF" Width="70" Click="btnGenerarPDF_Click" />
                             </StackPanel>
                         </GroupBox.Header>
                         <Grid>
@@ -129,9 +129,9 @@
                             <Label Content="Observaciones" FontSize="14" HorizontalAlignment="Left" Width="110" Background="{x:Null}" FontWeight="Bold" Margin="22,105,0,99"/>
                             <TextBox x:Name="txtObjetivos" FontSize="14"  HorizontalAlignment="Left" Height="60" Margin="22,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" controls:TextBoxHelper.Watermark="Ingrese información acerca del objetivo, alcances o restricciones de la evaluación"/>
                             <Label Content="Objetivo evaluación" FontSize="14" HorizontalAlignment="Left" Width="141" Background="{x:Null}" FontWeight="Bold" Margin="22,10,0,189"/>
-                            <TextBox x:Name="txtObservacion" FontSize="14"  HorizontalAlignment="Left" Height="84" Margin="22,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" controls:TextBoxHelper.Watermark="Ingrese comentarios sobre la evaluación del producto software"/>
+                            <TextBox x:Name="txtObservacion" FontSize="14"  HorizontalAlignment="Left" Height="94" Margin="22,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" controls:TextBoxHelper.Watermark="Ingrese comentarios sobre la evaluación del producto software"/>
                             <Label Content="Fecha evaluación" FontSize="14" HorizontalAlignment="Left" Width="121" Background="{x:Null}" FontWeight="Bold" Margin="597,-3,0,204"/>
-                            <Calendar Margin="568,25,21,10"/>
+                            <Calendar Margin="568,25,10,0"/>
 
                         </Grid>
                     </GroupBox>
@@ -156,7 +156,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="277,463,0,0" VerticalAlignment="Top" Width="70" Click="btnAnteriorCaracteristica_Click"/>
+                    <Button x:Name="btnAnteriorCalidadFinal" Content="Anterior" HorizontalAlignment="Left" Margin="277,465,0,0" VerticalAlignment="Top" Width="70" Click="retrocederTabControl"/>
 
 
                 </Grid>

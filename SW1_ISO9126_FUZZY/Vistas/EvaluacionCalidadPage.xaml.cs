@@ -26,56 +26,91 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			InitializeComponent();
 		}
 
-		private void avanzarTabControl()
-		{
-			tabControlEvaluacionCalidad.SelectedIndex = tabControlEvaluacionCalidad.SelectedIndex + 1;
-		}
+        // Eventos de movimiento
 
-		private void retrocederTabControl()
+		private void retrocederTabControl(object sender, RoutedEventArgs e)
 		{
 			tabControlEvaluacionCalidad.SelectedIndex = tabControlEvaluacionCalidad.SelectedIndex - 1;
 		}
 
-		private void btnSiguienteCaracterística_Click(object sender, RoutedEventArgs e)
-		{
-			avanzarTabControl();
-		}
-
-		private void btnSiguienteCalidadInterna_Click(object sender, RoutedEventArgs e)
-		{
-			avanzarTabControl();
-		}
-
-		private void btnSiguienteCalidadExterna_Click(object sender, RoutedEventArgs e)
-		{
-			avanzarTabControl();
-		}
-
-		private void btnAnteriorCalidadInterna_Click(object sender, RoutedEventArgs e)
-		{
-			retrocederTabControl();
-		}
-
-
-		private void btnAnteriorCalidadExterna_Click(object sender, RoutedEventArgs e)
-		{
-			retrocederTabControl();
-		}
-
-		private void btnAnteriorCalidadFinal_Click(object sender, RoutedEventArgs e)
-		{
-			retrocederTabControl();
-		}
-
-		private void btnAnteriorSubcaracteristica_Click(object sender, RoutedEventArgs e)
-		{
-            retrocederTabControl();
+        private void avanzarTabControl(object sender, RoutedEventArgs e)
+        {
+            tabControlEvaluacionCalidad.SelectedIndex = tabControlEvaluacionCalidad.SelectedIndex + 1;
         }
 
-		private void btnAnteriorCaracteristica_Click(object sender, RoutedEventArgs e)
-		{
-            retrocederTabControl();
+        // PAGINA CALIDAD SUBCARACTERISTICAS
+
+        private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
+        {
+
         }
+
+        private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        // PAGINA CALIDAD CARACTERISTICAS
+
+        private void btnCalcCaractInterna_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCalcCaractExterna_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // PAGINA CALIDAD FINAL
+
+        // Validar datos
+        
+        private bool configPDF()
+        {
+            if (txtNombreArchivor.Text == string.Empty)
+                return false;
+            return true;
+        }
+
+        private bool datosReporte()
+        {
+            if (txtObjetivos.Text == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        // Eventos botones
+
+        private void btnCalcCalidadInterna_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
+        {
+            if (datosReporte())
+            {
+                if (configPDF())
+                {
+
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el nombre del archivo para generar el reporte", "Configuración reporte calidad", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el objetivo de la evaluación para generar el reporte", "Reporte calidad final software", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+
+        // FIN 
 
 		private void tileGenerarPDF_Click(object sender, RoutedEventArgs e)
 		{
@@ -100,5 +135,5 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			}
 		}
-	}
+    }
 }

@@ -82,7 +82,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Valores_Linguisticos
 
 		//Atractividad
 		public ValorLinguistico AT_No { get { return AT_no; } }
-		public ValorLinguistico AT_Poco { get { return AT_poco; } }		
+		public ValorLinguistico AT_Poco { get { return AT_poco; } }
 		public ValorLinguistico AT_Medianamente { get { return AT_medianamente; } }
 		public ValorLinguistico AT_Casi_Todo { get { return AT_casi_todo; } }
 		public ValorLinguistico AT_Completamente { get { return AT_completamente; } }
@@ -100,3 +100,5 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Valores_Linguisticos
 		public ValorLinguistico U_Normal { get { return U_normal; } }
 		public ValorLinguistico U_Facil { get { return U_facil; } }
 		public ValorLinguistico U_Muy_Facil { get { return U_muy_facil; } }
+	}
+}

@@ -50,7 +50,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas
 			_cumplimientoMantenibilidad = new VariableLinguistica("CUM", 0.0, 1.0);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_No);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Poco);
-			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Casi_Todo;);
+			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Medianamente);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Casi_Todo);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Completamente);
 

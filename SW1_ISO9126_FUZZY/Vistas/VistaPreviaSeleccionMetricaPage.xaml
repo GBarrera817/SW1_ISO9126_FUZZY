@@ -10,7 +10,7 @@
       Title="VistaPreviaSeleccionMetricaPage" Width="800" Height="600">
 
     <Grid Background="White">
-        <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="130,15,322,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
+        <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="125,15,327,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Groupbox de Metricas de calidad Internas-->
         <GroupBox Header="Métricas de Calidad Internas" HorizontalAlignment="Left" Height="238" Margin="10,81,0,0" VerticalAlignment="Top" Width="505" Background="#FF01A221" BorderBrush="#FF01A221">
@@ -80,7 +80,7 @@
                 </Button>
 
                 <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="134,9,10,10">
-                    
+
                 </DataGrid>
             </Grid>
         </GroupBox>
@@ -88,35 +88,35 @@
         <!-- Groupbox Estado de seleccion de metricas INTERNAS-->
         <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="238" Margin="520,81,0,0" VerticalAlignment="Top" Width="270" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid Margin="0,0,0,1">
-                <Label Content="Funcionalidad Interna: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="147" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="6,0,0,0"/>
-                <Grid Margin="160,10,10,159" Background="#FF353F59">
+                <Label Content="Funcionalidad Interna: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="7,0,0,0" FontWeight="Bold"/>
+                <Grid Margin="165,10,0,159" Background="#FF353F59" HorizontalAlignment="Left" Width="88">
                     <Label x:Name="lblEstadoMetricasFuncInterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="19,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Grid Margin="160,79,10,90"  Background="#FF353F59">
+                <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                <Grid Margin="165,79,0,90"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
                     <Label x:Name="lblEstadoMetricasUsabInterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Grid Margin="160,149,10,22"  Background="#FF353F59">
-                    <Label x:Name="lblEstadoMetricasMantInterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Grid Margin="165,149,5,20"  Background="#FF353F59" Width="88">
+                    <Label x:Name="lblEstadoMetricasMantInterna" Content="Estado" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,-2"/>
                 </Grid>
-                <Label FontSize="14" Content="Mant. Interna: " HorizontalAlignment="Left" Margin="34,138,0,0" VerticalAlignment="Top" Width="147" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label FontSize="14" Content="Mant. Interna: " HorizontalAlignment="Left" Margin="41,138,0,0" VerticalAlignment="Top" Width="147" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
             </Grid>
         </GroupBox>
 
         <!-- Groupbox Estado de seleccion de metricas eXTERNAS-->
         <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,324,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid Margin="0,0,0,1">
-                <Label FontSize="14" Content="Funcionalidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="6,0,0,0"/>
-                <Label FontSize="14" Content="Usabilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="18,73,0,0"/>
-                <Label FontSize="14" Content="Mantenibilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1,138,0,0"/>
-                <Grid Margin="160,11,10,170"  Background="#FF353F59">
+                <Label FontSize="14" Content="Funcionalidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="4,0,0,0" FontWeight="Bold"/>
+                <Label FontSize="14" Content="Usabilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="22,73,0,0" FontWeight="Bold"/>
+                <Label FontSize="14" Content="Mantenibilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-6,138,0,0" FontWeight="Bold"/>
+                <Grid Margin="165,11,5,170"  Background="#FF353F59">
                     <Label x:Name="lblEstadoMetricasFuncExterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Grid Margin="160,84,10,98"  Background="#FF353F59">
+                <Grid Margin="165,84,0,96"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
                     <Label x:Name="lblEstadoMetricasUsabExterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Grid Margin="160,149,10,31" Background="#FF353F59">
-                    <Label x:Name="lblEstadoMetricasMantExterna" Content="Estado" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+                <Grid Margin="165,149,0,31" Background="#FF353F59" HorizontalAlignment="Left" Width="88">
+                    <Label x:Name="lblEstadoMetricasMantExterna" Content="Estado" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="2,0,-2,0" />
                 </Grid>
             </Grid>
         </GroupBox>

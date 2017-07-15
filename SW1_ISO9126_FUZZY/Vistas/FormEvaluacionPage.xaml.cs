@@ -119,6 +119,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
             this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
         }
-    
-	}
+
+        private void sldparam0_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtParam0.Text = sldparam0.Value.ToString();
+        }
+
+        private void sldparam1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtParam1.Text = sldparam1.Value.ToString();
+        }
+
+        private void sldparam2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtParam2.Text = sldparam2.Value.ToString();
+        }
+    }
 }

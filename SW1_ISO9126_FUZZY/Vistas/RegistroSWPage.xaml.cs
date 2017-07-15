@@ -39,7 +39,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Validar seleccion caracteristicas
 
-        public bool validar_seleccion_caracteristicas()
+        private bool validar_seleccion_caracteristicas()
         {
             if((lblFuncionalidad.IsChecked == false ) && (lblUsabilidad.IsChecked == false ) && (lblMantenibilidad.IsChecked == false))
                 return false;
@@ -49,7 +49,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Validar valor caracteristicas
 
-        public bool validar_valor_caracteristica_funcionalidad()
+        private bool validar_valor_caracteristica_funcionalidad()
         {
             if (lblFuncionalidad.IsChecked == true)
             {
@@ -60,7 +60,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return true;
         }
 
-        public bool validar_valor_caracteristica_usabilidad()
+        private bool validar_valor_caracteristica_usabilidad()
         {
             if (lblUsabilidad.IsChecked == true)
             {
@@ -71,7 +71,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return true;
         }
 
-        public bool validar_valor_caracteristica_mantenibilidad()
+        private bool validar_valor_caracteristica_mantenibilidad()
         {
             if (lblMantenibilidad.IsChecked == true)
             {
@@ -84,7 +84,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // validar seleccion de subcaracteristicas
 
-        public bool validar_seleccion_subcaracteristicas_funcionabilidad()
+        private bool validar_seleccion_subcaracteristicas_funcionabilidad()
         {
             int contador = 0;
 
@@ -109,7 +109,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 return false;
         }
 
-        public bool validar_seleccion_subcaracteristicas_usabilidad()
+        private bool validar_seleccion_subcaracteristicas_usabilidad()
         {
             int contador = 0;
 
@@ -134,7 +134,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 return false;
         }
 
-        public bool validar_seleccion_subcaracteristicas_mantenibilidad()
+        private bool validar_seleccion_subcaracteristicas_mantenibilidad()
         {
             int contador = 0;
 
@@ -161,7 +161,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // validar valores 
 
-        public bool validar_valores_subcaracteristicas_funcionabilidad()
+        private bool validar_valores_subcaracteristicas_funcionabilidad()
         {
             if (lblAdecuacion.IsChecked == true)
             {
@@ -197,7 +197,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
-        public bool validar_valores_subcaracteristicas_usabilidad()
+        private bool validar_valores_subcaracteristicas_usabilidad()
         {
             if (lblAprendizaje.IsChecked == true)
             {
@@ -233,7 +233,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
-        public bool validar_valores_subcaracteristicas_mantenibilidad()
+        private bool validar_valores_subcaracteristicas_mantenibilidad()
         {
             if (lblFacAnalisis.IsChecked == true)
             {

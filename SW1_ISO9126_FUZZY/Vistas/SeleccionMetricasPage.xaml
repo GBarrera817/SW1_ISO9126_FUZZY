@@ -38,8 +38,8 @@
                     <Label FontSize="14" Content="Metodo:" HorizontalAlignment="Left" Margin="-1,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29"/>
                     <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="33,2,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label x:Name="lblNombreMetrica" FontSize="14" Content="" HorizontalAlignment="Left" Margin="159,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="569"/>
-                    <ScrollViewer Margin="96,69,10,10" BorderBrush="Aquamarine" BorderThickness="1">
-                        <TextBlock x:Name="txbkMetodo" Width="635" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
+                    <ScrollViewer Margin="66,69,10,10" BorderBrush="Aquamarine" BorderThickness="1">
+                        <TextBlock x:Name="txbkMetodo" Width="666" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
                     </ScrollViewer>
                 </Grid>
 

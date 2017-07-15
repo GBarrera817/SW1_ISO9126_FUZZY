@@ -63,6 +63,14 @@ namespace SW1_ISO9126_FUZZY.Archivos_configuracion
                 if (subcaracateristica[i].Parametros.Length == 0 || subcaracateristica[i].Parametros.Length > 2)
                     contadorEspecial++;
 
+                if (subcaracateristica[i].Proposito.Length == subcaracateristica[i].Formula.Length)
+                {
+                    if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Formula.Length > 1)
+                        contadorEspecial++;
+                }
+                    
+
+
                 sb.AppendLine("\n");
 
                 if (contadorEspecial != 0)

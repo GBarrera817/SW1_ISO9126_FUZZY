@@ -8,12 +8,12 @@ namespace SW1_ISO9126_FUZZY.InferenciaDifusa
 	/// <summary>
 	/// Clase para realizar la Inferencia difusa
 	/// </summary>
-	public class InferenciaDifusa
+	public class Inferencia
 	{
 		private Dictionary<string, string> _baseReglas;
 		private Dictionary<string, VariableLinguistica> _variablesLinguisticas;
 
-		public InferenciaDifusa()
+		public Inferencia()
 		{
 			BaseReglas = new Dictionary<string, string>();
 			VariablesLinguisticas = new Dictionary<string, VariableLinguistica>();

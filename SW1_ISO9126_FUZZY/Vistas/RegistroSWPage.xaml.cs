@@ -299,7 +299,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la subcaracterística de funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
                         else
@@ -309,7 +309,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la característica funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
 
@@ -326,7 +326,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la subcaracterística de usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
                         else
@@ -336,7 +336,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la característica usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
 
@@ -353,7 +353,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la subcaracterística de mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
                         else
@@ -363,7 +363,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un válor valido para la característica mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }

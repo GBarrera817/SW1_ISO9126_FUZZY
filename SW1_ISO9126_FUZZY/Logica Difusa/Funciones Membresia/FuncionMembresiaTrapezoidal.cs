@@ -19,7 +19,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 		/// 
 		/// </summary>
 		/// <param name="a">Valor izqAbajo</param>
-		/// <param name="b">Valor izq_Arriba</param>
+		/// <param name="b">Valor izqArriba</param>
 		/// <param name="c">Valor derArriba</param>
 		/// <param name="d">Valor derAbajo</param>
 		public FuncionMembresiaTrapezoidal(double a, double b, double c, double d) {

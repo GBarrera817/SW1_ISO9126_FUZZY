@@ -65,6 +65,25 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // PAGINA CALIDAD FINAL
 
+        // Validar datos
+        
+        private bool configPDF()
+        {
+            if (txtNombreArchivor.Text == string.Empty)
+                return false;
+            return true;
+        }
+
+        private bool datosReporte()
+        {
+            if (txtObjetivos.Text == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        // Eventos botones
 
         private void btnCalcCalidadInterna_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +92,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
         {
+            if (datosReporte())
+            {
+                if (configPDF())
+                {
 
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el nombre del archivo para generar el reporte", "Configuración reporte calidad", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el objetivo de la evaluación para generar el reporte", "Reporte calidad final software", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
 

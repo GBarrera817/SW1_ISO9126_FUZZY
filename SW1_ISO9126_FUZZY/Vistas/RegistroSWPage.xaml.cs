@@ -17,7 +17,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // validar datos del software
 
-        public bool validar_datos_sw()
+        private bool validar_datos_sw()
         {
             if(txtNombreEvaluador.Text == string.Empty)
                 return false;

@@ -2,7 +2,8 @@
 	"Perspectiva":"Externa",
   	"Analizabilidad": [
 	  		{
-              "id": 0,
+              "id": 84,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Capacidad de seguimiento de auditoría",
               "proposito": [
                   "¿Puede el usuario identificar una operación específica que causó falla?", 
@@ -22,7 +23,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 85,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Soporte de la función de diagnóstico",
               "proposito": [
                   "¿Cuán capaces son las funciones diagnósticas al apoyar el análisis causal?", 
@@ -43,7 +45,8 @@
               ]
             },
             {
-              "id": 2,
+              "id": 86,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Capacidad de análisis de fallas",
               "proposito": [
                   "¿Puede el usuario identificar una operación específica que causó falla?", 
@@ -63,7 +66,8 @@
               ]
             },
             {
-              "id": 3,
+              "id": 87,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Eficacia del análisis de fallos",
               "proposito": [
                   "¿Puede el usuario analizar eficientemente la causa del fallo? (A veces el usuario realiza el mantenimiento estableciendo los parámetros.)", 
@@ -86,7 +90,8 @@
               ]
             },
             {
-              "id": 4,
+              "id": 88,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Supervisión del estado de la capacidad",
               "proposito": [
                   "¿Puede el usuario identificar una operación específica que causó falla al obtener datos monitorizados durante el funcionamiento?", 
@@ -108,7 +113,8 @@
    	],
   	"Modificabilidad": [
   			{
-              "id": 0,
+              "id": 89,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Cambio de la eficiencia del ciclo",
               "proposito": ["¿Se puede resolver el problema del usuario a su satisfacción dentro de una escala de tiempo aceptable?"],
               "metodo": "Supervisar la interacción entre el usuario y el proveedor. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
@@ -127,7 +133,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 90,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Cambio del tiempo de ejecución de la implementación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema de falla?"],
               "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
@@ -146,7 +153,8 @@
               ]
             },
             {
-              "id": 2,
+              "id": 91,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Complejidad de la Modificación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema?"],
               "metodo": "Observe el comportamiento del mantenedor que intenta cambiar el software.",
@@ -165,7 +173,8 @@
               ]
             },
             {
-              "id": 3,
+              "id": 92,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Modificabilidad parametrizada",
               "proposito": ["¿Puede el usuario o el mantenedor cambiar fácilmente el parámetro para cambiar el software y resolver problemas?"],
               "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software.",
@@ -182,7 +191,8 @@
               ]
             },
             {
-              "id": 4,
+              "id": 93,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Capacidad de control de cambio de software",
               "proposito": [
                   "¿Puede el usuario identificar fácilmente versiones revisadas?", 
@@ -204,31 +214,8 @@
   	],
   	"Estabilidad" : [
             {
-              "id": 0,
-              "nombre": "Porcentaje de éxito a los cambios",
-              "proposito": [
-                  "¿Puede el usuario operar el sistema de software sin fallas después del mantenimiento?", 
-                  "¿Puede el mantenedor mitigar fácilmente los fallos causados por los efectos secundarios del mantenimiento?"
-              ],
-              "metodo": "Contar errores que el usuario o el mantenedor encontraron durante el funcionamiento del software antes y después del mantenimiento.",
-              "formula": ["(Na/Ta)/(Nb/Tb)"],
-              "peor_valor": 100000,
-              "mejor_valor": 0,
-              "parametros": [
-                "Na",
-                "Ta",
-                "Nb",
-                "Tb"
-              ],
-              "desc_param": [
-                "Na: Número de casos en los que el usuario encuentra fallos durante el funcionamiento después de cambiar el software",
-                "Ta: Tiempo de operación durante el período de observación especificado después de cambiar el software.",
-                "Nb: Número de casos en los que el usuario encuentra fallos durante el funcionamiento antes de que se cambie el software.",
-                "Tb: Tiempo de operación durante el período de observación especificado antes de cambiar el software."
-              ]
-            },
-            {
-              "id": 1,
+              "id": 94,
+              "subcaracteristica" : "Estabilidad",
               "nombre": "Localización del impacto de una modificación (Fracaso emergente después del cambio)",
               "proposito": [
                   "¿Puede el usuario operar el sistema de software sin fallas después del mantenimiento?",
@@ -250,7 +237,8 @@
 	],
 	"Testeabilidad": [
 			{
-              "id": 0,
+              "id": 95,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Disponibilidad de la función de prueba incorporada",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas sin preparación adicional de la instalación de prueba?"],
               "metodo": "Observe el comportamiento del usuario o del mantenedor que está probando el sistema de software después del mantenimiento.",
@@ -267,7 +255,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 96,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Eficiencia de volver a probar",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operacionales y determinar si el software está listo para funcionar o no?"],
               "metodo": "Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento.",
@@ -284,7 +273,8 @@
               ]
             },
             {
-              "id": 2,
+              "id": 97,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Capacidad de volver a empezar la prueba",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas con puntos de verificación después del mantenimiento?"],
               "metodo": "Observe el comportamiento del usuario o mantenedor que está probando el sistema de software después del mantenimiento.",
@@ -303,7 +293,8 @@
   	],
   	"CumplimientoMantenibilidad": [
   			{
-              "id": 0,
+              "id": 98,
+              "subcaracteristica" : "Cumplimiento Mantenibilidad",
               "nombre": "Cumplimiento de la Mantenibilidad",
               "proposito": ["¿En qué medida es compatibles la mantenibildiad del producto de software a las regulaciones, normas y convenciones?"],
               "metodo": "Cuente el número de ítems que requieren cumplimiento que se han cumplido y compare con el número de ítems que requieren cumplimiento en la especificación.",

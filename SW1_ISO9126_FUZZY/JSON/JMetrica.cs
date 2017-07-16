@@ -10,6 +10,7 @@ namespace SW1_ISO9126_FUZZY.JSON
     public class JMetrica
     {
         private int id;
+        private string subcaracteristica;
         private string nombre;
         private string[] proposito;
         private string metodo;
@@ -22,6 +23,7 @@ namespace SW1_ISO9126_FUZZY.JSON
         public JMetrica() {}
 
         public int Id { get => id; set => id = value; }
+        public string Subcaracteristica { get => subcaracteristica; set => subcaracteristica = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string[] Proposito { get => proposito; set => proposito = value; }
         public string Metodo { get => metodo; set => metodo = value; }
@@ -31,10 +33,12 @@ namespace SW1_ISO9126_FUZZY.JSON
         public string[] Parametros { get => parametros; set => parametros = value; }
         public string[] Desc_param { get => desc_param; set => desc_param = value; }
 
+
         public override string ToString()
         {
             string str = "";
             str += "\nID: " + id;
+            str += "\nSubcaracterística: " + subcaracteristica;            
             str += "\nNombre: " + nombre;
 
             for (int i = 0; i < proposito.Length; i++)

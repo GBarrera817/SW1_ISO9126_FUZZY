@@ -40,22 +40,21 @@
         </GroupBox>
         <GroupBox x:Name="groupBox3" Header="Evaluación Métrica" HorizontalAlignment="Left" Margin="10,370,0,70" Width="424" BorderBrush="#FF33A133" Background="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="130" Margin="0,-5,-2,-4" VerticalAlignment="Top" Width="414">
-                <Label x:Name="lblParam0" Content="P1:" HorizontalAlignment="Left" Margin="9,30,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold"/>
-                <TextBox x:Name="txtParam0" HorizontalAlignment="Left" Height="23" Margin="44,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam0_TextChanged"/>
-                <Label x:Name="lblParam1" Content="P2:" HorizontalAlignment="Left" Margin="9,62,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold"/>
-                <TextBox x:Name="txtParam1" HorizontalAlignment="Left" Height="23" Margin="44,62,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam1_TextChanged"/>
-                <Label x:Name="lblParam2" Content="P3:" HorizontalAlignment="Left" Margin="9,93,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold"/>
-                <TextBox x:Name="txtParam2" HorizontalAlignment="Left" Height="23" Margin="44,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam1_TextChanged"/>
+                <Label x:Name="lblParam0" Content="P1:" HorizontalAlignment="Left" Margin="7,30,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" Visibility="Hidden"/>
+                <TextBox x:Name="txtParam0" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="44,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam0_TextChanged" IsEnabled="False" Visibility="Hidden"/>
+                <Label x:Name="lblParam1" Content="P2:" HorizontalAlignment="Left" Margin="7,62,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" Visibility="Hidden"/>
+                <TextBox x:Name="txtParam1" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="44,62,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam1_TextChanged" IsEnabled="False" Visibility="Hidden" />
+                <Label x:Name="lblParam2" Content="P3:" HorizontalAlignment="Left" Margin="7,93,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" Visibility="Hidden"/>
+                <TextBox x:Name="txtParam2" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="44,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="txtParam1_TextChanged" IsEnabled="False" Visibility="Hidden"/>
                 <Label FontSize="14" Content="Fórmula:" Margin="159,4,159,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.615,0.483"/>
                 <Label x:Name="label1_formula" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="228,4,0,0" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.532,0.448"/>
-                <Label FontSize="14" Content="Valor deseable:" HorizontalAlignment="Left" Margin="253,47,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
-                <Label x:Name="lblMejorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="358,47,0,0" VerticalAlignment="Top" Width="46"/>
-                <Label FontSize="14" Content="Valor deficiente :" HorizontalAlignment="Left" Margin="242,81,0,20" Width="129" FontWeight="Bold"/>
-                <Label x:Name="lblPeorValor" FontSize="14" Content="Label:" HorizontalAlignment="Left" Margin="99,254,0,-153" VerticalAlignment="Top" Width="65"/>
-                <Label x:Name="lblMejorValor_Copy" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="358,81,0,20" Width="46"/>
-                <Slider x:Name="sldparam0" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,27,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam0_ValueChanged"/>
-                <Slider x:Name="sldparam1" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,58,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam1_ValueChanged"/>
-                <Slider x:Name="sldparam2" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,89,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam2_ValueChanged"/>
+                <Label FontSize="14" Content="Valor deseable:" HorizontalAlignment="Left" Margin="250,45,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
+                <Label x:Name="lblMejorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="355,45,0,0" VerticalAlignment="Top" Width="59"/>
+                <Label FontSize="14" Content="Valor deficiente :" HorizontalAlignment="Left" Margin="239,79,0,22" Width="129" FontWeight="Bold"/>
+                <Label x:Name="lblPeorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="355,79,0,22" Width="59"/>
+                <Slider x:Name="sldparam0" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,27,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam0_ValueChanged" IsEnabled="False" Visibility="Hidden"/>
+                <Slider x:Name="sldparam1" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,58,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam1_ValueChanged" IsEnabled="False" Visibility="Hidden"/>
+                <Slider x:Name="sldparam2" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,89,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" ValueChanged="sldparam2_ValueChanged" IsEnabled="False" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Margin="439,370,0,70" Width="351" Background="#FF33A133" BorderBrush="#FF33A133">

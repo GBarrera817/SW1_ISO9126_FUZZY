@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
@@ -35,7 +32,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 					if(valorLinguistico != null)
 					{
 						valorLinguistico.ValorMembresia = valoresMembresia.Max();
-						valorLinguistico.FuncionMembresia.AlfaCorte = valorLinguistico.ValorMembresia;
+						valorLinguistico.FuncionMembresia.ValorCorte = valorLinguistico.ValorMembresia;
 						//Console.WriteLine("Max : " + valorLinguistico.GradoPertenencia);
 						resultado.Add(valorLinguistico);
 					}

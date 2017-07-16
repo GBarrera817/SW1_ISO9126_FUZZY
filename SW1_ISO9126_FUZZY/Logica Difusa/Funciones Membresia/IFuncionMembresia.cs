@@ -10,26 +10,26 @@
 		double ValorMembresia(double x);
 
 		/// <summary>
-		/// Entrega el valor Y asociado al valor de pertenencia X.
+		/// Escala la funcion de pertenencia al grado de pertenencia pasado.
 		/// </summary>
-		/// <param name="membershipValue"></param>
+		/// <param name="valorMembresia"></param>
 		/// <returns></returns>
-		bool CorteFuncion(double membershipValue);
+		bool CortarFuncion(double valorMembresia);
 
 
 		/// <summary>
-		/// Es el valor donde comienza la funcion de pertenencia
+		/// Es el valor donde comienza la función de pertenencia
 		/// </summary>
 		/// <returns></returns>
 		double LimInferior();
 
 		/// <summary>
-		/// Es el valor donde termina la funcion de pertenencia
+		/// Es el valor donde termina la función de pertenencia
 		/// </summary>
 		/// <returns></returns>
 		double LimSuperior();
 
-		double AlfaCorte { get; set; }
+		double ValorCorte { get; set; }
 
 	}
 }

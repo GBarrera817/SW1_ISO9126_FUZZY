@@ -17,8 +17,8 @@
 			ValorLinguistico resultado = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
 
 			// Obtenemos el grado de pertenencia y cortamos la funcion de pertenencia en ese grado.
-			valorLinguistico.FuncionMembresia.CorteFuncion(resultadoOperadorDifuso);
-			resultado.ValorMembresia = resultado.FuncionMembresia.AlfaCorte;
+			valorLinguistico.FuncionMembresia.CortarFuncion(resultadoOperadorDifuso);
+			resultado.ValorMembresia = resultado.FuncionMembresia.ValorCorte;
 
 			return resultado;
 		}

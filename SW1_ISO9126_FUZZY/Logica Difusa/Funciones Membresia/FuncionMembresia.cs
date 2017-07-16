@@ -2,11 +2,14 @@
 {
 	public class FuncionMembresia : IFuncionMembresia
 	{
-		public double AlfaCorte { get { return -1; } set { } }
-
-		public virtual bool CorteFuncion(double membershipValue)
+		public virtual bool CortarFuncion(double valorMembresia)
 		{
 			return false;
+		}
+
+		public virtual double ValorMembresia(double x)
+		{
+			return 0;
 		}
 
 		public virtual double LimInferior()
@@ -19,9 +22,10 @@
 			return 0;
 		}
 
-		public virtual double ValorMembresia(double x)
-		{
-			return 0;
+		public virtual double ValorCorte
+		{ 
+			get { return -1; }
+			set { }
 		}
 	}
 }

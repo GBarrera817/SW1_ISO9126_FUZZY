@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
-using SW1_ISO9126_FUZZY.Logica_Difusa;
 using System;
 using System.Linq;
+using SW1_ISO9126_FUZZY.Logica_Difusa;
 
-namespace SW1_ISO9126_FUZZY.InferenciaDifusa
+
+
+
+namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 {
 	/// <summary>
 	/// Clase para realizar la Inferencia difusa

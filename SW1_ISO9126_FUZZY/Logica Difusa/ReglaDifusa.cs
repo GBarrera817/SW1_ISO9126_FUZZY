@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
@@ -40,24 +38,19 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			_operadorDifuso = "";
 		}
 
+
 		/// <summary>
-		/// Inicializa una regla con su id, antecedente, consecuente y el operador difuso de la regla
+		/// Constructor, recibe el antecedente, el consecuente y el operador de la regla
 		/// </summary>
-		/// <param name="id"></param>
 		/// <param name="antecedente"></param>
 		/// <param name="consecuente"></param>
-		public ReglaDifusa(string id, Dictionary<string, ValorLinguistico> antecedente, Tuple<string, ValorLinguistico> consecuente)
-		{
-			this._id = id;
-
-		}
-
+		/// <param name="operadorDifuso"></param>
 		public ReglaDifusa(Dictionary<string, ValorLinguistico> antecedente, Tuple<string, ValorLinguistico> consecuente, string operadorDifuso)
 		{
 			Antecedente = new Dictionary<string, ValorLinguistico>();
 
 			foreach (KeyValuePair<string, ValorLinguistico> actual in antecedente)
-				AgregarAntedente(actual.Key, actual.Value);
+				AgregarAntecedente(actual.Key, actual.Value);
 			
 
 			if( consecuente != null)		
@@ -66,6 +59,13 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			OperadorDifuso = operadorDifuso;
 		}
 
+		/// <summary>
+		/// Constructor, recibe el id, el antecedente, el consecuente y el operador de la regla.
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="antecedente"></param>
+		/// <param name="consecuente"></param>
+		/// <param name="operadorDifuso"></param>
 		public ReglaDifusa(string id, Dictionary<string, ValorLinguistico> antecedente, Tuple<string, ValorLinguistico> consecuente, string operadorDifuso)
 		{
 
@@ -73,7 +73,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			this._id = id;
 			Antecedente = new Dictionary<string, ValorLinguistico>();
 
-			byte contador = 0;
+			int contador = 0;
 			this._texto = "IF";
 
 			foreach (KeyValuePair<string, ValorLinguistico> actual in antecedente)
@@ -82,7 +82,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 					this._texto += " " + operadorDifuso;
 
 				this._texto += " " + actual.Key + " IS " + actual.Value.Nombre;
-				AgregarAntedente(actual.Key, actual.Value);
+				AgregarAntecedente(actual.Key, actual.Value);
 				contador += 1;
 			}
 
@@ -103,8 +103,9 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// </summary>
 		/// <param name="nombreVariable"></param>
 		/// <param name="valorLinguistico"></param>
-		private void AgregarConsecuente(string nombreVariable, ValorLinguistico valorLinguistico)
-		{
+		public void AgregarAntecedente(string nombreVariable, ValorLinguistico valorLinguistico)
+		{ 
+			//ValorLinguistico val = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
 			Antecedente.Add(nombreVariable, valorLinguistico);
 		}
 
@@ -113,12 +114,16 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// </summary>
 		/// <param name="nombreVariable"></param>
 		/// <param name="valorLinguistico"></param>
-		private void AgregarAntedente(string nombreVariable, ValorLinguistico valorLinguistico)
+		public void AgregarConsecuente(string nombreVariable, ValorLinguistico valorLinguistico)
 		{
 			ValorLinguistico val = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
 			Consecuente = new Tuple<string, ValorLinguistico>(nombreVariable, val);
 		}
 
+		/// <summary>
+		/// Evalúa la regla según el operador.
+		/// </summary>
+		/// <returns></returns>
 		public double EvaluarRegla()
 		{
 			List<double> valoresLinguisticos = new List<double>();
@@ -136,7 +141,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		}
 
 		//Accesores
-		public string ID_Regla
+		public string ID
 		{
 			get { return _id; }
 			set { _id = value; }

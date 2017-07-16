@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia;
+﻿using SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
@@ -45,7 +40,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// Calcula el valor de membresia del valor lingüístico
 		/// </summary>
 		/// <param name="valor"></param>
-		public void ObtenerValorMembresia(double valor)
+		public void CalcularValorMembresia(double valor)
 		{
 			ValorMembresia = FuncionMembresia.ValorMembresia(valor);
 		}

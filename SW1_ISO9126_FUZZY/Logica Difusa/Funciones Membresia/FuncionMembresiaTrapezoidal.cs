@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 {
 	public class FuncionMembresiaTrapezoidal : FuncionMembresia
 	{
 
-		double _a, _b, _c, _d, _valorCorte;
-		private bool corte;
+		private double _a, _b, _c, _d, _valorCorte;
+		private bool _corte;
 
 		/// <summary>
 		/// Constructor vacío
@@ -27,8 +23,10 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 		/// <param name="d">Valor derAbajo</param>
 		public FuncionMembresiaTrapezoidal(double a, double b, double c, double d)
 		{
-			if (!(A <= B && B <= C && C <= D))
+			if (!(a <= b && b <= c && c <= d))
+			{
 				throw new ArgumentException();
+			}
 
 			_a = a;
 			_b = b;
@@ -42,44 +40,44 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 		/// <summary>
 		/// Devuelve el valor fuzzificado.
 		/// </summary>
-		/// <param name="x"></param>
+		/// <param name="x">Valor eje X</param>
 		/// <returns></returns>
 		public override double ValorMembresia(double x)
 		{
-			double valor_fuzzificado = 0;
+			double valorFuzzificado = 0;
 
-			if( x== _a && x == _b)
+			if( x == _a && x == _b)
 			{
-				valor_fuzzificado = 1.0;
+				valorFuzzificado = 1.0;
 			}
-			else if( x == _c && x == _c)
+			else if( x == _c && x == _d)
 			{
-				valor_fuzzificado = 1.0;
+				valorFuzzificado = 1.0;
 			} 
 			else if( (x <= _a) || (x >= _d) )
 			{
-				valor_fuzzificado = 0;
+				valorFuzzificado = 0;
 			} 
 			else if( (x >= _b) && (x <= _c) )
 			{
-				valor_fuzzificado = 1.0;
+				valorFuzzificado = 1.0;
 			} 
 			else if( (x > _a) && (x < _b))
 			{
-				valor_fuzzificado = (x / (_b - _a)) - (_a / (_b - _a))  ;
+				valorFuzzificado = (x / (_b - _a)) - (_a / (_b - _a))  ;
 			} 
 			else
 			{
-				valor_fuzzificado = (-x / (_d - _c)) + ( _d / (_d - _c)) ;
+				valorFuzzificado = (-x / (_d - _c)) + ( _d / (_d - _c)) ;
 			}
 
 			// Si la función fue cortada, el valor de membresía no puede sobrepasar al valor de corte.
-			if (valor_fuzzificado > ValorCorte && Corte)
+			if (valorFuzzificado > ValorCorte && Corte)
 			{
-				valor_fuzzificado = ValorCorte;
+				valorFuzzificado = ValorCorte;
 			}
 
-			return valor_fuzzificado;
+			return valorFuzzificado;
 		}
 
 		public override bool CortarFuncion(double valorMembresia)
@@ -105,16 +103,29 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 			return D;
 		}
 
-		public bool Corte { get => corte; set => corte = value; }
+		public bool Corte { get => _corte; set => _corte = value; }
 
 		public override double ValorCorte { get => _valorCorte; set => _valorCorte = value; }
 
+
+		/// <summary>
+		/// Valor izquierdo abajo
+		/// </summary>
 		public double A { get => _a; set => _a = value; }
 
+		/// <summary>
+		/// Valor izquierdo arriba
+		/// </summary>
 		public double B { get => _b; set => _b = value; }
 
+		/// <summary>
+		/// Valor derecho arriba
+		/// </summary>
 		public double C { get => _c; set => _c = value; }
 
+		/// <summary>
+		/// Valor derecho abajo
+		/// </summary>
 		public double D { get => _d; set => _d = value; }
 	}
 }

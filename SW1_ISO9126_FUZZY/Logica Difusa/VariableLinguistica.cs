@@ -1,9 +1,6 @@
 ﻿using SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
@@ -17,7 +14,8 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		private Dictionary<string, ValorLinguistico> _valoresLinguisticos;
 
 		/// <summary>
-		/// Constructor por defecto para crear una Variable Lingüística
+		/// Constructor por defecto para crear una variable lingüística
+		/// Se inicializa sin valores lingüísticos
 		/// </summary>
 		public VariableLinguistica(string nombre, double min, double max)
 		{
@@ -25,11 +23,6 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			ValorMaximo = max;
 			ValorMinimo = min;
 			ValoresLinguisticos = new Dictionary<string, ValorLinguistico>();
-		}
-
-		internal void AgregarValorLinguistico(object a_Muy_Mala)
-		{
-			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -49,18 +42,6 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			}
 		}
 
-		/// <summary>
-		/// Agrega un valor linguistico a la variable lingüística.
-		/// </summary>
-		/// <param name="valorLinguistico"></param>
-		/// <returns></returns>
-		public bool AgregarValorLinguistico(ValorLinguistico valorLinguistico)
-		{
-			ValorLinguistico vl = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia, valorLinguistico.ValorMembresia);
-			_valoresLinguisticos.Add(vl.Nombre, vl);
-
-			return true;
-		}
 
 		/// <summary>
 		/// Agrega un valor linguistico a la variable lingüística.
@@ -76,9 +57,23 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			return true;
 		}
 
+
 		/// <summary>
-		/// Fuzzifica la variable, obteniendo el grado de pertenencia por cada valor
-		/// lingüístico
+		/// Agrega un valor linguistico a la variable lingüística.
+		/// </summary>
+		/// <param name="valorLinguistico"></param>
+		/// <returns></returns>
+		public bool AgregarValorLinguistico(ValorLinguistico valorLinguistico)
+		{
+			ValorLinguistico vl = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia, valorLinguistico.ValorMembresia);
+			_valoresLinguisticos.Add(vl.Nombre, vl);
+
+			return true;
+		}
+
+
+		/// <summary>
+		/// Fuzzifica la variable, obteniendo el grado de pertenencia por cada valor lingüístico
 		/// </summary>
 		/// <param name="valorEntrada"></param>
 		/// <returns></returns>
@@ -88,7 +83,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			{
 				foreach (KeyValuePair<string, ValorLinguistico> valor  in ValoresLinguisticos)
 				{
-					valor.Value.ObtenerValorMembresia(valorEntrada);
+					valor.Value.CalcularValorMembresia(valorEntrada);
 				}
 				return true;
 			}
@@ -103,7 +98,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		public bool EliminarValorLinguistico(string nombreValorLinguistico)
 		{
 			//REVISAR
-			if (ValoresLinguisticos.Equals(nombreValorLinguistico))
+			if (ValoresLinguisticos.ContainsKey(nombreValorLinguistico))
 			{
 				ValoresLinguisticos.Remove(nombreValorLinguistico);
 				return true;

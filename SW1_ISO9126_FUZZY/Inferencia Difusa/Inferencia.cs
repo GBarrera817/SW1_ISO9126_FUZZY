@@ -132,32 +132,32 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 			string[] reglaTemp = regla.Split(' ');
 			Dictionary<string, ValorLinguistico> antecedente = new Dictionary<string, ValorLinguistico>();
 
-			// Regla con una sola variable linguistica en el antecedente.
-			if (reglaTemp.Length == 8)//REVISAR
+			// Regla con una sola variable lingüística en el antecedente.
+			if (reglaTemp.Length == 8)
 			{
 				string variable = reglaTemp[1];
 				string valor = reglaTemp[3];
 
 				if (VariablesLinguisticas.ContainsKey(variable))
 				{
-					// valorLinguistico = muy_mala
+					//valorLinguistico = "muy_mala"
 					ValorLinguistico valorLinguistico = VariablesLinguisticas[variable].ValorLinguistico(valor);
 					antecedente.Add(variable, valorLinguistico);
-				} else if (reglaTemp.Length >= 8)
+				}
+			} else if (reglaTemp.Length >= 12)
+			{
+				//IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala -> Tamaño de Regla mínima con más de una una variable y un valor lingüístico.
+				for (int i = 2; i < reglaTemp.Length && reglaTemp[i] != "THEN"; i++)
 				{
-					//COMPLETAR
-					for (int i = 2; i < reglaTemp.Length && reglaTemp[i] != "THEN"; i++)
+					if ((reglaTemp[i] == "IS") && (i - 1 > 0) && (i + 1 < reglaTemp.Length))
 					{
-						if ((reglaTemp[i] == "IS") && (i - 1 > 0) && (i + 1 < reglaTemp.Length))
-						{
-							string var = reglaTemp[i - 1];
-							string val = reglaTemp[i + 1];
+						string variable = reglaTemp[i - 1];
+						string valor = reglaTemp[i + 1];
 
-							if (VariablesLinguisticas.ContainsKey(var))
-							{
-								ValorLinguistico valorLinguistico = VariablesLinguisticas[variable].ValorLinguistico(val);
-								antecedente.Add(var, valorLinguistico);
-							}
+						if (VariablesLinguisticas.ContainsKey(variable))
+						{
+							ValorLinguistico valorLinguistico = VariablesLinguisticas[variable].ValorLinguistico(valor);
+							antecedente.Add(valor, valorLinguistico);
 						}
 					}
 				}
@@ -175,6 +175,7 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 			string[] reglaTemp = regla.Split(' ');
 			Tuple<string, ValorLinguistico> consecuente = null;
 
+			//IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala
 			if (reglaTemp.Length >= 8) //revisar
 			{
 				string variable = reglaTemp[reglaTemp.Length - 3];
@@ -200,17 +201,18 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 			string operador = "";
 			string[] reglaTemp = regla.Split(' ');
 
+			//IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala
 			if (reglaTemp.Length >= 12)
 			{
 				if (reglaTemp[4] == "AND" || reglaTemp[4] == "OR")
 				{
 					operador = reglaTemp[4];
-				} else if (reglaTemp.Length == 8)
+				} 
+				else if (reglaTemp.Length == 8)
 				{
-					operador = "y";
+					operador = "AND";
 				}
 			}
-
 			return operador;
 		}
 
@@ -253,26 +255,30 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 
 			foreach (KeyValuePair<string, ValorLinguistico> actual in regla.Antecedente)
 			{
-				//Console.Write(" Valor(" + actual.Key + "): " + actual.Value.GradoPertenencia);
+				//COMENTAR ESTA LINEA
+				Console.Write(" Valor(" + actual.Key + "): " + actual.Value.ValorMembresia);
 				valoresLinguisticos.Add(actual.Value.ValorMembresia);
 			}
 
 			if (regla.OperadorDifuso == "AND")
 			{
-				//Console.Write(" Min");
+				//COMENTAR ESTA LINEA
+				Console.Write(" Min");
 				resultadoOperador = valoresLinguisticos.Min();
 			} else if (regla.OperadorDifuso == "OR")
 			{
-				//Console.Write(" Max");
+				//COMENTAR ESTA LINEA
+				Console.Write(" Max");
 				resultadoOperador = valoresLinguisticos.Max();
 			}
-			//Console.WriteLine(" Resultado Operador: " + resultadOperador);
+			//COMENTAR ESTA LINEA
+			Console.WriteLine(" Resultado Operador: " + resultadoOperador);
 			return ImplicacionDifusa.EjecutarImplicacion(resultadoOperador, regla.Consecuente.Item2);
 		}
 
 
 		/// <summary>
-		/// Evalúa las reglas de la base de reglas.
+		/// Evalúa todas las reglas de la base de reglas.
 		/// Retorna los consecuentes agrupados por los diferentes valores lingüísticos.
 		/// </summary>
 		/// <returns></returns>
@@ -286,24 +292,26 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 
 				if (regla != null)
 				{
+					//COMENTAR ESTA LINEA
+					Console.WriteLine("Consecuente regla: " + regla.Consecuente.Item1);
 					string valorLinguistico = regla.Consecuente.Item2.Nombre;
 
+					// Se agrega el valor lingüístico del consecuente si no ha sido agregado al diccionario.
 					if (consecuentes.ContainsKey(valorLinguistico))
 					{
 						consecuentes.Add(valorLinguistico, new List<ValorLinguistico>());
 					}
+					// Se evalúa la regla y agregamos el valor lingüístico resultante.
+					//COMENTAR ESTA LINEA
+					Console.Write("Regla: " + r.Key);
 					ValorLinguistico evaluacion = EvaluacionRegla(regla);
 					consecuentes[valorLinguistico].Add(evaluacion);
 				}
 			}
 			return consecuentes;
 		}
-		// Accesores 
-		public Dictionary<string, VariableLinguistica> VariablesLinguisticas
-		{
-			get { return _variablesLinguisticas; }
-			set { _variablesLinguisticas = value; }
-		}
+		
+		
 
 		/// <summary>
 		/// Fuzzifica las variables lingüísticas
@@ -313,7 +321,7 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 		{
 			foreach (KeyValuePair<string, double> x in datos)
 			{
-				//Console.WriteLine("Dato " + dato.Key + ": " + dato.Value);
+				Console.WriteLine("Dato " + x.Key + ": " + x.Value);
 				if (VariablesLinguisticas.ContainsKey(x.Key))
 					VariablesLinguisticas[x.Key].Fuzzificar(x.Value);
 			}
@@ -327,9 +335,12 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 		{
 			double totalImportancia = 0;
 
+			// Obtenemos el total de las importancias.
 			foreach (KeyValuePair<string, Tuple<double, double>> x in datos)
+			{
 				totalImportancia += x.Value.Item2;
-
+			}
+			// Fuzzifica y normaliza el valor de membresía resultante.
 			foreach (KeyValuePair<string, Tuple<double, double>> x in datos)
 			{
 				if (VariablesLinguisticas.ContainsKey(x.Key))
@@ -383,6 +394,13 @@ namespace SW1_ISO9126_FUZZY.Inferencia_Difusa
 			List<ValorLinguistico> conjuntoDifuso = AgregacionReglas.EjecutarAgregacion(consecuentes);
 
 			return defuzzificacion;
+		}
+
+		// Accesores 
+		public Dictionary<string, VariableLinguistica> VariablesLinguisticas
+		{
+			get { return _variablesLinguisticas; }
+			set { _variablesLinguisticas = value; }
 		}
 
 		public Dictionary<string, string> BaseReglas

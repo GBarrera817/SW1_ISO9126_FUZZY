@@ -14,82 +14,85 @@
             <!-- Características Internas -->
             <GroupBox Header="Características Internas" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" OpacityMask="Black" Background="#FF33A133" BorderBrush="#FF33A133">
                 <Grid>
-                    <Grid Margin="75,8,553,179" Background="#FF353F59">
+                    
+                    <Grid Margin="75,177,553,10" Background="#FF353F59">
                         <Label x:Name="lblEstadoFuncInterna" FontSize="12" Content="Estado" VerticalAlignment="Center" Width="140" Foreground="White" Height="25" HorizontalContentAlignment="Center" />
                     </Grid>
-                    <controls:Tile x:Name="btnFuncInterna" HorizontalTitleAlignment="Center"  Title="Funcionabilidad" Margin="75,40,553,32" Click="btnFuncInterna_Click" Background="#FFFF3A00" BorderBrush="#FF009976">
+                    
+                    <controls:Tile x:Name="btnFuncInterna" HorizontalTitleAlignment="Center"  Title="Funcionabilidad" Margin="75,21,553,51" Click="btnFuncInterna_Click" Background="#FFFF3A00" BorderBrush="#FF009976" Height="Auto">
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Stretch="Fill" />
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Stretch="Fill"/>
                     </controls:Tile>
-                    <Label x:Name="cantFuncInterna" Content="10/19" Margin="125,185,603,0" />
+                    <Button x:Name="cantFuncsInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="188,8,524,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
 
-                    <Grid Margin="314,8,314,179" Background="#FF353F59" >
+                    <Grid Margin="314,177,314,10" Background="#FF353F59" >
                         <Label x:Name="lblEstadoUsabInterna" Foreground="White" FontSize="12" Content="Estado" HorizontalAlignment="Left" Width="140" Height="25" BorderBrush="White" HorizontalContentAlignment="Center"/>
                     </Grid>
 
-                    <controls:Tile x:Name="btnUsabInterna" HorizontalTitleAlignment="Center" Title="Usabilidad" Margin="314,40,314,32" TiltFactor="6" Click="btnUsabInterna_Click" Background="#FFFF3A00">
+                    <controls:Tile x:Name="btnUsabInterna" HorizontalTitleAlignment="Center" Title="Usabilidad" Margin="314,21,314,51" TiltFactor="6" Click="btnUsabInterna_Click" Background="#FFFF3A00">
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" />
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png"/>
                     </controls:Tile>
-                    <Label x:Name="cantUsabInterna" Content="10/19" Margin="364,185,364,0" />
+                    <Button x:Name="cantUsabInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="426,8,286,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
 
-                    <Grid Margin="553,8,75,179" Background="#FF353F59">
+                    <Grid Margin="553,177,75,10" Background="#FF353F59">
                         <Label x:Name="lblEstadoMantInterna" FontSize="12" Content="Estado" VerticalAlignment="Center" Foreground="White" Width="140" Height="25" HorizontalContentAlignment="Center" />
                     </Grid>
 
-                    <controls:Tile x:Name="btnMantInterna" HorizontalTitleAlignment="Center" Title="Mantenibilidad" Margin="553,40,75,32" Click="btnMantInterna_Click" Background="#FFFF3A00" >
+                    <controls:Tile x:Name="btnMantInterna" HorizontalTitleAlignment="Center" Title="Mantenibilidad" Margin="553,21,75,51" Click="btnMantInterna_Click" Background="#FFFF3A00" >
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" />
                     </controls:Tile>
-                    <Label x:Name="cantMantInterna" Content="10/19" Margin="603,185,125,0" />
+                    <Button x:Name="cantMantInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="666,8,46,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
+                    
                 </Grid>
             </GroupBox>
             <!-- Características Externas -->
             <GroupBox Header="Características Externas" HorizontalAlignment="Left" Height="251" Margin="10,323,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                 <Grid Height="212" VerticalAlignment="Top">
-                    <Grid Margin="75,8,553,178" Background="#FF353F59">
+                    
+                    <Grid Margin="75,176,553,10" Background="#FF353F59">
                         <Label x:Name="lblEstadoFuncExterna" FontSize="12" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" Width="140" Height="25"/>
                     </Grid>
 
-
-                    <controls:Tile x:Name="btnFuncExterna" HorizontalTitleAlignment="Center" Title="Funcionabilidad" Margin="75,40,553,32" Click="btnFuncExterna_Click" Background="#FFFF3A00">
+                    <controls:Tile x:Name="btnFuncExterna" HorizontalTitleAlignment="Center" Title="Funcionabilidad" Margin="75,21,553,51" Click="btnFuncExterna_Click" Background="#FFFF3A00">
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png"/>
                     </controls:Tile>
-                    <Label x:Name="cantFuncExterna" Content="10/19" Margin="125,185,603,0" />
+                    <Button x:Name="cantFuncExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="186,8,526,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
 
-
-                    <Grid Margin="314,8,314,178" Background="#FF353F59" >
+                    <Grid Margin="314,176,314,10" Background="#FF353F59" >
                         <Label x:Name="lblEstadoUsabExterna" FontSize="12" Content="Estado" VerticalAlignment="Top" Width="140" Height="25" Foreground="White" HorizontalContentAlignment="Center"/>
                     </Grid>
-                    <controls:Tile x:Name="btnUsabExterna" HorizontalTitleAlignment="Center" Title="Usabilidad" Margin="314,40,314,32" Click="btnUsabExterna_Click" Background="#FFFF3A00">
+
+                    <controls:Tile x:Name="btnUsabExterna" HorizontalTitleAlignment="Center" Title="Usabilidad" Margin="314,21,314,51" Click="btnUsabExterna_Click" Background="#FFFF3A00">
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" />
                     </controls:Tile>
-                    <Label x:Name="cantUsabExterna" Content="10/19" Margin="364,185,364,0" />
+                    <Button x:Name="cantUsabExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="424,8,288,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
 
-
-                    <Grid Margin="553,8,75,178" Background="#FF353F59" >
+                    <Grid Margin="553,176,75,10" Background="#FF353F59" >
                         <Label x:Name="lblEstadoMantExterna" FontSize="12" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" Width="140" Height="25"/>
-
                     </Grid>
-                    <controls:Tile x:Name="btnMantExterna" HorizontalTitleAlignment="Center" Title="Mantenibilidad" Margin="553,41,75,31" Click="btnMantExterna_Click" Background="#FFFF3A00">
+                    
+                    <controls:Tile x:Name="btnMantExterna" HorizontalTitleAlignment="Center" Title="Mantenibilidad" Margin="553,21,75,51" Click="btnMantExterna_Click" Background="#FFFF3A00">
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" />
                     </controls:Tile>
-                    <Label x:Name="cantMantExterna" Content="10/19" Margin="603,185,125,0" />
+                    <Button x:Name="cantMantExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="667,8,45,0" Content="0/0" Background="#FF353F59" FontWeight="Bold" Foreground="White"/>
+                    
                 </Grid>
             </GroupBox>
         </Grid>

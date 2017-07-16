@@ -98,7 +98,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 
             for (int i = 0; i < metrica.Desc_param.Length; i++)
             {
-                sb.AppendLine(metrica.Desc_param[i] + "\n");
+                if (i != (metrica.Desc_param.Length - 1))
+                    sb.AppendLine(metrica.Desc_param[i] + "\n");
+                else
+                    sb.AppendLine(metrica.Desc_param[i]);
             }
 
             txbkParam.Text = sb.ToString();

@@ -131,7 +131,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             
         }
 
+        private void cambiarEstado(int estado, Label etiqueta)
+        {
+            var bc = new BrushConverter();
+            string[] estados = new string[] { "REALIZAR", "COMPLETAR", "FINALIZADO" };
+            string[] colores = new string[] { "#FFCC0000", "#FFE6E600", "#FF00802B" };
 
+            etiqueta.Background = (Brush)bc.ConvertFrom(colores[estado]);
+            etiqueta.Content = estados[estado];
+        }
+
+
+        // Evento Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
 		{
@@ -139,26 +150,25 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			this.NavigationService.Navigate(new Uri("Vistas/SeleccionMetricasPage.xaml", UriKind.Relative));
 		}
 
-		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
-		{
-     
-            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+        // Eventos botones tabla
 
+		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
+		{ 
+            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            cambiarEstado(0, lblEstadoMetricasFuncInterna);
         }
 
 		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
-		{
-            
+		{  
             cargarUsabilidad(usaInt, DataGridEstadoMetricasInternas);
+            cambiarEstado(1,lblEstadoMetricasUsabInterna);
         }
 
 		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
-		{
-            
+		{ 
             cargarMantenibilidad(manInt, DataGridEstadoMetricasInternas);
+            cambiarEstado(2,lblEstadoMetricasMantInterna);
         }
-
-
 
 		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)
 		{

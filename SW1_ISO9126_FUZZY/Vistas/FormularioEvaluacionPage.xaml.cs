@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -11,6 +12,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
         public FormularioEvaluacionPage() {
             InitializeComponent();
         }
+
+
+        private void cambiarEstado(int estado, Label etiqueta)
+        {
+            var bc = new BrushConverter();
+            string[] estados = new string[] { "REALIZAR", "COMPLETAR", "FINALIZADO" };
+            string[] colores = new string[] { "#FFCC0000", "#FFE6E600", "#FF00802B" };
+
+            etiqueta.Background = (Brush)bc.ConvertFrom(colores[estado]);
+            etiqueta.Content = estados[estado];
+        }
+
+        // Eventos botones
 
         private void btnFuncInterna_Click(object sender, RoutedEventArgs e)
         {

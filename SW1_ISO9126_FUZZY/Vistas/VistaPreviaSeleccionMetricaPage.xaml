@@ -94,7 +94,7 @@
                 </Grid>
                 <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
                 <Grid Margin="165,79,0,90"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasUsabInterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="lblEstadoMetricasUsabInterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
                 <Grid Margin="165,149,5,20"  Background="#FF353F59" Width="88">
                     <Label x:Name="lblEstadoMetricasMantInterna" Content="Estado" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,-2"/>
@@ -103,7 +103,7 @@
             </Grid>
         </GroupBox>
 
-        <!-- Groupbox Estado de seleccion de metricas eXTERNAS-->
+        <!-- Groupbox Estado de seleccion de metricas EXTERNAS-->
         <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,324,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid Margin="0,0,0,1">
                 <Label FontSize="14" Content="Funcionalidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="4,0,0,0" FontWeight="Bold"/>
@@ -112,7 +112,7 @@
                 <Grid Margin="165,11,5,170"  Background="#FF353F59">
                     <Label x:Name="lblEstadoMetricasFuncExterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Grid Margin="165,84,0,96"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
+                <Grid  Margin="165,84,0,96"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
                     <Label x:Name="lblEstadoMetricasUsabExterna" Content="Estado" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
                 <Grid Margin="165,149,0,31" Background="#FF353F59" HorizontalAlignment="Left" Width="88">

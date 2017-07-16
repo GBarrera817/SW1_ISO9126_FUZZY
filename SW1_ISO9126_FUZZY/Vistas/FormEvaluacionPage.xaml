@@ -20,10 +20,10 @@
                 <Label x:Name="label1_Copy" FontSize="14" Content="Propósito:" HorizontalAlignment="Left" Margin="19,64,0,106" Width="80" FontWeight="Bold"/>
                 <Label FontSize="14" Content="Método:" HorizontalAlignment="Left" Margin="29,115,0,50" Width="70" FontWeight="Bold" RenderTransformOrigin="0.493,0.483"/>
                 <ScrollViewer Margin="107,69,10,85">
-                    <TextBlock x:Name="labelProposito" Width="633" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
+                    <TextBlock x:Name="labelProposito" Width="633" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                 </ScrollViewer>
                 <ScrollViewer Margin="107,120,10,21">
-                    <TextBlock x:Name="labelMetodo" Width="636" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
+                    <TextBlock x:Name="labelMetodo" Width="636" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                 </ScrollViewer>
             </Grid>
 
@@ -58,8 +58,8 @@
             </Grid>
         </GroupBox>
         <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Margin="439,370,0,70" Width="351" Background="#FF33A133" BorderBrush="#FF33A133">
-            <ScrollViewer HorizontalAlignment="Left" Height="121" Margin="0,0,-2,0" VerticalAlignment="Top" Width="341">
-                <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="" Height="113" Width="321" />
+            <ScrollViewer HorizontalAlignment="Left" Height="123"  VerticalAlignment="Top" Width="341" Margin="0,0,-2,-2">
+                <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Width="323"/>
             </ScrollViewer>
         </GroupBox>
         <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="297,549,0,0" VerticalAlignment="Top" Width="70" Click="btnSiguiente_Click" RenderTransformOrigin="1.181,0.288"/>

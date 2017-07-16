@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using SW1_ISO9126_FUZZY.JSON;
 
-namespace SW1_ISO9126_FUZZY.Test
+namespace SW1_ISO9126_FUZZY.Archivos_configuracion
 {
     public class Test_JMetricas
     {

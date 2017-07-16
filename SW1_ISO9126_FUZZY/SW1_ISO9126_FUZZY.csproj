@@ -118,6 +118,7 @@
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
     <Compile Include="Archivos_configuracion\JRevisar.cs" />
+    <Compile Include="Archivos_configuracion\Test_JMetricas.cs" />
     <Compile Include="Evaluacion Calidad\EvaluacionDifusa.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasMantenibilidad.cs" />

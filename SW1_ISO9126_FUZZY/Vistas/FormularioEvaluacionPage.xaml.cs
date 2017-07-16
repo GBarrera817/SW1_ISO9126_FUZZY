@@ -58,5 +58,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             // Xceed.Wpf.Toolkit.MessageBox.Show("btn usab externa");
             this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
         }
+
+        private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

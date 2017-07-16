@@ -118,15 +118,7 @@
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
     <Compile Include="Archivos_configuracion\JRevisar.cs" />
-    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasFuncionabilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasMantenibilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Reglas Produccion\ReglasUsabilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresFuncionabilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresMantebilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Valores Linguisticos\ValoresUsabilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesFuncionabilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesMantenibilidad.cs" />
-    <Compile Include="Evaluacion Difusa\Variables Linguisticas\VariablesUsabilidad.cs" />
+    <Compile Include="Inferencia Difusa\Inferencia.cs" />
     <Compile Include="Logica Difusa\AgregacionReglas.cs" />
     <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />
     <Compile Include="Logica Difusa\Funciones Membresia\IFuncionMembresia.cs" />
@@ -138,7 +130,6 @@
     <Compile Include="JSON\JMetrica.cs" />
     <Compile Include="JSON\JUsabilidad.cs" />
     <Compile Include="Logica Difusa\ImplicacionDifusa.cs" />
-    <Compile Include="InferenciaDifusa\InferenciaDifusa.cs" />
     <Compile Include="Logica Difusa\Integral\SimpsonIntegrator.cs" />
     <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
@@ -303,6 +294,8 @@
   <ItemGroup>
     <Resource Include="Imagenes\logo6btn.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

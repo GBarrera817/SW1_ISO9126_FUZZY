@@ -182,7 +182,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             for (int i = 0; i< metrica.Desc_param.Length; i++)
             {
-                sb.AppendLine(metrica.Desc_param[i]);
+                sb.AppendLine(metrica.Desc_param[i] + "\n");
             }
 
             txbkParam.Text = sb.ToString();

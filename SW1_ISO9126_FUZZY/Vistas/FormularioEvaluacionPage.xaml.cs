@@ -17,8 +17,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cambiarEstado(int estado, Label etiqueta)
         {
             var bc = new BrushConverter();
-            string[] estados = new string[] { "REALIZAR", "COMPLETAR", "FINALIZADO" };
-            string[] colores = new string[] { "#FFCC0000", "#FFE6E600", "#FF00802B" };
+            string[] estados = new string[] { "INACTIVA", "REALIZAR", "COMPLETAR", "FINALIZADO" };
+            string[] colores = new string[] { "#FF000033", "#FFCC0000", "#FFE6E600", "#FF00802B" };
 
             etiqueta.Background = (Brush)bc.ConvertFrom(colores[estado]);
             etiqueta.Content = estados[estado];

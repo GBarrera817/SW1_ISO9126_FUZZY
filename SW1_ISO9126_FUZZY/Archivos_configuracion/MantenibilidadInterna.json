@@ -2,7 +2,8 @@
 	"Perspectiva":"Interna",
   	"Analizabilidad": [
 	  		{
-              "id": 0,
+              "id": 32,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Grabación de Actividad",
               "proposito": ["¿Cuán completa es la grabación del estado del sistema?"],
               "metodo": "Cuente el número de elementos registrados en el registro de actividades tal como se especifica y compárelo con el número de elementos que se desea registrar.",
@@ -19,7 +20,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 33,
+              "subcaracteristica" : "Analizabilidad",
               "nombre": "Disponibilidad de la función de diagnóstico",
               "proposito": ["¿Cuán completa es la provisión de las funciones de diagnóstico?"],
               "metodo": "Cuente el número de funciones de diagnóstico implementadas según lo especificado y compárelo con el número de funciones de diagnóstico requerido en las especificaciones.",
@@ -38,7 +40,8 @@
    	],
   	"Modificabilidad": [
   			{
-              "id": 0,
+              "id": 34,
+              "subcaracteristica" : "Modificabilidad",
               "nombre": "Capacidad de cambio de los registros ",
               "proposito": ["¿Los cambios en las especificaciones y módulos de programa están registrados adecuadamente en el código con las líneas de comentario?"],
               "metodo": "Registro de proporción de información de cambio de módulo.",
@@ -57,7 +60,8 @@
   	],
   	"Estabilidad" : [
             {
-              "id": 0,
+              "id": 35,
+              "subcaracteristica" : "Estabilidad",
               "nombre": "Impacto de cambio",
               "proposito": ["¿Cuál es la frecuencia de los impactos adversos después de la modificación?"],
               "metodo": "Cuente el número de impactos adversos detectados después de la modificación y compárelos con el número de modificaciones realizadas.",
@@ -74,7 +78,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 36,
+              "subcaracteristica" : "Estabilidad",
               "nombre": "Localización del impacto de una modificación ",
               "proposito": ["¿Qué tan grande es el impacto de la modificación en el producto de software?"],
               "metodo": "Cuente el número de variables afectadas de una modificación y compárelo con el número total de variables del producto.",
@@ -93,7 +98,8 @@
 	],
 	"Testeabilidad": [
   			{
-              "id": 0,
+              "id": 37,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Integridad de la función de prueba incorporada",
               "proposito": ["¿Qué tan completa es la capacidad de prueba incorporada?"],
               "metodo": "Cuente el número de funciones de prueba integradas implementadas según lo especificado y compárelo con el número de funciones de prueba incorporadas en los requisitos.",
@@ -110,7 +116,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 38,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Autonomía de la capacidad de prueba",
               "proposito": ["¿Cómo se puede probar independientemente el software?"],
               "metodo": "Cuente el número de dependencias de otros sistemas para las pruebas que se han simulado con talones y compárelo con el número total de las dependencias de la prueba en otros sistemas.",
@@ -127,7 +134,8 @@
               ]
             },
             {
-              "id": 2,
+              "id": 39,
+              "subcaracteristica" : "Testeabilidad",
               "nombre": "Observabilidad del progreso de la prueba",
               "proposito": ["¿Cuán completas son las visualizaciones de resultados de prueba incorporadas durante las pruebas?"],
               "metodo": "Cuente el número de puntos de control implementados según lo especificado y compárelo con el número de puntos de verificación especificado requerido por el diseño.",
@@ -146,7 +154,8 @@
   	],
   	"CumplimientoMantenibilidad": [
 			{
-              "id": 0,
+              "id": 40,
+              "subcaracteristica" : "Cumplimiento Mantenibilidad",
               "nombre": "Cumplimiento de la Mantenibilidad",
               "proposito": ["¿En qué medida es compatibles la mantenibildiad del producto de software a las regulaciones, normas y convenciones?"],
               "metodo": "Cuente el número de ítems que requieren cumplimiento que se han cumplido y compare con el número de ítems que requieren cumplimiento como en la especificación.",

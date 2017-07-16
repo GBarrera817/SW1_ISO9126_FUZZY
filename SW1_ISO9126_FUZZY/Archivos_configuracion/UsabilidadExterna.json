@@ -2,7 +2,8 @@
 	"Perspectiva":"Externa",
   	"Comprensibilidad": [
 			{
-              "id": 0,
+              "id": 57,
+              "subcaracteristica" : "Comprensibilidad",
               "nombre": "Integridad de la descripción",
               "proposito": ["¿Qué proporción de funciones (o tipos de funciones) se entiende después de leer la descripción del producto?"],
               "metodo": "Lleve a cabo la prueba del usuario y entrevista al usuario con cuestionarios u observe el comportamiento del usuario. Contar el número de funciones que se entienden adecuadamente y comparar con el número total de funciones en el producto.",
@@ -19,7 +20,8 @@
               ]
             },
             {
-            	"id": 1,
+            	"id": 58,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Accesibilidad de demostración",
 	            "proposito": ["¿A qué proporción de las demostraciones/tutoriales puede acceder el usuario?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento. Cuente el número de funciones que son adecuadamente demostrables y compárelas con el número total de funciones que requieren capacidad de demostración",
@@ -36,7 +38,8 @@
               ]
             },
             {
-            	"id": 2,
+            	"id": 59,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Accesibilidad de demostración en uso",
 	            "proposito": ["¿Qué proporción de las demostraciones/tutoriales puede el usuario acceder cuando el usuario realmente necesita hacer durante la operación?"],
 	            "metodo": "Observe el comportamiento del usuario que intenta ver la demostración/tutorial. La observación puede emplear el enfoque de monitoreo de la acción cognitiva humana con cámara de video.",
@@ -53,7 +56,8 @@
               ]
             },
             {
-            	"id": 3,
+            	"id": 60,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Eficacia de la demostración",
 	            "proposito": ["¿Qué proporción de las funciones que el usuario puede operar con éxito después de una demostración o tutorial?"],
 	            "metodo": "Observe el comportamiento del usuario que intenta ver la demostración / tutorial. La observación puede emplear el enfoque de monitoreo de la acción cognitiva humana con cámara de video.",
@@ -70,7 +74,8 @@
               ]
             },
             {
-            	"id": 4,
+            	"id": 61,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Funciones evidentes",
 	            "proposito": ["¿Qué proporción de funciones (o tipos de funciones) puede ser identificada por el usuario en función de las condiciones de inicio?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y entreviste al usuario con cuestionarios u observe su comportamiento. Cuente el número de funciones que son evidentes para el usuario y compare con el número total de funciones.",
@@ -87,7 +92,8 @@
               ]
             },
             {
-            	"id": 5,
+            	"id": 62,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Función capacidad de comprensión",
 	            "proposito": ["¿Qué proporción de las funciones del producto el usuario será capaz de entender correctamente?"],
 	            "metodo": "Lleve a cabo una prueba de usuario y entreviste a los usuarios con cuestionarios. Cuente el número de funciones de la interfaz de usuario donde los propósitos sean fácilmente comprendidos por el usuario y compare con el número de funciones disponibles para el usuario.",
@@ -104,7 +110,8 @@
               ]
             },
             {
-            	"id": 6,
+            	"id": 63,
+				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Entradas y salidas comprensibles",
 	            "proposito": ["¿Pueden los usuarios entender lo que se requiere como datos de entrada y qué se proporciona como salida por el sistema de software?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y entrevista al usuario con cuestionarios u observe el comportamiento del usuario. Cuente el número de elementos de datos de entrada y salida entendidos por el usuario y compararlos con el número total de ellos disponibles para el usuario.",
@@ -123,7 +130,8 @@
    	],
   	"Aprendizaje": [
 			{
-              "id": 0,
+              "id": 64,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Facilidad de aprendizaje de funciones",
               "proposito": ["¿Cuánto tarda el usuario en aprender a utilizar una función?"],
               "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento.",
@@ -138,7 +146,8 @@
               ]
             },
             {
-              "id": 1,
+              "id": 65,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Facilidad de aprendizaje para realizar una tarea en uso",
               "proposito": ["¿Cuánto tarda el usuario en aprender cómo realizar la tarea especificada de manera eficiente?"],
               "metodo": "Observe el comportamiento del usuario desde cuando empiezan a aprender hasta que empiezan a funcionar eficientemente.",
@@ -153,7 +162,8 @@
               ]
             },
             {
-              "id": 2,
+              "id": 66,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o del sistema de ayuda",
               "proposito": ["¿Qué proporción de tareas se puede completar correctamente después de usar la documentación del usuario y / o el sistema de ayuda?"],
               "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de tareas completadas con éxito después de acceder a la ayuda y / o documentación en línea y compare con el número total de tareas probadas.",
@@ -170,7 +180,8 @@
               ]
             },
             {
-              "id": 3,
+              "id": 67,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o sistemas de ayuda en uso",
               "proposito": ["¿Qué proporción de funciones se pueden utilizar correctamente después de leer la documentación o usar sistemas de ayuda?"],
               "metodo": "Observe el comportamiento del usuario. Cuente el número de funciones utilizadas correctamente después de leer la documentación o utilizando sistemas de ayuda y comparar con el número total de funciones.",
@@ -187,7 +198,8 @@
               ]
             },
             {
-              "id": 4,
+              "id": 68,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Ayuda a la accesibilidad",
               "proposito": ["¿Qué proporción de los temas de ayuda puede localizar el usuario?"],
               "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de tareas para las que está localizada la ayuda en línea correcta y compare con el número total de tareas probadas.",
@@ -204,7 +216,8 @@
               ]
             },
             {
-              "id": 5,
+              "id": 69,
+              "subcaracteristica" : "Aprendizaje",
               "nombre": "Frecuencia de Ayuda",
               "proposito": ["¿Con qué frecuencia un usuario tiene que acceder a la ayuda para aprender la operación para completar su tarea?"],
               "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de casos a los que un usuario accede para completar su tarea.",
@@ -221,7 +234,8 @@
   	],
   	"Operabilidad" : [
 			{
-              "id": 0,
+              "id": 70,
+              "subcaracteristica" : "Operabilidad",
               "nombre": "Consistencia operativa en el uso",
               "proposito": ["¿Qué tan consistente es el componente de la interfaz de usuario?"],
               "metodo": "Observe el comportamiento del usuario y solicite la opinión.",
@@ -238,7 +252,8 @@
               ]
             },
             {
-            	"id": 1,
+            	"id": 71,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores",
 	            "proposito": ["¿Puede el usuario corregir fácilmente el error en las tareas?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento.",
@@ -255,7 +270,8 @@
               ]
             },
             {
-            	"id": 2,
+            	"id": 72,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su entrada?"],
 	            "metodo": "Observe el comportamiento del usuario que está operando el software.",
@@ -272,7 +288,8 @@
               ]
             },
             {
-            	"id": 3,
+            	"id": 73,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Disponibilidad de Valor Predeterminado en uso",
 	            "proposito": ["¿Puede el usuario seleccionar fácilmente valores de parámetros para su cómoda operación?"],
 	            "metodo": "Observe el comportamiento del usuario que está operando el software. Cuente cuántas veces el usuario intenta establecer o seleccionar valores de parámetros y falla, (porque el usuario no puede usar valores predeterminados proporcionados por el software).",
@@ -289,7 +306,8 @@
               ]
             },
             {
-            	"id": 4,
+            	"id": 74,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Comprensión del mensaje en uso",
 	            "proposito": [
 	            	"¿Puede el usuario entender fácilmente los mensajes del sistema de software?",
@@ -311,7 +329,8 @@
               ]
             },
             {
-            	"id": 5,
+            	"id": 75,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Mensajes de error autoexplicativos",
 	            "proposito": ["¿En qué proporción de condiciones de error el usuario propone la acción de recuperación correcta?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento.",
@@ -328,7 +347,8 @@
               ]
             },
             {
-            	"id": 6,
+            	"id": 76,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Recuperabilidad del error operativo en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su peor situación?"],
 	            "metodo": "Observe el comportamiento del usuario que está operando el software.",
@@ -345,7 +365,8 @@
               ]
             },
             {
-            	"id": 7,
+            	"id": 77,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Tiempo entre operaciones de error humano en uso",
 	            "proposito": ["¿Puede el usuario operar el software lo suficiente sin error humano?"],
 	            "metodo": "Observe el comportamiento del usuario que está operando el software.",
@@ -362,7 +383,8 @@
               ]
             },
             {
-            	"id": 8,
+            	"id": 78,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Capacidad de anular (Corrección de errores de usuario)",
 	            "proposito": ["¿Con qué frecuencia el usuario corrige correctamente los errores de entrada?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento.",
@@ -379,7 +401,8 @@
               ]
             },
             {
-            	"id": 9,
+            	"id": 79,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Personalización",
 	            "proposito": [
 	            	"¿Puede el usuario personalizar fácilmente los procedimientos de operación para su conveniencia?",
@@ -400,7 +423,8 @@
               	]
             },
             {
-            	"id": 10,
+            	"id": 80,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Reducción del procedimiento de operación",
 	            "proposito": ["¿Puede el usuario reducir fácilmente los procedimientos de operación para su comodidad?"],
 	            "metodo": "Cuente los trazos del usuario para la operación especificada y compárelos entre antes y después de la operación de personalización.",
@@ -417,7 +441,8 @@
               	]
             },
             {
-            	"id": 11,
+            	"id": 81,
+				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Accesibilidad física",
 	            "proposito": ["¿Qué proporción de funciones pueden tener acceso los usuarios con discapacidades físicas?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario.",
@@ -435,19 +460,9 @@
             }
 	],
 	"Atractividad": [
-			{
-              "id": 0,
-              "nombre": "Interacción atractiva",
-              "proposito": ["¿Qué tan atractiva es la interfaz para el usuario?"],
-              "metodo": "Cuestionario a los usuarios.",
-              "formula": ["Cuestionario para evaluar el atractivo de la interfaz a los usuarios, después de la experiencia de uso"],
-              "peor_valor": 0,
-              "mejor_valor": 0,
-              "parametros": [ ],
-              "desc_param": [ ]
-            },
             {
-            	"id": 1,
+            	"id": 82,
+				"subcaracteristica" : "Atractividad",
 	            "nombre": "Aspecto de la interfaz",
 	            "proposito": ["¿Qué proporción de elementos de interfaz se pueden personalizar en apariencia para la satisfacción del usuario?"],
 	            "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario.",
@@ -466,7 +481,8 @@
   	],
   	"CumplimientoUsabilidad": [
 			{
-              "id": 0,
+              "id": 83,
+              "subcaracteristica": "Cumplimiento Usabilidad",
               "nombre": "Cumplimiento de la Usabilidad",
               "proposito": ["¿Qué tan completamente el software se adhiere a las normas, convenciones, guías de estilo o las regulaciones relacionadas con la usabilidad?"],
               "metodo": "Especifique los elementos de cumplimiento requeridos basados en estándares, convenciones, guías de estilo o regulaciones relacionadas con la usabilidad.",

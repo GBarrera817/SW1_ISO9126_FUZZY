@@ -2,7 +2,8 @@
 	"Perspectiva":"Externa",
   	"Adecuacion": [
 			{ 
-				"id": 0,
+				"id": 41,
+				"subcaracteristica" : "Adecuación",
 				"nombre": "Adecuación funcional",
 				"proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
 				"metodo": "Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas.",
@@ -19,7 +20,8 @@
 				]
 			} , 
 			{
-				"id": 1,
+				"id": 42,
+				"subcaracteristica" : "Adecuación",
 				"nombre": "Completitud de la implementación funcional",
 				"proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
 				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito.",
@@ -36,7 +38,8 @@
 				]
 			},
 			{
-				"id": 2,
+				"id": 43,
+				"subcaracteristica" : "Adecuación",
 				"nombre": "Cobertura funcional de la implementación",
 				"proposito": ["¿Qué tan correcta es la implementación funcional?"],
 				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son.",
@@ -53,7 +56,8 @@
 				]
 			},
 			{
-				"id": 3,
+				"id": 44,
+				"subcaracteristica" : "Adecuación",
 				"nombre": "Estabilidad de la especificación funcional (volatilidad)",
 				"proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
 				"metodo": "Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito.",
@@ -72,7 +76,8 @@
    	],
   	"Exactitud": [
 			{
-				"id": 0,
+				"id": 45,
+				"subcaracteristica" : "Exactitud",
 				"nombre": "Exactitud a la expectativa",
 				"proposito": ["¿Son aceptables las diferencias entre los resultados reales y razonables esperados?"],
 				"metodo": "Haga la entrada.vs. Salida y comparar la salida con los resultados esperados razonables. Cuente el número de casos encontrados por los usuarios con una diferencia inaceptable de los resultados esperados razonables.",
@@ -89,7 +94,8 @@
 				]
 			},
 			{
-				"id": 1,
+				"id": 46,
+				"subcaracteristica" : "Exactitud",
 				"nombre": "Exactitud computacional",
 				"proposito": ["¿Con qué frecuencia los usuarios finales se encuentran con resultados inexactos?"],
 				"metodo": "Anote el número de cálculos inexactos basadas en las especificaciones.",
@@ -106,7 +112,8 @@
 				]
 			},
 			{
-				"id": 2,
+				"id": 47,
+				"subcaracteristica" : "Exactitud",
 				"nombre": "Exactitud",
 				"proposito": ["¿Con qué frecuencia los usuarios finales encuentran resultados con exactitud inadecuada?"],
 				"metodo": "Anote el número de resultados con una exactitud insuficiente.",
@@ -125,7 +132,8 @@
   	],
   	"Interoperabilidad" : [
 			{
-				"id": 0,
+				"id": 48,
+				"subcaracteristica" : "Interoperabilidad",
 				"nombre": "Intercambio de datos (Basado en el formato de datos)",
 				"proposito": ["¿Qué tan correctamente se han implementado las funciones de interfaz de intercambio para la transferencia de datos especificada?"],
 				"metodo": "Pruebe cada formato de registro de salida de función de interfaz descendente del sistema de acuerdo con las especificaciones de campos de datos. Cuente el número de formatos de datos que están aprobados para intercambiarse con otro software o sistema durante las pruebas en los intercambios de datos en comparación con el número total.",
@@ -142,7 +150,8 @@
 				]
 			},
 			{
-				"id": 1,
+				"id": 49,
+				"subcaracteristica" : "Interoperabilidad",
 				"nombre": "Intercambiabilidad de datos (Éxito del usuario basado en intentos)",
 				"proposito": ["¿Con qué frecuencia el usuario final no puede intercambiar datos entre el software de destino y otro software?"],
 				"metodo": "Cuente el número de casos que se utilizan funciones de interfaz y fallaron.",
@@ -161,7 +170,8 @@
 	],
 	"SeguridadAcceso": [
 			{
-				"id": 0,
+				"id": 50,
+				"subcaracteristica" : "Seguridad Acceso",
 				"nombre": "Auditabilidad de Acceso",
 				"proposito": ["¿Qué tan completa es la pista de auditoría en relación con el acceso de los usuarios al sistema y sus datos?"],
 				"metodo": "Evalúe la cantidad de accesos que el sistema registró en la base de datos de historial de acceso.",
@@ -178,7 +188,8 @@
 				]
 			},
 			{
-				"id": 1,
+				"id": 51,
+				"subcaracteristica" : "Seguridad Acceso",
 				"nombre": "Control de Acceso",
 				"proposito": ["¿Qué tan controlable es el acceso al sistema?"],
 				"metodo": "Cuente el número de operaciones ilegales detectadas con la comparación con el número de operaciones ilegales como en la especificación.",
@@ -195,7 +206,8 @@
 				]
 			},
 			{
-				"id": 2,
+				"id": 52,
+				"subcaracteristica" : "Seguridad Acceso",
 				"nombre": "Prevención de la corrupción de datos",
 				"proposito": ["¿Cuál es la frecuencia de los eventos de corrupción de datos?"],
 				"metodo": "Cuente las ocurrencias de eventos de corrupción de datos.",
@@ -214,7 +226,8 @@
   	],
   	"CumplimientoFuncional": [
 			{ 
-				"id": 0,
+				"id": 53,
+				"subcaracteristica" : "Cumplimiento Funcional",
 				"nombre": "Adecuación funcional",
 				"proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
 				"metodo": "Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas.",
@@ -231,7 +244,8 @@
 				]
 			} , 
 			{
-				"id": 1,
+				"id": 54,
+				"subcaracteristica" : "Cumplimiento Funcional",
 				"nombre": "Completitud de la implementación funcional",
 				"proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
 				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito.",
@@ -248,7 +262,8 @@
 				]
 			},
 			{
-				"id": 2,
+				"id": 55,
+				"subcaracteristica" : "Cumplimiento Funcional",
 				"nombre": "Cobertura funcional de la implementación",
 				"proposito": ["¿Qué tan correcta es la implementación funcional?"],
 				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son.",
@@ -265,7 +280,8 @@
 				]
 			},
 			{
-				"id": 3,
+				"id": 56,
+				"subcaracteristica" : "Cumplimiento Funcional",
 				"nombre": "Estabilidad de la especificación funcional (volatilidad)",
 				"proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
 				"metodo": "Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito.",

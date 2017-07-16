@@ -19,42 +19,42 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas
 		{
 			ValoresFuncionabilidad valoresFuncionabilidad = new ValoresFuncionabilidad();
 
-			_adecuacion = new VariableLinguistica("ADE", 0.0, 1.0);
+			_adecuacion = new VariableLinguistica("adecuacion", 0.0, 1.0);
 			_adecuacion.AgregarValorLinguistico(valoresFuncionabilidad.A_Muy_Mala);
 			_adecuacion.AgregarValorLinguistico(valoresFuncionabilidad.A_Mala);
 			_adecuacion.AgregarValorLinguistico(valoresFuncionabilidad.A_Promedio);
 			_adecuacion.AgregarValorLinguistico(valoresFuncionabilidad.A_Buena);
 			_adecuacion.AgregarValorLinguistico(valoresFuncionabilidad.A_Excelente);
 
-			_exactitud = new VariableLinguistica("EXA", 0.0, 1.0);
+			_exactitud = new VariableLinguistica("exactitud", 0.0, 1.0);
 			_exactitud.AgregarValorLinguistico(valoresFuncionabilidad.E_Nunca);
 			_exactitud.AgregarValorLinguistico(valoresFuncionabilidad.E_Pocas_Veces);
 			_exactitud.AgregarValorLinguistico(valoresFuncionabilidad.E_Algunas_Veces);
 			_exactitud.AgregarValorLinguistico(valoresFuncionabilidad.E_Casi_Siempre);
 			_exactitud.AgregarValorLinguistico(valoresFuncionabilidad.E_Siempre);
 
-			_interoperabilidad = new VariableLinguistica("INO", 0.0, 1.0);
+			_interoperabilidad = new VariableLinguistica("interoperabilidad", 0.0, 1.0);
 			_interoperabilidad.AgregarValorLinguistico(valoresFuncionabilidad.I_Muy_Mala);
 			_interoperabilidad.AgregarValorLinguistico(valoresFuncionabilidad.I_Mala);
 			_interoperabilidad.AgregarValorLinguistico(valoresFuncionabilidad.I_Promedio);
 			_interoperabilidad.AgregarValorLinguistico(valoresFuncionabilidad.I_Buena);
 			_interoperabilidad.AgregarValorLinguistico(valoresFuncionabilidad.I_Excelente);
 
-			_seguridadAcceso = new VariableLinguistica("SEG", 0.0, 1.0);
+			_seguridadAcceso = new VariableLinguistica("seguridad", 0.0, 1.0);
 			_seguridadAcceso.AgregarValorLinguistico(valoresFuncionabilidad.S_Mala);
 			_seguridadAcceso.AgregarValorLinguistico(valoresFuncionabilidad.S_Mala);
 			_seguridadAcceso.AgregarValorLinguistico(valoresFuncionabilidad.S_Promedio);
 			_seguridadAcceso.AgregarValorLinguistico(valoresFuncionabilidad.S_Buena);
 			_seguridadAcceso.AgregarValorLinguistico(valoresFuncionabilidad.S_Excelente);
 
-			_cumplimientoFuncionabilidad = new VariableLinguistica("CUF", 0.0, 1.0);
+			_cumplimientoFuncionabilidad = new VariableLinguistica("cumplimiento_funcional", 0.0, 1.0);
 			_cumplimientoFuncionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.CF_No);
 			_cumplimientoFuncionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.CF_Poco);
 			_cumplimientoFuncionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.CF_Medianamente);
 			_cumplimientoFuncionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.CF_Casi_Todo);
 			_cumplimientoFuncionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.CF_Completamente);
 
-			_funcionabilidad = new VariableLinguistica("FUNC", 0.0, 1.0);
+			_funcionabilidad = new VariableLinguistica("funcionabilidad", 0.0, 1.0);
 			_funcionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.F_Muy_Mala);
 			_funcionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.F_Mala);
 			_funcionabilidad.AgregarValorLinguistico(valoresFuncionabilidad.F_Promedio);

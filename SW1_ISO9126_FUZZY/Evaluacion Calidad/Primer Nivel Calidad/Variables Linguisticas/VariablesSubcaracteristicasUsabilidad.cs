@@ -19,42 +19,42 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas
 		{
 			ValoresUsabilidad valoresUsabilidad = new ValoresUsabilidad();
 
-			_aprendizaje = new VariableLinguistica("APR", 0.0, 1.0);
+			_aprendizaje = new VariableLinguistica("aprendizaje", 0.0, 1.0);
 			_aprendizaje.AgregarValorLinguistico(valoresUsabilidad.AP_Muy_Dificil);
 			_aprendizaje.AgregarValorLinguistico(valoresUsabilidad.AP_Dificil);
 			_aprendizaje.AgregarValorLinguistico(valoresUsabilidad.AP_Normal);
 			_aprendizaje.AgregarValorLinguistico(valoresUsabilidad.AP_Facil);
 			_aprendizaje.AgregarValorLinguistico(valoresUsabilidad.AP_Muy_Facil);
 
-			_comprensibilidad = new VariableLinguistica("COM", 0.0, 1.0);
+			_comprensibilidad = new VariableLinguistica("comprensibilidad", 0.0, 1.0);
 			_comprensibilidad.AgregarValorLinguistico(valoresUsabilidad.COM_Muy_Dificil);
 			_comprensibilidad.AgregarValorLinguistico(valoresUsabilidad.COM_Dificil);
 			_comprensibilidad.AgregarValorLinguistico(valoresUsabilidad.COM_Normal);
 			_comprensibilidad.AgregarValorLinguistico(valoresUsabilidad.COM_Facil);
 			_comprensibilidad.AgregarValorLinguistico(valoresUsabilidad.COM_Muy_Facil);
 
-			_operabilidad = new VariableLinguistica("OPE", 0.0, 1.0);
+			_operabilidad = new VariableLinguistica("operabilidad", 0.0, 1.0);
 			_operabilidad.AgregarValorLinguistico(valoresUsabilidad.OP_Muy_Dificil);
 			_operabilidad.AgregarValorLinguistico(valoresUsabilidad.OP_Dificil);
 			_operabilidad.AgregarValorLinguistico(valoresUsabilidad.OP_Normal);
 			_operabilidad.AgregarValorLinguistico(valoresUsabilidad.OP_Facil);
 			_operabilidad.AgregarValorLinguistico(valoresUsabilidad.OP_Muy_Facil);
 
-			_atractividad = new VariableLinguistica("ATR", 0.0, 1.0);
+			_atractividad = new VariableLinguistica("atractividad", 0.0, 1.0);
 			_atractividad.AgregarValorLinguistico(valoresUsabilidad.AT_No);
 			_atractividad.AgregarValorLinguistico(valoresUsabilidad.AT_Poco);
 			_atractividad.AgregarValorLinguistico(valoresUsabilidad.AT_Medianamente);
 			_atractividad.AgregarValorLinguistico(valoresUsabilidad.AT_Casi_Todo);
 			_atractividad.AgregarValorLinguistico(valoresUsabilidad.AT_Completamente);
 
-			_cumplimientoUsabilidad = new VariableLinguistica("CUU", 0.0, 1.0);
+			_cumplimientoUsabilidad = new VariableLinguistica("cumplimiento_usabilidad", 0.0, 1.0);
 			_cumplimientoUsabilidad.AgregarValorLinguistico(valoresUsabilidad.CU_No);
 			_cumplimientoUsabilidad.AgregarValorLinguistico(valoresUsabilidad.CU_Poco);
 			_cumplimientoUsabilidad.AgregarValorLinguistico(valoresUsabilidad.CU_Medianamente);
 			_cumplimientoUsabilidad.AgregarValorLinguistico(valoresUsabilidad.CU_Casi_Todo);
 			_cumplimientoUsabilidad.AgregarValorLinguistico(valoresUsabilidad.CU_Completamente);
 
-			_usabilidad = new VariableLinguistica("USA", 0.0, 1.0);
+			_usabilidad = new VariableLinguistica("usabilidad", 0.0, 1.0);
 			_usabilidad.AgregarValorLinguistico(valoresUsabilidad.U_Muy_Dificil);
 			_usabilidad.AgregarValorLinguistico(valoresUsabilidad.U_Dificil);
 			_usabilidad.AgregarValorLinguistico(valoresUsabilidad.U_Normal);

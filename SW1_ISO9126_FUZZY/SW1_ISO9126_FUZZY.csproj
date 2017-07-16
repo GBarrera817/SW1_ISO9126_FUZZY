@@ -118,6 +118,25 @@
     </ApplicationDefinition>
     <Compile Include="Archivos\InformesEvaluacionCalidad.cs" />
     <Compile Include="Archivos_configuracion\JRevisar.cs" />
+    <Compile Include="Evaluacion Calidad\EvaluacionDifusa.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasMantenibilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasUsabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasMantebilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasUsabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSucaracteristicasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasMantenibilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasUsabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Reglas Produccion\ReglasPerspectiva.cs" />
+    <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Valores Linguisticos\ValoresPerspectiva.cs" />
+    <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Variables Linguisticas\VariablesPerspectiva.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadExterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadInterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadExterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadInterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadExterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadInterna.cs" />
     <Compile Include="Inferencia Difusa\Inferencia.cs" />
     <Compile Include="Logica Difusa\AgregacionReglas.cs" />
     <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />
@@ -294,8 +313,6 @@
   <ItemGroup>
     <Resource Include="Imagenes\logo6btn.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

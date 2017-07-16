@@ -1,5 +1,5 @@
 ﻿using SW1_ISO9126_FUZZY.Logica_Difusa;
-using SW1_ISO9126_FUZZY.InferenciaDifusa;
+using SW1_ISO9126_FUZZY.Inferencia_Difusa;
 using System;
 using System.Collections.Generic;
 

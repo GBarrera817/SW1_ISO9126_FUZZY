@@ -19,42 +19,42 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas
 		{
 			ValoresMantenibilidad valoresMantenibilidad = new ValoresMantenibilidad();
 
-			_analizabilidad = new VariableLinguistica("ANAL", 0.0, 1.0);
+			_analizabilidad = new VariableLinguistica("analizabilidad", 0.0, 1.0);
 			_analizabilidad.AgregarValorLinguistico(valoresMantenibilidad.AN_Muy_Dificil);
 			_analizabilidad.AgregarValorLinguistico(valoresMantenibilidad.AN_Dificil);
 			_analizabilidad.AgregarValorLinguistico(valoresMantenibilidad.AN_Normal);
 			_analizabilidad.AgregarValorLinguistico(valoresMantenibilidad.AN_Facil);
 			_analizabilidad.AgregarValorLinguistico(valoresMantenibilidad.AN_Muy_Facil);
 
-			_modificabilidad = new VariableLinguistica("MOD", 0.0, 1.0);
+			_modificabilidad = new VariableLinguistica("modificabilidad", 0.0, 1.0);
 			_modificabilidad.AgregarValorLinguistico(valoresMantenibilidad.MO_Muy_Dificil);
 			_modificabilidad.AgregarValorLinguistico(valoresMantenibilidad.MO_Dificil);
 			_modificabilidad.AgregarValorLinguistico(valoresMantenibilidad.MO_Normal);
 			_modificabilidad.AgregarValorLinguistico(valoresMantenibilidad.MO_Facil);
 			_modificabilidad.AgregarValorLinguistico(valoresMantenibilidad.MO_Muy_Facil);
 
-			_estabilidad = new VariableLinguistica("EST", 0.0, 1.0);
+			_estabilidad = new VariableLinguistica("estabilidad", 0.0, 1.0);
 			_estabilidad.AgregarValorLinguistico(valoresMantenibilidad.ESC_No);
 			_estabilidad.AgregarValorLinguistico(valoresMantenibilidad.ESC_Poca);
 			_estabilidad.AgregarValorLinguistico(valoresMantenibilidad.ESC_Medianamente);
 			_estabilidad.AgregarValorLinguistico(valoresMantenibilidad.ESC_Casi_Todo);
 			_estabilidad.AgregarValorLinguistico(valoresMantenibilidad.ESC_Completamente);
 
-			_testeabilidad = new VariableLinguistica("TEST", 0.0, 1.0);
+			_testeabilidad = new VariableLinguistica("testeabilidad", 0.0, 1.0);
 			_testeabilidad.AgregarValorLinguistico(valoresMantenibilidad.TE_Muy_Dificil);
 			_testeabilidad.AgregarValorLinguistico(valoresMantenibilidad.TE_Dificil);
 			_testeabilidad.AgregarValorLinguistico(valoresMantenibilidad.TE_Normal);
 			_testeabilidad.AgregarValorLinguistico(valoresMantenibilidad.TE_Facil);
 			_testeabilidad.AgregarValorLinguistico(valoresMantenibilidad.TE_Muy_Facil);
 
-			_cumplimientoMantenibilidad = new VariableLinguistica("CUM", 0.0, 1.0);
+			_cumplimientoMantenibilidad = new VariableLinguistica("cumplimiento_mantenibilidad", 0.0, 1.0);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_No);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Poco);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Medianamente);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Casi_Todo);
 			_cumplimientoMantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.CM_Completamente);
 
-			_mantenibilidad = new VariableLinguistica("MANT", 0.0, 1.0);
+			_mantenibilidad = new VariableLinguistica("mantenibilidad", 0.0, 1.0);
 			_mantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.M_Muy_Baja);
 			_mantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.M_Baja);
 			_mantenibilidad.AgregarValorLinguistico(valoresMantenibilidad.M_Mediana);

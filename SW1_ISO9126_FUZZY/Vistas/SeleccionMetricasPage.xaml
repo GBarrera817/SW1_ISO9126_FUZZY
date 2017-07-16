@@ -39,18 +39,17 @@
                     <Label x:Name="lblIDMetrica" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="33,2,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label x:Name="lblNombreMetrica" FontSize="14" Content="" HorizontalAlignment="Left" Margin="159,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="569"/>
                     <ScrollViewer Margin="66,69,10,10">
-                        <TextBlock x:Name="txbkMetodo" Width="665" FontSize="14" TextWrapping="WrapWithOverflow" Foreground="Black"/>
+                        <TextBlock x:Name="txbkMetodo" Width="665" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                     </ScrollViewer>
                 </Grid>
-
+                
                 <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="127" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="102" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
-                    <Grid Margin="0,0,2,0">
-                        <ScrollViewer Margin="0,0,10,0">
-                            <TextBlock x:Name="txbkParam" TextWrapping="WrapWithOverflow" Height="63" Width="698"  FontSize="14" Foreground="Black"/>
-                        </ScrollViewer>
-                    </Grid>
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="99" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <ScrollViewer>
+                        <TextBlock x:Name="txbkParam" Width="713" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
+                    </ScrollViewer>
                 </GroupBox>
+                
             </StackPanel>
         </Expander>
 

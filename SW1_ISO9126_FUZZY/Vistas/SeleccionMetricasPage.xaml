@@ -14,7 +14,7 @@
 
         <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="220,3,236,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
-        <!-- Identificación de la Característica y subcaracterítisca asociada --> 
+        <!-- Identificación de la Característica y subcaracterítisca asociada -->
         <TextBlock x:Name="tblckTituloCaracteristica" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,55,10,0" TextWrapping="Wrap" Text="Caracteristica" VerticalAlignment="Top" Width="780" Background="#FF33A133" Foreground="White"/>
         <Label FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblSubcaracterística" FontSize="14" Content="" HorizontalAlignment="Left" Margin="153,116,0,0" VerticalAlignment="Top" Width="264"/>
@@ -43,16 +43,16 @@
                     </ScrollViewer>
                 </Grid>
 
-                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="138" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
-                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="85" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
-                    <ScrollViewer HorizontalAlignment="Left" Height="50" Margin="0,0,-2,-4" VerticalAlignment="Top" Width="740">
-                        <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Text="" Height="46"/>
-                    </ScrollViewer>
+                <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="127" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
+                <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="102" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <Grid Margin="0,0,2,0">
+                        <ScrollViewer Margin="0,0,10,0">
+                            <TextBlock x:Name="txbkParam" TextWrapping="WrapWithOverflow" Height="63" Width="698"  FontSize="14" Foreground="Black"/>
+                        </ScrollViewer>
+                    </Grid>
                 </GroupBox>
             </StackPanel>
         </Expander>
-
-
 
         <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="172,557,0,0" VerticalAlignment="Top" Width="190" Click="btnAnterior_Click" IsEnabled="False"/>
         <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="497,557,0,0" VerticalAlignment="Top" Width="190" Click="btnSiguiente_Click"/>
@@ -60,7 +60,7 @@
         <Button x:Name="btnTerminar" Content="Terminar" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75" Click="btnTerminar_Click"/>
 
         <!-- Flyout Selección de métricas -->
-        <controls:Flyout x:Name="menuMetricas" Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="True" Background="#FF2D364C" CloseButtonVisibility="Visible">
+        <controls:Flyout x:Name="menuMetricas" Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="true" Background="#FF2D364C" CloseButtonVisibility="Visible">
             <Canvas>
                 <!-- Métricas Internas -->
                 <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF33A133" />

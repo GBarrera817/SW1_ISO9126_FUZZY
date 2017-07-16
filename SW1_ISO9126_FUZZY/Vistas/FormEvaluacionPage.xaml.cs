@@ -31,10 +31,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private JMantenibilidad manExt;
 
         public FormEvaluacionPage()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             cargarJsonMetricas();
-            cargarMetrica(funInt.Adecuacion[0]);
+            cargarMetrica(manExt.Modificabilidad[0]);
 		}
 
 
@@ -57,17 +57,48 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblPerspectiva.Content = "Interna";
             lblCaracteristica.Content ="Funcionabilidad";
             lblSubcaracteristica.Content = "Adecuación";
+
             lblID.Content = metrica.Id;
             lblNombre.Content = metrica.Nombre;
             labelProposito.Text = metrica.Proposito[0];
             labelMetodo.Text = metrica.Metodo;
             label1_formula.Content = metrica.Formula[0];
             lblMejorValor.Content = metrica.Mejor_valor;
-            lblMejorValor_Copy.Content = metrica.Peor_valor;
+            lblPeorValor.Content = metrica.Peor_valor;
 
+            if (metrica.Parametros.Length == 1 || metrica.Parametros.Length > 1)
+            {
+                lblParam0.Content = metrica.Parametros[0];
+                lblParam0.Visibility = Visibility.Visible;
+                txtParam0.IsEnabled = true;
+                txtParam0.Visibility = Visibility.Visible;
+                sldparam0.IsEnabled = true;
+                sldparam0.Visibility = Visibility.Visible;
+            }
+                
+            if (metrica.Parametros.Length == 2 || metrica.Parametros.Length > 2)
+            {
+                lblParam1.Content = metrica.Parametros[1];
+                lblParam1.Visibility = Visibility.Visible;
+                txtParam1.IsEnabled = true;
+                txtParam1.Visibility = Visibility.Visible;
+                sldparam1.IsEnabled = true;
+                sldparam1.Visibility = Visibility.Visible;
+            }
+                
+            if (metrica.Parametros.Length == 3)
+            {
+                lblParam2.Content = metrica.Parametros[2];
+                lblParam2.Visibility = Visibility.Visible;
+                txtParam2.IsEnabled = true;
+                txtParam2.Visibility = Visibility.Visible;
+                sldparam2.IsEnabled = true;
+                sldparam2.Visibility = Visibility.Visible;
+            }
+                
             for (int i = 0; i < metrica.Desc_param.Length; i++)
             {
-                sb.AppendLine(metrica.Desc_param[i]);
+                sb.AppendLine(metrica.Desc_param[i] + "\n");
             }
 
             txbkParam.Text = sb.ToString();

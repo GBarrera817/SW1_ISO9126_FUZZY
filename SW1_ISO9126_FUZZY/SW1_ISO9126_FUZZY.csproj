@@ -151,6 +151,14 @@
     <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Logica Difusa\VariableLinguistica.cs" />
+    <Compile Include="Modelo Datos\Calculo.cs" />
+    <Compile Include="Modelo Datos\EstadoFinal.cs" />
+    <Compile Include="Modelo Datos\EstadoModulo.cs" />
+    <Compile Include="Modelo Datos\Evaluacion.cs" />
+    <Compile Include="Modelo Datos\Importancia.cs" />
+    <Compile Include="Modelo Datos\Respuesta.cs" />
+    <Compile Include="Modelo Datos\Seleccion.cs" />
+    <Compile Include="Modelo Datos\Software.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Navigation\Navigation.cs" />
@@ -311,8 +319,6 @@
   <ItemGroup>
     <Resource Include="Imagenes\logo6btn.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modelo Datos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

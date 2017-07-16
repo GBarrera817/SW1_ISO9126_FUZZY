@@ -14,14 +14,14 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private Respuesta fomulario;
         private Calculo resultados;
         private EstadoModulo modulos;
-        private EstadoModulo evaluacion;
+        private EstadoModulo calidad;
 
         public Evaluacion()
         {
 
         }
 
-        public Evaluacion(Software informacion, Importancia grados, Seleccion eleccion, Respuesta fomulario, Calculo resultados, EstadoModulo modulos, EstadoModulo evaluacion)
+        public Evaluacion(Software informacion, Importancia grados, Seleccion eleccion, Respuesta fomulario, Calculo resultados, EstadoModulo modulos, EstadoModulo calidad)
         {
             this.Informacion = informacion;
             this.Grados = grados;
@@ -29,7 +29,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.Fomulario = fomulario;
             this.Resultados = resultados;
             this.Modulos = modulos;
-            this.Evaluacion = evaluacion;
+            this.calidad = calidad;
         }
 
         public Software Informacion { get => informacion; set => informacion = value; }
@@ -38,6 +38,6 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         public Respuesta Fomulario { get => fomulario; set => fomulario = value; }
         public Calculo Resultados { get => resultados; set => resultados = value; }
         public EstadoModulo Modulos { get => modulos; set => modulos = value; }
-        public EstadoModulo Evaluacion { get => evaluacion; set => evaluacion = value; }
+        public EstadoModulo Calidad { get => calidad; set => calidad = value; }
     }
 }

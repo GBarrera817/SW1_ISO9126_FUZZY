@@ -20,11 +20,11 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         public Calculo()
         {
             this.funcionalidadInterna = new Dictionary<int, double[]>();
-            this.usabilidadInterna = new Dictionary<int, double[]>;
-            this.mantenibilidadInterna = new Dictionary<int, double[]>;
-            this.funcionalidadExterna = new Dictionary<int, double[]>;
-            this.usabilidadExterna = new Dictionary<int, double[]>;
-            this.mantenibilidadExterna = new Dictionary<int, double[]>;
+            this.usabilidadInterna = new Dictionary<int, double[]>();
+            this.mantenibilidadInterna = new Dictionary<int, double[]>();
+            this.funcionalidadExterna = new Dictionary<int, double[]>();
+            this.usabilidadExterna = new Dictionary<int, double[]>();
+            this.mantenibilidadExterna = new Dictionary<int, double[]>();
         }
 
         public Dictionary<int, double[]> FuncionalidadInterna { get => funcionalidadInterna; set => funcionalidadInterna = value; }

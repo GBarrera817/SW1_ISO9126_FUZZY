@@ -131,12 +131,9 @@
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Reglas Produccion\ReglasPerspectiva.cs" />
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Valores Linguisticos\ValoresPerspectiva.cs" />
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Variables Linguisticas\VariablesPerspectiva.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadExterna.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadInterna.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadExterna.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadInterna.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadExterna.cs" />
-    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadInterna.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadProducto.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadProducto.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadProducto.cs" />
     <Compile Include="Inferencia Difusa\Inferencia.cs" />
     <Compile Include="Logica Difusa\AgregacionReglas.cs" />
     <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />

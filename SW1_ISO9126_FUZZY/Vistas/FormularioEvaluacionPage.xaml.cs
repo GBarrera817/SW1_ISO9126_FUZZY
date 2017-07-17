@@ -13,6 +13,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         FormEvaluacionPage paginaEvaluacion;
 
         public FormularioEvaluacionPage(FormEvaluacionPage cuestionario) {
+
             InitializeComponent();
             this.paginaEvaluacion = cuestionario;
         }

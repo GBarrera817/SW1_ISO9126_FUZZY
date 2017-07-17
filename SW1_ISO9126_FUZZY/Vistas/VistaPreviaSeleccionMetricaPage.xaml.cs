@@ -192,32 +192,38 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.FuncInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.UsabInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.MantInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.FuncExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.UsabExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            paginaSeleccion.MantExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
         }
     }
 }

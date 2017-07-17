@@ -24,7 +24,7 @@ namespace SW1_ISO9126_FUZZY {
         private EvaluacionCalidadPage calidad;
         private AcercaPage acerca;
 
-        private Evaluacion nuevaEvaluacion;
+        private Evaluacion nuevaEvaluacion = new Evaluacion();
 
 
         public MainWindow()
@@ -43,8 +43,9 @@ namespace SW1_ISO9126_FUZZY {
         {
             principal = new MainPage(nuevaEvaluacion);
             registro = new RegistroSWPage();
-            previaSeleccion = new VistaPreviaSeleccionMetricaPage();
+            
             seleccion = new SeleccionMetricasPage();
+            previaSeleccion = new VistaPreviaSeleccionMetricaPage(seleccion);
 
             cuestionario = new FormEvaluacionPage();
             previaEvaluacion = new FormularioEvaluacionPage(cuestionario);

@@ -52,42 +52,47 @@ namespace SW1_ISO9126_FUZZY.Archivos_configuracion
 
             for (int i = 0; i < subcaracateristica.Length; i++)
             {
-                contadorEspecial = 0;
+                //contadorEspecial = 0;
 
-                if (subcaracateristica[i].Proposito.Length == 0 || subcaracateristica[i].Proposito.Length > 3)
-                    contadorEspecial++;
+                //if (subcaracateristica[i].Proposito.Length == 0 || subcaracateristica[i].Proposito.Length > 3)
+                //    contadorEspecial++;
 
-                if(subcaracateristica[i].Formula.Length == 0 || subcaracateristica[i].Formula.Length > 1)
-                    contadorEspecial++;
+                //if(subcaracateristica[i].Formula.Length == 0 || subcaracateristica[i].Formula.Length > 1)
+                //    contadorEspecial++;
 
-                if (subcaracateristica[i].Parametros.Length == 0 || subcaracateristica[i].Parametros.Length > 2)
-                    contadorEspecial++;
+                //if (subcaracateristica[i].Parametros.Length == 0 || subcaracateristica[i].Parametros.Length > 2)
+                //    contadorEspecial++;
 
-                if (subcaracateristica[i].Proposito.Length == subcaracateristica[i].Formula.Length)
-                {
-                    if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Formula.Length > 1)
-                        contadorEspecial++;
-                }
+                //if (subcaracateristica[i].Proposito.Length == subcaracateristica[i].Formula.Length)
+                //{
+                //    if (subcaracateristica[i].Proposito.Length > 1 || subcaracateristica[i].Formula.Length > 1)
+                //        contadorEspecial++;
+                //}
                     
 
 
-                sb.AppendLine("\n");
+                //sb.AppendLine("\n");
 
-                if (contadorEspecial != 0)
-                {
-                    sb.AppendLine("<<<<<<<<<<<<<<<<<<<<<<<<< METRICA ESPECIAL =========================");       
-                }
+                //if (contadorEspecial != 0)
+                //{
+                //    sb.AppendLine("<<<<<<<<<<<<<<<<<<<<<<<<< METRICA ESPECIAL =========================");       
+                //}
+
 
                 sb.AppendLine("ID: " + subcaracateristica[i].Id);
-                sb.AppendLine("Nombre: " + subcaracateristica[i].Nombre);
-                sb.AppendLine("Proposito: " + subcaracateristica[i].Proposito.Length);
-                sb.AppendLine("Formula: " + subcaracateristica[i].Formula.Length);
-                sb.AppendLine("Parametros: " + subcaracateristica[i].Parametros.Length);
+				//sb.AppendLine("Nombre: " + subcaracateristica[i].Nombre);
+				//sb.AppendLine("Proposito: " + subcaracateristica[i].Proposito.Length);
+				for(int x=0; x < subcaracateristica[i].Formula.Length; x++)
+				{
+					sb.AppendLine("Formula: " + subcaracateristica[i].Formula[x]);
+				}
+				
+                //sb.AppendLine("Parametros: " + subcaracateristica[i].Parametros.Length);
 
-                if (contadorEspecial != 0)
-                {
-                    sb.AppendLine("========================= METRICA ESPECIAL >>>>>>>>>>>>>>>>>>>>>>>>>");
-                }
+                //if (contadorEspecial != 0)
+                //{
+                //    sb.AppendLine("========================= METRICA ESPECIAL >>>>>>>>>>>>>>>>>>>>>>>>>");
+                //}
 
                 sb.AppendLine("\n");
             }
@@ -166,27 +171,27 @@ namespace SW1_ISO9126_FUZZY.Archivos_configuracion
         {
             JRevisar revision = new JRevisar();
 
-			//revision.crearArchivo("EstadoMetricas.txt");
-
-			string regla = "IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala";
-
-
-			string[] reglaTemp = regla.Split(' ');
-
-			string variable = reglaTemp[reglaTemp.Length - 3];
-			string valor = reglaTemp[reglaTemp.Length - 1];
+			revision.crearArchivo("EstadoMetricas.txt");
+			
+			//string regla = "IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala";
 
 
-			Console.WriteLine(regla);
-			Console.WriteLine(regla.Length);
+			//string[] reglaTemp = regla.Split(' ');
 
-			Console.WriteLine(variable);
-			Console.WriteLine(variable.Length);
+			//string variable = reglaTemp[reglaTemp.Length - 3];
+			//string valor = reglaTemp[reglaTemp.Length - 1];
 
-			Console.WriteLine(valor);
-			Console.WriteLine(valor.Length);
 
-			Console.ReadKey();
+			//Console.WriteLine(regla);
+			//Console.WriteLine(regla.Length);
+
+			//Console.WriteLine(variable);
+			//Console.WriteLine(variable.Length);
+
+			//Console.WriteLine(valor);
+			//Console.WriteLine(valor.Length);
+
+			//Console.ReadKey();
 				
 
 		}

@@ -129,40 +129,8 @@
             }
    	],
   	"Aprendizaje": [
-			{
+            {
               "id": 64,
-              "subcaracteristica" : "Aprendizaje",
-              "nombre": "Facilidad de aprendizaje de funciones",
-              "proposito": ["¿Cuánto tarda el usuario en aprender a utilizar una función?"],
-              "metodo": "Lleve a cabo la prueba del usuario y observe su comportamiento.",
-              "formula": ["T"],
-              "peor_valor": 1000,
-              "mejor_valor": 0,
-              "parametros": [
-                "T"
-              ],
-              "desc_param": [
-                "T: Tiempo medio empleado para aprender a utilizar correctamente una función."
-              ]
-            },
-            {
-              "id": 65,
-              "subcaracteristica" : "Aprendizaje",
-              "nombre": "Facilidad de aprendizaje para realizar una tarea en uso",
-              "proposito": ["¿Cuánto tarda el usuario en aprender cómo realizar la tarea especificada de manera eficiente?"],
-              "metodo": "Observe el comportamiento del usuario desde cuando empiezan a aprender hasta que empiezan a funcionar eficientemente.",
-              "formula": ["T"],
-              "peor_valor": 1000,
-              "mejor_valor": 0,
-              "parametros": [
-                "T"
-              ],
-              "desc_param": [
-                "T: Suma del tiempo de operación del usuario hasta que el usuario logre realizar la tarea especificada en un tiempo corto "
-              ]
-            },
-            {
-              "id": 66,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o del sistema de ayuda",
               "proposito": ["¿Qué proporción de tareas se puede completar correctamente después de usar la documentación del usuario y / o el sistema de ayuda?"],
@@ -180,7 +148,7 @@
               ]
             },
             {
-              "id": 67,
+              "id": 65,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o sistemas de ayuda en uso",
               "proposito": ["¿Qué proporción de funciones se pueden utilizar correctamente después de leer la documentación o usar sistemas de ayuda?"],
@@ -198,7 +166,7 @@
               ]
             },
             {
-              "id": 68,
+              "id": 66,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Ayuda a la accesibilidad",
               "proposito": ["¿Qué proporción de los temas de ayuda puede localizar el usuario?"],
@@ -214,27 +182,11 @@
                 "A: Número de tareas para las que se encuentra la ayuda en línea correcta.",
                 "B: Total del número de tareas probadas."
               ]
-            },
-            {
-              "id": 69,
-              "subcaracteristica" : "Aprendizaje",
-              "nombre": "Frecuencia de Ayuda",
-              "proposito": ["¿Con qué frecuencia un usuario tiene que acceder a la ayuda para aprender la operación para completar su tarea?"],
-              "metodo": "Lleve a cabo la prueba del usuario y observe el comportamiento del usuario. Cuente el número de casos a los que un usuario accede para completar su tarea.",
-              "formula": ["A"],
-              "peor_valor": 1000,
-              "mejor_valor": 0,
-              "parametros": [
-                "A"
-              ],
-              "desc_param": [
-                "A: Número de accesos para ayudar hasta que un usuario complete su tarea."
-              ]
-            } 
+            }
   	],
   	"Operabilidad" : [
 			{
-              "id": 70,
+              "id": 67,
               "subcaracteristica" : "Operabilidad",
               "nombre": "Consistencia operativa en el uso",
               "proposito": ["¿Qué tan consistente es el componente de la interfaz de usuario?"],
@@ -252,7 +204,7 @@
               ]
             },
             {
-            	"id": 71,
+            	"id": 68,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores",
 	            "proposito": ["¿Puede el usuario corregir fácilmente el error en las tareas?"],
@@ -270,7 +222,7 @@
               ]
             },
             {
-            	"id": 72,
+            	"id": 69,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su entrada?"],
@@ -288,7 +240,7 @@
               ]
             },
             {
-            	"id": 73,
+            	"id": 70,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Disponibilidad de Valor Predeterminado en uso",
 	            "proposito": ["¿Puede el usuario seleccionar fácilmente valores de parámetros para su cómoda operación?"],
@@ -306,7 +258,7 @@
               ]
             },
             {
-            	"id": 74,
+            	"id": 71,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Comprensión del mensaje en uso",
 	            "proposito": [
@@ -329,7 +281,7 @@
               ]
             },
             {
-            	"id": 75,
+            	"id": 72,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Mensajes de error autoexplicativos",
 	            "proposito": ["¿En qué proporción de condiciones de error el usuario propone la acción de recuperación correcta?"],
@@ -347,7 +299,7 @@
               ]
             },
             {
-            	"id": 76,
+            	"id": 73,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Recuperabilidad del error operativo en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su peor situación?"],
@@ -365,7 +317,7 @@
               ]
             },
             {
-            	"id": 77,
+            	"id": 74,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Tiempo entre operaciones de error humano en uso",
 	            "proposito": ["¿Puede el usuario operar el software lo suficiente sin error humano?"],
@@ -383,7 +335,7 @@
               ]
             },
             {
-            	"id": 78,
+            	"id": 75,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Capacidad de anular (Corrección de errores de usuario)",
 	            "proposito": ["¿Con qué frecuencia el usuario corrige correctamente los errores de entrada?"],
@@ -401,7 +353,7 @@
               ]
             },
             {
-            	"id": 79,
+            	"id": 76,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Personalización",
 	            "proposito": [
@@ -423,7 +375,7 @@
               	]
             },
             {
-            	"id": 80,
+            	"id": 77,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Reducción del procedimiento de operación",
 	            "proposito": ["¿Puede el usuario reducir fácilmente los procedimientos de operación para su comodidad?"],
@@ -441,7 +393,7 @@
               	]
             },
             {
-            	"id": 81,
+            	"id": 78,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Accesibilidad física",
 	            "proposito": ["¿Qué proporción de funciones pueden tener acceso los usuarios con discapacidades físicas?"],
@@ -461,7 +413,7 @@
 	],
 	"Atractividad": [
             {
-            	"id": 82,
+            	"id": 79,
 				"subcaracteristica" : "Atractividad",
 	            "nombre": "Aspecto de la interfaz",
 	            "proposito": ["¿Qué proporción de elementos de interfaz se pueden personalizar en apariencia para la satisfacción del usuario?"],
@@ -481,7 +433,7 @@
   	],
   	"CumplimientoUsabilidad": [
 			{
-              "id": 83,
+              "id": 80,
               "subcaracteristica": "Cumplimiento Usabilidad",
               "nombre": "Cumplimiento de la Usabilidad",
               "proposito": ["¿Qué tan completamente el software se adhiere a las normas, convenciones, guías de estilo o las regulaciones relacionadas con la usabilidad?"],

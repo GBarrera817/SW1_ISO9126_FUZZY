@@ -35,7 +35,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
 
             for (int i = 0; i < desarrollador.Length; i++)
             {
-                str += "\nDesarrolador: " + desarrollador[i];
+                str += "\nDesarrollador: " + desarrollador[i];
             }
 
             str += "\nManual de usuario: " + manual;

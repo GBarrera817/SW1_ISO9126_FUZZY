@@ -52,6 +52,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private bool isManIntAct;
         private bool isManExtAct;
 
+        FormularioEvaluacionPage origen;
 
         public FormEvaluacionPage()
         {
@@ -458,7 +459,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
            // this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
-            NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+           // NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(origen);
         }
     
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -499,48 +501,54 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 isManExtAct = false;
             }
 
-            this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(origen);
         }
 
         // Acceso a contenido
 
-        public void FuncInterna_Activar()
+        public void FuncInterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
             cargarFuncionabilidad(funInt, "Funcionabilidad", "Interna", funcionalidadInterna);
         }
 
-        public void UsabInterna_Activar()
+        public void UsabInterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isUsaIntAct = true;
             cargarUsabilidad(usaInt, "Usabilidad", "Interna", usabilidadInterna);
         }
 
-        public void MantInterna_Activar()
+        public void MantInterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isManIntAct = true;
             cargarMantenibilidad(manInt, "Mantenibilidad", "Interna", mantenibilidadInterna);
         }
 
-        public void FuncExterna_Activar()
+        public void FuncExterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isFunExtAct = true;
             cargarFuncionabilidad(funExt, "Funcionalidad", "Externa", funcionalidadExterna);
         }
 
-        public void UsabExterna_Activar()
+        public void UsabExterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isUsaExtAct = true;
             cargarUsabilidad(usaExt, "Usabilidad", "Externa", usabilidadExterna);
         }
 
-        public void MantExterna_Activar()
+        public void MantExterna_Activar(FormularioEvaluacionPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isManExtAct = true;
             cargarMantenibilidad(manExt, "Mantenibilidad Externa", "Externa", mantenibilidadExterna);

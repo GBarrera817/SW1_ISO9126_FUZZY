@@ -34,7 +34,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnFuncInterna_Click(object sender, RoutedEventArgs e)
         {
 
-            paginaEvaluacion.FuncInterna_Activar();
+            paginaEvaluacion.FuncInterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
             // Navigation.Navigation.Navigate(paginaEvaluacion);
 
@@ -42,34 +42,34 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnUsabInterna_Click(object sender, RoutedEventArgs e)
         {
-            paginaEvaluacion.UsabInterna_Activar();
+            paginaEvaluacion.UsabInterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
         }
 
         private void btnMantInterna_Click(object sender, RoutedEventArgs e)
         {
-            paginaEvaluacion.MantInterna_Activar();
+            paginaEvaluacion.MantInterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
         }
 
 
         private void btnFuncExterna_Click(object sender, RoutedEventArgs e)
         {
-            paginaEvaluacion.FuncExterna_Activar();
+            paginaEvaluacion.FuncExterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
         }
 
 
         private void btnUsabExterna_Click(object sender, RoutedEventArgs e)
         {
-            paginaEvaluacion.UsabExterna_Activar();
+            paginaEvaluacion.UsabExterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
         }
 
 
         private void btnMantExterna_Click(object sender, RoutedEventArgs e)
         {
-            paginaEvaluacion.MantExterna_Activar();
+            paginaEvaluacion.MantExterna_Activar(this);
             this.NavigationService.Navigate(paginaEvaluacion);
         }
     }

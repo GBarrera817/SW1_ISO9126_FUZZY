@@ -52,7 +52,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private bool isManIntAct;
         private bool isManExtAct;
 
-        FormularioEvaluacionPage origen;
+        private FormularioEvaluacionPage origen;
 
         public FormEvaluacionPage()
         {

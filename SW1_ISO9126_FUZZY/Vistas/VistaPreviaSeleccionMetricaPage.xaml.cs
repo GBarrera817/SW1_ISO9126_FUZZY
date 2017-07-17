@@ -40,10 +40,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        SeleccionMetricasPage paginaSeleccion;
 
-        public VistaPreviaSeleccionMetricaPage()
+        public VistaPreviaSeleccionMetricaPage(SeleccionMetricasPage pagina)
 		{
+            
 			InitializeComponent();
+
+            this.paginaSeleccion = pagina;
             inicializarListas();
             cargarJsonMetricas();
             cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
@@ -146,11 +150,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
 		{
-			//flyoutSeleccionMetricas.IsOpen = true;
-			this.NavigationService.Navigate(new Uri("Vistas/SeleccionMetricasPage.xaml", UriKind.Relative));
-		}
+            menuMetricas.IsOpen = true;
+        }
 
-        // Eventos botones tabla
+        // Eventos botones tabla y label estado
 
 		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
 		{ 
@@ -184,5 +187,43 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
             cargarMantenibilidad(manExt, DataGridEstadoMetricasExternas);
         }
-	}
+
+        // Eventos botones menu flotante (flyout)
+
+        private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.FuncInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+
+        private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.UsabInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+
+        private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.MantInterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+
+        private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.FuncExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+
+        private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.UsabExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+
+        private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            paginaSeleccion.MantExterna_Activar(this);
+            this.NavigationService.Navigate(paginaSeleccion);
+        }
+    }
 }

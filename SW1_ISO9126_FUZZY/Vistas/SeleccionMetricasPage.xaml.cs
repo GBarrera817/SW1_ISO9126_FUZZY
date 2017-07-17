@@ -42,6 +42,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private bool isManIntAct;
         private bool isManExtAct;
 
+        private VistaPreviaSeleccionMetricaPage origen;
+
         public SeleccionMetricasPage()
         {
             InitializeComponent();
@@ -136,8 +138,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             dtColumnas.Columns.Add("proposito", typeof(string));
             dtColumnas.Columns.Add("formula", typeof(string));
             dataGridDetalleMetrica.ItemsSource = dtColumnas.DefaultView;
-            dataGridDetalleMetrica.Columns[0].Header = "Propósito de la métrica";
-            dataGridDetalleMetrica.Columns[1].Header = "Formula";
 
             int preguntas = 0;
             int formulas = 0;
@@ -155,6 +155,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             MessageBox.Show("formulas: " + formulas);
             MessageBox.Show(metrica.ToString());
             */
+
+            // Igual número de preguntas y formulas
 
             if (preguntas == formulas)
             {
@@ -256,7 +258,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             lblPerpectiva.Content = perspectiva;
             lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
-
             for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
                 metricas.Add(mantenibilidad.Analizabilidad[i]);
 
@@ -335,52 +336,58 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Eventos menu flotante
 
-        private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void FuncInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
-            cargarFuncionabilidad(funInt, "Funcionabilidad Interna","Interna",funcionalidadInterna);
-            menuMetricas.IsOpen = false;
+            cargarFuncionabilidad(funInt,"Funcionabilidad Interna","Interna",funcionalidadInterna);
+           
         }
 
-        private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isUsaIntAct = true;
             cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",usabilidadInterna);
-            menuMetricas.IsOpen = false;
+            
         }
 
-        private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isManIntAct = true;
             cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna",mantenibilidadInterna);
-            menuMetricas.IsOpen = false;
+           
         }
 
-        private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isFunExtAct = true;
             cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa",funcionalidadExterna);
-            menuMetricas.IsOpen = false;
+            
         }
 
-        private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isUsaExtAct = true;
             cargarUsabilidad(usaExt,"Usabilidad Externa","Externa",usabilidadExterna);
-            menuMetricas.IsOpen = false;
+            
         }
 
-        private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
         {
+            origen = llamada;
             cargarEntorno();
             isManExtAct = true;
             cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa",mantenibilidadExterna);
-            menuMetricas.IsOpen = false;
+            
         }
 
 
@@ -495,6 +502,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             {
 
             }
+
+            NavigationService.Navigate(origen);
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -537,10 +546,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 isManExtAct = false;
             }
 
-            // Mostrar menu caracteristicas
-            // menuMetricas.IsOpen = true;
-
-            this.NavigationService.Navigate(new Uri("Vistas/VistaPreviaSeleccionMetricaPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(origen);
         }
     }
 }

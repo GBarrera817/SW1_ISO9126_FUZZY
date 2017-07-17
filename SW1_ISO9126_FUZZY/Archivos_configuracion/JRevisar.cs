@@ -42,7 +42,7 @@ namespace SW1_ISO9126_FUZZY.Archivos_configuracion
         private string infoMetrica(string nombre, string perspectiva, JMetrica[] subcaracateristica)
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            int contadorEspecial = 0;
+            //int contadorEspecial = 0;
 
             sb.AppendLine("\n+++++++++++++++++++++++++ "+nombre+" +++++++++++++++++++++++++\n");
 
@@ -171,46 +171,7 @@ namespace SW1_ISO9126_FUZZY.Archivos_configuracion
         {
             JRevisar revision = new JRevisar();
 
-			revision.crearArchivo("EstadoMetricas.txt");
-			
-			//string regla = "IF adecuacion IS muy_mala AND exactitud IS nunca THEN funcionabilidad IS muy_mala";
-
-
-			//string[] reglaTemp = regla.Split(' ');
-
-			//string variable = reglaTemp[reglaTemp.Length - 3];
-			//string valor = reglaTemp[reglaTemp.Length - 1];
-
-
-			//Console.WriteLine(regla);
-			//Console.WriteLine(regla.Length);
-
-			//Console.WriteLine(variable);
-			//Console.WriteLine(variable.Length);
-
-			//Console.WriteLine(valor);
-			//Console.WriteLine(valor.Length);
-
-			//Console.ReadKey();
-				
-
+			revision.crearArchivo("EstadoMetricas.txt");			
 		}
-
-
-
-        /*
-         
-         DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
-        if(dialogResult == DialogResult.Yes)
-        {
-            //do something
-        }
-        else if (dialogResult == DialogResult.No)
-        {
-            //do something else
-        }
-         
-         
-         */
     }
 }

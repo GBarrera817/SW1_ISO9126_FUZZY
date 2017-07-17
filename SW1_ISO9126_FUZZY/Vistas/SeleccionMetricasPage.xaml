@@ -42,14 +42,14 @@
                         <TextBlock x:Name="txbkMetodo" Width="665" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                     </ScrollViewer>
                 </Grid>
-                
+
                 <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="127" Margin="0,0,10,0" BorderThickness="2" BorderBrush="LightBlue"/>
                 <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Height="99" Margin="0" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">
                     <ScrollViewer>
                         <TextBlock x:Name="txbkParam" Width="713" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                     </ScrollViewer>
                 </GroupBox>
-                
+
             </StackPanel>
         </Expander>
 
@@ -58,53 +58,5 @@
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="622,87,0,0" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click"/>
         <Button x:Name="btnTerminar" Content="Terminar" HorizontalAlignment="Left" Margin="622,122,0,0" VerticalAlignment="Top" Width="75" Click="btnTerminar_Click"/>
 
-        <!-- Flyout Selección de métricas -->
-        <controls:Flyout x:Name="menuMetricas" Width="265" Position="Right" Header="Selección de métricas" Foreground="White" IsOpen="true" Background="#FF2D364C" CloseButtonVisibility="Visible">
-            <Canvas>
-                <!-- Métricas Internas -->
-                <Label Content="Métricas Internas" FontSize="18" Foreground="White" Width="265" Background="#FF33A133" />
-                <Button x:Name="btnFuncInterna" Height="64" Width="221" Canvas.Top="50" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnFuncInterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Interna</Label>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnUsabInterna" Height="64" Width="221" Canvas.Top="119" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnUsabInterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Interna</Label>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnMantInterna" Height="64" Width="221" Canvas.Top="188" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMantInterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Interna</Label>
-                    </StackPanel>
-                </Button>
-
-
-                <!--Mètricas externas-->
-                <Label Content="Métricas Externas" FontSize="18" Foreground="White" Canvas.Top="268" Background="#FF33A133" Width="265"/>
-                <Button x:Name="btnFuncExterna" Height="64" Width="221" Canvas.Top="307" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnFuncExterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Externa</Label>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnUsabExterna" Height="64" Width="221" Canvas.Top="372" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnUsabExterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Externa</Label>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnMantExterna" Height="64" Width="221" Canvas.Top="441" Canvas.Left="24" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMantExterna_Click">
-                    <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" Height="52" Width="46" Stretch="UniformToFill"/>
-                        <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Externa</Label>
-                    </StackPanel>
-                </Button>
-            </Canvas>
-        </controls:Flyout>
     </Grid>
-
 </Page>

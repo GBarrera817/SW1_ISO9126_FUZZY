@@ -156,6 +156,7 @@
     <Compile Include="Modelo Datos\EstadoModulo.cs" />
     <Compile Include="Modelo Datos\Evaluacion.cs" />
     <Compile Include="Modelo Datos\Importancia.cs" />
+    <Compile Include="Modelo Datos\Persona.cs" />
     <Compile Include="Modelo Datos\Respuesta.cs" />
     <Compile Include="Modelo Datos\Seleccion.cs" />
     <Compile Include="Modelo Datos\Software.cs" />

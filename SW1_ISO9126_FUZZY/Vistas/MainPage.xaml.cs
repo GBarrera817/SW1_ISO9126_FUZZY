@@ -20,7 +20,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			this.NavigationService.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
 		}
 
-		private void btnCargarEvaluación_Click(object sender, System.Windows.RoutedEventArgs e)
+		private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 			
 			OpenFileDialog openFileDialog1 = new OpenFileDialog();

@@ -90,7 +90,7 @@
             <Grid Margin="0,0,0,1">
                 <Label Content="Funcionalidad Interna: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="7,0,0,0" FontWeight="Bold"/>
                 <Grid Margin="165,10,0,159" Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasFuncInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF002B80"/>
+                    <Label x:Name="lblEstadoMetricasFuncInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
                 </Grid>
                 <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
                 <Grid Margin="165,79,0,90"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">

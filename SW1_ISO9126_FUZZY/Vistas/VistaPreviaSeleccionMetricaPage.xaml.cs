@@ -155,19 +155,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
 		{ 
             cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(0, lblEstadoMetricasFuncInterna);
+            cambiarEstado(1, lblEstadoMetricasFuncInterna);
         }
 
 		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
 		{  
             cargarUsabilidad(usaInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(1,lblEstadoMetricasUsabInterna);
+            cambiarEstado(2,lblEstadoMetricasUsabInterna);
         }
 
 		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
 		{ 
             cargarMantenibilidad(manInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(2,lblEstadoMetricasMantInterna);
+            cambiarEstado(3,lblEstadoMetricasMantInterna);
         }
 
 		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)

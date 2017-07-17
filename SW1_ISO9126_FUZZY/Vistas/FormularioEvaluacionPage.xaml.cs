@@ -9,8 +9,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// Lógica de interacción para FormularioEvaluacionPage.xaml
     /// </summary>
     public partial class FormularioEvaluacionPage : Page {
-        public FormularioEvaluacionPage() {
+
+        FormEvaluacionPage paginaEvaluacion;
+
+        public FormularioEvaluacionPage(FormEvaluacionPage cuestionario) {
             InitializeComponent();
+            this.paginaEvaluacion = cuestionario;
         }
 
 
@@ -24,44 +28,49 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estados[estado];
         }
 
+
         // Eventos botones
 
         private void btnFuncInterna_Click(object sender, RoutedEventArgs e)
         {
-			
-            // Cambia de página
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
-        }
 
-        private void btnMantInterna_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
+            paginaEvaluacion.FuncInterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
+            // Navigation.Navigation.Navigate(paginaEvaluacion);
+
         }
 
         private void btnUsabInterna_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
+            paginaEvaluacion.UsabInterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
         }
+
+        private void btnMantInterna_Click(object sender, RoutedEventArgs e)
+        {
+            paginaEvaluacion.MantInterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
+        }
+
 
         private void btnFuncExterna_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
+            paginaEvaluacion.FuncExterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
         }
 
-        private void btnMantExterna_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
-        }
 
         private void btnUsabExterna_Click(object sender, RoutedEventArgs e)
         {
-            // Xceed.Wpf.Toolkit.MessageBox.Show("btn usab externa");
-            this.NavigationService.Navigate(new Uri("Vistas/FormEvaluacionPage.xaml", UriKind.Relative));
+            paginaEvaluacion.UsabExterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
         }
 
-        private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btnMantExterna_Click(object sender, RoutedEventArgs e)
+        {
+            paginaEvaluacion.MantExterna_Activar(this);
+            this.NavigationService.Navigate(paginaEvaluacion);
         }
     }
 }

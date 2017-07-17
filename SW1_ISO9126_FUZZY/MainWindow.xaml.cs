@@ -46,8 +46,9 @@ namespace SW1_ISO9126_FUZZY {
             previaSeleccion = new VistaPreviaSeleccionMetricaPage();
             seleccion = new SeleccionMetricasPage();
 
-            previaEvaluacion = new FormularioEvaluacionPage();
             cuestionario = new FormEvaluacionPage();
+            previaEvaluacion = new FormularioEvaluacionPage(cuestionario);
+            
             calidad = new EvaluacionCalidadPage();
             acerca = new AcercaPage();
         }

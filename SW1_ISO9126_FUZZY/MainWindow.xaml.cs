@@ -41,7 +41,7 @@ namespace SW1_ISO9126_FUZZY {
 
         private void inicializarPaginas()
         {
-            principal = new MainPage();
+            principal = new MainPage(nuevaEvaluacion);
             registro = new RegistroSWPage();
             previaSeleccion = new VistaPreviaSeleccionMetricaPage();
             seleccion = new SeleccionMetricasPage();

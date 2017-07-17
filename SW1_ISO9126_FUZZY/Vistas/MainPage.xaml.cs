@@ -13,6 +13,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
     {
         private Evaluacion miEvaluacion;
         private bool estadoEvaluacion;
+
         public MainPage(Evaluacion nueva)
         {
             InitializeComponent();
@@ -46,21 +47,33 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 
-			//OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (!estadoEvaluacion)
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-			//// Set filter options and filter index.
-			//openFileDialog1.Filter = "JSON Files (.json)|*.json|All Files (*.*)|*.*";
-			//openFileDialog1.FilterIndex = 1;
+                //// Set filter options and filter index.
+                openFileDialog1.Filter = "JSON Files (.json)|*.json|All Files (*.*)|*.*";
+                openFileDialog1.FilterIndex = 1;
 
-			//openFileDialog1.Multiselect = true;
+                openFileDialog1.Multiselect = true;
 
-			//// Process input if the user clicked OK.
-			//if (openFileDialog1.ShowDialog() == DialogResult.OK)
-			//{
-				
-			//}
+                // Process input if the user clicked OK.
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    // Cargar evaluacion desde JSON, json object to .net object
 
-            // Cargar evaluacion desde JSON, json object to .net object
-		}
+                    estadoEvaluacion = true;
+
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación creada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    Navigation.Navigation.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
+                }
+
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
 	}
 }

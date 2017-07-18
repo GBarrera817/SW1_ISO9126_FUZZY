@@ -25,7 +25,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-
             if (!estadoEvaluacion)
             {
                 miEvaluacion = new Evaluacion();
@@ -39,9 +38,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-           
-            //this.NavigationService.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
         }
 
 		private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -49,16 +45,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (!estadoEvaluacion)
             {
+                //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
+
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-                //// Set filter options and filter index.
-                openFileDialog1.Filter = "JSON Files (.json)|*.json|All Files (*.*)|*.*";
+                string filtro = "Archivos JSON (.json)|*.json";
+                openFileDialog1.Filter = filtro;
                 openFileDialog1.FilterIndex = 1;
+                openFileDialog1.Multiselect = false;
 
-                openFileDialog1.Multiselect = true;
+                var resultado = openFileDialog1.ShowDialog();
 
-                // Process input if the user clicked OK.
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                if (resultado == DialogResult.OK)
                 {
                     // Cargar evaluacion desde JSON, json object to .net object
 
@@ -69,6 +66,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     Navigation.Navigation.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
                 }
 
+                if (resultado == DialogResult.Cancel)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Carga de evaluación desde archivo cancelada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             else
             {

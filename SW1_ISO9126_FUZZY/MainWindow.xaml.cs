@@ -29,8 +29,12 @@ namespace SW1_ISO9126_FUZZY {
 
         public MainWindow()
         {
+            
+            //ModeloHamburguer.menu
             InitializeComponent();
             inicializarPaginas();
+
+            //this.HamburgerMenuControl.IsPaneOpen = false;
 
             // Navigate to the home page.
             Navigation.Navigation.Frame = new Frame(); //SplitViewFrame;
@@ -52,6 +56,10 @@ namespace SW1_ISO9126_FUZZY {
             
             calidad = new EvaluacionCalidadPage();
             acerca = new AcercaPage();
+
+            //HamburgerMenuItemCollection itemCollection = HamburgerMenuControl.ItemsSource as HamburgerMenuItemCollection;
+           // itemCollection[0].Label = "Hola";
+
         }
 
 

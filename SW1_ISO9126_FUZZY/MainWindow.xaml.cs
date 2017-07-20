@@ -18,20 +18,17 @@ namespace SW1_ISO9126_FUZZY {
         private MainPage principal;
         private RegistroSWPage registro;
         private VistaPreviaSeleccionMetricaPage previaSeleccion;
-        private SeleccionMetricasPage seleccion;
         private FormularioEvaluacionPage previaEvaluacion;
-        private FormEvaluacionPage cuestionario;
         private EvaluacionCalidadPage calidad;
         private AcercaPage acerca;
 
-        private Evaluacion nuevaEvaluacion = new Evaluacion();
+        private Evaluacion proyecto;
 
 
         public MainWindow()
         {
-            
-            //ModeloHamburguer.menu
             InitializeComponent();
+            inicializarEvaluacion();
             inicializarPaginas();
 
             //this.HamburgerMenuControl.IsPaneOpen = false;
@@ -40,21 +37,32 @@ namespace SW1_ISO9126_FUZZY {
             Navigation.Navigation.Frame = new Frame(); //SplitViewFrame;
             Navigation.Navigation.Frame.Navigated += SplitViewFrame_OnNavigated;
             this.Loaded += (sender, args) => Navigation.Navigation.Navigate(principal);
+            //this.SplitViewFrame_OnNavigated.ShowTitleBar = true;
         }
 
 
+        private void inicializarEvaluacion()
+        {
+            proyecto = new Evaluacion();
+            proyecto.Informacion = new Software();
+            proyecto.Grados = new Importancia();
+            proyecto.Eleccion = new Seleccion();
+            proyecto.Fomulario = new Respuesta();
+            proyecto.Resultados = new Calculo();
+            proyecto.SeleccionMetricas = new EstadoModulo();
+            proyecto.EvaluacionMetricas = new EstadoModulo();
+            proyecto.Calidad = new EstadoModulo();
+            
+        }
+
         private void inicializarPaginas()
         {
-            principal = new MainPage(nuevaEvaluacion);
-            registro = new RegistroSWPage();
-            
-            seleccion = new SeleccionMetricasPage();
-            previaSeleccion = new VistaPreviaSeleccionMetricaPage(seleccion);
 
-            cuestionario = new FormEvaluacionPage();
-            previaEvaluacion = new FormularioEvaluacionPage(cuestionario);
-            
-            calidad = new EvaluacionCalidadPage();
+            principal = new MainPage(proyecto);
+            registro = new RegistroSWPage(proyecto);
+            previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
+            previaEvaluacion = new FormularioEvaluacionPage();
+            calidad = new EvaluacionCalidadPage(proyecto);
             acerca = new AcercaPage();
 
             //HamburgerMenuItemCollection itemCollection = HamburgerMenuControl.ItemsSource as HamburgerMenuItemCollection;
@@ -106,6 +114,7 @@ namespace SW1_ISO9126_FUZZY {
             if (menuItem.Text == "Acerca")
             {
                 Navigation.Navigation.Navigate(acerca);
+                Xceed.Wpf.Toolkit.MessageBox.Show(proyecto.Informacion.ToString(), "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
         }

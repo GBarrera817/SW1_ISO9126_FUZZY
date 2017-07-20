@@ -11,8 +11,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// </summary>
     public partial class MainPage : Page
     {
-        private Evaluacion miEvaluacion;
         private bool estadoEvaluacion;
+        private Evaluacion miEvaluacion;
+
 
         public MainPage(Evaluacion nueva)
         {
@@ -26,13 +27,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
             if (!estadoEvaluacion)
-            {
-                miEvaluacion = new Evaluacion();
+            {               
                 estadoEvaluacion = true;
 
                 Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación creada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                Navigation.Navigation.Navigate(new Uri("Vistas/RegistroSWPage.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new RegistroSWPage(miEvaluacion));
             }
             else
             {
@@ -42,9 +41,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-
+            Navigation.Navigation.Navigate(new Uri("https://www.messenger.com/login.php"));
+/*
             if (!estadoEvaluacion)
-            {
+            {            
                 //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
 
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -75,6 +75,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+*/
         }
-	}
+
+        /* Ejemplos de MessageBox
+         
+            MessageBoxResult result4 = Xceed.Wpf.Toolkit.MessageBox.Show("Hello world!", "Extended WPF ToolKit MessageBox", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBoxResult result1 = Xceed.Wpf.Toolkit.MessageBox.Show("Hello world!", "Extended WPF ToolKit MessageBox", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            MessageBoxResult result7 = Xceed.Wpf.Toolkit.MessageBox.Show("Hello world!", "Extended WPF ToolKit MessageBox", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result5 = Xceed.Wpf.Toolkit.MessageBox.Show("Hello world!", "Extended WPF ToolKit MessageBox", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+        */
+    }
 }

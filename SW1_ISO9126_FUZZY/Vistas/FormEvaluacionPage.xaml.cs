@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SW1_ISO9126_FUZZY.JSON;
+using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,7 +59,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             InitializeComponent();
             cargarEntorno();
-            //cargarMetrica(manExt.Modificabilidad[0]);
 		}
 
         public JFuncionabilidad FunInt { get => funInt; set => funInt = value; }

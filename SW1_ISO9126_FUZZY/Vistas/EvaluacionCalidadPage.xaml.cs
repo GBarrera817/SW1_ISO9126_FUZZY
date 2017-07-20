@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// </summary>
 	public partial class EvaluacionCalidadPage : Page
 	{
-		public EvaluacionCalidadPage()
+		public EvaluacionCalidadPage(Evaluacion nueva)
 		{
 			InitializeComponent();
 		}

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SW1_ISO9126_FUZZY.JSON;
+using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,14 +41,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
-        SeleccionMetricasPage paginaSeleccion;
+        private SeleccionMetricasPage paginaSeleccion;
+        private Seleccion metricas;
+        private Evaluacion miEvaluacion;
 
-        public VistaPreviaSeleccionMetricaPage(SeleccionMetricasPage pagina)
+
+        public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
 		{
             
 			InitializeComponent();
 
-            this.paginaSeleccion = pagina;
+            this.metricas = new Seleccion();
+            this.paginaSeleccion = new SeleccionMetricasPage();
+            this.miEvaluacion = nueva;
+
             inicializarListas();
             cargarJsonMetricas();
             cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);

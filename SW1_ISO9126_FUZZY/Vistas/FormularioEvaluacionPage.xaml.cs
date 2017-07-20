@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,10 +13,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         FormEvaluacionPage paginaEvaluacion;
 
-        public FormularioEvaluacionPage(FormEvaluacionPage cuestionario) {
+        public FormularioEvaluacionPage() {
 
             InitializeComponent();
-            this.paginaEvaluacion = cuestionario;
+            paginaEvaluacion = new FormEvaluacionPage();
         }
 
 

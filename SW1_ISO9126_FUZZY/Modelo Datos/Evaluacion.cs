@@ -17,10 +17,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private EstadoModulo evaluacionMetricas;
         private EstadoModulo calidad;
 
-        public Evaluacion()
-        {
-
-        }
+        public Evaluacion(){}
 
         public Evaluacion(Software informacion, Importancia grados, Seleccion eleccion, Respuesta fomulario, Calculo resultados, EstadoModulo seleccionMetricas, EstadoModulo evaluacionMetricas, EstadoModulo calidad)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -10,12 +11,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// </summary>
     public partial class FormularioEvaluacionPage : Page {
 
-        FormEvaluacionPage paginaEvaluacion;
+        private FormEvaluacionPage paginaEvaluacion;
+        private Respuesta metricas;
+        private EstadoModulo evalMetricas;
+        private Evaluacion miEvaluacion;
 
-        public FormularioEvaluacionPage(FormEvaluacionPage cuestionario) {
+        public FormularioEvaluacionPage(Evaluacion nueva) {
 
             InitializeComponent();
-            this.paginaEvaluacion = cuestionario;
+            this.paginaEvaluacion = new FormEvaluacionPage();
+            this.metricas = new Respuesta();
+            this.evalMetricas = new EstadoModulo();
+            this.miEvaluacion = nueva;
+
         }
 
 

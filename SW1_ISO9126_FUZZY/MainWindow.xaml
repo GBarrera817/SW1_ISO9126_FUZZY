@@ -59,7 +59,7 @@
                                 ItemTemplate="{StaticResource MenuItemTemplate}"
                                 OptionsItemTemplate="{StaticResource MenuItemTemplate}"
                                 DisplayMode="CompactInline" Background="#FF2D364C"
-                                />
+        />
 
     </Grid>
 </controls:MetroWindow>

@@ -61,7 +61,7 @@ namespace SW1_ISO9126_FUZZY {
             principal = new MainPage(proyecto);
             registro = new RegistroSWPage(proyecto);
             previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
-            previaEvaluacion = new FormularioEvaluacionPage();
+            previaEvaluacion = new FormularioEvaluacionPage(proyecto);
             calidad = new EvaluacionCalidadPage(proyecto);
             acerca = new AcercaPage();
 

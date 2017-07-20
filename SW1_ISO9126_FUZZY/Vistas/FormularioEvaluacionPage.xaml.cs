@@ -11,12 +11,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// </summary>
     public partial class FormularioEvaluacionPage : Page {
 
-        FormEvaluacionPage paginaEvaluacion;
+        private FormEvaluacionPage paginaEvaluacion;
+        private Respuesta metricas;
+        private EstadoModulo evalMetricas;
+        private Evaluacion miEvaluacion;
 
-        public FormularioEvaluacionPage() {
+        public FormularioEvaluacionPage(Evaluacion nueva) {
 
             InitializeComponent();
-            paginaEvaluacion = new FormEvaluacionPage();
+            this.paginaEvaluacion = new FormEvaluacionPage();
+            this.metricas = new Respuesta();
+            this.evalMetricas = new EstadoModulo();
+            this.miEvaluacion = nueva;
+
         }
 
 

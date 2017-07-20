@@ -552,6 +552,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 guardarGradosUsabilidad();
                 guardarGradosMantenbilidad();
 
+                miEvaluacion.Informacion = aplicacion;
+                miEvaluacion.Grados = grados;
+
                 Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.NavigationService.Navigate(new VistaPreviaSeleccionMetricaPage(miEvaluacion));
             }

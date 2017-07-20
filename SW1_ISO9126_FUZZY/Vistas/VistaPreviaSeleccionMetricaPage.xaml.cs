@@ -43,6 +43,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private SeleccionMetricasPage paginaSeleccion;
         private Seleccion metricas;
+        private EstadoModulo selecMetricas;
         private Evaluacion miEvaluacion;
 
 
@@ -50,9 +51,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
             
 			InitializeComponent();
-
+            this.paginaSeleccion = new SeleccionMetricasPage(); // pasar seleccion
             this.metricas = new Seleccion();
-            this.paginaSeleccion = new SeleccionMetricasPage();
+            this.selecMetricas = new EstadoModulo();
             this.miEvaluacion = nueva;
 
             inicializarListas();

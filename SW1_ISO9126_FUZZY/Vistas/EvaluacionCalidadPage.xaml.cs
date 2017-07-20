@@ -22,10 +22,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// </summary>
 	public partial class EvaluacionCalidadPage : Page
 	{
-		public EvaluacionCalidadPage(Evaluacion nueva)
+        private Calculo metricas;
+        private EstadoModulo resulMetricas;
+        private Evaluacion miEvaluacion;
+
+        public EvaluacionCalidadPage(Evaluacion nueva)
 		{
 			InitializeComponent();
-		}
+            this.metricas = new Calculo();
+            this.resulMetricas = new EstadoModulo();
+            this.miEvaluacion = nueva;
+        }
 
         // Eventos de movimiento
 

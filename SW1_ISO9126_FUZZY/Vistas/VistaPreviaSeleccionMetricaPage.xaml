@@ -10,16 +10,13 @@
       Title="VistaPreviaSeleccionMetricaPage" Width="800" Height="600">
 
     <Grid Background="White">
+        
         <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="125,15,327,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
 
         <!-- Groupbox de Metricas de calidad Internas-->
-        <GroupBox Header="Métricas de Calidad Internas" HorizontalAlignment="Left" Height="238" Margin="10,81,0,0" VerticalAlignment="Top" Width="505" Background="#FF01A221" BorderBrush="#FF01A221">
+        <GroupBox Header="Métricas de Calidad Internas" HorizontalAlignment="Left" Height="250" Margin="10,77,0,0" VerticalAlignment="Top" Width="463" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="455*"/>
-                    <ColumnDefinition Width="38*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncInterna_Click">
+                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="11,4,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncInterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -28,7 +25,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoUsabInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,65,384,0" Click="btnEstadoUsabInterna_Click">
+                <Button x:Name="btnEstadoUsabInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,69,380,0" Click="btnEstadoUsabInterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -37,7 +34,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoMantInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,130,384,0" Click="btnEstadoMantInterna_Click">
+                <Button x:Name="btnEstadoMantInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,134,380,0" Click="btnEstadoMantInterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -46,19 +43,21 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="94,9,11,10" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
+                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="106,9,40,10" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
+
+
             </Grid>
         </GroupBox>
 
 
         <!-- Groupbox de Metricas de calidad Externa-->
-        <GroupBox Header="Métricas de Calidad Externa" HorizontalAlignment="Left" Height="250" Margin="10,324,0,0" VerticalAlignment="Top" Width="505" BorderBrush="#FF01A221" Background="#FF01A221">
+        <GroupBox Header="Métricas de Calidad Externa" HorizontalAlignment="Left" Height="250" Margin="10,331,0,0" VerticalAlignment="Top" Width="505" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="477*"/>
+                    <ColumnDefinition Width="455*"/>
                     <ColumnDefinition Width="16*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncExterna_Click">
+                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncExterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -67,7 +66,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoUsabExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,65,406,0" Click="btnEstadoUsabExterna_Click">
+                <Button x:Name="btnEstadoUsabExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,75,405,0" Click="btnEstadoUsabExterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -76,7 +75,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoMantExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,130,406,0" Click="btnEstadoMantExterna_Click">
+                <Button x:Name="btnEstadoMantExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="11,140,405,0" Click="btnEstadoMantExterna_Click">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -85,44 +84,47 @@
                     </Button.Background>
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="94,9,0,10" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" HorizontalAlignment="Left" Width="349">
+                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="105,9,0,10" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" HorizontalAlignment="Left" Width="338">
 
                 </DataGrid>
             </Grid>
         </GroupBox>
 
         <!-- Groupbox Estado de seleccion de metricas INTERNAS-->
-        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="238" Margin="520,81,0,0" VerticalAlignment="Top" Width="270" Background="#FF01A221" BorderBrush="#FF01A221">
+        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,77,0,0" VerticalAlignment="Top" Width="270" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid Margin="0,0,0,1">
                 <Label Content="Funcionalidad Interna: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="7,0,0,0" FontWeight="Bold"/>
-                <Grid Margin="165,10,0,159" Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasFuncInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
-                </Grid>
                 <Label FontSize="14" Content="Usabilidad Interna: " HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top" Width="147" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                <Grid Margin="165,79,0,90"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasUsabInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
-                </Grid>
-                <Grid Margin="165,149,5,20"  Background="#FF353F59" Width="88">
-                    <Label x:Name="lblEstadoMetricasMantInterna" Content="INACTIVA" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,-2" Background="#FF000033"/>
-                </Grid>
                 <Label FontSize="14" Content="Mant. Interna: " HorizontalAlignment="Left" Margin="41,138,0,0" VerticalAlignment="Top" Width="147" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+
+                <Grid Margin="165,10,0,171" Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasFuncInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
+                </Grid>
+                <Grid Margin="165,79,0,101"  Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasUsabInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
+                </Grid>
+                <Grid Margin="165,149,5,32"  Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasMantInterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
+                </Grid>
+                
             </Grid>
         </GroupBox>
 
         <!-- Groupbox Estado de seleccion de metricas EXTERNAS-->
-        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,324,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FF01A221" Background="#FF01A221">
+        <GroupBox Header="Estado de selección de las métricas" HorizontalAlignment="Left" Height="250" Margin="520,331,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid Margin="0,0,0,1">
                 <Label FontSize="14" Content="Funcionalidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="4,0,0,0" FontWeight="Bold"/>
                 <Label FontSize="14" Content="Usabilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="22,73,0,0" FontWeight="Bold"/>
                 <Label FontSize="14" Content="Mantenibilidad Externa: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-6,138,0,0" FontWeight="Bold"/>
-                <Grid Margin="165,11,5,170"  Background="#FF353F59">
-                    <Label x:Name="lblEstadoMetricasFuncExterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
+                
+                <Grid Margin="165,11,5,170"  Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasFuncExterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
                 </Grid>
-                <Grid  Margin="165,84,0,96"  Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasUsabExterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
+                <Grid  Margin="165,84,0,96"  Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasUsabExterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
                 </Grid>
-                <Grid Margin="165,149,0,31" Background="#FF353F59" HorizontalAlignment="Left" Width="88">
-                    <Label x:Name="lblEstadoMetricasMantExterna" Content="INACTIVA" FontSize="14" Foreground="White" VerticalAlignment="Top"  Height="29" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="2,0,-2,0" Background="#FF000033" />
+                <Grid Margin="165,149,0,31" Background="#FF353F59" HorizontalAlignment="Left" Width="90">
+                    <Label x:Name="lblEstadoMetricasMantExterna" Content="INACTIVA" FontSize="14" Foreground="White" HorizontalAlignment="Left" Height="30" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF000033"/>
                 </Grid>
             </Grid>
         </GroupBox>
@@ -183,8 +185,6 @@
                 </Button>
             </Canvas>
         </controls:Flyout>
-
-
 
     </Grid>
 </Page>

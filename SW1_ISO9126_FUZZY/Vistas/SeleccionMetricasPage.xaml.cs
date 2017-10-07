@@ -278,7 +278,13 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             return metricas;
         }
-        
+
+
+        private void seleccionarMetrica()
+        {
+            
+        }
+
 
         // Retroceder
 

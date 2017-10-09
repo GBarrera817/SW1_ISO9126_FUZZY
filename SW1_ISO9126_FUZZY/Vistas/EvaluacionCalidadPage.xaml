@@ -14,7 +14,7 @@
         <TextBlock FontSize="36" HorizontalAlignment="Center" Margin="239,10,210,0" TextWrapping="Wrap" Text="Evaluación de Calidad" VerticalAlignment="Top" Width="351" Foreground="#FF76B4DF"/>
 
         <controls:MetroAnimatedSingleRowTabControl x:Name="tabControlEvaluacionCalidad" HorizontalAlignment="Left" Margin="0,61,0,0" Width="800">
-            <TabItem x:Name="tabSucaracteristica" Header="N. Subcaracterísticas" Margin="10,0,-7,0">
+            <TabItem x:Name="tabSucaracteristica" Header="Subcaracterísticas" Margin="10,0,-7,0">
                 <Grid Background="White">
                     <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
@@ -58,7 +58,7 @@
                     <Button x:Name="btnSiguienteSubCaracterística" Content="Siguiente" Margin="674,463,50,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabCaracteristicas" Header="N. Características" Margin="12,0,-7,0">
+            <TabItem x:Name="tabCaracteristicas" Header="Características" Margin="12,0,-7,0">
                 <Grid Background="White">
                     <GroupBox HorizontalAlignment="Left" Margin="10,0,0,282" Width="780" Background="#FF33A133" BorderBrush="#FF33A133" Height="180" VerticalAlignment="Bottom">
                         <GroupBox.Header>
@@ -99,7 +99,7 @@
                     <Button x:Name="btnSiguienteCaracteristica" Content="Siguiente" HorizontalAlignment="Left" Margin="678,449,0,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabCalidadFinal" Header="N. Calidad Final" Margin="10,0,-3,0">
+            <TabItem x:Name="tabCalidadFinal" Header="Calidad Final" Margin="10,0,-3,0">
                 <Grid Background="White">
                     <GroupBox Height="154" Margin="10,10,418,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
@@ -139,7 +139,7 @@
                     <GroupBox Margin="387,10,10,336" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
-                                <Label Content="CONFIGURACION REPORTE CALIDAD" Foreground="White" Width="209"/>
+                                <Label Content="CONFIGURACION REPORTE DE CALIDAD" Foreground="White" Width="225"/>
                             </StackPanel>
                         </GroupBox.Header>
                         <Grid>

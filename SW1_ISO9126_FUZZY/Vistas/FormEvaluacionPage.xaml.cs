@@ -141,6 +141,30 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
+        private void limpiarSlider()
+        {
+            lblParam0.Content = "";
+            lblParam0.Visibility = Visibility.Hidden;
+            txtParam0.IsEnabled = false;
+            txtParam0.Visibility = Visibility.Hidden;
+            sldparam0.IsEnabled = false;
+            sldparam0.Visibility = Visibility.Hidden;
+
+            lblParam1.Content = "";
+            lblParam1.Visibility = Visibility.Hidden;
+            txtParam1.IsEnabled = false;
+            txtParam1.Visibility = Visibility.Hidden;
+            sldparam1.IsEnabled = false;
+            sldparam1.Visibility = Visibility.Hidden;
+            
+            lblParam2.Content = "";
+            lblParam2.Visibility = Visibility.Hidden;
+            txtParam2.IsEnabled = false;
+            txtParam2.Visibility = Visibility.Hidden;
+            sldparam2.IsEnabled = false;
+            sldparam2.Visibility = Visibility.Hidden;
+        }
+
         private void cargarMetrica(JMetrica metrica)
         {
 
@@ -154,6 +178,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             label1_formula.Content = metrica.Formula[0];
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
+
+
+            limpiarSlider();
 
             if (metrica.Parametros.Length == 1 || metrica.Parametros.Length > 1)
             {
@@ -197,10 +224,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, string perspectiva, ArrayList metricas)
+        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblPerspectiva.Content = perspectiva;
+            lblPerspectiva.Content = funcionalidad.Perspectiva;
             lblCaracteristica.Content = nombre;
             lblSubcaracteristica.Content = funcionalidad.Subcaracteristicas[0];
 
@@ -225,10 +252,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, string perspectiva, ArrayList metricas)
+        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblPerspectiva.Content = perspectiva;
+            lblPerspectiva.Content = usabilidad.Perspectiva;
             lblCaracteristica.Content = nombre;
             lblSubcaracteristica.Content = usabilidad.Subcaracteristicas[0];
 
@@ -254,10 +281,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, string perspectiva, ArrayList metricas)
+        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblPerspectiva.Content = perspectiva;
+            lblPerspectiva.Content = mantenibilidad.Perspectiva;
             lblCaracteristica.Content = nombre;
             lblSubcaracteristica.Content = mantenibilidad.Subcaracteristicas[0];
 
@@ -511,7 +538,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
-            cargarFuncionabilidad(funInt, "Funcionabilidad", "Interna", funcionalidadInterna);
+            cargarFuncionabilidad(funInt, "Funcionabilidad", funcionalidadInterna);
         }
 
         public void UsabInterna_Activar(FormularioEvaluacionPage llamada)
@@ -519,7 +546,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isUsaIntAct = true;
-            cargarUsabilidad(usaInt, "Usabilidad", "Interna", usabilidadInterna);
+            cargarUsabilidad(usaInt, "Usabilidad", usabilidadInterna);
         }
 
         public void MantInterna_Activar(FormularioEvaluacionPage llamada)
@@ -527,7 +554,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isManIntAct = true;
-            cargarMantenibilidad(manInt, "Mantenibilidad", "Interna", mantenibilidadInterna);
+            cargarMantenibilidad(manInt, "Mantenibilidad", mantenibilidadInterna);
         }
 
         public void FuncExterna_Activar(FormularioEvaluacionPage llamada)
@@ -535,7 +562,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isFunExtAct = true;
-            cargarFuncionabilidad(funExt, "Funcionalidad", "Externa", funcionalidadExterna);
+            cargarFuncionabilidad(funExt, "Funcionalidad", funcionalidadExterna);
         }
 
         public void UsabExterna_Activar(FormularioEvaluacionPage llamada)
@@ -543,7 +570,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isUsaExtAct = true;
-            cargarUsabilidad(usaExt, "Usabilidad", "Externa", usabilidadExterna);
+            cargarUsabilidad(usaExt, "Usabilidad", usabilidadExterna);
         }
 
         public void MantExterna_Activar(FormularioEvaluacionPage llamada)
@@ -551,7 +578,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             origen = llamada;
             cargarEntorno();
             isManExtAct = true;
-            cargarMantenibilidad(manExt, "Mantenibilidad Externa", "Externa", mantenibilidadExterna);
+            cargarMantenibilidad(manExt, "Mantenibilidad", mantenibilidadExterna);
         }
 
     }

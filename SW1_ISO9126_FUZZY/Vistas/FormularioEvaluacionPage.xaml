@@ -12,7 +12,7 @@
         <Grid Background="White">
             <TextBlock FontSize="36" HorizontalAlignment="Left" Margin="194,10,0,0" TextWrapping="Wrap" Text="Formulario de evaluación" VerticalAlignment="Top" Width="408" Foreground="#FF149FDA"/>
             <!-- Características Internas -->
-            <GroupBox Header="Características Internas" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" OpacityMask="Black" Background="#FF33A133" BorderBrush="#FF33A133">
+            <GroupBox Header="Características de calidad Internas" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" OpacityMask="Black" Background="#FF33A133" BorderBrush="#FF33A133">
                 <Grid>
                     
                     <Grid Margin="75,177,553,10" Background="#FF353F59">
@@ -54,7 +54,7 @@
                 </Grid>
             </GroupBox>
             <!-- Características Externas -->
-            <GroupBox Header="Características Externas" HorizontalAlignment="Left" Height="251" Margin="10,323,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+            <GroupBox Header="Características de calidad Externas" HorizontalAlignment="Left" Height="251" Margin="10,323,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                 <Grid Height="212" VerticalAlignment="Top">
                     
                     <Grid Margin="75,176,553,10" Background="#FF353F59">

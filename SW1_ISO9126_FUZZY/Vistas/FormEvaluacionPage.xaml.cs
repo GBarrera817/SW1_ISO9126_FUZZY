@@ -141,6 +141,30 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
+        private void limpiarSlider()
+        {
+            lblParam0.Content = "";
+            lblParam0.Visibility = Visibility.Hidden;
+            txtParam0.IsEnabled = false;
+            txtParam0.Visibility = Visibility.Hidden;
+            sldparam0.IsEnabled = false;
+            sldparam0.Visibility = Visibility.Hidden;
+
+            lblParam1.Content = "";
+            lblParam1.Visibility = Visibility.Hidden;
+            txtParam1.IsEnabled = false;
+            txtParam1.Visibility = Visibility.Hidden;
+            sldparam1.IsEnabled = false;
+            sldparam1.Visibility = Visibility.Hidden;
+            
+            lblParam2.Content = "";
+            lblParam2.Visibility = Visibility.Hidden;
+            txtParam2.IsEnabled = false;
+            txtParam2.Visibility = Visibility.Hidden;
+            sldparam2.IsEnabled = false;
+            sldparam2.Visibility = Visibility.Hidden;
+        }
+
         private void cargarMetrica(JMetrica metrica)
         {
 
@@ -154,6 +178,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             label1_formula.Content = metrica.Formula[0];
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
+
+
+            limpiarSlider();
 
             if (metrica.Parametros.Length == 1 || metrica.Parametros.Length > 1)
             {

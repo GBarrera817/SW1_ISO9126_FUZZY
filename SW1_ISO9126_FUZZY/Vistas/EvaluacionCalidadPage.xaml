@@ -139,7 +139,7 @@
                     <GroupBox Margin="387,10,10,336" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
-                                <Label Content="CONFIGURACION REPORTE CALIDAD" Foreground="White" Width="209"/>
+                                <Label Content="CONFIGURACION REPORTE DE CALIDAD" Foreground="White" Width="225"/>
                             </StackPanel>
                         </GroupBox.Header>
                         <Grid>

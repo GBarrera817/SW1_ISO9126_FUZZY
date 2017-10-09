@@ -11,7 +11,7 @@
     <Grid Background="White">
         <TextBlock FontSize="36" Margin="199,10,193,0" TextWrapping="Wrap" Text="Formulario de evaluación" VerticalAlignment="Top" Foreground="#FF209FC1"/>
 
-        <GroupBox x:Name="groupBox1" Header="Contenido Métrica" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="780" Height="218" Background="#FF33A133" BorderBrush="#FF33A133">
+        <GroupBox x:Name="groupBox1" Header="Contenido de la Métrica" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="780" Height="218" Background="#FF33A133" BorderBrush="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="200" Margin="0,-5,-2,-29" VerticalAlignment="Top" Width="770">
                 <Label FontSize="14" Content="Nombre:" HorizontalAlignment="Left" Margin="29,35,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
                 <Label x:Name="lblNombre" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="107,35,0,0" VerticalAlignment="Top" Width="654"/>
@@ -28,7 +28,7 @@
             </Grid>
 
         </GroupBox>
-        <GroupBox x:Name="groupboxPerspectiva" Header="información metrica" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" Height="75" Background="#FF33A133" BorderBrush="#FF33A133">
+        <GroupBox x:Name="groupboxPerspectiva" Header="información de la métrica" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="780" Height="75" Background="#FF33A133" BorderBrush="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="40" Margin="10,0,-2,-4" VerticalAlignment="Top" Width="760">
                 <Label FontSize="14" Content="Característica:" HorizontalAlignment="Left" Margin="193,3,0,0" VerticalAlignment="Top" Width="103" FontWeight="Bold"/>
                 <Label FontSize="14" Content="Subcaracterística:" HorizontalAlignment="Left" Margin="429,3,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
@@ -38,7 +38,7 @@
                 <Label x:Name="lblPerspectiva" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="108,3,0,0" VerticalAlignment="Top" Width="63"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox3" Header="Evaluación Métrica" HorizontalAlignment="Left" Margin="10,370,0,70" Width="424" BorderBrush="#FF33A133" Background="#FF33A133">
+        <GroupBox x:Name="groupBox3" Header="Evaluación de la Métrica" HorizontalAlignment="Left" Margin="10,370,0,70" Width="424" BorderBrush="#FF33A133" Background="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="130" Margin="0,-5,-2,-4" VerticalAlignment="Top" Width="414">
                 <Label x:Name="lblParam0" Content="P1:" HorizontalAlignment="Left" Margin="7,30,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" Visibility="Hidden"/>
                 <TextBox x:Name="txtParam0" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="44,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" IsEnabled="False" Visibility="Hidden"/>
@@ -48,10 +48,10 @@
                 <TextBox x:Name="txtParam2" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="44,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" IsEnabled="False" Visibility="Hidden"/>
                 <Label FontSize="14" Content="Fórmula:" Margin="159,4,159,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.615,0.483"/>
                 <Label x:Name="label1_formula" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="228,4,0,0" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.532,0.448"/>
-                <Label FontSize="14" Content="Valor deseable:" HorizontalAlignment="Left" Margin="250,45,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
-                <Label x:Name="lblMejorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="355,45,0,0" VerticalAlignment="Top" Width="59"/>
-                <Label FontSize="14" Content="Valor deficiente :" HorizontalAlignment="Left" Margin="239,79,0,22" Width="129" FontWeight="Bold"/>
-                <Label x:Name="lblPeorValor" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="355,79,0,22" Width="59"/>
+                <Label FontSize="14" Content="Valor deseable:" Margin="255,40,47,56" FontWeight="Bold"/>
+                <Label x:Name="lblMejorValor" FontSize="14" Content="Label" Margin="357,40,0,56"/>
+                <Label FontSize="14" Content="Valor deficiente:" Margin="246,74,47,22" FontWeight="Bold"/>
+                <Label x:Name="lblPeorValor" FontSize="14" Content="Label" Margin="357,74,0,22"/>
                 <Slider x:Name="sldparam0" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,27,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" IsEnabled="False" Visibility="Hidden" ValueChanged="sldparam0_ValueChanged"/>
                 <Slider x:Name="sldparam1" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,58,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" IsEnabled="False" Visibility="Hidden" ValueChanged="sldparam1_ValueChanged"/>
                 <Slider x:Name="sldparam2" Style="{StaticResource SliderStyle}" HorizontalAlignment="Left" Ticks="0 10 20 30 40 50 60 70 80 90 100" IsSnapToTickEnabled="True" Margin="89,89,0,0" VerticalAlignment="Top" Width="153" Maximum="100" Minimum="0" SmallChange="10" IsEnabled="False" Visibility="Hidden" ValueChanged="sldparam2_ValueChanged"/>

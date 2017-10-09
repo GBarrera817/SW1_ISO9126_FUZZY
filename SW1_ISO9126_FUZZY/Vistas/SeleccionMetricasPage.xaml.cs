@@ -193,11 +193,11 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, string perspectiva, ArrayList metricas)
+        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales 
             lblCaracterística.Content = nombre;
-            lblPerpectiva.Content = perspectiva;
+            lblPerpectiva.Content = funcionalidad.Perspectiva;
             lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
             for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
@@ -221,11 +221,11 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, string perspectiva, ArrayList metricas)
+        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales 
             lblCaracterística.Content = nombre;
-            lblPerpectiva.Content = perspectiva;
+            lblPerpectiva.Content = usabilidad.Perspectiva;
             lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
 
 
@@ -251,11 +251,11 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, string perspectiva, ArrayList metricas)
+        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, ArrayList metricas)
         {
             // Etiquetas pricipales 
             lblCaracterística.Content = nombre;
-            lblPerpectiva.Content = perspectiva;
+            lblPerpectiva.Content = mantenibilidad.Perspectiva;
             lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
             for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
@@ -347,7 +347,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
-            cargarFuncionabilidad(funInt,"Funcionabilidad Interna","Interna",funcionalidadInterna);
+            cargarFuncionabilidad(funInt,"Funcionabilidad",funcionalidadInterna);
            
         }
 
@@ -356,7 +356,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isUsaIntAct = true;
-            cargarUsabilidad(usaInt,"Usabilidad Interna","Interna",usabilidadInterna);
+            cargarUsabilidad(usaInt,"Usabilidad",usabilidadInterna);
             
         }
 
@@ -365,7 +365,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isManIntAct = true;
-            cargarMantenibilidad(manInt,"Mantenibilidad Interna","Interna",mantenibilidadInterna);
+            cargarMantenibilidad(manInt,"Mantenibilidad",mantenibilidadInterna);
            
         }
 
@@ -374,7 +374,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isFunExtAct = true;
-            cargarFuncionabilidad(funExt,"Funcionalidad Externa","Externa",funcionalidadExterna);
+            cargarFuncionabilidad(funExt,"Funcionalidad",funcionalidadExterna);
             
         }
 
@@ -383,7 +383,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isUsaExtAct = true;
-            cargarUsabilidad(usaExt,"Usabilidad Externa","Externa",usabilidadExterna);
+            cargarUsabilidad(usaExt,"Usabilidad",usabilidadExterna);
             
         }
 
@@ -392,7 +392,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isManExtAct = true;
-            cargarMantenibilidad(manExt,"Mantenibilidad Externa","Externa",mantenibilidadExterna);
+            cargarMantenibilidad(manExt,"Mantenibilidad",mantenibilidadExterna);
             
         }
 

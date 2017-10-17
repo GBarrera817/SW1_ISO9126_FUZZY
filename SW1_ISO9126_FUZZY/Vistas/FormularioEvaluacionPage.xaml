@@ -23,7 +23,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Stretch="Fill"/>
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantFuncsInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="188,8,524,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
 
@@ -35,7 +50,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png"/>
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Touch-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantUsabInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="426,8,286,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
 
@@ -47,7 +77,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" />
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantMantInterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="666,8,46,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
                     
@@ -65,7 +110,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png"/>
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantFuncExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="186,8,526,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
 
@@ -77,7 +137,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" />
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantUsabExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="424,8,288,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
 
@@ -89,7 +164,22 @@
                         <controls:Tile.Effect>
                             <DropShadowEffect ShadowDepth="3"/>
                         </controls:Tile.Effect>
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" />
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="125"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox-ylw.png"/>
+                                            <Setter Property="Height" Value="auto"/>
+                                            <Setter Property="Width" Value="140"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </controls:Tile>
                     <Button x:Name="cantMantExterna" IsEnabled="False" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="1" BorderBrush="White" VerticalAlignment="Top" Height="54" Margin="667,8,45,0" Content="0/0" Background="#FF002B80" FontWeight="Bold" Foreground="White"/>
                     

@@ -49,7 +49,7 @@
                         <TextBlock x:Name="txbkMetodo" Width="665" FontSize="14" TextWrapping="Wrap" Foreground="Black"/>
                     </ScrollViewer>
 
-                    <GroupBox Header="Selección de metodo evaluación" Height="149" Margin="0,98,10,-125" VerticalAlignment="Top" Background="#CC747A02" BorderBrush="#CC747A02">
+                    <GroupBox Header="Selección de metodo evaluación" Height="149" Margin="0,98,10,-125" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Margin="-4,-5,-4,-5" BorderThickness="2" BorderBrush="White"/>
                     </GroupBox>
 

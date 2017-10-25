@@ -193,10 +193,10 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, string nombre, ArrayList metricas)
+        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = nombre;
+            lblCaracterística.Content = funcionalidad.Caracteristca;
             lblPerpectiva.Content = funcionalidad.Perspectiva;
             lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
@@ -221,10 +221,10 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, string nombre, ArrayList metricas)
+        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = nombre;
+            lblCaracterística.Content = usabilidad.Caracteristca;
             lblPerpectiva.Content = usabilidad.Perspectiva;
             lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
 
@@ -251,10 +251,10 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, string nombre, ArrayList metricas)
+        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = nombre;
+            lblCaracterística.Content = mantenibilidad.Caracteristca;
             lblPerpectiva.Content = mantenibilidad.Perspectiva;
             lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
@@ -347,7 +347,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
-            cargarFuncionabilidad(funInt,"Funcionabilidad",funcionalidadInterna);
+            cargarFuncionabilidad(funInt,funcionalidadInterna);
            
         }
 
@@ -356,7 +356,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isUsaIntAct = true;
-            cargarUsabilidad(usaInt,"Usabilidad",usabilidadInterna);
+            cargarUsabilidad(usaInt,usabilidadInterna);
             
         }
 
@@ -365,7 +365,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isManIntAct = true;
-            cargarMantenibilidad(manInt,"Mantenibilidad",mantenibilidadInterna);
+            cargarMantenibilidad(manInt,mantenibilidadInterna);
            
         }
 
@@ -374,7 +374,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isFunExtAct = true;
-            cargarFuncionabilidad(funExt,"Funcionalidad",funcionalidadExterna);
+            cargarFuncionabilidad(funExt,funcionalidadExterna);
             
         }
 
@@ -383,7 +383,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isUsaExtAct = true;
-            cargarUsabilidad(usaExt,"Usabilidad",usabilidadExterna);
+            cargarUsabilidad(usaExt,usabilidadExterna);
             
         }
 
@@ -392,7 +392,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             origen = llamada;
             cargarEntorno();
             isManExtAct = true;
-            cargarMantenibilidad(manExt,"Mantenibilidad",mantenibilidadExterna);
+            cargarMantenibilidad(manExt,mantenibilidadExterna);
             
         }
 

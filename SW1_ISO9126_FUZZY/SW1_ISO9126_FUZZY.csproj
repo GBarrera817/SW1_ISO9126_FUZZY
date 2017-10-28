@@ -331,5 +331,10 @@
     <Resource Include="Imagenes\Tools-01-ylw.png" />
     <Resource Include="Imagenes\Touch-ylw.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Arrowhead-Left.png" />
+    <Resource Include="Imagenes\Arrowhead-Right.png" />
+    <Resource Include="Imagenes\Document-Check.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

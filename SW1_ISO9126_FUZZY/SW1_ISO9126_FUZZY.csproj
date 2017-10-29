@@ -336,5 +336,8 @@
     <Resource Include="Imagenes\Arrowhead-Right.png" />
     <Resource Include="Imagenes\Document-Check.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Note-disable.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

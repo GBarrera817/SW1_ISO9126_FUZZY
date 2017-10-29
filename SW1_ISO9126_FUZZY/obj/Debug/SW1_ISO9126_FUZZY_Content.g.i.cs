@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/arrowhead-left.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/arrowhead-right.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/document-check.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/note-disable.png")]
 
 

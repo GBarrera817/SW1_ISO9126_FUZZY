@@ -6,7 +6,6 @@ using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Controls;
-using Xceed.Wpf.Toolkit;
 
 namespace SW1_ISO9126_FUZZY.Vistas {
     /// <summary>
@@ -308,7 +307,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             }
             else
             {
-                MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+                Xceed.Wpf.Toolkit.MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
                 btnAnterior.IsEnabled = false;
             }
         }
@@ -335,7 +334,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             }
             else
             {
-                MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+                Xceed.Wpf.Toolkit.MessageBox.Show("No hay más metricas", "Aviso", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
                 btnSiguiente.IsEnabled = false;
             }
         }
@@ -396,16 +395,19 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             
         }
 
-
         // Evento checkbox
 
         private void chckDetallesMetricas_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            img_no_metric.Visibility = System.Windows.Visibility.Hidden;
+            txt_metric_disable.Visibility = System.Windows.Visibility.Hidden;
             expDetMet.IsExpanded = true;
         }
 
         private void chckDetallesMetricas_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            img_no_metric.Visibility = System.Windows.Visibility.Visible;
+            txt_metric_disable.Visibility = System.Windows.Visibility.Visible;
             expDetMet.IsExpanded = false;
         }
 

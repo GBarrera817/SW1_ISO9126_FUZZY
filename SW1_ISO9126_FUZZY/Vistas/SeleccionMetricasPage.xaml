@@ -13,7 +13,9 @@
     <Grid Background="White">
 
         <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="227,0,229,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
-
+        <Image x:Name="img_no_metric" HorizontalAlignment="Left" Height="294" Margin="250,179,0,0" VerticalAlignment="Top" Width="291" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Note-disable.png"/>
+        
+        <TextBlock x:Name="txt_metric_disable" HorizontalAlignment="Left" Margin="250,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontSize="30" FontWeight="SemiBold" Foreground="#FF858585"><Run Text="Metrica desactivada"/></TextBlock>
         <!-- Identificación de la Característica y subcaracterítisca asociada -->
         <GroupBox Header="INFORMACIÓN DE LA METRICA" HorizontalAlignment="Left" Height="105" Margin="10,49,0,0" VerticalAlignment="Top" Width="780"  Background="#FF33A133" BorderBrush="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="97" Margin="0,-10,-2,-2" VerticalAlignment="Top" Width="770">
@@ -58,6 +60,7 @@
                     </GroupBox>
                 </Grid>
 
+              
             </StackPanel>
         </Expander>
 
@@ -100,6 +103,5 @@
                 <Label Content="Finalizar Selección" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="122"/>
             </StackPanel>
         </Button>
-        
     </Grid>
 </Page>

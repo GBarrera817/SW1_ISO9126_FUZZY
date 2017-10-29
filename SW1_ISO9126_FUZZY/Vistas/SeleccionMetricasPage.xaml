@@ -14,7 +14,7 @@
 
         <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="227,0,229,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
         <Image x:Name="img_no_metric" HorizontalAlignment="Left" Height="294" Margin="250,179,0,0" VerticalAlignment="Top" Width="291" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Note-disable.png"/>
-        
+
         <TextBlock x:Name="txt_metric_disable" HorizontalAlignment="Left" Margin="250,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontSize="30" FontWeight="SemiBold" Foreground="#FF858585"><Run Text="Metrica desactivada"/></TextBlock>
         <!-- Identificación de la Característica y subcaracterítisca asociada -->
         <GroupBox Header="INFORMACIÓN DE LA METRICA" HorizontalAlignment="Left" Height="105" Margin="10,49,0,0" VerticalAlignment="Top" Width="780"  Background="#FF33A133" BorderBrush="#FF33A133">
@@ -36,8 +36,7 @@
         <Expander x:Name="expDetMet" Margin="10,159,10,48" Background="#FF33A133" BorderBrush="#FF33A133">
             <Expander.Header>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White" Width="320">DETALLES DE LA MÉTRICA</TextBlock>
-                    <CheckBox x:Name="chckDetallesMetricas" Content="ACTIVAR" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True" IsEnabled="True" Checked="chckDetallesMetricas_Checked" Unchecked="chckDetallesMetricas_Unchecked" Width="285" Foreground="#FFFBFBFC"/>
+                    <TextBlock Margin="5,0,0,0" FontSize="12" Foreground="White" Width="142">DETALLES DE LA MÉTRICA</TextBlock>
                 </StackPanel>
             </Expander.Header>
 
@@ -60,7 +59,7 @@
                     </GroupBox>
                 </Grid>
 
-              
+
             </StackPanel>
         </Expander>
 
@@ -103,5 +102,7 @@
                 <Label Content="Finalizar Selección" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="122"/>
             </StackPanel>
         </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="45" Width="780"/>
+        <CheckBox x:Name="chckDetallesMetricas" Content="ACTIVAR" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True" IsEnabled="True" Checked="chckDetallesMetricas_Checked" Unchecked="chckDetallesMetricas_Unchecked" Width="76" Foreground="#FFFBFBFC" Margin="355,159,369,411" Height="30"/>
     </Grid>
 </Page>

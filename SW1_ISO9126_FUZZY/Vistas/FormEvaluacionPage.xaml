@@ -16,7 +16,7 @@
                 <Label FontSize="14" Content="Nombre:" HorizontalAlignment="Left" Margin="29,35,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
                 <Label x:Name="lblNombre" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="107,35,0,0" VerticalAlignment="Top" Width="654"/>
                 <Label x:Name="lblID" FontSize="14" Content="Label" HorizontalAlignment="Left" Margin="107,8,0,0" VerticalAlignment="Top" Width="52"/>
-                <Label Content="ID:" HorizontalAlignment="Left" Margin="71,10,0,0" VerticalAlignment="Top" Width="28" FontWeight="Bold" RenderTransformOrigin="1.743,0.661"/>
+                <Label Content="ID:" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="28" RenderTransformOrigin="1.743,0.661" FontWeight="Bold" FontSize="14"/>
                 <Label x:Name="label1_Copy" FontSize="14" Content="Propósito:" HorizontalAlignment="Left" Margin="19,64,0,106" Width="80" FontWeight="Bold"/>
                 <Label FontSize="14" Content="Método:" HorizontalAlignment="Left" Margin="29,115,0,50" Width="70" FontWeight="Bold" RenderTransformOrigin="0.493,0.483"/>
                 <ScrollViewer Margin="107,69,10,85">
@@ -62,13 +62,46 @@
                 <TextBlock x:Name="txbkParam" TextWrapping="Wrap" Width="323"/>
             </ScrollViewer>
         </GroupBox>
-        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="297,549,0,0" VerticalAlignment="Top" Width="70" Click="btnSiguiente_Click" RenderTransformOrigin="1.181,0.288"/>
-        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="128,549,0,0" VerticalAlignment="Top" Width="70" Click="btnAnterior_Click"  RenderTransformOrigin="1.084,0.588"/>
-        <Button x:Name="btnFinalizarCuestionario" Content="Finalizar Evaluacion" HorizontalAlignment="Left" Margin="623,549,0,0" VerticalAlignment="Top" Width="135" Click="btnFinalizarCuestionario_Click" />
-        <Button x:Name="btnGuardar" HorizontalAlignment="Left" Margin="571,549,0,0" VerticalAlignment="Top" Width="36"  ToolTip="Guardar el estado del formuario" Click="btnGuardar_Click" Height="27">
+
+        <Button x:Name="btnAnterior" Margin="100,547,601,18" Click="btnAnterior_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Stretch="Uniform"/>
+                <ImageBrush/>
             </Button.Background>
+            <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
+            </StackPanel>
         </Button>
+
+        <Button x:Name="btnSiguiente" Margin="250,547,451,18" Click="btnSiguiente_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                <Label Content="Siguiente" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="63"/>
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnGuardar" Margin="439,547,229,18" Click="btnGuardar_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal" Height="35" Width="130">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Label Content="Guardar y salir" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="92"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnFinalizarCuestionario" Margin="605,547,30,18" Click="btnFinalizarCuestionario_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal" Height="35" Width="155">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Document-Check.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Label Content="Finalizar Evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="122"/>
+            </StackPanel>
+        </Button>
+        
     </Grid>
 </Page>

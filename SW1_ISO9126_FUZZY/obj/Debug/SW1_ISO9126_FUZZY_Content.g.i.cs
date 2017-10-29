@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/branch-engineering-ylw.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/hand-sign-06-ylw.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/toolbox-ylw.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/tools-01-ylw.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/touch-ylw.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/note-disable.png")]
 
 

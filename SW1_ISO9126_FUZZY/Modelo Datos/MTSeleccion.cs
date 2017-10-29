@@ -12,7 +12,12 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private int proposito;
         private bool estado;
 
-        public MTSeleccion() {}
+        public MTSeleccion()
+        {
+            this.id = 0;
+            this.proposito = -1;
+            this.estado = true;
+        }
 
         public int Id { get => id; set => id = value; }
         public int Proposito { get => proposito; set => proposito = value; }

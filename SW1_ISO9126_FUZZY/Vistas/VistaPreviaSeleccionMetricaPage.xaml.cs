@@ -41,6 +41,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        private ArrayList MTSfuncionalidadInterna;
+        private ArrayList MTSfuncionalidadExterna;
+        private ArrayList MTSusabilidadInterna;
+        private ArrayList MTSusabilidadExterna;
+        private ArrayList MTSmantenibilidadInterna;
+        private ArrayList MTSmantenibilidadExterna;
+
         private SeleccionMetricasPage paginaSeleccion;
         private Seleccion metricas;
         private EstadoModulo selecMetricas;
@@ -51,7 +58,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
             
 			InitializeComponent();
-            this.paginaSeleccion = new SeleccionMetricasPage(); // pasar seleccion
+            this.paginaSeleccion = new SeleccionMetricasPage();
             this.metricas = new Seleccion();
             this.selecMetricas = new EstadoModulo();
             this.miEvaluacion = nueva;
@@ -84,6 +91,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.mantenibilidadExterna = new ArrayList();
         }
 
+        private void inicializarSeleccion()
+        {
+            this.MTSfuncionalidadInterna = new ArrayList();
+            this.MTSfuncionalidadExterna = new ArrayList();
+            this.MTSusabilidadInterna = new ArrayList();
+            this.MTSusabilidadExterna = new ArrayList();
+            this.MTSmantenibilidadInterna = new ArrayList();
+            this.MTSmantenibilidadExterna = new ArrayList();
+        }
 
         private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
@@ -201,42 +217,42 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncInterna_Activar(this);
+            paginaSeleccion.FuncInterna_Activar(this, MTSfuncionalidadInterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabInterna_Activar(this);
+            paginaSeleccion.UsabInterna_Activar(this, MTSusabilidadInterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.MantInterna_Activar(this);
+            paginaSeleccion.MantInterna_Activar(this, MTSmantenibilidadInterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncExterna_Activar(this);
+            paginaSeleccion.FuncExterna_Activar(this, MTSfuncionalidadExterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabExterna_Activar(this);
+            paginaSeleccion.UsabExterna_Activar(this, MTSusabilidadExterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
 
         private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.MantExterna_Activar(this);
+            paginaSeleccion.MantExterna_Activar(this, MTSmantenibilidadExterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
     }

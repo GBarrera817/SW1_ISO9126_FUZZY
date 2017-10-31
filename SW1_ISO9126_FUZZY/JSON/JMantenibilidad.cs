@@ -8,7 +8,7 @@ namespace SW1_ISO9126_FUZZY.JSON
 {
     public class JMantenibilidad
     {
-        private string caracteristca;
+        private string caracteristica;
         private string perspectiva;
         private string[] subcaracteristicas;
         private JMetrica[] analizabilidad;
@@ -19,7 +19,7 @@ namespace SW1_ISO9126_FUZZY.JSON
 
         public JMantenibilidad()
         {
-            this.caracteristca = "Mantenibilidad";
+            this.caracteristica = "Mantenibilidad";
             this.subcaracteristicas = new string[] {"Analizabilidad",
                                                     "Modificabilidad",
                                                     "Estabilidad",
@@ -28,7 +28,7 @@ namespace SW1_ISO9126_FUZZY.JSON
                                                    };
         }
 
-        public string Caracteristca { get => caracteristca; set => caracteristca = value; }
+        public string Caracteristca { get => caracteristica; set => caracteristica = value; }
         public string Perspectiva { get => perspectiva; set => perspectiva = value; }
         public string[] Subcaracteristicas { get => subcaracteristicas; set => subcaracteristicas = value; }
         public JMetrica[] Analizabilidad { get => analizabilidad; set => analizabilidad = value; }

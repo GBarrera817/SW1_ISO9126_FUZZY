@@ -9,7 +9,7 @@ namespace SW1_ISO9126_FUZZY.JSON
 {
     public class JUsabilidad
     {
-        private string caracteristca;
+        private string caracteristica;
         private string perspectiva;
         private string[] subcaracteristicas;
         private JMetrica[] comprensibilidad;
@@ -20,7 +20,7 @@ namespace SW1_ISO9126_FUZZY.JSON
 
         public JUsabilidad()
         {
-            this.caracteristca = "Usabilidad";
+            this.caracteristica = "Usabilidad";
             this.subcaracteristicas = new string[] {"Comprensibilidad",
                                                     "Aprendizaje",
                                                     "Operabilidad",
@@ -29,7 +29,7 @@ namespace SW1_ISO9126_FUZZY.JSON
                                                    };
         }
 
-        public string Caracteristca { get => caracteristca; set => caracteristca = value; }
+        public string Caracteristca { get => caracteristica; set => caracteristica = value; }
         public string Perspectiva { get => perspectiva; set => perspectiva = value; }
         public string[] Subcaracteristicas { get => subcaracteristicas; set => subcaracteristicas = value; }
         public JMetrica[] Comprensibilidad { get => comprensibilidad; set => comprensibilidad = value; }

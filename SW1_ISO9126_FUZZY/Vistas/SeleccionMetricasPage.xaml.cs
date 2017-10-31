@@ -242,7 +242,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             // Etiquetas pricipales 
             lblCaracterística.Content = funcionalidad.Caracteristica;
             lblPerpectiva.Content = funcionalidad.Perspectiva;
-            lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
             for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
                 metricas.Add(funcionalidad.Adecuacion[i]);           
@@ -269,8 +268,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             // Etiquetas pricipales 
             lblCaracterística.Content = usabilidad.Caracteristica;
             lblPerpectiva.Content = usabilidad.Perspectiva;
-            lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
-
 
             for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
                 metricas.Add(usabilidad.Comprensibilidad[i]);
@@ -297,7 +294,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             // Etiquetas pricipales 
             lblCaracterística.Content = mantenibilidad.Caracteristica;
             lblPerpectiva.Content = mantenibilidad.Perspectiva;
-            lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
             for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
                 metricas.Add(mantenibilidad.Analizabilidad[i]);

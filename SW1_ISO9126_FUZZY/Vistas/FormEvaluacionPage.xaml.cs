@@ -227,7 +227,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = funcionalidad.Caracteristca;
+            lblCaracteristica.Content = funcionalidad.Caracteristica;
             lblPerspectiva.Content = funcionalidad.Perspectiva;
             lblSubcaracteristica.Content = funcionalidad.Subcaracteristicas[0];
 
@@ -255,7 +255,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = usabilidad.Caracteristca;
+            lblCaracteristica.Content = usabilidad.Caracteristica;
             lblPerspectiva.Content = usabilidad.Perspectiva;
             lblSubcaracteristica.Content = usabilidad.Subcaracteristicas[0];
 
@@ -282,7 +282,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = mantenibilidad.Caracteristca;
+            lblCaracteristica.Content = mantenibilidad.Caracteristica;
             lblPerspectiva.Content = mantenibilidad.Perspectiva;
             lblSubcaracteristica.Content = mantenibilidad.Subcaracteristicas[0];
 

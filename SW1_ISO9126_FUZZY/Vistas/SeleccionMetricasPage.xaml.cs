@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SW1_ISO9126_FUZZY.JSON;
+using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
 using System.Collections;
 using System.Data;
@@ -26,6 +27,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private ArrayList usabilidadExterna;
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
+
+        private ArrayList listaSeleccion;
 
         private int indexFunInt;
         private int indexFunExt;
@@ -103,6 +106,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.mantenibilidadInterna = new ArrayList();
             this.mantenibilidadExterna = new ArrayList();
 
+            this.listaSeleccion =  new ArrayList();
         }
 
         private void inicializarIndexListas()
@@ -113,7 +117,22 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.indexUsaExt = 0;
             this.indexManint = 0;
             this.indexManExt = 0;
+        }
 
+        private void inicializarSeleccion(ArrayList metricas)
+        {
+            JMetrica metricaJson = new JMetrica();
+            MTSeleccion metricaSelec = new MTSeleccion();
+
+            for (int i = 0; i < metricas.Count; i++)
+            {
+                metricaJson = (JMetrica)metricas[i];
+                metricaSelec.Id = metricaJson.Id;
+
+                listaSeleccion.Add(metricaSelec);
+            }
+
+            System.Console.WriteLine("tamaño lista seleccion:"+listaSeleccion.Count);
         }
 
         private void cargarJsonMetricas()
@@ -189,13 +208,39 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             txbkParam.Text = sb.ToString();
         }
 
+        // Comprobar el estado de la seleccion de la metrica
+
+        private void comprobarSeleccion(int indice)
+        {
+            MTSeleccion metrica;
+
+            metrica = (MTSeleccion)listaSeleccion[indice];
+
+            if (metrica.Estado)
+                chckDetallesMetricas.IsChecked = true;
+            else
+                chckDetallesMetricas.IsChecked = false;
+        }
+
+        // Guardar estado de la seleccion de la metrica
+
+        private void guardarSeleccion(int indice)
+        {
+            MTSeleccion metrica;
+
+            metrica = (MTSeleccion)listaSeleccion[indice];
+            metrica.Proposito = 0; // fila seleccionada
+            metrica.Estado = (bool) chckDetallesMetricas.IsChecked;
+
+            listaSeleccion[indice] = metrica;
+        }
 
         // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
 
         private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = funcionalidad.Caracteristca;
+            lblCaracterística.Content = funcionalidad.Caracteristica;
             lblPerpectiva.Content = funcionalidad.Perspectiva;
             lblSubcaracterística.Content = funcionalidad.Subcaracteristicas[0];
 
@@ -216,14 +261,13 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(funcionalidad.Adecuacion[0]);
-
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = usabilidad.Caracteristca;
+            lblCaracterística.Content = usabilidad.Caracteristica;
             lblPerpectiva.Content = usabilidad.Perspectiva;
             lblSubcaracterística.Content = usabilidad.Subcaracteristicas[0];
 
@@ -245,15 +289,13 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(usabilidad.Comprensibilidad[0]);
-
-            return metricas;
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
         {
             // Etiquetas pricipales 
-            lblCaracterística.Content = mantenibilidad.Caracteristca;
+            lblCaracterística.Content = mantenibilidad.Caracteristica;
             lblPerpectiva.Content = mantenibilidad.Perspectiva;
             lblSubcaracterística.Content = mantenibilidad.Subcaracteristicas[0];
 
@@ -274,14 +316,12 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(mantenibilidad.Analizabilidad[0]);
-
-            return metricas;
         }
 
 
-        private void seleccionarMetrica()
+        private ArrayList seleccionarMetrica()
         {
-            
+            return listaSeleccion;
         }
 
 
@@ -299,6 +339,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
+                comprobarSeleccion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -326,6 +367,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
+                comprobarSeleccion(indice);
 
                 if (btnAnterior.IsEnabled == false)
                 {
@@ -341,16 +383,28 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Eventos menu flotante
 
-        public void FuncInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        public void FuncInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();
             isFunIntAct = true;
+
+            listaSeleccion.Clear();
+            listaSeleccion = (ArrayList)seleccion.Clone();
+
+            if (listaSeleccion.Count == 0)
+            {
+                inicializarSeleccion(funcionalidadInterna);
+            }
+            
             cargarFuncionabilidad(funInt,funcionalidadInterna);
-           
+            comprobarSeleccion(1);
+            
         }
 
-        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        // Cargar la caracteristicas
+
+        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();
@@ -359,7 +413,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             
         }
 
-        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();
@@ -368,7 +422,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
            
         }
 
-        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();
@@ -377,7 +431,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             
         }
 
-        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();
@@ -386,7 +440,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             
         }
 
-        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada)
+        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
             cargarEntorno();

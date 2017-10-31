@@ -30,12 +30,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private ArrayList listaSeleccion;
 
-        private int indexFunInt;
-        private int indexFunExt;
-        private int indexUsaInt;
-        private int indexUsaExt;
-        private int indexManint;
-        private int indexManExt;
+        private int indiceListaMetrica;
 
         private bool isFunIntAct;
         private bool isFunExtAct;
@@ -50,7 +45,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             InitializeComponent();
             cargarEntorno();
-
         }
 
         // Accesores
@@ -69,6 +63,20 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public ArrayList MantenibilidadInterna { get => mantenibilidadInterna; set => mantenibilidadInterna = value; }
         public ArrayList MantenibilidadExterna { get => mantenibilidadExterna; set => mantenibilidadExterna = value; }
 
+        public static void imprimirAL(ArrayList lista)
+        {
+            IEnumerator e = lista.GetEnumerator();
+            while (e.MoveNext())
+            {
+                Object obj = e.Current;
+                MTSeleccion me = (MTSeleccion)obj;
+                Console.WriteLine(me.Id);
+                Console.WriteLine(me.Proposito);
+                Console.WriteLine(me.Estado);
+                Console.WriteLine();
+            }
+        }
+
         // Metodos
 
         private void cargarEntorno()
@@ -76,8 +84,9 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             inicializarBotones();
             inicializarEstadoCaracteristica();
             inicializarListas();
-            inicializarIndexListas();
             cargarJsonMetricas();
+
+            this.indiceListaMetrica = 0;
         }
 
         private void inicializarBotones()
@@ -109,30 +118,22 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.listaSeleccion =  new ArrayList();
         }
 
-        private void inicializarIndexListas()
-        {
-            this.indexFunInt = 0;
-            this.indexFunExt = 0;
-            this.indexUsaInt = 0;
-            this.indexUsaExt = 0;
-            this.indexManint = 0;
-            this.indexManExt = 0;
-        }
-
         private void inicializarSeleccion(ArrayList metricas)
         {
-            JMetrica metricaJson = new JMetrica();
-            MTSeleccion metricaSelec = new MTSeleccion();
+            JMetrica metricaJson;
+            MTSeleccion metricaSelec;
 
             for (int i = 0; i < metricas.Count; i++)
             {
+                metricaSelec = new MTSeleccion();
+
                 metricaJson = (JMetrica)metricas[i];
                 metricaSelec.Id = metricaJson.Id;
+                metricaSelec.Estado = true;
+                metricaSelec.Proposito = -1;
 
                 listaSeleccion.Add(metricaSelec);
             }
-
-            System.Console.WriteLine("tamaño lista seleccion:"+listaSeleccion.Count);
         }
 
         private void cargarJsonMetricas()
@@ -220,6 +221,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 chckDetallesMetricas.IsChecked = true;
             else
                 chckDetallesMetricas.IsChecked = false;
+
+
         }
 
         // Guardar estado de la seleccion de la metrica
@@ -321,6 +324,53 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         }
 
 
+        // Cargar la caracteristicas
+
+        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
+            isUsaIntAct = true;
+            cargarUsabilidad(usaInt, usabilidadInterna);
+
+        }
+
+        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
+            isManIntAct = true;
+            cargarMantenibilidad(manInt, mantenibilidadInterna);
+
+        }
+
+        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
+            isFunExtAct = true;
+            cargarFuncionabilidad(funExt, funcionalidadExterna);
+
+        }
+
+        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
+            isUsaExtAct = true;
+            cargarUsabilidad(usaExt, usabilidadExterna);
+
+        }
+
+        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
+            isManExtAct = true;
+            cargarMantenibilidad(manExt, mantenibilidadExterna);
+
+        }
+
         // Retroceder
 
         private void retroceder(ref int indice, ArrayList lista)
@@ -334,6 +384,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                     btnAnterior.IsEnabled = false;
                 }
 
+                //guardarSeleccion(indice);
                 cargarMetrica((JMetrica)lista[indice]);
                 comprobarSeleccion(indice);
 
@@ -362,6 +413,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                     btnSiguiente.IsEnabled = false;
                 }
 
+               // guardarSeleccion(indice);
                 cargarMetrica((JMetrica)lista[indice]);
                 comprobarSeleccion(indice);
 
@@ -385,70 +437,27 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
             isFunIntAct = true;
 
+            cargarFuncionabilidad(funInt, funcionalidadInterna);
+
             listaSeleccion.Clear();
             listaSeleccion = (ArrayList)seleccion.Clone();
 
             if (listaSeleccion.Count == 0)
             {
+                System.Console.WriteLine("Entre a inicializarSelecion");
                 inicializarSeleccion(funcionalidadInterna);
             }
             
-            cargarFuncionabilidad(funInt,funcionalidadInterna);
-            comprobarSeleccion(1);
-            
+            comprobarSeleccion(0);         
         }
 
-        // Cargar la caracteristicas
-
-        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaIntAct = true;
-            cargarUsabilidad(usaInt,usabilidadInterna);
-            
-        }
-
-        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManIntAct = true;
-            cargarMantenibilidad(manInt,mantenibilidadInterna);
-           
-        }
-
-        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isFunExtAct = true;
-            cargarFuncionabilidad(funExt,funcionalidadExterna);
-            
-        }
-
-        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaExtAct = true;
-            cargarUsabilidad(usaExt,usabilidadExterna);
-            
-        }
-
-        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManExtAct = true;
-            cargarMantenibilidad(manExt,mantenibilidadExterna);
-            
-        }
 
         // Evento checkbox
 
         private void chckDetallesMetricas_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+
+            guardarSeleccion(indiceListaMetrica);
             img_no_metric.Visibility = System.Windows.Visibility.Hidden;
             txt_metric_disable.Visibility = System.Windows.Visibility.Hidden;
             expDetMet.IsExpanded = true;
@@ -456,6 +465,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void chckDetallesMetricas_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            guardarSeleccion(indiceListaMetrica);
             img_no_metric.Visibility = System.Windows.Visibility.Visible;
             txt_metric_disable.Visibility = System.Windows.Visibility.Visible;
             expDetMet.IsExpanded = false;
@@ -467,32 +477,32 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             if (isFunIntAct)
             {
-                retroceder(ref indexFunInt, funcionalidadInterna);
+                retroceder(ref indiceListaMetrica, funcionalidadInterna);
             }
 
             if (isFunExtAct)
             {
-                retroceder(ref indexFunExt, funcionalidadExterna);
+                retroceder(ref indiceListaMetrica, funcionalidadExterna);
             }
 
             if (isUsaIntAct)
             {
-                retroceder(ref indexUsaInt, usabilidadInterna);
+                retroceder(ref indiceListaMetrica, usabilidadInterna);
             }
 
             if (isUsaExtAct)
             {
-                retroceder(ref indexUsaExt, usabilidadExterna);
+                retroceder(ref indiceListaMetrica, usabilidadExterna);
             }
 
             if (isManIntAct)
             {
-                retroceder(ref indexManint, mantenibilidadInterna);
+                retroceder(ref indiceListaMetrica, mantenibilidadInterna);
             }
 
             if (isManExtAct)
             {
-                retroceder(ref indexManExt, mantenibilidadExterna);
+                retroceder(ref indiceListaMetrica, mantenibilidadExterna);
             }
         }
 
@@ -500,32 +510,32 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             if (isFunIntAct)
             {
-                avanzar(ref indexFunInt,funcionalidadInterna);
+                avanzar(ref indiceListaMetrica, funcionalidadInterna);
             }                           
                                         
             if (isFunExtAct)            
             {                           
-                avanzar(ref indexFunExt,funcionalidadExterna);
+                avanzar(ref indiceListaMetrica, funcionalidadExterna);
             }                           
                                         
             if (isUsaIntAct)            
             {                           
-                avanzar(ref indexUsaInt,usabilidadInterna);
+                avanzar(ref indiceListaMetrica, usabilidadInterna);
             }                           
                                         
             if (isUsaExtAct)            
             {                           
-                avanzar(ref indexUsaExt,usabilidadExterna);
+                avanzar(ref indiceListaMetrica, usabilidadExterna);
             }                           
                                         
             if (isManIntAct)            
             {                           
-                avanzar(ref indexManint,mantenibilidadInterna);
+                avanzar(ref indiceListaMetrica, mantenibilidadInterna);
             }                           
                                         
             if (isManExtAct)            
             {                           
-                avanzar(ref indexManExt,mantenibilidadExterna);
+                avanzar(ref indiceListaMetrica, mantenibilidadExterna);
             }                          
         }
 
@@ -570,37 +580,31 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             if (isFunIntAct)
             {
-                indexFunInt = 0;
                 isFunIntAct = false;
             }
 
             if (isFunExtAct)
             {
-                indexFunExt = 0;
                 isFunExtAct = false;
             }
 
             if (isUsaIntAct)
             {
-                indexUsaInt = 0;
                 isUsaIntAct = false;
             }
 
             if (isUsaExtAct)
             {
-                indexUsaExt = 0;
                 isUsaExtAct = false;
             }
 
             if (isManIntAct)
             {
-                indexManint = 0;
                 isManIntAct = false;
             }
 
             if (isManExtAct)
             {
-                indexManExt = 0;
                 isManExtAct = false;
             }
 

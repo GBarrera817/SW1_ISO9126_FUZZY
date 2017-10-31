@@ -64,6 +64,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.miEvaluacion = nueva;
 
             inicializarListas();
+            inicializarSeleccion();
             cargarJsonMetricas();
             cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);

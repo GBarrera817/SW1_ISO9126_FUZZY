@@ -252,7 +252,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
             lblCaracteristica.Content = usabilidad.Caracteristca;
@@ -276,12 +276,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(usabilidad.Comprensibilidad[0]);
-
-            return metricas;
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
             lblCaracteristica.Content = mantenibilidad.Caracteristca;
@@ -305,8 +303,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(mantenibilidad.Analizabilidad[0]);
-
-            return metricas;
         }
 
 

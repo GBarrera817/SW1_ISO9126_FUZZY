@@ -29,7 +29,7 @@ namespace SW1_ISO9126_FUZZY.JSON
                                                    };
         }
 
-        public string Caracteristca { get => caracteristica; set => caracteristica = value; }
+        public string Caracteristica { get => caracteristica; set => caracteristica = value; }
         public string Perspectiva { get => perspectiva; set => perspectiva = value; }
         public string[] Subcaracteristicas { get => subcaracteristicas; set => subcaracteristicas = value; }
         public JMetrica[] Comprensibilidad { get => comprensibilidad; set => comprensibilidad = value; }

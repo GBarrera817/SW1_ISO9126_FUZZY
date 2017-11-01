@@ -215,56 +215,32 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             MTSeleccion metrica;
 
-            System.Console.WriteLine("Entre a comprobar seleccion");
-
             metrica = (MTSeleccion)listaSeleccion[indice];
-
-            System.Console.WriteLine("Estado de la metrica: " + metrica.Estado);
 
             if (metrica.Estado)
             {
-                System.Console.WriteLine("Cambie checkbox a true ");
                 chckDetallesMetricas.IsChecked = true;
             }
             else
             {
-                System.Console.WriteLine("Cambie checkbox a false ");
                 chckDetallesMetricas.IsChecked = false;
-            }
-                
+            } 
         }
 
         // Guardar estado de la seleccion de la metrica
 
         private void guardarSeleccion(int indice)
         {
-            MTSeleccion metrica;
-
-            System.Console.WriteLine("Entre a guardar seleccion");
+            MTSeleccion metrica;           
 
             metrica = (MTSeleccion)listaSeleccion[indice];
-
-            System.Console.WriteLine("Estado original");
-            imprimirSeleccion(indice);
-
 
             metrica.Proposito = 0; // fila seleccionada
             metrica.Estado = (bool) chckDetallesMetricas.IsChecked;
 
-            System.Console.WriteLine("Estado nuevo");
-            imprimirSeleccion(indice);
-
             listaSeleccion[indice] = metrica;
         }
 
-        private void imprimirSeleccion(int indice)
-        {
-            MTSeleccion metrica;
-
-            metrica = (MTSeleccion)listaSeleccion[indice];
-            System.Console.WriteLine("ID: "+metrica.Id + " Proposito: " + metrica.Proposito + " Estado: "+metrica.Estado);
-
-        }
 
         // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
 
@@ -367,12 +343,10 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             if (listaSeleccion.Count == 0)
             {
-                System.Console.WriteLine("Entre a inicializarSelecion");
                 inicializarSeleccion(funcionalidadInterna);
             }
 
             comprobarSeleccion(0);
-            imprimirSeleccion(0);
         }
 
         public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
@@ -424,11 +398,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void retroceder(ref int indice, ArrayList lista)
         {
-
-            System.Console.WriteLine("Entre a retroceder");
-
-            System.Console.WriteLine("Antes");
-            imprimirSeleccion(indice);
             guardarSeleccion(indice);
 
             if ((indice - 1) > -1)
@@ -440,11 +409,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                     btnAnterior.IsEnabled = false;
                 }
 
-
                 cargarMetrica((JMetrica)lista[indice]);
                 comprobarSeleccion(indice);
-                imprimirSeleccion(indice);
-                System.Console.WriteLine("Despues");
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -462,10 +428,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void avanzar(ref int indice, ArrayList lista)
         {
-            System.Console.WriteLine("Entre a avanzar");
-
-            System.Console.WriteLine("Antes");
-            imprimirSeleccion(indice);
             guardarSeleccion(indice);
 
             if ((indice + 1) < lista.Count)
@@ -479,9 +441,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
                 cargarMetrica((JMetrica)lista[indice]);
                 comprobarSeleccion(indice);
-               
-                System.Console.WriteLine("Despues");
-                 imprimirSeleccion(indice);
 
                 if (btnAnterior.IsEnabled == false)
                 {

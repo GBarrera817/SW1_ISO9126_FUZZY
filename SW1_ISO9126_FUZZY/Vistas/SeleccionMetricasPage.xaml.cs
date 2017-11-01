@@ -28,6 +28,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+
+        private ArrayList listaMetricas;
         private ArrayList listaSeleccion;
 
         private int indiceListaMetrica;
@@ -47,36 +49,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
         }
 
-        // Accesores
-
-        public JFuncionabilidad FunInt { get => funInt; set => funInt = value; }
-        public JFuncionabilidad FunExt { get => funExt; set => funExt = value; }
-        public JUsabilidad UsaInt { get => usaInt; set => usaInt = value; }
-        public JUsabilidad UsaExt { get => usaExt; set => usaExt = value; }
-        public JMantenibilidad ManInt { get => manInt; set => manInt = value; }
-        public JMantenibilidad ManExt { get => manExt; set => manExt = value; }
-
-        public ArrayList FuncionalidadInterna { get => funcionalidadInterna; set => funcionalidadInterna = value; }
-        public ArrayList FuncionalidadExterna { get => funcionalidadExterna; set => funcionalidadExterna = value; }
-        public ArrayList UsabilidadInterna { get => usabilidadInterna; set => usabilidadInterna = value; }
-        public ArrayList UsabilidadExterna { get => usabilidadExterna; set => usabilidadExterna = value; }
-        public ArrayList MantenibilidadInterna { get => mantenibilidadInterna; set => mantenibilidadInterna = value; }
-        public ArrayList MantenibilidadExterna { get => mantenibilidadExterna; set => mantenibilidadExterna = value; }
-
-        public static void imprimirAL(ArrayList lista)
-        {
-            IEnumerator e = lista.GetEnumerator();
-            while (e.MoveNext())
-            {
-                Object obj = e.Current;
-                MTSeleccion me = (MTSeleccion)obj;
-                Console.WriteLine(me.Id);
-                Console.WriteLine(me.Proposito);
-                Console.WriteLine(me.Estado);
-                Console.WriteLine();
-            }
-        }
-
         // Metodos
 
         private void cargarEntorno()
@@ -84,7 +56,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             inicializarBotones();
             inicializarEstadoCaracteristica();
             inicializarListas();
-            cargarJsonMetricas();
 
             this.indiceListaMetrica = 0;
         }
@@ -103,7 +74,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.isUsaExtAct = false;
             this.isManIntAct = false;
             this.isManExtAct = false;
-
         }
 
         private void inicializarListas()
@@ -115,6 +85,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             this.mantenibilidadInterna = new ArrayList();
             this.mantenibilidadExterna = new ArrayList();
 
+            this.listaMetricas = new ArrayList();
             this.listaSeleccion =  new ArrayList();
         }
 
@@ -138,13 +109,26 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void cargarJsonMetricas()
         {
-            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+            System.Console.WriteLine("Entre a cargar JCumbia");
+            System.Console.WriteLine("estado funintact: " + isFunIntAct);
 
+            if (isFunIntAct)
+                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+
+            if (isFunExtAct)
+                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
+
+            if (isUsaIntAct)
+                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
+
+            if (isUsaExtAct)
+                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
+
+            if (isManIntAct)
+                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+
+            if (isManExtAct)
+                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
         }
 
         // Cargar una metrica
@@ -333,12 +317,12 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         public void FuncInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
         {
             origen = llamada;
+
             cargarEntorno();
             isFunIntAct = true;
-
+            cargarJsonMetricas();
             cargarFuncionabilidad(funInt, funcionalidadInterna);
-
-            listaSeleccion.Clear();
+            
             listaSeleccion = (ArrayList)seleccion.Clone();
 
             if (listaSeleccion.Count == 0)

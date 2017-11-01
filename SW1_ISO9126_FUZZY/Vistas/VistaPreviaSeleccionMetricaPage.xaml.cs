@@ -41,6 +41,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        private ArrayList MTSfuncionalidadInterna;
+        private ArrayList MTSfuncionalidadExterna;
+        private ArrayList MTSusabilidadInterna;
+        private ArrayList MTSusabilidadExterna;
+        private ArrayList MTSmantenibilidadInterna;
+        private ArrayList MTSmantenibilidadExterna;
+
         private SeleccionMetricasPage paginaSeleccion;
         private Seleccion metricas;
         private EstadoModulo selecMetricas;
@@ -51,12 +58,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		{
             
 			InitializeComponent();
-            this.paginaSeleccion = new SeleccionMetricasPage(); // pasar seleccion
+            this.paginaSeleccion = new SeleccionMetricasPage();
             this.metricas = new Seleccion();
             this.selecMetricas = new EstadoModulo();
             this.miEvaluacion = nueva;
 
             inicializarListas();
+            inicializarSeleccion();
             cargarJsonMetricas();
             cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
@@ -84,6 +92,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.mantenibilidadExterna = new ArrayList();
         }
 
+        private void inicializarSeleccion()
+        {
+            this.MTSfuncionalidadInterna = new ArrayList();
+            this.MTSfuncionalidadExterna = new ArrayList();
+            this.MTSusabilidadInterna = new ArrayList();
+            this.MTSusabilidadExterna = new ArrayList();
+            this.MTSmantenibilidadInterna = new ArrayList();
+            this.MTSmantenibilidadExterna = new ArrayList();
+        }
 
         private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
@@ -198,45 +215,50 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Eventos botones menu flotante (flyout)
 
-        private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnMenuClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncInterna_Activar(this);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+            Button clickedButton = (Button) e.Source;
 
-        private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabInterna_Activar(this);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
 
-        private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.MantInterna_Activar(this);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+            switch (clickedButton.Name)
+            {
+                case "btnFuncInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
 
-        private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncExterna_Activar(this);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+                case "btnUsabInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaInt", MTSusabilidadInterna);
+                            MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
 
-        private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabExterna_Activar(this);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+                case "btnMantInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "ManInt", MTSmantenibilidadInterna);
+                            MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
 
-        private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.MantExterna_Activar(this);
+                case "btnFuncExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunExt", MTSfuncionalidadExterna);
+                            MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnUsabExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaExt", MTSusabilidadExterna);
+                            MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnMantExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "ManExt", MTSmantenibilidadExterna);
+                            MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                default:
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
+            }
+
             this.NavigationService.Navigate(paginaSeleccion);
         }
     }

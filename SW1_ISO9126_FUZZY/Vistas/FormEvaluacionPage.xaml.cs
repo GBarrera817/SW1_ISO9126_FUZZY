@@ -227,9 +227,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = funcionalidad.Caracteristca;
+            lblCaracteristica.Content = funcionalidad.Caracteristica;
             lblPerspectiva.Content = funcionalidad.Perspectiva;
-            lblSubcaracteristica.Content = funcionalidad.Subcaracteristicas[0];
 
             for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
                 metricas.Add(funcionalidad.Adecuacion[i]);
@@ -252,12 +251,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private ArrayList cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = usabilidad.Caracteristca;
+            lblCaracteristica.Content = usabilidad.Caracteristica;
             lblPerspectiva.Content = usabilidad.Perspectiva;
-            lblSubcaracteristica.Content = usabilidad.Subcaracteristicas[0];
 
             for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
                 metricas.Add(usabilidad.Comprensibilidad[i]);
@@ -276,17 +274,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(usabilidad.Comprensibilidad[0]);
-
-            return metricas;
         }
 
 
-        private ArrayList cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
         {
             // Etiquetas pricipales
-            lblCaracteristica.Content = mantenibilidad.Caracteristca;
+            lblCaracteristica.Content = mantenibilidad.Caracteristica;
             lblPerspectiva.Content = mantenibilidad.Perspectiva;
-            lblSubcaracteristica.Content = mantenibilidad.Subcaracteristicas[0];
 
             for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
                 metricas.Add(mantenibilidad.Analizabilidad[i]);
@@ -305,8 +300,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Cargar metrica de primera subcaracteristica
             cargarMetrica(mantenibilidad.Analizabilidad[0]);
-
-            return metricas;
         }
 
 

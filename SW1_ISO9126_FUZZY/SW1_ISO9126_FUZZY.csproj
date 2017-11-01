@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D18F82F2-8C58-4769-AF68-73BE64632909}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>SW1_ISO9126_FUZZY</RootNamespace>
     <AssemblyName>SW1_ISO9126_FUZZY</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -158,6 +158,8 @@
     <Compile Include="Modelo Datos\EstadoModulo.cs" />
     <Compile Include="Modelo Datos\Evaluacion.cs" />
     <Compile Include="Modelo Datos\Importancia.cs" />
+    <Compile Include="Modelo Datos\MTEvaluacion.cs" />
+    <Compile Include="Modelo Datos\MTSeleccion.cs" />
     <Compile Include="Modelo Datos\Respuesta.cs" />
     <Compile Include="Modelo Datos\Seleccion.cs" />
     <Compile Include="Modelo Datos\Software.cs" />

@@ -288,8 +288,9 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarMetrica(mantenibilidad.Analizabilidad[0]);
         }
 
+        // Retorna las metricas seleccionadas
 
-        private ArrayList seleccionarMetrica()
+        public ArrayList seleccionarMetrica()
         {
             return listaSeleccion;
         }

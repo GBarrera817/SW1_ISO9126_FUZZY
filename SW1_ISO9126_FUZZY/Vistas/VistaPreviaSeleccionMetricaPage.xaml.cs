@@ -223,13 +223,40 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             switch (clickedButton.Name)
             {
-                case "btnFuncInterna": paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);  break;
-                case "btnUsabInterna": paginaSeleccion.cargarSeleccionMetricas(this, "UsaInt", MTSusabilidadInterna);     break;
-                case "btnMantInterna": paginaSeleccion.cargarSeleccionMetricas(this, "ManInt", MTSmantenibilidadInterna); break;
-                case "btnFuncExterna": paginaSeleccion.cargarSeleccionMetricas(this, "FunExt", MTSfuncionalidadExterna);  break;
-                case "btnUsabExterna": paginaSeleccion.cargarSeleccionMetricas(this, "UsaExt", MTSusabilidadExterna);     break;
-                case "btnMantExterna": paginaSeleccion.cargarSeleccionMetricas(this, "ManExt", MTSmantenibilidadExterna); break;
-                default: paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna); break;
+                case "btnFuncInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnUsabInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaInt", MTSusabilidadInterna);
+                            MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnMantInterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "ManInt", MTSmantenibilidadInterna);
+                            MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnFuncExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunExt", MTSfuncionalidadExterna);
+                            MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnUsabExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaExt", MTSusabilidadExterna);
+                            MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                case "btnMantExterna":
+                            paginaSeleccion.cargarSeleccionMetricas(this, "ManExt", MTSmantenibilidadExterna);
+                            MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+                break;
+
+                default:
+                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                break;
             }
 
             this.NavigationService.Navigate(paginaSeleccion);

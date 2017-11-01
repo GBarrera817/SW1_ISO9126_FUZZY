@@ -14,6 +14,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
     /// </summary>
     public partial class SeleccionMetricasPage : Page {
 
+        // Caracteristicas
         private JFuncionabilidad funInt;
         private JFuncionabilidad funExt;
         private JUsabilidad usaInt;
@@ -21,25 +22,18 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private JMantenibilidad manInt;
         private JMantenibilidad manExt;
 
-        private ArrayList funcionalidadInterna;
-        private ArrayList funcionalidadExterna;
-        private ArrayList usabilidadInterna;
-        private ArrayList usabilidadExterna;
-        private ArrayList mantenibilidadInterna;
-        private ArrayList mantenibilidadExterna;
-
-
-        private ArrayList listaMetricas;
-        private ArrayList listaSeleccion;
-
-        private int indiceListaMetrica;
-
+        // Estado caracteristicas
         private bool isFunIntAct;
         private bool isFunExtAct;
         private bool isUsaIntAct;
         private bool isUsaExtAct;
         private bool isManIntAct;
         private bool isManExtAct;
+
+        // Listas metricas y seleccion metrica
+        private ArrayList listaMetricas;
+        private ArrayList listaSeleccion;
+        private int indiceListas;
 
         private VistaPreviaSeleccionMetricaPage origen;
 
@@ -56,8 +50,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             inicializarBotones();
             inicializarEstadoCaracteristica();
             inicializarListas();
-
-            this.indiceListaMetrica = 0;
         }
 
         private void inicializarBotones()
@@ -78,15 +70,9 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void inicializarListas()
         {
-            this.funcionalidadInterna = new ArrayList();
-            this.funcionalidadExterna = new ArrayList();
-            this.usabilidadInterna = new ArrayList();
-            this.usabilidadExterna = new ArrayList();
-            this.mantenibilidadInterna = new ArrayList();
-            this.mantenibilidadExterna = new ArrayList();
-
             this.listaMetricas = new ArrayList();
             this.listaSeleccion =  new ArrayList();
+            this.indiceListas = 0;
         }
 
         private void inicializarSeleccion(ArrayList metricas)
@@ -109,9 +95,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void cargarJsonMetricas()
         {
-            System.Console.WriteLine("Entre a cargar JCumbia");
-            System.Console.WriteLine("estado funintact: " + isFunIntAct);
-
             if (isFunIntAct)
                 funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
 
@@ -314,68 +297,47 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Cargar la caracteristicas (Eventos menu flotante)
 
-        public void FuncInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
+        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caractPers, ArrayList seleccion)
         {
             origen = llamada;
 
             cargarEntorno();
-            isFunIntAct = true;
-            cargarJsonMetricas();
-            cargarFuncionabilidad(funInt, funcionalidadInterna);
-            
-            listaSeleccion = (ArrayList)seleccion.Clone();
 
-            if (listaSeleccion.Count == 0)
+            switch (caractPers)
             {
-                inicializarSeleccion(funcionalidadInterna);
+                case "FunInt": isFunIntAct = true; break;
+                case "FunExt": isFunExtAct = true; break;
+                case "UsaInt": isUsaIntAct = true; break;
+                case "UsaExt": isUsaExtAct = true; break;
+                case "ManInt": isManIntAct = true; break;
+                case "ManExt": isManExtAct = true; break;
+                default:   isFunIntAct = true; break;
             }
 
+            cargarJsonMetricas();
+
+            switch (caractPers)
+            {
+                case "FunInt": cargarFuncionabilidad(funInt, listaMetricas); break;
+                case "FunExt": cargarFuncionabilidad(funExt, listaMetricas); break;
+                case "UsaInt": cargarUsabilidad(usaInt, listaMetricas); break;
+                case "UsaExt": cargarUsabilidad(usaExt, listaMetricas); break;
+                case "ManInt": cargarMantenibilidad(manInt, listaMetricas); break;
+                case "ManExt": cargarMantenibilidad(manExt, listaMetricas); break;
+                default: cargarFuncionabilidad(funInt, listaMetricas); break;
+            }
+
+            //Cargo lista seleccion
+            listaSeleccion = (ArrayList)seleccion.Clone();
+
+            //Si no esta, la creo
+            if (listaSeleccion.Count == 0)
+            {
+                inicializarSeleccion(listaMetricas);
+            }
+
+            //Compruebo metrica inicial
             comprobarSeleccion(0);
-        }
-
-        public void UsabInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaIntAct = true;
-            cargarUsabilidad(usaInt, usabilidadInterna);
-
-        }
-
-        public void MantInterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManIntAct = true;
-            cargarMantenibilidad(manInt, mantenibilidadInterna);
-
-        }
-
-        public void FuncExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isFunExtAct = true;
-            cargarFuncionabilidad(funExt, funcionalidadExterna);
-
-        }
-
-        public void UsabExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaExtAct = true;
-            cargarUsabilidad(usaExt, usabilidadExterna);
-
-        }
-
-        public void MantExterna_Activar(VistaPreviaSeleccionMetricaPage llamada, ArrayList seleccion)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManExtAct = true;
-            cargarMantenibilidad(manExt, mantenibilidadExterna);
-
         }
 
         // Retroceder
@@ -460,141 +422,23 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (isFunIntAct)
-            {
-                retroceder(ref indiceListaMetrica, funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                retroceder(ref indiceListaMetrica, funcionalidadExterna);
-            }
-
-            if (isUsaIntAct)
-            {
-                retroceder(ref indiceListaMetrica, usabilidadInterna);
-            }
-
-            if (isUsaExtAct)
-            {
-                retroceder(ref indiceListaMetrica, usabilidadExterna);
-            }
-
-            if (isManIntAct)
-            {
-                retroceder(ref indiceListaMetrica, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                retroceder(ref indiceListaMetrica, mantenibilidadExterna);
-            }
+            retroceder(ref indiceListas, listaMetricas);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (isFunIntAct)
-            {
-                avanzar(ref indiceListaMetrica, funcionalidadInterna);
-            }                           
-                                        
-            if (isFunExtAct)            
-            {                           
-                avanzar(ref indiceListaMetrica, funcionalidadExterna);
-            }                           
-                                        
-            if (isUsaIntAct)            
-            {                           
-                avanzar(ref indiceListaMetrica, usabilidadInterna);
-            }                           
-                                        
-            if (isUsaExtAct)            
-            {                           
-                avanzar(ref indiceListaMetrica, usabilidadExterna);
-            }                           
-                                        
-            if (isManIntAct)            
-            {                           
-                avanzar(ref indiceListaMetrica, mantenibilidadInterna);
-            }                           
-                                        
-            if (isManExtAct)            
-            {                           
-                avanzar(ref indiceListaMetrica, mantenibilidadExterna);
-            }                          
+            avanzar(ref indiceListas, listaMetricas);                                                               
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (isFunIntAct)
-            {
-
-            }
-
-            if (isFunExtAct)
-            {
-
-            }
-
-            if (isUsaIntAct)
-            {
-
-            }
-
-            if (isUsaExtAct)
-            {
-
-            }
-
-            if (isManIntAct)
-            {
-
-            }
-
-            if (isManExtAct)
-            {
-
-            }
-
-            guardarSeleccion(indiceListaMetrica);
+            guardarSeleccion(indiceListas);
             NavigationService.Navigate(origen);
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
-
-            if (isFunIntAct)
-            {
-                isFunIntAct = false;
-            }
-
-            if (isFunExtAct)
-            {
-                isFunExtAct = false;
-            }
-
-            if (isUsaIntAct)
-            {
-                isUsaIntAct = false;
-            }
-
-            if (isUsaExtAct)
-            {
-                isUsaExtAct = false;
-            }
-
-            if (isManIntAct)
-            {
-                isManIntAct = false;
-            }
-
-            if (isManExtAct)
-            {
-                isManExtAct = false;
-            }
-
-            guardarSeleccion(indiceListaMetrica);
+            guardarSeleccion(indiceListas);
             NavigationService.Navigate(origen);
         }
     }

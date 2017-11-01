@@ -215,45 +215,23 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Eventos botones menu flotante (flyout)
 
-        private void btnFuncInterna_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnMenuClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncInterna_Activar(this, MTSfuncionalidadInterna);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+            Button clickedButton = (Button) e.Source;
 
-        private void btnUsabInterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
             menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabInterna_Activar(this, MTSusabilidadInterna);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
 
-        private void btnMantInterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.MantInterna_Activar(this, MTSmantenibilidadInterna);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
+            switch (clickedButton.Name)
+            {
+                case "btnFuncInterna": paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);  break;
+                case "btnUsabInterna": paginaSeleccion.cargarSeleccionMetricas(this, "UsaInt", MTSusabilidadInterna);     break;
+                case "btnMantInterna": paginaSeleccion.cargarSeleccionMetricas(this, "ManInt", MTSmantenibilidadInterna); break;
+                case "btnFuncExterna": paginaSeleccion.cargarSeleccionMetricas(this, "FunExt", MTSfuncionalidadExterna);  break;
+                case "btnUsabExterna": paginaSeleccion.cargarSeleccionMetricas(this, "UsaExt", MTSusabilidadExterna);     break;
+                case "btnMantExterna": paginaSeleccion.cargarSeleccionMetricas(this, "ManExt", MTSmantenibilidadExterna); break;
+                default: paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna); break;
+            }
 
-        private void btnFuncExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.FuncExterna_Activar(this, MTSfuncionalidadExterna);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
-
-        private void btnUsabExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.UsabExterna_Activar(this, MTSusabilidadExterna);
-            this.NavigationService.Navigate(paginaSeleccion);
-        }
-
-        private void btnMantExterna_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            menuMetricas.IsOpen = false;
-            paginaSeleccion.MantExterna_Activar(this, MTSmantenibilidadExterna);
             this.NavigationService.Navigate(paginaSeleccion);
         }
     }

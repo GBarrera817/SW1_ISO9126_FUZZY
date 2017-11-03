@@ -87,7 +87,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 metricaJson = (JMetrica)metricas[i];
                 metricaSelec.Id = metricaJson.Id;
                 metricaSelec.Estado = true;
-                metricaSelec.Proposito = -1;
+                metricaSelec.Proposito = 0;
 
                 listaSeleccion.Add(metricaSelec);
             }
@@ -184,6 +184,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             metrica = (MTSeleccion)listaSeleccion[indice];
 
+            dataGridDetalleMetrica.SelectedIndex = metrica.Proposito;
+
             if (metrica.Estado)
             {
                 chckDetallesMetricas.IsChecked = true;
@@ -202,8 +204,16 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             metrica = (MTSeleccion)listaSeleccion[indice];
 
-            metrica.Proposito = 0; // fila seleccionada
             metrica.Estado = (bool) chckDetallesMetricas.IsChecked;
+
+            if (metrica.Estado)
+            {
+                metrica.Proposito = dataGridDetalleMetrica.SelectedIndex;
+            }
+            else
+            {
+                metrica.Proposito = 0;
+            }
 
             listaSeleccion[indice] = metrica;
         }
@@ -413,6 +423,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void chckDetallesMetricas_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            dataGridDetalleMetrica.SelectedIndex = 0;
+
             img_no_metric.Visibility = System.Windows.Visibility.Visible;
             txt_metric_disable.Visibility = System.Windows.Visibility.Visible;
 

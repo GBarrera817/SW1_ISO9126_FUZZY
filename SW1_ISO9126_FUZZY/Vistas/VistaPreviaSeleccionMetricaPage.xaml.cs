@@ -26,7 +26,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// </summary>
 	public partial class VistaPreviaSeleccionMetricaPage : Page
 	{
-
+        // Caracteristicas
         private JFuncionabilidad funInt;
         private JFuncionabilidad funExt;
         private JUsabilidad usaInt;
@@ -34,6 +34,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private JMantenibilidad manInt;
         private JMantenibilidad manExt;
 
+        // Estado caracteristicas
+        private bool isFunIntAct;
+        private bool isFunExtAct;
+        private bool isUsaIntAct;
+        private bool isUsaExtAct;
+        private bool isManIntAct;
+        private bool isManExtAct;
+
+        // Listas de caracteristicas
         private ArrayList funcionalidadInterna;
         private ArrayList funcionalidadExterna;
         private ArrayList usabilidadInterna;
@@ -41,6 +50,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        // Listas de caracteristicas seleccionadas
         private ArrayList MTSfuncionalidadInterna;
         private ArrayList MTSfuncionalidadExterna;
         private ArrayList MTSusabilidadInterna;
@@ -56,13 +66,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
 		{
-            
 			InitializeComponent();
+
             this.paginaSeleccion = new SeleccionMetricasPage();
             this.metricas = new Seleccion();
             this.selecMetricas = new EstadoModulo();
             this.miEvaluacion = nueva;
 
+            inicializarEstadoCaracteristica();
             inicializarListas();
             inicializarSeleccion();
             cargarJsonMetricas();
@@ -70,16 +81,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
 
-
-        private void cargarJsonMetricas()
+        private void inicializarEstadoCaracteristica()
         {
-            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
-
+            this.isFunIntAct = true;
+            this.isFunExtAct = true;
+            this.isUsaIntAct = true;
+            this.isUsaExtAct = true;
+            this.isManIntAct = true;
+            this.isManExtAct = true;
         }
 
         private void inicializarListas()
@@ -102,7 +111,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.MTSmantenibilidadExterna = new ArrayList();
         }
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
+        private void cargarJsonMetricas()
+        {
+            if (isFunIntAct)
+                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+
+            if (isFunExtAct)
+                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
+
+            if (isUsaIntAct)
+                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
+
+            if (isUsaExtAct)
+                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
+
+            if (isManIntAct)
+                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+
+            if (isManExtAct)
+                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+        }
+
+        private void cargarTablaFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
@@ -125,7 +155,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private void cargarUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
+        private void cargarTablaUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
@@ -143,7 +173,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
 
-        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
+        private void cargarTablaMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
@@ -182,35 +212,35 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
 		{ 
-            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cambiarEstado(1, lblEstadoMetricasFuncInterna);
         }
 
 		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
-		{  
-            cargarUsabilidad(usaInt, DataGridEstadoMetricasInternas);
+		{
+            cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);
             cambiarEstado(2,lblEstadoMetricasUsabInterna);
         }
 
 		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
-		{ 
-            cargarMantenibilidad(manInt, DataGridEstadoMetricasInternas);
+		{
+            cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);
             cambiarEstado(3,lblEstadoMetricasMantInterna);
         }
 
 		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+            cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
 
 		private void btnEstadoUsabExterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarUsabilidad(usaExt, DataGridEstadoMetricasExternas);
+            cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);
         }
 
 		private void btnEstadoMantExterna_Click(object sender, RoutedEventArgs e)
 		{
-            cargarMantenibilidad(manExt, DataGridEstadoMetricasExternas);
+            cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);
         }
 
         // Eventos botones menu flotante (flyout)

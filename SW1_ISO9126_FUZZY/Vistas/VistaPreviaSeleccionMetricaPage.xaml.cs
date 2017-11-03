@@ -77,7 +77,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarListas();
             inicializarSeleccion();
             cargarJsonMetricas();
-            //controlTablas(btnEstadoFuncInterna, this);
+
+            // Tablas iniciales
+            cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
 
         private void inicializarEstadoCaracteristica()
@@ -162,7 +165,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[2], 0, usabilidad.Operabilidad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[3], 0, usabilidad.Atractividad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[4], 0, usabilidad.CumplimientoUsabilidad.Length });
-            
         }
 
 
@@ -179,8 +181,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[1], 0, mantenibilidad.Modificabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[2], 0, mantenibilidad.Estabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[3], 0, mantenibilidad.Testeabilidad.Length });
-            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });
-            
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });    
         }
 
         private void cambiarEstado(int estado, Label etiqueta)
@@ -192,7 +193,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Background = (Brush)bc.ConvertFrom(colores[estado]);
             etiqueta.Content = estados[estado];
         }
-
 
         // Evento Flyout
 
@@ -206,24 +206,29 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cargar tablas
 
-        private void controlTablas(object sender, RoutedEventArgs e)
+        private void cargarTabla(RoutedEventArgs e)
         {
             Button clickedButton = (Button)e.Source;
 
             switch (clickedButton.Name)
             {
                 case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); break;
-                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);      break;
-                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);  break;
+                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas); break;
+                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas); break;
                 case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); break;
-                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);      break;
-                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);  break;
+                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas); break;
+                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas); break;
 
                 default:
                     cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
                     cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
                 break;
             }
+        }
+
+        private void controlTablas(object sender, RoutedEventArgs e)
+        {
+            cargarTabla(e);
         }
 
         // Eventos botones menu flotante (flyout)

@@ -12,24 +12,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
     /// <summary>
     /// Lógica de interacción para ConfiguracionMetricasPage.xaml
     /// </summary>
-    public partial class SeleccionMetricasPage : Page {
-
-        // Caracteristicas
-        private JFuncionabilidad funInt;
-        private JFuncionabilidad funExt;
-        private JUsabilidad usaInt;
-        private JUsabilidad usaExt;
-        private JMantenibilidad manInt;
-        private JMantenibilidad manExt;
-
-        // Estado caracteristicas
-        private bool isFunIntAct;
-        private bool isFunExtAct;
-        private bool isUsaIntAct;
-        private bool isUsaExtAct;
-        private bool isManIntAct;
-        private bool isManExtAct;
-
+    public partial class SeleccionMetricasPage : Page
+    {
         // Listas metricas y seleccion metrica
         private ArrayList listaMetricas;
         private ArrayList listaSeleccion;
@@ -48,7 +32,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private void cargarEntorno()
         {
             inicializarBotones();
-            inicializarEstadoCaracteristica();
             inicializarListas();
         }
 
@@ -56,16 +39,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             btnAnterior.IsEnabled = false;
             btnSiguiente.IsEnabled = true;
-        }
-
-        private void inicializarEstadoCaracteristica()
-        {
-            this.isFunIntAct = false;
-            this.isFunExtAct = false;
-            this.isUsaIntAct = false;
-            this.isUsaExtAct = false;
-            this.isManIntAct = false;
-            this.isManExtAct = false;
         }
 
         private void inicializarListas()
@@ -91,27 +64,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
                 listaSeleccion.Add(metricaSelec);
             }
-        }
-
-        private void cargarJsonMetricas()
-        {
-            if (isFunIntAct)
-                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-
-            if (isFunExtAct)
-                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-
-            if (isUsaIntAct)
-                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-
-            if (isUsaExtAct)
-                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-
-            if (isManIntAct)
-                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-
-            if (isManExtAct)
-                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
         }
 
         // Cargar una metrica
@@ -218,86 +170,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             listaSeleccion[indice] = metrica;
         }
 
-
-        // Crear listas de metricas por caracteristicas y sublista para obtener la subcarateristica
-
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
-        {
-            // Etiquetas pricipales 
-            lblCaracterística.Content = funcionalidad.Caracteristica;
-            lblPerpectiva.Content = funcionalidad.Perspectiva;
-
-            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
-                metricas.Add(funcionalidad.Adecuacion[i]);           
-
-            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)           
-                metricas.Add(funcionalidad.Exactitud[i]);
-            
-            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)           
-                metricas.Add(funcionalidad.Interoperabilidad[i]);
-            
-            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)           
-                metricas.Add(funcionalidad.SeguridadAcceso[i]);
-            
-            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)           
-                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
-            
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(funcionalidad.Adecuacion[0]);
-        }
-
-
-        private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
-        {
-            // Etiquetas pricipales 
-            lblCaracterística.Content = usabilidad.Caracteristica;
-            lblPerpectiva.Content = usabilidad.Perspectiva;
-
-            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
-                metricas.Add(usabilidad.Comprensibilidad[i]);
-
-            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
-                metricas.Add(usabilidad.Aprendizaje[i]);
-
-            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
-                metricas.Add(usabilidad.Operabilidad[i]);
-
-            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
-                metricas.Add(usabilidad.Atractividad[i]);
-
-            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
-                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
-
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(usabilidad.Comprensibilidad[0]);
-        }
-
-
-        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
-        {
-            // Etiquetas pricipales 
-            lblCaracterística.Content = mantenibilidad.Caracteristica;
-            lblPerpectiva.Content = mantenibilidad.Perspectiva;
-
-            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Analizabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Modificabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Estabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Testeabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
-                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
-
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(mantenibilidad.Analizabilidad[0]);
-        }
-
         // Retorna las metricas seleccionadas
 
         public ArrayList seleccionarMetrica()
@@ -305,43 +177,22 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             return listaSeleccion;
         }
 
-
         // Cargar la caracteristicas (Eventos menu flotante)
 
-        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caractPers, ArrayList seleccion)
+        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion)
         {
             origen = llamada;
-
             cargarEntorno();
 
-            switch (caractPers)
-            {
-                case "FunInt": isFunIntAct = true; break;
-                case "FunExt": isFunExtAct = true; break;
-                case "UsaInt": isUsaIntAct = true; break;
-                case "UsaExt": isUsaExtAct = true; break;
-                case "ManInt": isManIntAct = true; break;
-                case "ManExt": isManExtAct = true; break;
-                default:   isFunIntAct = true; break;
-            }
+            // Etiquetas pricipales 
+            lblCaracterística.Content = caracteristica;
+            lblPerpectiva.Content = perspectiva;
 
-            cargarJsonMetricas();
-
-            switch (caractPers)
-            {
-                case "FunInt": cargarFuncionabilidad(funInt, listaMetricas); break;
-                case "FunExt": cargarFuncionabilidad(funExt, listaMetricas); break;
-                case "UsaInt": cargarUsabilidad(usaInt, listaMetricas); break;
-                case "UsaExt": cargarUsabilidad(usaExt, listaMetricas); break;
-                case "ManInt": cargarMantenibilidad(manInt, listaMetricas); break;
-                case "ManExt": cargarMantenibilidad(manExt, listaMetricas); break;
-                default: cargarFuncionabilidad(funInt, listaMetricas); break;
-            }
-
-            //Cargo lista seleccion
+            //Cargar listas metricas y seleccion
+            listaMetricas = (ArrayList)metricas.Clone();
             listaSeleccion = (ArrayList)seleccion.Clone();
 
-            //Si no esta, la creo
+            //Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)
             {
                 inicializarSeleccion(listaMetricas);

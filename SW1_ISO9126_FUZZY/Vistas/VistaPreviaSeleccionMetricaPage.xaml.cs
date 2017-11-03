@@ -77,8 +77,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarListas();
             inicializarSeleccion();
             cargarJsonMetricas();
-            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
-            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+            //controlTablas(btnEstadoFuncInterna, this);
         }
 
         private void inicializarEstadoCaracteristica()
@@ -139,19 +138,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
-            //DataGrid tabla = new DataGrid();
-
             tabla.ItemsSource = dtColumnas.DefaultView;
-            /*DataGridEstadoMetricasInternas.Columns[0].Header = "Subcaracterística";
-            DataGridEstadoMetricasInternas.Columns[1].Header = "Seleccionadas";
-            DataGridEstadoMetricasInternas.Columns[2].Header = "Total";*/
 
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[0], 0, funcionalidad.Adecuacion.Length});
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[1], 0, funcionalidad.Exactitud.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[2], 0, funcionalidad.Interoperabilidad.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[3], 0, funcionalidad.SeguridadAcceso.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[4], 0, funcionalidad.CumplimientoFuncional.Length });
-            
         }
 
 
@@ -206,41 +199,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
 		{
             menuMetricas.IsOpen = true;
-        }
-
-        // Eventos botones tabla y label estado
-
-		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
-		{ 
-            cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cambiarEstado(1, lblEstadoMetricasFuncInterna);
+            cambiarEstado(2, lblEstadoMetricasUsabInterna);
+            cambiarEstado(3, lblEstadoMetricasMantInterna);
         }
 
-		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(2,lblEstadoMetricasUsabInterna);
-        }
+        // Cargar tablas
 
-		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(3,lblEstadoMetricasMantInterna);
-        }
+        private void controlTablas(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = (Button)e.Source;
 
-		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
-        }
+            switch (clickedButton.Name)
+            {
+                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); break;
+                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);      break;
+                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);  break;
+                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); break;
+                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);      break;
+                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);  break;
 
-		private void btnEstadoUsabExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);
-        }
-
-		private void btnEstadoMantExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);
+                default:
+                    cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+                    cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+                break;
+            }
         }
 
         // Eventos botones menu flotante (flyout)

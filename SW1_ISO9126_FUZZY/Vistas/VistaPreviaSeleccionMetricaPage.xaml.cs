@@ -85,6 +85,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarEstadoCaracteristica()
         {
+            System.Console.WriteLine("Entrando a inicializar estado caracteristicas");
+
             this.isFunIntAct = true;
             this.isFunExtAct = true;
             this.isUsaIntAct = true;
@@ -95,6 +97,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarListas()
         {
+            System.Console.WriteLine("Entrando a inicializar listas");
+
             this.funcionalidadInterna = new ArrayList();
             this.funcionalidadExterna = new ArrayList();
             this.usabilidadInterna = new ArrayList();
@@ -105,6 +109,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarSeleccion()
         {
+            System.Console.WriteLine("Entrando a inicializar seleccion");
+
             this.MTSfuncionalidadInterna = new ArrayList();
             this.MTSfuncionalidadExterna = new ArrayList();
             this.MTSusabilidadInterna = new ArrayList();
@@ -115,6 +121,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void cargarJsonMetricas()
         {
+            System.Console.WriteLine("Entrando a cargar json metricas");
+
             if (isFunIntAct)
                 funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
 
@@ -157,7 +165,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[4], 0, funcionalidad.CumplimientoFuncional.Length });
 
             tabla.ItemsSource = dtColumnas.DefaultView;
- 
         }
 
         private void cargarTablaUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
@@ -167,13 +174,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
-            tabla.ItemsSource = dtColumnas.DefaultView;
-
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[0], 0, usabilidad.Comprensibilidad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[1], 0, usabilidad.Aprendizaje.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[2], 0, usabilidad.Operabilidad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[3], 0, usabilidad.Atractividad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[4], 0, usabilidad.CumplimientoUsabilidad.Length });
+
+            tabla.ItemsSource = dtColumnas.DefaultView;
         }
 
 
@@ -184,13 +191,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
-            tabla.ItemsSource = dtColumnas.DefaultView;
-
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[0], 0, mantenibilidad.Analizabilidad.Length });        
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[1], 0, mantenibilidad.Modificabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[2], 0, mantenibilidad.Estabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[3], 0, mantenibilidad.Testeabilidad.Length });
-            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });    
+            dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });
+
+            tabla.ItemsSource = dtColumnas.DefaultView;
         }
 
         private void cambiarEstado(int estado, Label etiqueta)
@@ -248,9 +255,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             menuMetricas.IsOpen = false;
 
+            System.Console.WriteLine("Entrando a menu flyout");
+
             switch (clickedButton.Name)
             {
                 case "btnFuncInterna":
+
+                    System.Console.WriteLine("Tamaño lista 1: "+ funcionalidadInterna.Count);
                             paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
                             MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;

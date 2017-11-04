@@ -85,8 +85,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarEstadoCaracteristica()
         {
-            System.Console.WriteLine("Entrando a inicializar estado caracteristicas");
-
             this.isFunIntAct = true;
             this.isFunExtAct = true;
             this.isUsaIntAct = true;
@@ -97,8 +95,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarListas()
         {
-            System.Console.WriteLine("Entrando a inicializar listas");
-
             this.funcionalidadInterna = new ArrayList();
             this.funcionalidadExterna = new ArrayList();
             this.usabilidadInterna = new ArrayList();
@@ -109,8 +105,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarSeleccion()
         {
-            System.Console.WriteLine("Entrando a inicializar seleccion");
-
             this.MTSfuncionalidadInterna = new ArrayList();
             this.MTSfuncionalidadExterna = new ArrayList();
             this.MTSusabilidadInterna = new ArrayList();
@@ -177,8 +171,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void cargarJsonMetricas()
         {
-            System.Console.WriteLine("Entrando a cargar json metricas");
-
             if (isFunIntAct)
             {
                 funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
@@ -328,13 +320,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             menuMetricas.IsOpen = false;
 
-            System.Console.WriteLine("Entrando a menu flyout");
-
             switch (clickedButton.Name)
             {
                 case "btnFuncInterna":
-
-                    System.Console.WriteLine("Tamaño lista 1: "+ funcionalidadInterna.Count);
                             paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
                             MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;
@@ -350,7 +338,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 break;
 
                 case "btnFuncExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadExterna, MTSfuncionalidadExterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
                             MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
                 break;
 

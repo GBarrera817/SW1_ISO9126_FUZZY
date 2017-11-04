@@ -70,7 +70,6 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void cargarMetrica (JMetrica metrica)
         {
-
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("proposito", typeof(string));
@@ -190,12 +189,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             //Cargar listas metricas y seleccion
             listaMetricas = (ArrayList)metricas.Clone();
-
-            System.Console.WriteLine("Lista metricas: "+ listaMetricas.Count);
-
             listaSeleccion = (ArrayList)seleccion.Clone();
-
-            System.Console.WriteLine("Lista seleccion: " + listaSeleccion.Count);
 
             //Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)

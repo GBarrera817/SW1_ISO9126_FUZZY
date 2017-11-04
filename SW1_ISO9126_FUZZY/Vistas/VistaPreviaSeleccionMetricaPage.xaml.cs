@@ -134,22 +134,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
         }
 
+        private void cambiarEstilo()
+        {
+            Style estilo = new Style(typeof(DataGrid));
+
+            estilo.Setters.Add(new Setter(TextBlock.HorizontalAlignmentProperty, HorizontalAlignment.Center));
+
+            DataGridEstadoMetricasInternas.Columns[1].CellStyle = estilo;
+        }
+
         private void cargarTablaFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
-            dtColumnas.Columns.Add("total", typeof(string));
-
-            tabla.ItemsSource = dtColumnas.DefaultView;
+            dtColumnas.Columns.Add("total", typeof(string));                
 
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[0], 0, funcionalidad.Adecuacion.Length});
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[1], 0, funcionalidad.Exactitud.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[2], 0, funcionalidad.Interoperabilidad.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[3], 0, funcionalidad.SeguridadAcceso.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[4], 0, funcionalidad.CumplimientoFuncional.Length });
-        }
 
+            tabla.ItemsSource = dtColumnas.DefaultView;
+ 
+        }
 
         private void cargarTablaUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
         {

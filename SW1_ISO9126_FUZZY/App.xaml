@@ -21,6 +21,13 @@
             <Style TargetType="{x:Type Controls:WindowButtonCommands}"
                    BasedOn="{StaticResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
 
+            <!-- Centrar elementos DataGrid-->
+            <!--<Style TargetType="DataGridCell">
+                <Style.Setters>
+                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                </Style.Setters>
+            </Style> -->
+
             <!-- Colores MessageBox -->
             <!-- IMPORTAR = xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" -->
             

@@ -26,7 +26,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// </summary>
 	public partial class VistaPreviaSeleccionMetricaPage : Page
 	{
-
+        // Caracteristicas
         private JFuncionabilidad funInt;
         private JFuncionabilidad funExt;
         private JUsabilidad usaInt;
@@ -34,6 +34,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private JMantenibilidad manInt;
         private JMantenibilidad manExt;
 
+        // Estado caracteristicas
+        private bool isFunIntAct;
+        private bool isFunExtAct;
+        private bool isUsaIntAct;
+        private bool isUsaExtAct;
+        private bool isManIntAct;
+        private bool isManExtAct;
+
+        // Listas de caracteristicas
         private ArrayList funcionalidadInterna;
         private ArrayList funcionalidadExterna;
         private ArrayList usabilidadInterna;
@@ -41,6 +50,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList mantenibilidadInterna;
         private ArrayList mantenibilidadExterna;
 
+        // Listas de caracteristicas seleccionadas
         private ArrayList MTSfuncionalidadInterna;
         private ArrayList MTSfuncionalidadExterna;
         private ArrayList MTSusabilidadInterna;
@@ -56,30 +66,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
 		{
-            
 			InitializeComponent();
+
             this.paginaSeleccion = new SeleccionMetricasPage();
             this.metricas = new Seleccion();
             this.selecMetricas = new EstadoModulo();
             this.miEvaluacion = nueva;
 
+            inicializarEstadoCaracteristica();
             inicializarListas();
             inicializarSeleccion();
             cargarJsonMetricas();
-            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
-            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+
+            // Tablas iniciales
+            cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
 
-
-        private void cargarJsonMetricas()
+        private void inicializarEstadoCaracteristica()
         {
-            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
-
+            this.isFunIntAct = true;
+            this.isFunExtAct = true;
+            this.isUsaIntAct = true;
+            this.isUsaExtAct = true;
+            this.isManIntAct = true;
+            this.isManExtAct = true;
         }
 
         private void inicializarListas()
@@ -102,62 +113,156 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.MTSmantenibilidadExterna = new ArrayList();
         }
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
+        // Crear listas de metricas por caracteristicas
+
+        private void cargarListaFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
+        {
+            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
+                metricas.Add(funcionalidad.Adecuacion[i]);
+
+            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
+                metricas.Add(funcionalidad.Exactitud[i]);
+
+            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
+                metricas.Add(funcionalidad.Interoperabilidad[i]);
+
+            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
+                metricas.Add(funcionalidad.SeguridadAcceso[i]);
+
+            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
+                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
+        }
+
+        private void cargarListaUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        {
+            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
+                metricas.Add(usabilidad.Comprensibilidad[i]);
+
+            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
+                metricas.Add(usabilidad.Aprendizaje[i]);
+
+            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
+                metricas.Add(usabilidad.Operabilidad[i]);
+
+            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
+                metricas.Add(usabilidad.Atractividad[i]);
+
+            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
+                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
+        }
+
+        private void cargarListaMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        {
+            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Analizabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Modificabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Estabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Testeabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
+                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+        }
+
+        private void cargarJsonMetricas()
+        {
+            if (isFunIntAct)
+            {
+                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+                cargarListaFuncionabilidad(funInt,funcionalidadInterna);
+            }
+
+            if (isFunExtAct)
+            {
+                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
+                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
+            }
+                
+            if (isUsaIntAct)
+            {
+                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
+                cargarListaUsabilidad(usaInt, usabilidadInterna);
+            }
+                
+            if (isUsaExtAct)
+            {
+                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
+                cargarListaUsabilidad(usaExt, usabilidadExterna);
+            }
+                
+            if (isManIntAct)
+            {
+                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
+            }
+
+            if (isManExtAct)
+            {
+                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+                cargarListaMantenibilidad(manExt, mantenibilidadExterna);
+            } 
+        }
+
+        private void cambiarEstilo()
+        {
+            Style estilo = new Style(typeof(DataGrid));
+
+            estilo.Setters.Add(new Setter(TextBlock.HorizontalAlignmentProperty, HorizontalAlignment.Center));
+
+            DataGridEstadoMetricasInternas.Columns[1].CellStyle = estilo;
+        }
+
+        private void cargarTablaFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
-            dtColumnas.Columns.Add("total", typeof(string));
-
-            //DataGrid tabla = new DataGrid();
-
-            tabla.ItemsSource = dtColumnas.DefaultView;
-            /*DataGridEstadoMetricasInternas.Columns[0].Header = "Subcaracterística";
-            DataGridEstadoMetricasInternas.Columns[1].Header = "Seleccionadas";
-            DataGridEstadoMetricasInternas.Columns[2].Header = "Total";*/
+            dtColumnas.Columns.Add("total", typeof(string));                
 
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[0], 0, funcionalidad.Adecuacion.Length});
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[1], 0, funcionalidad.Exactitud.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[2], 0, funcionalidad.Interoperabilidad.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[3], 0, funcionalidad.SeguridadAcceso.Length });
             dtColumnas.Rows.Add(new object[] { funcionalidad.Subcaracteristicas[4], 0, funcionalidad.CumplimientoFuncional.Length });
-            
+
+            tabla.ItemsSource = dtColumnas.DefaultView;
         }
 
-
-        private void cargarUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
+        private void cargarTablaUsabilidad(JUsabilidad usabilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
-
-            tabla.ItemsSource = dtColumnas.DefaultView;
 
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[0], 0, usabilidad.Comprensibilidad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[1], 0, usabilidad.Aprendizaje.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[2], 0, usabilidad.Operabilidad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[3], 0, usabilidad.Atractividad.Length });
             dtColumnas.Rows.Add(new object[] { usabilidad.Subcaracteristicas[4], 0, usabilidad.CumplimientoUsabilidad.Length });
-            
+
+            tabla.ItemsSource = dtColumnas.DefaultView;
         }
 
-
-        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
+        private void cargarTablaMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
         {
             DataTable dtColumnas = new DataTable();
             dtColumnas.Columns.Add("subcaracteristica", typeof(string));
             dtColumnas.Columns.Add("seleccionadas", typeof(string));
             dtColumnas.Columns.Add("total", typeof(string));
 
-            tabla.ItemsSource = dtColumnas.DefaultView;
-
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[0], 0, mantenibilidad.Analizabilidad.Length });        
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[1], 0, mantenibilidad.Modificabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[2], 0, mantenibilidad.Estabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[3], 0, mantenibilidad.Testeabilidad.Length });
             dtColumnas.Rows.Add(new object[] { mantenibilidad.Subcaracteristicas[4], 0, mantenibilidad.CumplimientoMantenibilidad.Length });
-            
+
+            tabla.ItemsSource = dtColumnas.DefaultView;
         }
 
         private void cambiarEstado(int estado, Label etiqueta)
@@ -170,47 +275,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estados[estado];
         }
 
-
         // Evento Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
 		{
             menuMetricas.IsOpen = true;
-        }
-
-        // Eventos botones tabla y label estado
-
-		private void btnEstadoFuncInterna_Click(object sender, RoutedEventArgs e)
-		{ 
-            cargarFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cambiarEstado(1, lblEstadoMetricasFuncInterna);
+            cambiarEstado(2, lblEstadoMetricasUsabInterna);
+            cambiarEstado(3, lblEstadoMetricasMantInterna);
         }
 
-		private void btnEstadoUsabInterna_Click(object sender, RoutedEventArgs e)
-		{  
-            cargarUsabilidad(usaInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(2,lblEstadoMetricasUsabInterna);
+        // Cargar tablas
+
+        private void cargarTabla(RoutedEventArgs e)
+        {
+            Button clickedButton = (Button)e.Source;
+
+            switch (clickedButton.Name)
+            {
+                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); break;
+                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas); break;
+                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas); break;
+                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); break;
+                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas); break;
+                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas); break;
+
+                default:
+                    cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+                    cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+                break;
+            }
         }
 
-		private void btnEstadoMantInterna_Click(object sender, RoutedEventArgs e)
-		{ 
-            cargarMantenibilidad(manInt, DataGridEstadoMetricasInternas);
-            cambiarEstado(3,lblEstadoMetricasMantInterna);
-        }
-
-		private void btnEstadoFuncExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
-        }
-
-		private void btnEstadoUsabExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarUsabilidad(usaExt, DataGridEstadoMetricasExternas);
-        }
-
-		private void btnEstadoMantExterna_Click(object sender, RoutedEventArgs e)
-		{
-            cargarMantenibilidad(manExt, DataGridEstadoMetricasExternas);
+        private void controlTablas(object sender, RoutedEventArgs e)
+        {
+            cargarTabla(e);
         }
 
         // Eventos botones menu flotante (flyout)
@@ -224,37 +323,37 @@ namespace SW1_ISO9126_FUZZY.Vistas
             switch (clickedButton.Name)
             {
                 case "btnFuncInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
                             MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 case "btnUsabInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaInt", MTSusabilidadInterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
                             MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 case "btnMantInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "ManInt", MTSmantenibilidadInterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
                             MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 case "btnFuncExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "FunExt", MTSfuncionalidadExterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
                             MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 case "btnUsabExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "UsaExt", MTSusabilidadExterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
                             MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 case "btnMantExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "ManExt", MTSmantenibilidadExterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
                             MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
                 break;
 
                 default:
-                            paginaSeleccion.cargarSeleccionMetricas(this, "FunInt", MTSfuncionalidadInterna);
+                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
                             MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                 break;
             }

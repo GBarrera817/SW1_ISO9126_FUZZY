@@ -17,7 +17,7 @@
         <GroupBox Header="Métricas de Calidad Internas" HorizontalAlignment="Left" Height="250" Margin="10,77,0,0" VerticalAlignment="Top" Width="489" Background="#FF01A221" BorderBrush="#FF01A221">
             <Grid>
 
-                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,6,393,0" Click="btnEstadoFuncInterna_Click">
+                <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,6,393,0" Click="controlTablas">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -26,7 +26,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoUsabInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,73,393,0" Click="btnEstadoUsabInterna_Click">
+                <Button x:Name="btnEstadoUsabInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,73,393,0" Click="controlTablas">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -35,7 +35,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoMantInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,140,393,0" Click="btnEstadoMantInterna_Click">
+                <Button x:Name="btnEstadoMantInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,140,393,0" Click="controlTablas">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -55,7 +55,7 @@
             <Grid>
 
 
-                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Click="btnEstadoFuncExterna_Click" Margin="24,0,393,0">
+                <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Click="controlTablas" Margin="24,0,393,0">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -64,7 +64,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoUsabExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,73,393,0" Click="btnEstadoUsabExterna_Click">
+                <Button x:Name="btnEstadoUsabExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,73,393,0" Click="controlTablas">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
@@ -73,7 +73,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnEstadoMantExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,140,393,0" Click="btnEstadoMantExterna_Click">
+                <Button x:Name="btnEstadoMantExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="24,140,393,0" Click="controlTablas">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>

@@ -180,22 +180,40 @@ namespace SW1_ISO9126_FUZZY.Vistas
             System.Console.WriteLine("Entrando a cargar json metricas");
 
             if (isFunIntAct)
+            {
                 funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+                cargarListaFuncionabilidad(funInt,funcionalidadInterna);
+            }
 
             if (isFunExtAct)
+            {
                 funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-
+                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
+            }
+                
             if (isUsaIntAct)
+            {
                 usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-
+                cargarListaUsabilidad(usaInt, usabilidadInterna);
+            }
+                
             if (isUsaExtAct)
+            {
                 usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-
+                cargarListaUsabilidad(usaExt, usabilidadExterna);
+            }
+                
             if (isManIntAct)
+            {
                 manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
+            }
 
             if (isManExtAct)
+            {
                 manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+                cargarListaMantenibilidad(manExt, mantenibilidadExterna);
+            } 
         }
 
         private void cambiarEstilo()

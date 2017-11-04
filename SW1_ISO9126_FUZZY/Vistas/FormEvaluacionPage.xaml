@@ -93,7 +93,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnFinalizarCuestionario" Margin="605,547,30,18" Click="btnFinalizarCuestionario_Click">
+        <Button x:Name="btnTerminar" Margin="605,547,30,18" Click="btnFinalizarCuestionario_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

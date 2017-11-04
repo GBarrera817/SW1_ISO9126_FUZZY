@@ -25,33 +25,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// </summary>
 	public partial class FormEvaluacionPage : Page
 	{
-        private JFuncionabilidad funInt;
-        private JFuncionabilidad funExt;
-        private JUsabilidad usaInt;
-        private JUsabilidad usaExt;
-        private JMantenibilidad manInt;
-        private JMantenibilidad manExt;
-
-        private ArrayList funcionalidadInterna;
-        private ArrayList funcionalidadExterna;
-        private ArrayList usabilidadInterna;
-        private ArrayList usabilidadExterna;
-        private ArrayList mantenibilidadInterna;
-        private ArrayList mantenibilidadExterna;
-
-        private int indexFunInt;
-        private int indexFunExt;
-        private int indexUsaInt;
-        private int indexUsaExt;
-        private int indexManint;
-        private int indexManExt;
-
-        private bool isFunIntAct;
-        private bool isFunExtAct;
-        private bool isUsaIntAct;
-        private bool isUsaExtAct;
-        private bool isManIntAct;
-        private bool isManExtAct;
+        // Listas metricas y seleccion metrica
+        private ArrayList listaMetricas;
+        private ArrayList listaSeleccion;
+        private ArrayList listaEvaluacion;
+        private int indiceListas;
 
         private FormularioEvaluacionPage origen;
 
@@ -61,34 +39,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarEntorno();
 		}
 
-        public JFuncionabilidad FunInt { get => funInt; set => funInt = value; }
-        public JFuncionabilidad FunExt { get => funExt; set => funExt = value; }
-        public JUsabilidad UsaInt { get => usaInt; set => usaInt = value; }
-        public JUsabilidad UsaExt { get => usaExt; set => usaExt = value; }
-        public JMantenibilidad ManInt { get => manInt; set => manInt = value; }
-        public JMantenibilidad ManExt { get => manExt; set => manExt = value; }
-
-        public ArrayList FuncionalidadInterna { get => funcionalidadInterna; set => funcionalidadInterna = value; }
-        public ArrayList FuncionalidadExterna { get => funcionalidadExterna; set => funcionalidadExterna = value; }
-        public ArrayList UsabilidadInterna { get => usabilidadInterna; set => usabilidadInterna = value; }
-        public ArrayList UsabilidadExterna { get => usabilidadExterna; set => usabilidadExterna = value; }
-        public ArrayList MantenibilidadInterna { get => mantenibilidadInterna; set => mantenibilidadInterna = value; }
-        public ArrayList MantenibilidadExterna { get => mantenibilidadExterna; set => mantenibilidadExterna = value; }
-
-        public bool IsFunIntAct { get => isFunIntAct; set => isFunIntAct = value; }
-        public bool IsFunExtAct { get => isFunExtAct; set => isFunExtAct = value; }
-        public bool IsUsaIntAct { get => isUsaIntAct; set => isUsaIntAct = value; }
-        public bool IsUsaExtAct { get => isUsaExtAct; set => isUsaExtAct = value; }
-        public bool IsManIntAct { get => isManIntAct; set => isManIntAct = value; }
-        public bool IsManExtAct { get => isManExtAct; set => isManExtAct = value; }
+        // Metodos
 
         private void cargarEntorno()
         {
             inicializarBotones();
-            inicializarEstadoCaracteristica();
             inicializarListas();
-            inicializarIndexListas();
-            cargarJsonMetricas();
         }
 
         private void inicializarBotones()
@@ -97,48 +53,33 @@ namespace SW1_ISO9126_FUZZY.Vistas
             btnSiguiente.IsEnabled = true;
         }
 
-        private void inicializarEstadoCaracteristica()
-        {
-            this.isFunIntAct = false;
-            this.isFunExtAct = false;
-            this.isUsaIntAct = false;
-            this.isUsaExtAct = false;
-            this.isManIntAct = false;
-            this.isManExtAct = false;
-
-        }
-
         private void inicializarListas()
         {
-            this.funcionalidadInterna = new ArrayList();
-            this.funcionalidadExterna = new ArrayList();
-            this.usabilidadInterna = new ArrayList();
-            this.usabilidadExterna = new ArrayList();
-            this.mantenibilidadInterna = new ArrayList();
-            this.mantenibilidadExterna = new ArrayList();
-
+            this.listaMetricas = new ArrayList();
+            this.listaSeleccion = new ArrayList();
+            this.listaEvaluacion = new ArrayList();
+            this.indiceListas = 0;
         }
 
-        private void inicializarIndexListas()
+        private void inicializarEvaluacion(ArrayList metricas) //idproposito
         {
-            this.indexFunInt = 0;
-            this.indexFunExt = 0;
-            this.indexUsaInt = 0;
-            this.indexUsaExt = 0;
-            this.indexManint = 0;
-            this.indexManExt = 0;
+            JMetrica metricaJson;
+            MTEvaluacion metricaEval;
 
-        }
+            for (int i = 0; i < metricas.Count; i++)
+            {
+                metricaEval = new MTEvaluacion();
 
-        private void cargarJsonMetricas()
-        {
-            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+                metricaJson = (JMetrica)metricas[i];
+                metricaEval.Id = metricaJson.Id;
+               // metricaEval.Formula = metricaJson.Formula;
+                metricaEval.Parametros = metricaJson.Parametros; 
+                // Array Float valores
+                metricaEval.MejorValor = metricaJson.Mejor_valor;
+                metricaEval.PeorValor = metricaJson.Peor_valor;
 
+                listaSeleccion.Add(metricaEval);
+            }
         }
 
         private void limpiarSlider()
@@ -165,20 +106,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
             sldparam2.Visibility = Visibility.Hidden;
         }
 
-        private void cargarMetrica(JMetrica metrica)
-        {
+        // Cargar una metrica
 
+        private void cargarMetrica(JMetrica metrica) //idproposito
+        {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
             lblID.Content = metrica.Id;
             lblSubcaracteristica.Content = metrica.Subcaracteristica;
             lblNombre.Content = metrica.Nombre;
-            labelProposito.Text = metrica.Proposito[0];
+            labelProposito.Text = metrica.Proposito[0]; //idproposito
             labelMetodo.Text = metrica.Metodo;
-            label1_formula.Content = metrica.Formula[0];
+            label1_formula.Content = metrica.Formula[0]; //idproposito
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
-
 
             limpiarSlider();
 
@@ -223,83 +164,79 @@ namespace SW1_ISO9126_FUZZY.Vistas
             txbkParam.Text = sb.ToString();
         }
 
+        // Comprobar el estado de la evaluacion de la metrica
 
-        private void cargarFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
+        private void comprobarEvaluacion(int indice)
         {
-            // Etiquetas pricipales
-            lblCaracteristica.Content = funcionalidad.Caracteristica;
-            lblPerspectiva.Content = funcionalidad.Perspectiva;
+            MTSeleccion metrica;
 
-            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
-                metricas.Add(funcionalidad.Adecuacion[i]);
+            metrica = (MTSeleccion)listaSeleccion[indice];
 
-            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
-                metricas.Add(funcionalidad.Exactitud[i]);
+            dataGridDetalleMetrica.SelectedIndex = metrica.Proposito;
 
-            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
-                metricas.Add(funcionalidad.Interoperabilidad[i]);
-
-            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
-                metricas.Add(funcionalidad.SeguridadAcceso[i]);
-
-            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
-                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
-
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(funcionalidad.Adecuacion[0]);
-
+            if (metrica.Estado)
+            {
+                chckDetallesMetricas.IsChecked = true;
+            }
+            else
+            {
+                chckDetallesMetricas.IsChecked = false;
+            }
         }
 
+        // Guardar estado de la evaluacion de la metrica
 
-        private void cargarUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        private void guardarEvaluacion(int indice)
         {
-            // Etiquetas pricipales
-            lblCaracteristica.Content = usabilidad.Caracteristica;
-            lblPerspectiva.Content = usabilidad.Perspectiva;
+            MTSeleccion metrica;
 
-            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
-                metricas.Add(usabilidad.Comprensibilidad[i]);
+            metrica = (MTSeleccion)listaSeleccion[indice];
 
-            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
-                metricas.Add(usabilidad.Aprendizaje[i]);
+            metrica.Estado = (bool)chckDetallesMetricas.IsChecked;
 
-            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
-                metricas.Add(usabilidad.Operabilidad[i]);
+            if (metrica.Estado)
+            {
+                metrica.Proposito = dataGridDetalleMetrica.SelectedIndex;
+            }
+            else
+            {
+                metrica.Proposito = 0;
+            }
 
-            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
-                metricas.Add(usabilidad.Atractividad[i]);
-
-            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
-                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
-
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(usabilidad.Comprensibilidad[0]);
+            listaSeleccion[indice] = metrica;
         }
 
+        // Retorna las metricas evaluadas
 
-        private void cargarMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        public ArrayList evaluacionMetrica()
         {
-            // Etiquetas pricipales
-            lblCaracteristica.Content = mantenibilidad.Caracteristica;
-            lblPerspectiva.Content = mantenibilidad.Perspectiva;
+            return listaEvaluacion;
+        }
 
-            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Analizabilidad[i]);
+        // Cargar la caracteristicas (Eventos botones tile)
 
-            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Modificabilidad[i]);
+        public void cargarSeleccionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion)
+        {
+            origen = llamada;
+            cargarEntorno();
 
-            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Estabilidad[i]);
+            // Etiquetas pricipales 
+            lblCaracteristica.Content = caracteristica;
+            lblPerspectiva.Content = perspectiva;
 
-            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Testeabilidad[i]);
+            //Cargar listas metricas y seleccion
+            listaMetricas = (ArrayList)metricas.Clone();
+            listaSeleccion = (ArrayList)seleccion.Clone();
 
-            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
-                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+            //Si no hay seleccion previa, se crea
+            if (listaSeleccion.Count == 0)
+            {
+                inicializarEvaluacion(listaMetricas);
+            }
 
-            // Cargar metrica de primera subcaracteristica
-            cargarMetrica(mantenibilidad.Analizabilidad[0]);
+            //Cargo y compruebo metrica inicial
+            cargarMetrica((JMetrica)listaMetricas[0]);
+            comprobarEvaluacion(0);
         }
 
 
@@ -307,6 +244,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void retroceder(ref int indice, ArrayList lista)
         {
+            guardarEvaluacion(indice);
+
             if ((indice - 1) > -1)
             {
                 indice--;
@@ -317,6 +256,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
+                comprobarEvaluacion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -334,6 +274,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void avanzar(ref int indice, ArrayList lista)
         {
+            guardarEvaluacion(indice);
+
             if ((indice + 1) < lista.Count)
             {
                 indice++;
@@ -344,6 +286,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
+                comprobarEvaluacion(indice);
 
                 if (btnAnterior.IsEnabled == false)
                 {
@@ -356,6 +299,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 btnSiguiente.IsEnabled = false;
             }
         }
+
+        // Eventos Sliders
 
         private void sldparam0_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -376,203 +321,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (isFunIntAct)
-            {
-                retroceder(ref indexFunInt, funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                retroceder(ref indexFunExt, funcionalidadExterna);
-            }
-
-            if (isUsaIntAct)
-            {
-                retroceder(ref indexUsaInt, usabilidadInterna);
-            }
-
-            if (isUsaExtAct)
-            {
-                retroceder(ref indexUsaExt, usabilidadExterna);
-            }
-
-            if (isManIntAct)
-            {
-                retroceder(ref indexManint, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                retroceder(ref indexManExt, mantenibilidadExterna);
-            }
+            retroceder(ref indiceListas, listaMetricas);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (isFunIntAct)
-            {
-                avanzar(ref indexFunInt, funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                avanzar(ref indexFunExt, funcionalidadExterna);
-            }
-
-            if (isUsaIntAct)
-            {
-                avanzar(ref indexUsaInt, usabilidadInterna);
-            }
-
-            if (isUsaExtAct)
-            {
-                avanzar(ref indexUsaExt, usabilidadExterna);
-            }
-
-            if (isManIntAct)
-            {
-                avanzar(ref indexManint, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                avanzar(ref indexManExt, mantenibilidadExterna);
-            }
+            avanzar(ref indiceListas, listaMetricas);
         }
 
-        private void btnFinalizarCuestionario_Click(object sender, RoutedEventArgs e)
-		{
-            if (isFunIntAct)
-            {
-                indexFunInt = 0;
-                isFunIntAct = false;
-            }
-
-            if (isFunExtAct)
-            {
-                indexFunExt = 0;
-                isFunExtAct = false;
-            }
-
-            if (isUsaIntAct)
-            {
-                indexUsaInt = 0;
-                isUsaIntAct = false;
-            }
-
-            if (isUsaExtAct)
-            {
-                indexUsaExt = 0;
-                isUsaExtAct = false;
-            }
-
-            if (isManIntAct)
-            {
-                indexManint = 0;
-                isManIntAct = false;
-            }
-
-            if (isManExtAct)
-            {
-                indexManExt = 0;
-                isManExtAct = false;
-            }
-
-           // this.NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
-           // NavigationService.Navigate(new Uri("Vistas/FormularioEvaluacionPage.xaml", UriKind.Relative));
-            NavigationService.Navigate(origen);
-        }
-    
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
-            if (isFunIntAct)
-            {
-                indexFunInt = 0;
-                isFunIntAct = false;
-            }
-
-            if (isFunExtAct)
-            {
-                indexFunExt = 0;
-                isFunExtAct = false;
-            }
-
-            if (isUsaIntAct)
-            {
-                indexUsaInt = 0;
-                isUsaIntAct = false;
-            }
-
-            if (isUsaExtAct)
-            {
-                indexUsaExt = 0;
-                isUsaExtAct = false;
-            }
-
-            if (isManIntAct)
-            {
-                indexManint = 0;
-                isManIntAct = false;
-            }
-
-            if (isManExtAct)
-            {
-                indexManExt = 0;
-                isManExtAct = false;
-            }
-
+            guardarEvaluacion(indiceListas);
             NavigationService.Navigate(origen);
         }
 
-        // Acceso a contenido
-
-        public void FuncInterna_Activar(FormularioEvaluacionPage llamada)
+        private void btnTerminar_Click(object sender, RoutedEventArgs e)
         {
-            origen = llamada;
-            cargarEntorno();
-            isFunIntAct = true;
-            cargarFuncionabilidad(funInt,funcionalidadInterna);
+            guardarEvaluacion(indiceListas);
+            NavigationService.Navigate(origen);
         }
-
-        public void UsabInterna_Activar(FormularioEvaluacionPage llamada)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaIntAct = true;
-            cargarUsabilidad(usaInt,usabilidadInterna);
-        }
-
-        public void MantInterna_Activar(FormularioEvaluacionPage llamada)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManIntAct = true;
-            cargarMantenibilidad(manInt,mantenibilidadInterna);
-        }
-
-        public void FuncExterna_Activar(FormularioEvaluacionPage llamada)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isFunExtAct = true;
-            cargarFuncionabilidad(funExt,funcionalidadExterna);
-        }
-
-        public void UsabExterna_Activar(FormularioEvaluacionPage llamada)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isUsaExtAct = true;
-            cargarUsabilidad(usaExt,usabilidadExterna);
-        }
-
-        public void MantExterna_Activar(FormularioEvaluacionPage llamada)
-        {
-            origen = llamada;
-            cargarEntorno();
-            isManExtAct = true;
-            cargarMantenibilidad(manExt, mantenibilidadExterna);
-        }
-
     }
 }

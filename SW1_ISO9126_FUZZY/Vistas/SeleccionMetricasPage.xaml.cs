@@ -203,7 +203,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 inicializarSeleccion(listaMetricas);
             }
 
-            //Compruebo metrica inicial
+            //Cargo y compruebo metrica inicial
+            cargarMetrica((JMetrica)listaMetricas[0]);
             comprobarSeleccion(0);
         }
 

@@ -119,6 +119,62 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.MTSmantenibilidadExterna = new ArrayList();
         }
 
+        // Crear listas de metricas por caracteristicas
+
+        private void cargarListaFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
+        {
+            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
+                metricas.Add(funcionalidad.Adecuacion[i]);
+
+            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
+                metricas.Add(funcionalidad.Exactitud[i]);
+
+            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
+                metricas.Add(funcionalidad.Interoperabilidad[i]);
+
+            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
+                metricas.Add(funcionalidad.SeguridadAcceso[i]);
+
+            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
+                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
+        }
+
+        private void cargarListaUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        {
+            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
+                metricas.Add(usabilidad.Comprensibilidad[i]);
+
+            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
+                metricas.Add(usabilidad.Aprendizaje[i]);
+
+            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
+                metricas.Add(usabilidad.Operabilidad[i]);
+
+            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
+                metricas.Add(usabilidad.Atractividad[i]);
+
+            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
+                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
+        }
+
+        private void cargarListaMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        {
+            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Analizabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Modificabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Estabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
+                metricas.Add(mantenibilidad.Testeabilidad[i]);
+
+            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
+                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+        }
+
         private void cargarJsonMetricas()
         {
             System.Console.WriteLine("Entrando a cargar json metricas");
@@ -182,7 +238,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             tabla.ItemsSource = dtColumnas.DefaultView;
         }
-
 
         private void cargarTablaMantenibilidad(JMantenibilidad mantenibilidad, DataGrid tabla)
         {

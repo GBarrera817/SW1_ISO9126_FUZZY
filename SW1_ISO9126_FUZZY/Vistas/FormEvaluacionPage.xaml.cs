@@ -61,7 +61,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.indiceListas = 0;
         }
 
-        private void inicializarEvaluacion(ArrayList metricas) //idproposito
+        private void inicializarEvaluacion(ArrayList metricas, int idProposito)
         {
             JMetrica metricaJson;
             MTEvaluacion metricaEval;
@@ -72,9 +72,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 metricaJson = (JMetrica)metricas[i];
                 metricaEval.Id = metricaJson.Id;
-               // metricaEval.Formula = metricaJson.Formula;
-                metricaEval.Parametros = metricaJson.Parametros; 
-                // Array Float valores
+                metricaEval.Formula = metricaJson.Formula[idProposito];
+                metricaEval.Parametros = metricaJson.Parametros;
+
+                for (int i = 0; i < metricaJson.Parametros.Length; i++)
+                {
+                    metricaEval.Valores[i] = 0f;
+                }
+                
                 metricaEval.MejorValor = metricaJson.Mejor_valor;
                 metricaEval.PeorValor = metricaJson.Peor_valor;
 
@@ -108,16 +113,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cargar una metrica
 
-        private void cargarMetrica(JMetrica metrica) //idproposito
+        private void cargarMetrica(JMetrica metrica, int idProposito) 
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
             lblID.Content = metrica.Id;
             lblSubcaracteristica.Content = metrica.Subcaracteristica;
             lblNombre.Content = metrica.Nombre;
-            labelProposito.Text = metrica.Proposito[0]; //idproposito
+            labelProposito.Text = metrica.Proposito[idProposito]; 
             labelMetodo.Text = metrica.Metodo;
-            label1_formula.Content = metrica.Formula[0]; //idproposito
+            label1_formula.Content = metrica.Formula[idProposito]; 
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
 
@@ -170,18 +175,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             MTSeleccion metrica;
 
-            metrica = (MTSeleccion)listaSeleccion[indice];
+            metrica = (MTEvaluacion)listaEvaluacion[indice];
 
-            dataGridDetalleMetrica.SelectedIndex = metrica.Proposito;
-
-            if (metrica.Estado)
-            {
-                chckDetallesMetricas.IsChecked = true;
-            }
-            else
-            {
-                chckDetallesMetricas.IsChecked = false;
-            }
         }
 
         // Guardar estado de la evaluacion de la metrica
@@ -227,6 +222,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             //Cargar listas metricas y seleccion
             listaMetricas = (ArrayList)metricas.Clone();
             listaSeleccion = (ArrayList)seleccion.Clone();
+            listaEvaluacion = (ArrayList)evaluacion.Clone();
 
             //Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)

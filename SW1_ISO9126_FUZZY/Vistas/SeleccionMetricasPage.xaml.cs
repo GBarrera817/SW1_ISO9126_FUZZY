@@ -184,8 +184,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
 
             // Etiquetas pricipales 
-            lblCaracterística.Content = caracteristica;
-            lblPerpectiva.Content = perspectiva;
+            lblCaracteristica.Content = caracteristica;
+            lblPerspectiva.Content = perspectiva;
 
             //Cargar listas metricas y seleccion
             listaMetricas = (ArrayList)metricas.Clone();

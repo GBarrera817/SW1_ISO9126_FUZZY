@@ -19,13 +19,13 @@
         <!-- Identificación de la Característica y subcaracterítisca asociada -->
         <GroupBox Header="INFORMACIÓN DE LA METRICA" HorizontalAlignment="Left" Height="105" Margin="10,49,0,0" VerticalAlignment="Top" Width="780"  Background="#FF33A133" BorderBrush="#FF33A133">
             <Grid HorizontalAlignment="Left" Height="97" Margin="0,-10,-2,-2" VerticalAlignment="Top" Width="770">
-                <Label x:Name="lblPerpectiva" Content="" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" Margin="344,45,0,0"/>
+                <Label x:Name="lblPerspectiva" Content="" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" Margin="344,45,0,0"/>
                 <Label FontSize="14" Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0" Height="29" FontWeight="Bold" Margin="7,12,0,0"/>
                 <Label x:Name="lblNombreMetrica" FontSize="14" Content="" HorizontalAlignment="Left" Margin="77,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.25" Width="595"/>
                 <Label FontSize="14" Content="ID: " HorizontalAlignment="Left" Margin="697,12,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblIDMetrica" FontSize="14" HorizontalAlignment="Left" Margin="732,13,0,0" VerticalAlignment="Top" Width="33" Height="29"/>
                 <Label FontSize="14" Content="Caracteristica: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="8,45,0,0" Width="102"/>
-                <Label x:Name="lblCaracterística" FontSize="14" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Margin="115,45,0,0"/>
+                <Label x:Name="lblCaracteristica" FontSize="14" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Margin="115,45,0,0"/>
                 <Label FontSize="14" Content="Subcaracterística: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="427,45,0,0" Width="124"/>
                 <Label x:Name="lblSubcaracterística" FontSize="14" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="194" Margin="548,45,0,0"/>
                 <Label FontSize="14" Content="Perspectiva: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="255,45,0,0" Width="89"/>

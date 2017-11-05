@@ -222,6 +222,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void cargarSeleccionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion, ArrayList evaluacion)
         {
+            MTSeleccion metricaSeleccionada;
+
             origen = llamada;
             cargarEntorno();
 
@@ -234,22 +236,25 @@ namespace SW1_ISO9126_FUZZY.Vistas
             listaSeleccion = (ArrayList)seleccion.Clone();
             listaEvaluacion = (ArrayList)evaluacion.Clone();
 
+            metricaSeleccionada = (MTSeleccion)listaSeleccion[0];
+
             //Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)
             {
-                inicializarEvaluacion(listaMetricas);
+                inicializarEvaluacion(listaMetricas, metricaSeleccionada.Proposito);
             }
 
             //Cargo y compruebo metrica inicial
-            cargarMetrica((JMetrica)listaMetricas[0]);
+            cargarMetrica((JMetrica)listaMetricas[0], metricaSeleccionada.Proposito);
             cargarEvaluacion(0);
         }
 
-
         // Retroceder
 
-        private void retroceder(ref int indice, ArrayList lista)
+        private void retroceder(ref int indice, ArrayList metricas, ArrayList seleccionadas)
         {
+            MTSeleccion metricaSeleccionada;
+
             guardarEvaluacion(indice);
 
             if ((indice - 1) > -1)
@@ -261,7 +266,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     btnAnterior.IsEnabled = false;
                 }
 
-                cargarMetrica((JMetrica)lista[indice]);
+                metricaSeleccionada = (MTSeleccion)seleccionadas[indice];
+
+                cargarMetrica((JMetrica)metricas[indice], metricaSeleccionada.Proposito);
                 cargarEvaluacion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
@@ -278,20 +285,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Avanzar
 
-        private void avanzar(ref int indice, ArrayList lista)
+        private void avanzar(ref int indice, ArrayList metricas, ArrayList seleccionadas)
         {
+            MTSeleccion metricaSeleccionada;
+
             guardarEvaluacion(indice);
 
-            if ((indice + 1) < lista.Count)
+            if ((indice + 1) < metricas.Count)
             {
                 indice++;
 
-                if (indice == (lista.Count - 1))
+                if (indice == (metricas.Count - 1))
                 {
                     btnSiguiente.IsEnabled = false;
                 }
 
-                cargarMetrica((JMetrica)lista[indice]);
+                metricaSeleccionada = (MTSeleccion)seleccionadas[indice];
+
+                cargarMetrica((JMetrica)metricas[indice], metricaSeleccionada.Proposito);
                 cargarEvaluacion(indice);
 
                 if (btnAnterior.IsEnabled == false)
@@ -327,12 +338,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            retroceder(ref indiceListas, listaMetricas);
+            retroceder(ref indiceListas, listaMetricas, listaSeleccion);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            avanzar(ref indiceListas, listaMetricas);
+            avanzar(ref indiceListas, listaMetricas, listaSeleccion);
         }
 
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)

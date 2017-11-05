@@ -171,34 +171,44 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Comprobar el estado de la evaluacion de la metrica
 
-        private void comprobarEvaluacion(int indice)
+        private void cargarEvaluacion(int indice)
         {
-            MTSeleccion metrica;
+            MTEvaluacion metrica;
+            int parametros = 0;
 
             metrica = (MTEvaluacion)listaEvaluacion[indice];
+            parametros = metrica.Parametros.Length;
 
+            if (parametros == 1)
+                txtParam0.Text = metrica.Valores[0].ToString();
+            
+            if (parametros == 2)          
+                txtParam1.Text = metrica.Valores[1].ToString();
+
+            if (parametros == 3)
+                txtParam2.Text = metrica.Valores[2].ToString();
         }
 
         // Guardar estado de la evaluacion de la metrica
 
         private void guardarEvaluacion(int indice)
         {
-            MTSeleccion metrica;
+            MTEvaluacion metrica;
+            int parametros = 0;
 
-            metrica = (MTSeleccion)listaSeleccion[indice];
+            metrica = (MTEvaluacion)listaEvaluacion[indice];
+            parametros = metrica.Parametros.Length;
 
-            metrica.Estado = (bool)chckDetallesMetricas.IsChecked;
+            if (parametros == 1)            
+                metrica.Valores[0] = float.Parse(txtParam0.Text);           
 
-            if (metrica.Estado)
-            {
-                metrica.Proposito = dataGridDetalleMetrica.SelectedIndex;
-            }
-            else
-            {
-                metrica.Proposito = 0;
-            }
-
-            listaSeleccion[indice] = metrica;
+            if (parametros == 2)            
+                metrica.Valores[1] = float.Parse(txtParam1.Text);
+            
+            if (parametros == 3)           
+                metrica.Valores[2] = float.Parse(txtParam2.Text);
+            
+            listaEvaluacion[indice] = metrica;
         }
 
         // Retorna las metricas evaluadas
@@ -232,7 +242,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             //Cargo y compruebo metrica inicial
             cargarMetrica((JMetrica)listaMetricas[0]);
-            comprobarEvaluacion(0);
+            cargarEvaluacion(0);
         }
 
 
@@ -252,7 +262,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
-                comprobarEvaluacion(indice);
+                cargarEvaluacion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -282,7 +292,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
-                comprobarEvaluacion(indice);
+                cargarEvaluacion(indice);
 
                 if (btnAnterior.IsEnabled == false)
                 {

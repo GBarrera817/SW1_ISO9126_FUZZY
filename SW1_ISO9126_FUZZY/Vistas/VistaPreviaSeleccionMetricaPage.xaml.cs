@@ -210,13 +210,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Centrar columnas de las tablas
 
-        private void centrarColumnas()
+        private void centrarColumnas(DataGrid tabla)
         {
             Style estilo = new Style(typeof(DataGrid));
 
             estilo.Setters.Add(new Setter(TextBlock.HorizontalAlignmentProperty, HorizontalAlignment.Center));
 
-            DataGridEstadoMetricasInternas.Columns[1].CellStyle = estilo;
+            tabla.Columns[1].CellStyle = estilo;
         }
 
         private void cargarTablaFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
@@ -279,16 +279,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estados[estado];
         }
 
-        // Evento Flyout
-
-        private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
-		{
-            menuMetricas.IsOpen = true;
-            cambiarEstado(1, lblEstadoMetricasFuncInterna);
-            cambiarEstado(2, lblEstadoMetricasUsabInterna);
-            cambiarEstado(3, lblEstadoMetricasMantInterna);
-        }
-
         // Cargar tablas
 
         private void cargarTabla(RoutedEventArgs e)
@@ -297,12 +287,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             switch (clickedButton.Name)
             {
-                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); break;
-                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas); break;
-                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas); break;
-                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); break;
-                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas); break;
-                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas); break;
+                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);    break;
+                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);         break;
+                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);     break;
+                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);    break;
+                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);         break;
+                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);     break;
 
                 default:
                     cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
@@ -314,6 +304,58 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void controlTablas(object sender, RoutedEventArgs e)
         {
             cargarTabla(e);
+        }
+
+        // Comprimir lista seleccion
+
+        public ArrayList comprimirSeleccion(ArrayList seleccion)
+        {
+            MTSeleccion metricaSelec;
+            ArrayList local = new ArrayList();
+
+            for (int i = 0; i < seleccion.Count; i++)
+            {
+                metricaSelec = new MTSeleccion();
+                metricaSelec = (MTSeleccion)seleccion[i];
+                local.Add(metricaSelec);
+            }
+
+            return local;
+        }
+
+        // Comprimir lista metricas
+
+        public ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
+        {
+            JMetrica metricaJson;
+            MTSeleccion metricaSelec;
+            ArrayList local = new ArrayList();
+
+            for (int i = 0; i < metricas.Count; i++)
+            {
+                metricaJson = new JMetrica();
+
+                metricaJson = (JMetrica)metricas[i];
+                metricaSelec = (MTSeleccion)seleccion[i];
+
+                if (metricaSelec.Estado)
+                {
+                    local.Add(metricaJson);
+                }       
+            }
+
+            return local;
+        }
+
+        // Evento Flyout
+
+        private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
+        {
+            menuMetricas.IsOpen = true;
+            cambiarEstado(1, lblEstadoMetricasFuncInterna);
+            cambiarEstado(2, lblEstadoMetricasUsabInterna);
+            cambiarEstado(3, lblEstadoMetricasMantInterna);
+            //centrarColumnas(DataGridEstadoMetricasInternas);
         }
 
         // Eventos botones menu flotante (flyout)

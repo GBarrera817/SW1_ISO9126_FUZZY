@@ -208,7 +208,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             } 
         }
 
-        private void cambiarEstilo()
+        // Centrar columnas de las tablas
+
+        private void centrarColumnas()
         {
             Style estilo = new Style(typeof(DataGrid));
 
@@ -264,6 +266,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             tabla.ItemsSource = dtColumnas.DefaultView;
         }
+
+        // Cambia las letras y los colores de las etiquetas de estado
 
         private void cambiarEstado(int estado, Label etiqueta)
         {

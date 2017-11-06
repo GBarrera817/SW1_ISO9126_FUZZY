@@ -129,7 +129,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Comprobar el estado de la seleccion de la metrica
 
-        private void comprobarSeleccion(int indice)
+        private void cargarSeleccion(int indice)
         {
             MTSeleccion metrica;
 
@@ -184,8 +184,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             cargarEntorno();
 
             // Etiquetas pricipales 
-            lblCaracterística.Content = caracteristica;
-            lblPerpectiva.Content = perspectiva;
+            lblCaracteristica.Content = caracteristica;
+            lblPerspectiva.Content = perspectiva;
 
             //Cargar listas metricas y seleccion
             listaMetricas = (ArrayList)metricas.Clone();
@@ -199,7 +199,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             //Cargo y compruebo metrica inicial
             cargarMetrica((JMetrica)listaMetricas[0]);
-            comprobarSeleccion(0);
+            cargarSeleccion(0);
         }
 
         // Retroceder
@@ -218,7 +218,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
-                comprobarSeleccion(indice);
+                cargarSeleccion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
                 {
@@ -248,7 +248,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 }
 
                 cargarMetrica((JMetrica)lista[indice]);
-                comprobarSeleccion(indice);
+                cargarSeleccion(indice);
 
                 if (btnAnterior.IsEnabled == false)
                 {

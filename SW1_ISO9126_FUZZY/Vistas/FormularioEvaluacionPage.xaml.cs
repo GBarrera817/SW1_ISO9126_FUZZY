@@ -77,12 +77,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarEstadoCaracteristica()
         {
-            this.isFunIntAct = true;
-            this.isFunExtAct = true;
-            this.isUsaIntAct = true;
-            this.isUsaExtAct = true;
-            this.isManIntAct = true;
-            this.isManExtAct = true;
+            this.isFunIntAct = false;
+            this.isFunExtAct = false;
+            this.isUsaIntAct = false;
+            this.isUsaExtAct = false;
+            this.isManIntAct = false;
+            this.isManExtAct = false;
         }
 
         private void inicializarListas()
@@ -226,42 +226,44 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             Button clickedButton = (Button)e.Source;
 
+            //Comprobar el estado de la seleccion de metricas
+
             switch (clickedButton.Name)
             {
                 case "btnFuncInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
                     MTSfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 case "btnUsabInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
                     MTSusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 case "btnMantInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
                     MTSmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 case "btnFuncExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
                     MTSfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 case "btnUsabExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
                     MTSusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 case "btnMantExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna;
                     MTSmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
 
                 default:
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
                     MTSfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
-                    break;
+                break;
             }
 
             this.NavigationService.Navigate(paginaEvaluacion);

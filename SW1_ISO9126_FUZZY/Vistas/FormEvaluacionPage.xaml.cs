@@ -207,7 +207,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cargar la caracteristicas (Eventos botones tile)
 
-        public void cargarSeleccionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion, ArrayList evaluacion)
+        public void cargarEvaluacionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion, ArrayList evaluacion)
         {
             MTSeleccion metricaSeleccionada;
 

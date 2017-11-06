@@ -317,14 +317,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 metricaSelec = new MTSeleccion();
                 metricaSelec = (MTSeleccion)seleccion[i];
-                local.Add(metricaSelec);
+
+                if (metricaSelec.Estado)
+                {
+                    local.Add(metricaSelec);
+                }
             }
 
             return local;
         }
 
-        // Comprimir lista metricas
-
+        /// <summary>
+        /// Comprimir lista metricas
+        /// </summary>
+        /// <param name="metricas"> pico</param>
+        /// <param name="seleccion">choro rico</param>
+        /// <returns></returns>
         public ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
         {
             JMetrica metricaJson;
@@ -405,6 +413,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             this.NavigationService.Navigate(paginaSeleccion);
+
+            
         }
     }
 }

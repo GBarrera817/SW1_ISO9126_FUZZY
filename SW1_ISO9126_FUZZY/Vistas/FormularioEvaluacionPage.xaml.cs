@@ -256,7 +256,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 break;
 
                 case "btnMantExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna;
+                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
                     MTSmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
                 break;
 

@@ -62,9 +62,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaEval.Formula = metricaJson.Formula[idProposito];
                 metricaEval.Parametros = metricaJson.Parametros;
 
-                for (int i = 0; i < metricaJson.Parametros.Length; i++)
+                for (int j = 0; j < metricaJson.Parametros.Length; j++)
                 {
-                    metricaEval.Valores[i] = 0f;
+                    metricaEval.Valores[j] = 0f;
                 }
                 
                 metricaEval.MejorValor = metricaJson.Mejor_valor;

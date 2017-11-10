@@ -20,8 +20,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
         private double numCalidadInternaNum;
         private double munCalidadExternaNum;
 
-        private RCaracteristicas carInternas;
-        private RCaracteristicas carExternas;
+        private RCaracteristicas caracteristicas;
 
         private RSCFuncionalidad subcarFunInterna;
         private RSCFuncionalidad subcarFunExterna;
@@ -42,8 +41,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
             this.NumCalidadInternaNum = 0;
             this.MunCalidadExternaNum = 0;
 
-            this.carInternas = new RCaracteristicas();
-            this.carExternas = new RCaracteristicas();
+            this.Caracteristicas = new RCaracteristicas();
 
             this.subcarFunInterna = new RSCFuncionalidad();
             this.subcarFunExterna = new RSCFuncionalidad();
@@ -63,8 +61,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
         public double NumCalidadInternaNum { get => numCalidadInternaNum; set => numCalidadInternaNum = value; }
         public double MunCalidadExternaNum { get => munCalidadExternaNum; set => munCalidadExternaNum = value; }
 
-        public RCaracteristicas CarInternas { get => carInternas; set => carInternas = value; }
-        public RCaracteristicas CarExternas { get => carExternas; set => carExternas = value; }
+        public RCaracteristicas Caracteristicas { get => caracteristicas; set => caracteristicas = value; }
 
         public RSCFuncionalidad SubcarFunInterna { get => subcarFunInterna; set => subcarFunInterna = value; }
         public RSCFuncionalidad SubcarFunExterna { get => subcarFunExterna; set => subcarFunExterna = value; }
@@ -74,5 +71,6 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
 
         public RSCMantenibilidad SubcarManInterna { get => subcarManInterna; set => subcarManInterna = value; }
         public RSCMantenibilidad SubcarManExterna { get => subcarManExterna; set => subcarManExterna = value; }
+
     }
 }

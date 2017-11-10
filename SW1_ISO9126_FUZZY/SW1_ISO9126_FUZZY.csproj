@@ -154,6 +154,9 @@
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Logica Difusa\VariableLinguistica.cs" />
     <Compile Include="Modelo Datos\Calculo.cs" />
+    <Compile Include="Modelo Datos\ESCFuncionalidad.cs" />
+    <Compile Include="Modelo Datos\ESCMantenibilidad.cs" />
+    <Compile Include="Modelo Datos\ESCUsabilidad.cs" />
     <Compile Include="Modelo Datos\EstadoFinal.cs" />
     <Compile Include="Modelo Datos\EstadoModulo.cs" />
     <Compile Include="Modelo Datos\Evaluacion.cs" />

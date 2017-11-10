@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
+    /// <summary>
+    ///  Lista Seleccion: Listas para guardar la seleccion (datos) asociado a cada metrica por caracteristicas Internas/Externas
+    /// </summary>
+
     public class ListSeleccion
     {
        private List<MTSeleccion> funcionalidadInterna;

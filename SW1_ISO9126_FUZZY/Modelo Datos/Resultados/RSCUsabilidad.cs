@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
 {
     /// <summary>
-    /// Resultados de la evaluacion difusa subcaracteristicas Usabilidad
+    /// Resultado SubCaracteristica Usabilidad: Resultados de la evaluacion difusa subcaracteristicas Usabilidad
     /// </summary>
 
     public class RSCUsabilidad

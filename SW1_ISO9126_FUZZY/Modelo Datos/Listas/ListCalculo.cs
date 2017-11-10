@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
+    /// <summary>
+    ///  Lista Calculo: Listas para guarda los calculos asociado a la formula que contiene cada metrica por caracteristicas Internas/Externas
+    /// </summary>
+
     public class ListCalculo
     {
         private List<MTCalculo> funcionalidadInterna;

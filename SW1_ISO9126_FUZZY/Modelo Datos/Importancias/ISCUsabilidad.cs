@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Importancias
 {
     /// <summary>
-    /// Grados de importancia subcaracteristicas Usabilidad
+    /// Importancia SubCaracteristica Usabilidad: Grados de importancia subcaracteristicas Usabilidad
     /// </summary>
 
     public class ISCUsabilidad

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 {
     /// <summary>
-    /// Estado Subcaracteristica Mantenibilidad
+    /// Estado Subcaracteristica Mantenibilidad: Guarda el estado (booleano) de las subcaracteristicas de Mantenibilidad
     /// </summary>
 
     public class ESCMantenibilidad

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 {
     /// <summary>
-    /// Estado Subcaracteristica Usabilidad
+    /// Estado Subcaracteristica Usabilidad: Guarda el estado (booleano) de las subcaracteristicas de Usabilidad
     /// </summary>
 
     public class ESCUsabilidad

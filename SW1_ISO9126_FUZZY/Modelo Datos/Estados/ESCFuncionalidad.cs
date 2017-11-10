@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 {
     /// <summary>
-    /// Estado Subcaracteristica Funcionalidad
+    /// Estado Subcaracteristica Funcionalidad: Guarda el estado (booleano) de las subcaracteristicas de Funcionalidad
     /// </summary>
 
     public class ESCFuncionalidad

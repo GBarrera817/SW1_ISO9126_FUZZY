@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
 {
     /// <summary>
-    /// Resultados de la evaluacion difusa final, resultado linguistico y numerico
+    /// Resultados: De la evaluacion difusa final, resultado linguistico y numerico
     /// </summary>
     
     public class Resultado

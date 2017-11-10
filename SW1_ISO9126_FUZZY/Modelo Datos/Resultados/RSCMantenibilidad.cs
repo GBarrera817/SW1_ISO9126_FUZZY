@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
 {
     /// <summary>
-    /// Resultados de la evaluacion difusa subcaracteristicas Mantenibilidad
+    /// Resultado SubCaracteristica Mantenibilidad: Resultados de la evaluacion difusa subcaracteristicas Mantenibilidad
     /// </summary>
 
     public class RSCMantenibilidad

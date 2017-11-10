@@ -153,18 +153,28 @@
     <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Logica Difusa\VariableLinguistica.cs" />
-    <Compile Include="Modelo Datos\Calculo.cs" />
-    <Compile Include="Modelo Datos\ESCFuncionalidad.cs" />
-    <Compile Include="Modelo Datos\ESCMantenibilidad.cs" />
-    <Compile Include="Modelo Datos\ESCUsabilidad.cs" />
-    <Compile Include="Modelo Datos\EstadoFinal.cs" />
-    <Compile Include="Modelo Datos\EstadoModulo.cs" />
+    <Compile Include="Modelo Datos\Estados\ESCaracteristicas.cs" />
+    <Compile Include="Modelo Datos\Estados\ESCFuncionalidad.cs" />
+    <Compile Include="Modelo Datos\Estados\ESCMantenibilidad.cs" />
+    <Compile Include="Modelo Datos\Estados\ESCUsabilidad.cs" />
+    <Compile Include="Modelo Datos\Estados\EstadoFinal.cs" />
+    <Compile Include="Modelo Datos\Estados\EstadoModulo.cs" />
     <Compile Include="Modelo Datos\Evaluacion.cs" />
-    <Compile Include="Modelo Datos\Importancia.cs" />
-    <Compile Include="Modelo Datos\MTEvaluacion.cs" />
-    <Compile Include="Modelo Datos\MTSeleccion.cs" />
-    <Compile Include="Modelo Datos\Respuesta.cs" />
-    <Compile Include="Modelo Datos\Seleccion.cs" />
+    <Compile Include="Modelo Datos\Importancias\Importancia.cs" />
+    <Compile Include="Modelo Datos\Importancias\ISCFuncionalidad.cs" />
+    <Compile Include="Modelo Datos\Importancias\ISCMantenibilidad.cs" />
+    <Compile Include="Modelo Datos\Importancias\ISCUsabilidad.cs" />
+    <Compile Include="Modelo Datos\Listas\ListCalculo.cs" />
+    <Compile Include="Modelo Datos\Listas\ListEvaluacion.cs" />
+    <Compile Include="Modelo Datos\Listas\ListSeleccion.cs" />
+    <Compile Include="Modelo Datos\Listas\MTCalculo.cs" />
+    <Compile Include="Modelo Datos\Listas\MTEvaluacion.cs" />
+    <Compile Include="Modelo Datos\Listas\MTSeleccion.cs" />
+    <Compile Include="Modelo Datos\Resultados\RCaracteristicas.cs" />
+    <Compile Include="Modelo Datos\Resultados\Resultado.cs" />
+    <Compile Include="Modelo Datos\Resultados\RSCFuncionalidad.cs" />
+    <Compile Include="Modelo Datos\Resultados\RSCMantenibilidad.cs" />
+    <Compile Include="Modelo Datos\Resultados\RSCUsabilidad.cs" />
     <Compile Include="Modelo Datos\Software.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
@@ -344,5 +354,6 @@
   <ItemGroup>
     <Resource Include="Imagenes\Note-disable.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

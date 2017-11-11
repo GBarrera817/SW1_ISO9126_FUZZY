@@ -49,16 +49,15 @@ namespace SW1_ISO9126_FUZZY {
 
         private void inicializarPaginas()
         {
-
-            principal = new MainPage(proyecto);
-            registro = new RegistroSWPage(proyecto);
-            previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
-            previaEvaluacion = new FormularioEvaluacionPage(proyecto);
-            calidad = new EvaluacionCalidadPage(proyecto);
             acerca = new AcercaPage();
+            calidad = new EvaluacionCalidadPage(proyecto);
+            previaEvaluacion = new FormularioEvaluacionPage(proyecto);
+            previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
+            registro = new RegistroSWPage(proyecto);
+            principal = new MainPage(proyecto,registro);
 
             //HamburgerMenuItemCollection itemCollection = HamburgerMenuControl.ItemsSource as HamburgerMenuItemCollection;
-           // itemCollection[0].Label = "Hola";
+            // itemCollection[0].Label = "Hola";
 
         }
 

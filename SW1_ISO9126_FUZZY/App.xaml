@@ -18,6 +18,15 @@
             </ResourceDictionary.MergedDictionaries>
 
 
+            <Style x:Key="SearchTile" TargetType="Controls:Tile">
+                <Setter Property="Background" Value="{StaticResource SearchTileBrush}" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource SearchTyleHighlightedBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
             <Style TargetType="{x:Type Controls:WindowButtonCommands}"
                    BasedOn="{StaticResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
 

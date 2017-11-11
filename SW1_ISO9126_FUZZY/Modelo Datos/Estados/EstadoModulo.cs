@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SW1_ISO9126_FUZZY.Modelo_Datos
+namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 {
+    /// <summary>
+    /// Estados Modulo:  Guarda el estado (booleano) de los modulos por caracteristicas Internas/Externas
+    /// </summary>
+
     public class EstadoModulo
     {
         private bool funcionalidadInterna;

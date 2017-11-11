@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SW1_ISO9126_FUZZY.Modelo_Datos
+namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
+    /// <summary>
+    /// Metrica seleccion: Guarda la seleccion (datos) de una metrica
+    /// </summary>
+
     public class MTSeleccion
     {
         private int id;

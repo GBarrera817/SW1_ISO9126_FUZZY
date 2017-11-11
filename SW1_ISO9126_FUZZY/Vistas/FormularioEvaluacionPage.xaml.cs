@@ -56,16 +56,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList MTEmantenibilidadExterna;
 
         private FormEvaluacionPage paginaEvaluacion;
-        private Respuesta metricas;
-        private EstadoModulo evalMetricas;
+        /*private Respuesta metricas;
+        private EstadoModulo evalMetricas;*/
         private Evaluacion miEvaluacion;
 
         public FormularioEvaluacionPage(Evaluacion nueva) {
 
             InitializeComponent();
             this.paginaEvaluacion = new FormEvaluacionPage();
-            this.metricas = new Respuesta();
-            this.evalMetricas = new EstadoModulo();
+           /* this.metricas = new Respuesta();
+            this.evalMetricas = new EstadoModulo();*/
             this.miEvaluacion = nueva;
 
             inicializarEstadoCaracteristica();

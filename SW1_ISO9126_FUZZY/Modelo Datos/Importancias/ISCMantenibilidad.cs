@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Importancias
 {
     /// <summary>
-    /// /// Importancia SubCaracteristica Mantenibilidad: Grados de importancia subcaracteristicas Mantenibilidad
+    /// Importancia SubCaracteristica Mantenibilidad: Grados de importancia subcaracteristicas Mantenibilidad
     /// </summary>
 
     public class ISCMantenibilidad

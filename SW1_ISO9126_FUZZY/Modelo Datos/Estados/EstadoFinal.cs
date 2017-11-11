@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 {
     /// <summary>
-    ///  Estado Final: Estado evaluacion de calidad
+    /// Estado Final: Estado evaluacion de calidad
     /// </summary>
 
     public class EstadoFinal

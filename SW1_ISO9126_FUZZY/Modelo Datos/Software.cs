@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Modelo_Datos
 {
+    /// <summary>
+    /// Software: Para almacenar datos del Software y del Evaluador
+    /// </summary>
+
     public class Software
     {
         private string evaluador;

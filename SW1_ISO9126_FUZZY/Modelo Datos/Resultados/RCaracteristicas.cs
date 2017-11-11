@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Resultados
 {
     /// <summary>
-    ///  Resultado Caracteristicas: De la evaluacion difusa a nivel de caracteristicas, resultado linguistico y numerico
+    /// Resultado Caracteristicas: De la evaluacion difusa a nivel de caracteristicas, resultado linguistico y numerico
     /// </summary>
 
     public class RCaracteristicas

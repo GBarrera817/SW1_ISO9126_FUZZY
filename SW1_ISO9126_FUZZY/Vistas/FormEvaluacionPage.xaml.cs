@@ -1,5 +1,6 @@
 ﻿using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
 using System.Collections;
 using System.Windows;
 using System.Windows.Controls;

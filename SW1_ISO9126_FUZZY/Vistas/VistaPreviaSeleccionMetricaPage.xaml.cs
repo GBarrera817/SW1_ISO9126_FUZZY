@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,8 +60,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ArrayList MTSmantenibilidadExterna;
 
         private SeleccionMetricasPage paginaSeleccion;
-        private Seleccion metricas;
-        private EstadoModulo selecMetricas;
+        /*private Seleccion metricas;
+        private EstadoModulo selecMetricas;*/
         private Evaluacion miEvaluacion;
 
 
@@ -69,8 +70,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			InitializeComponent();
 
             this.paginaSeleccion = new SeleccionMetricasPage();
-            this.metricas = new Seleccion();
-            this.selecMetricas = new EstadoModulo();
+            /*this.metricas = new Seleccion();
+            this.selecMetricas = new EstadoModulo();*/
             this.miEvaluacion = nueva;
 
             inicializarEstadoCaracteristica();

@@ -1,4 +1,5 @@
 ﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,8 +25,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
         public Software Aplicacion { get => aplicacion; set => aplicacion = value; }
-        public Importancia Grados { get => grados; set => grados = value; }
-
+       // public Importancia Grados { get => grados; set => grados = value; }
+/*
         private void guardarDatosSw()
         {
             string developers = txtDesarrolladores.Text;
@@ -176,7 +177,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.CumplimientoMantenibilidad = Convert.ToDouble(dudCumpMantenibilidad.Text);
             }
         }
-
+*/
         // validar datos del software
 
         private bool validar_datos_sw()
@@ -547,10 +548,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if ( (datosSW == true) && ( (lblFuncionalidad.IsChecked == true && funcionalidad == true) || (lblUsabilidad.IsChecked == true && usabilidad == true) || (lblMantenibilidad.IsChecked == true && mantenibilidad == true)) )
             {
-                guardarDatosSw();
+               /* guardarDatosSw();
                 guardarGradosFuncionalidad();
                 guardarGradosUsabilidad();
-                guardarGradosMantenbilidad();
+                guardarGradosMantenbilidad();*/
 
                 miEvaluacion.Informacion = aplicacion;
                 miEvaluacion.Grados = grados;

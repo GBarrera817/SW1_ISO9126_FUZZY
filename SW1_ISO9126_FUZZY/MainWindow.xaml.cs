@@ -44,14 +44,6 @@ namespace SW1_ISO9126_FUZZY {
         private void inicializarEvaluacion()
         {
             proyecto = new Evaluacion();
-            proyecto.Informacion = new Software();
-            proyecto.Grados = new Importancia();
-            proyecto.Eleccion = new Seleccion();
-            proyecto.Fomulario = new Respuesta();
-            proyecto.Resultados = new Calculo();
-            proyecto.SeleccionMetricas = new EstadoModulo();
-            proyecto.EvaluacionMetricas = new EstadoModulo();
-            proyecto.Calidad = new EstadoModulo();
             
         }
 

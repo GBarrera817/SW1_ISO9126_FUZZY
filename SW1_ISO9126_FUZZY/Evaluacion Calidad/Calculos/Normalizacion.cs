@@ -1,5 +1,4 @@
 ﻿using SW1_ISO9126_FUZZY.JSON;
-using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +11,20 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 	{
 		//CORREGIR LAS VARIABLES
 		private Dictionary<string, string> _funcionabilidadInterna;
-		private Respuesta _usabilidadInterna;
+		/*private Respuesta _usabilidadInterna;
 		private Respuesta _mantenibilidadInterna;
 		private Respuesta _funcionabilidadExterna;
 		private Respuesta _usabilidadExterna;
-		private Respuesta _mantenibilidadExterna;
+		private Respuesta _mantenibilidadExterna;*/
 
 		public Normalizacion()
 		{
 			_funcionabilidadInterna = new Dictionary<string, string>();
-			_usabilidadInterna = new Respuesta();
+			/*_usabilidadInterna = new Respuesta();
 			_mantenibilidadInterna = new Respuesta();
 			_funcionabilidadExterna = new Respuesta();
 			_usabilidadExterna = new Respuesta();
-			_mantenibilidadExterna = new Respuesta();
+			_mantenibilidadExterna = new Respuesta();*/
 		}
 
 		public void calcularValoresNormalizadosFuncionalidad(double incidenciaAdecuacion, double incidenciaExactitud, double incidenciaInteroperabilidad, 

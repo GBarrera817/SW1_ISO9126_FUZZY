@@ -635,22 +635,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex -1;
             }
 
-            System.Console.WriteLine();
-            System.Console.WriteLine("Valores finales");
-            System.Console.WriteLine("---------------");
-            System.Console.WriteLine("lblFuncionalidad.IsChecked: " + lblFuncionalidad.IsChecked);
-            System.Console.WriteLine("lblUsabilidad.IsChecked: " + lblUsabilidad.IsChecked);
-            System.Console.WriteLine("lblMantenibilidad.IsChecked: " + lblMantenibilidad.IsChecked);
-            System.Console.WriteLine("funcionalidad: " + funcionalidad);
-            System.Console.WriteLine("usabilidad: " + usabilidad);
-            System.Console.WriteLine("mantenibilidad: " + mantenibilidad);
-
-
             if ( (datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
             {
                 resgistrarDatos();
                 Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);             
-                //this.NavigationService.Navigate(paginaMetricas);
+                this.NavigationService.Navigate(paginaMetricas);
             }
         }
 

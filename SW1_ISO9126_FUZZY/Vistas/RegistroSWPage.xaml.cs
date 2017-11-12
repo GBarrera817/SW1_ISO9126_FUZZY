@@ -454,70 +454,49 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == true)
             {
                 if (funcionalidad == true && usabilidad == true && mantenibilidad == true)
-                {
-                    Console.WriteLine("caso 1");
                     return true;
-                }
             }
                 
             // CASO VERDADERO VERADERO FALSO
             if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == false)
             {
                 if (funcionalidad == true && usabilidad == true)
-                {
-                    Console.WriteLine("caso 2");
                     return true;
-                }
             }
 
             // CASO VERDADERO FALSO VERADERO
             if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == true)
             {
                 if (funcionalidad == true && mantenibilidad == true)
-                {
-                    Console.WriteLine("caso 3");
                     return true;
-                }
             }
 
             // CASO FALSO VERADERO VERDADERO
             if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == true)
             {
                 if (usabilidad == true && mantenibilidad == true)
-                {
-                    Console.WriteLine("caso 4");
                     return true;
-                }
             }
 
             // CASO VERDADERO FALSO FALSO
             if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == false)
             {
                 if (funcionalidad == true)
-                {
-                    Console.WriteLine("caso 5");
                     return true;
-                }
             }
 
             // CASO FALSO VERDADERO FALSO
             if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == false)
             {
                 if (usabilidad == true)
-                {
-                    Console.WriteLine("caso 6");
                     return true;
-                }
             }
 
             // CASO FALSO FALSO VERDADERO
             if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == true)
             {
                 if (mantenibilidad == true)
-                {
-                    Console.WriteLine("caso 7");
                     return true;
-                }
             }
 
             return false;

@@ -44,7 +44,7 @@
                     <Button x:Name="btnSigSW" Content="Siguiente" FontSize="10" HorizontalAlignment="Left" Margin="630,505,0,0" VerticalAlignment="Top" Width="70" Click="btnSigSW_Click" />
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabImportancia" Header="Grados de Importancia" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="White">
+            <TabItem x:Name="tabImportancia" Header="Selección e Importancia" Foreground="#FF00FF46" BorderBrush="#FF0AAE0A" Background="White">
                 <Grid Background="White">
                     <GroupBox Header="Característica: Funcionalidad" HorizontalAlignment="Left" Height="140" Margin="10,21,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <Grid>

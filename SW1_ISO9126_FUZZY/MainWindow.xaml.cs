@@ -77,7 +77,7 @@ namespace SW1_ISO9126_FUZZY {
                 Navigation.Navigation.Navigate(principal);
             }
 
-            if (menuItem.Text == "Registro de Software")
+            if (menuItem.Text == "Registro de Evaluación")
             {             
                 Navigation.Navigation.Navigate(registro);
             }

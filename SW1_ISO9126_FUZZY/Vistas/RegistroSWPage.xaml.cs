@@ -1,4 +1,5 @@
 ﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Estados;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 using System;
 using System.Windows;
@@ -10,23 +11,27 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// <summary>
     /// Lógica de interacción para MainPage.xaml
     /// </summary>
+    
     public partial class RegistroSWPage : Page {
+
+        private Evaluacion miEvaluacion;
 
         private Software aplicacion;
         private Importancia grados;
-        private Evaluacion miEvaluacion;
+        private EstadoModulo estadoCaracteristicas;
+        private ESubCaracteristicas estadoSubCaractetisticas;
 
         public RegistroSWPage(Evaluacion nueva) {
 
             InitializeComponent();
+
+            this.miEvaluacion = nueva;
             this.aplicacion = new Software();
             this.grados = new Importancia();
-            this.miEvaluacion = nueva;
+            this.estadoCaracteristicas = new EstadoModulo();
+            this.estadoSubCaractetisticas = new ESubCaracteristicas();
         }
 
-        public Software Aplicacion { get => aplicacion; set => aplicacion = value; }
-       // public Importancia Grados { get => grados; set => grados = value; }
-/*
         private void guardarDatosSw()
         {
             string developers = txtDesarrolladores.Text;
@@ -52,13 +57,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             if(lblFuncionalidad.IsChecked == true)
             {
-                grados.EstFuncionalidad = true;
-                grados.Adecuacion = Convert.ToDouble(dudFuncionalidad.Text);
+                estadoCaracteristicas.FuncionalidadInterna = true;
+                estadoCaracteristicas.FuncionalidadExterna = true;
+                grados.Funcionalidad = Convert.ToDouble(dudFuncionalidad.Text);
             }
 
             if (lblAdecuacion.IsChecked == true)
             {
-                grados.EstAdecuacion = true;
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstAdecuacion = true;
                 grados.Adecuacion = Convert.ToDouble(dudAdecuacion.Text);
             }
 
@@ -177,7 +183,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.CumplimientoMantenibilidad = Convert.ToDouble(dudCumpMantenibilidad.Text);
             }
         }
-*/
+
         // validar datos del software
 
         private bool validar_datos_sw()

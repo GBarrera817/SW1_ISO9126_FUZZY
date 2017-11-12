@@ -32,6 +32,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.estadoSubCaractetisticas = new ESubCaracteristicas();
         }
 
+        // guardar datos de la evaluacion
+
         private void guardarDatosSw()
         {
             string developers = txtDesarrolladores.Text;
@@ -52,6 +54,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             aplicacion.Descripcion = txtDescripcion.Text;
         }
+
+        // guardar grados de importancia ingresados
 
         private void guardarGradosFuncionalidad()
         {
@@ -184,6 +188,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstCumplimientoMantenibilidad = true;
                 grados.SbcMantenibilidad.CumplimientoMantenibilidad = Convert.ToDouble(dudCumpMantenibilidad.Text);
             }
+        }
+
+        private void resgistrarDatos()
+        {
+            // Obtener desde la interfaz grafica
+            guardarDatosSw();
+            guardarGradosFuncionalidad();
+            guardarGradosUsabilidad();
+            guardarGradosMantenbilidad();
+
+            // Asignar a la evaluacion
+            miEvaluacion.Informacion = aplicacion;
+            miEvaluacion.DatosMetricas = estadoCaracteristicas;
+            miEvaluacion.EstSubcaracteristicas = estadoSubCaractetisticas;
+            miEvaluacion.Grados = grados;
         }
 
         // validar datos del software
@@ -556,14 +575,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if ( (datosSW == true) && ( (lblFuncionalidad.IsChecked == true && funcionalidad == true) || (lblUsabilidad.IsChecked == true && usabilidad == true) || (lblMantenibilidad.IsChecked == true && mantenibilidad == true)) )
             {
-               /* guardarDatosSw();
-                guardarGradosFuncionalidad();
-                guardarGradosUsabilidad();
-                guardarGradosMantenbilidad();*/
-
-                miEvaluacion.Informacion = aplicacion;
-                miEvaluacion.Grados = grados;
-
+                resgistrarDatos();
                 Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.NavigationService.Navigate(new VistaPreviaSeleccionMetricaPage(miEvaluacion));
             }
@@ -580,7 +592,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblInteroperabilidad.IsEnabled = true;
             lblSeguridad.IsEnabled = true;
             lblCumpFuncionalidad.IsEnabled = true;
-
         }
 
         private void lblFuncionalidad_UnChecked(object sender, RoutedEventArgs e)
@@ -608,7 +619,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblCumpFuncionalidad.IsChecked = false;
             dudCumpFuncionalidad.IsEnabled = false;
             dudCumpFuncionalidad.Value = 0;
-
         }
 
         // Eventos checkbox grandes usabilidad
@@ -622,7 +632,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblOperabilidad.IsEnabled = true;
             lblAtractividad.IsEnabled = true;            
             lblCumpUsabilidad.IsEnabled = true;            
-
         }
 
         private void lblUsabilidad_UnChecked(object sender, RoutedEventArgs e)
@@ -650,7 +659,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblCumpUsabilidad.IsChecked = false;
             dudCumpUsabilidad.IsEnabled = false;
             dudCumpUsabilidad.Value = 0;
-
         }
 
         // Eventos checkbox grandes mantenibilidad
@@ -664,7 +672,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblEstabilidad.IsEnabled = true;
             lblTesteabilidad.IsEnabled = true;
             lblCumpMantenibilidad.IsEnabled = true;
-
         }
 
         private void lblMantenibilidad_UnChecked(object sender, RoutedEventArgs e)

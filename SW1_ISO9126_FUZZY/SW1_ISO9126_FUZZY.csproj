@@ -153,7 +153,7 @@
     <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Logica Difusa\VariableLinguistica.cs" />
-    <Compile Include="Modelo Datos\Estados\ESCaracteristicas.cs" />
+    <Compile Include="Modelo Datos\Estados\ESubCaracteristicas.cs" />
     <Compile Include="Modelo Datos\Estados\ESCFuncionalidad.cs" />
     <Compile Include="Modelo Datos\Estados\ESCMantenibilidad.cs" />
     <Compile Include="Modelo Datos\Estados\ESCUsabilidad.cs" />

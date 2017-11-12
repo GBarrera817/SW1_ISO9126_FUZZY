@@ -75,34 +75,29 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.SbcFuncionalidad.Adecuacion = Convert.ToDouble(dudAdecuacion.Text);
             }
 
-
             if (lblExactitud.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstExactitud = true;
                 grados.SbcFuncionalidad.Exactitud = Convert.ToDouble(dudExactitud.Text);
             }
               
-
             if (lblInteroperabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstInteroperabilidad = true;
                 grados.SbcFuncionalidad.Interoperabilidad = Convert.ToDouble(dudInteroperabilidad.Text);
             }
-               
 
             if (lblSeguridad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstSeguridadAcceso = true;
                 grados.SbcFuncionalidad.SeguridadAcceso = Convert.ToDouble(dudSeguridad.Text);
-            }
-                
+            }            
 
             if (lblCumpFuncionalidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstCumplimientoFuncional = true;
                 grados.SbcFuncionalidad.CumplimientoFuncional = Convert.ToDouble(dudCumpFuncionalidad.Text);
-            }
-                
+            }    
         }
 
         private void guardarGradosUsabilidad()
@@ -120,13 +115,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.SbcUsabilidad.Comprensibilidad= Convert.ToDouble(dudComprensibilidad.Text);
             }
 
-
             if (lblAprendizaje.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarusabilidad.EstAprendizaje= true;
                 grados.SbcUsabilidad.Aprendizaje = Convert.ToDouble(dudAprendizaje.Text);
             }
-
 
             if (lblOperabilidad.IsChecked == true)
             {
@@ -134,13 +127,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.SbcUsabilidad.Operabilidad = Convert.ToDouble(dudOperabilidad.Text);
             }
 
-
             if (lblAtractividad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarusabilidad.EstAtractividad = true;
                 grados.SbcUsabilidad.Atractividad = Convert.ToDouble(dudAtractividad.Text);
             }
-
 
             if (lblCumpUsabilidad.IsChecked == true)
             {
@@ -164,13 +155,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.SbcMantenibilidad.Analizabilidad = Convert.ToDouble(dudFacAnalisis.Text);
             }
 
-
             if (lblModificabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstModificabilidad = true;
                 grados.SbcMantenibilidad.Modificabilidad = Convert.ToDouble(dudModificabilidad.Text);
             }
-
 
             if (lblEstabilidad.IsChecked == true)
             {
@@ -178,13 +167,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 grados.SbcMantenibilidad.Estabilidad = Convert.ToDouble(dudEstabilidad.Text);
             }
 
-
             if (lblTesteabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstTesteabilidad = true;
                 grados.SbcMantenibilidad.Testeabilidad = Convert.ToDouble(dudTesteabilidad.Text);
             }
-
 
             if (lblCumpMantenibilidad.IsChecked == true)
             {
@@ -387,7 +374,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             return true;
-
         }
 
         private bool validar_valores_subcaracteristicas_usabilidad()
@@ -423,7 +409,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             return true;
-
         }
 
         private bool validar_valores_subcaracteristicas_mantenibilidad()
@@ -459,7 +444,83 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             return true;
+        }
 
+        // combinatoria de casos validos 
+
+        private bool validarCasos(bool funcionalidad, bool usabilidad, bool mantenibilidad)
+        {
+            // CASO VERDADERO VERDADERO VERDADERO
+            if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == true)
+            {
+                if (funcionalidad == true && usabilidad == true && mantenibilidad == true)
+                {
+                    Console.WriteLine("caso 1");
+                    return true;
+                }
+            }
+                
+            // CASO VERDADERO VERADERO FALSO
+            if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == false)
+            {
+                if (funcionalidad == true && usabilidad == true)
+                {
+                    Console.WriteLine("caso 2");
+                    return true;
+                }
+            }
+
+            // CASO VERDADERO FALSO VERADERO
+            if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == true)
+            {
+                if (funcionalidad == true && mantenibilidad == true)
+                {
+                    Console.WriteLine("caso 3");
+                    return true;
+                }
+            }
+
+            // CASO FALSO VERADERO VERDADERO
+            if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == true)
+            {
+                if (usabilidad == true && mantenibilidad == true)
+                {
+                    Console.WriteLine("caso 4");
+                    return true;
+                }
+            }
+
+            // CASO VERDADERO FALSO FALSO
+            if (lblFuncionalidad.IsChecked == true && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == false)
+            {
+                if (funcionalidad == true)
+                {
+                    Console.WriteLine("caso 5");
+                    return true;
+                }
+            }
+
+            // CASO FALSO VERDADERO FALSO
+            if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == true && lblMantenibilidad.IsChecked == false)
+            {
+                if (usabilidad == true)
+                {
+                    Console.WriteLine("caso 6");
+                    return true;
+                }
+            }
+
+            // CASO FALSO FALSO VERDADERO
+            if (lblFuncionalidad.IsChecked == false && lblUsabilidad.IsChecked == false && lblMantenibilidad.IsChecked == true)
+            {
+                if (mantenibilidad == true)
+                {
+                    Console.WriteLine("caso 7");
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // Eventos botones
@@ -574,12 +635,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex -1;
             }
 
+            System.Console.WriteLine();
+            System.Console.WriteLine("Valores finales");
+            System.Console.WriteLine("---------------");
+            System.Console.WriteLine("lblFuncionalidad.IsChecked: " + lblFuncionalidad.IsChecked);
+            System.Console.WriteLine("lblUsabilidad.IsChecked: " + lblUsabilidad.IsChecked);
+            System.Console.WriteLine("lblMantenibilidad.IsChecked: " + lblMantenibilidad.IsChecked);
+            System.Console.WriteLine("funcionalidad: " + funcionalidad);
+            System.Console.WriteLine("usabilidad: " + usabilidad);
+            System.Console.WriteLine("mantenibilidad: " + mantenibilidad);
 
-            if ( (datosSW == true) && ( (lblFuncionalidad.IsChecked == true && funcionalidad == true) || (lblUsabilidad.IsChecked == true && usabilidad == true) || (lblMantenibilidad.IsChecked == true && mantenibilidad == true)) )
+
+            if ( (datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
             {
                 resgistrarDatos();
                 Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);             
-                this.NavigationService.Navigate(paginaMetricas);
+                //this.NavigationService.Navigate(paginaMetricas);
             }
         }
 

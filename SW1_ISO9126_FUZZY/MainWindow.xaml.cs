@@ -100,7 +100,6 @@ namespace SW1_ISO9126_FUZZY {
             if (menuItem.Text == "Acerca")
             {
                 Navigation.Navigation.Navigate(acerca);
-                Xceed.Wpf.Toolkit.MessageBox.Show(proyecto.Informacion.ToString(), "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

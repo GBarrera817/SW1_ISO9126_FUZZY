@@ -16,16 +16,7 @@
                 <ResourceDictionary Source ="pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml"  />
                 <ResourceDictionary Source ="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-
-            <Style x:Key="SearchTile" TargetType="Controls:Tile">
-                <Setter Property="Background" Value="{StaticResource SearchTileBrush}" />
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="{StaticResource SearchTyleHighlightedBrush}" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            
 
             <Style TargetType="{x:Type Controls:WindowButtonCommands}"
                    BasedOn="{StaticResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
@@ -37,7 +28,7 @@
                 </Style.Setters>
             </Style> -->
 
-            <!-- Colores MessageBox -->
+            <!-- Peronalizar MessageBox -->
             <!-- IMPORTAR = xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" -->
             
             <Style TargetType="{x:Type toolkit:MessageBox}">
@@ -48,6 +39,12 @@
                 <Setter Property="WindowBackground" Value="#FF33A133" />
                 <!-- <Setter Property="WindowOpacity" Value="0.3" /> -->
                 <Setter Property="Foreground" Value="Purple"/>
+
+                <!-- Setter Button content -->
+                <Setter Property="CancelButtonContent" Value="Cancelar"/>
+                <Setter Property="NoButtonContent" Value="No"/>
+                <Setter Property="OkButtonContent" Value="Aceptar"/>
+                <Setter Property="YesButtonContent" Value="Si"/>
             </Style>
 
             <!-- Personalizar Slider-->

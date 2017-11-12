@@ -25,6 +25,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// <summary>
 	/// Lógica de interacción para VistaPreviaSeleccionMetricaPage.xaml
 	/// </summary>
+    
 	public partial class VistaPreviaSeleccionMetricaPage : Page
 	{
         // Caracteristicas
@@ -170,6 +171,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
         }
 
+        // Cargar las metricas desde archivos JSON
+
         private void cargarJsonMetricas()
         {
             if (isFunIntAct)
@@ -219,6 +222,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             tabla.Columns[1].CellStyle = estilo;
         }
+
+        // Cargar tablas de subcaracteristicas por caracteristicas Interna/Externa
 
         private void cargarTablaFuncionabilidad(JFuncionabilidad funcionalidad, DataGrid tabla)
         {
@@ -280,7 +285,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estados[estado];
         }
 
-        // Cargar tablas
+        // Cargar tablas por botones
 
         private void cargarTabla(RoutedEventArgs e)
         {
@@ -307,7 +312,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarTabla(e);
         }
 
-        // Comprimir lista seleccion
+        // Comprimir lista seleccion de metricas a solo las activadas
 
         public ArrayList comprimirSeleccion(ArrayList seleccion)
         {
@@ -328,12 +333,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return local;
         }
 
-        /// <summary>
-        /// Comprimir lista metricas
-        /// </summary>
-        /// <param name="metricas"> pico</param>
-        /// <param name="seleccion">choro rico</param>
-        /// <returns></returns>
+        // Comprimir lista de metricas a solo las seleccionadas
+
         public ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
         {
             JMetrica metricaJson;
@@ -414,8 +415,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             this.NavigationService.Navigate(paginaSeleccion);
-
-            
         }
     }
 }

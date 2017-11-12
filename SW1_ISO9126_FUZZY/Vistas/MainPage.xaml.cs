@@ -52,7 +52,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
                 respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("¿Desea sobre escribir la evaluación ya cargada?, se perderan todos los datos actuales", "Cargar evaluación desde archivo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-                if (respuesta == MessageBoxResult.Yes)
+               if (respuesta == MessageBoxResult.Yes)
                 {
                     cargarJson();
                 }

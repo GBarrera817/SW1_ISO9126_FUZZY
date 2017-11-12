@@ -28,7 +28,7 @@
                 </Style.Setters>
             </Style> -->
 
-            <!-- Colores MessageBox -->
+            <!-- Peronalizar MessageBox -->
             <!-- IMPORTAR = xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" -->
             
             <Style TargetType="{x:Type toolkit:MessageBox}">
@@ -39,6 +39,12 @@
                 <Setter Property="WindowBackground" Value="#FF33A133" />
                 <!-- <Setter Property="WindowOpacity" Value="0.3" /> -->
                 <Setter Property="Foreground" Value="Purple"/>
+
+                <!-- Setter Button content -->
+                <Setter Property="CancelButtonContent" Value="Cancelar"/>
+                <Setter Property="NoButtonContent" Value="No"/>
+                <Setter Property="OkButtonContent" Value="Aceptar"/>
+                <Setter Property="YesButtonContent" Value="Si"/>
             </Style>
 
             <!-- Personalizar Slider-->

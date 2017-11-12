@@ -24,7 +24,6 @@ namespace SW1_ISO9126_FUZZY {
 
         private Evaluacion proyecto;
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -40,11 +39,9 @@ namespace SW1_ISO9126_FUZZY {
             //this.SplitViewFrame_OnNavigated.ShowTitleBar = true;
         }
 
-
         private void inicializarEvaluacion()
         {
             proyecto = new Evaluacion();
-            
         }
 
         private void inicializarPaginas()
@@ -53,14 +50,12 @@ namespace SW1_ISO9126_FUZZY {
             calidad = new EvaluacionCalidadPage(proyecto);
             previaEvaluacion = new FormularioEvaluacionPage(proyecto);
             previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
-            registro = new RegistroSWPage(proyecto);
+            registro = new RegistroSWPage(proyecto, previaSeleccion);
             principal = new MainPage(proyecto,registro);
 
             //HamburgerMenuItemCollection itemCollection = HamburgerMenuControl.ItemsSource as HamburgerMenuItemCollection;
             // itemCollection[0].Label = "Hola";
-
         }
-
 
         private void SplitViewFrame_OnNavigated(object sender, NavigationEventArgs e)
         {
@@ -107,7 +102,6 @@ namespace SW1_ISO9126_FUZZY {
                 Navigation.Navigation.Navigate(acerca);
                 Xceed.Wpf.Toolkit.MessageBox.Show(proyecto.Informacion.ToString(), "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
         }
 
         /* 

@@ -19,7 +19,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private bool estado;
         private Software informacion;
         private EstadoModulo datosMetricas;
-        private ESCaracteristicas estSubcaracteristicas;
+        private ESubCaracteristicas estSubcaracteristicas;
         private Importancia grados;
         private EstadoModulo seleccionMetricas;
         private ListSeleccion seleccion;
@@ -36,7 +36,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.estado = false;
             this.informacion = new Software();
             this.datosMetricas = new EstadoModulo();
-            this.estSubcaracteristicas = new ESCaracteristicas();
+            this.estSubcaracteristicas = new ESubCaracteristicas();
             this.grados = new Importancia();
             this.seleccionMetricas = new EstadoModulo();
             this.seleccion = new ListSeleccion();
@@ -48,7 +48,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.valorCalidadSoftware = new Resultado();
         }
 
-        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESCaracteristicas estSubcaracteristicas, Importancia grados, EstadoModulo seleccionMetricas, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
+        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESubCaracteristicas estSubcaracteristicas, Importancia grados, EstadoModulo seleccionMetricas, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
         {
             this.estado = estado;
             this.informacion = informacion;
@@ -68,7 +68,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         public bool Estado { get => estado; set => estado = value; }
         public Software Informacion { get => informacion; set => informacion = value; }
         public EstadoModulo DatosMetricas { get => datosMetricas; set => datosMetricas = value; }
-        public ESCaracteristicas EstSubcaracteristicas { get => estSubcaracteristicas; set => estSubcaracteristicas = value; }
+        public ESubCaracteristicas EstSubcaracteristicas { get => estSubcaracteristicas; set => estSubcaracteristicas = value; }
         public Importancia Grados { get => grados; set => grados = value; }
         public EstadoModulo SeleccionMetricas { get => seleccionMetricas; set => seleccionMetricas = value; }
         public ListSeleccion Seleccion { get => seleccion; set => seleccion = value; }

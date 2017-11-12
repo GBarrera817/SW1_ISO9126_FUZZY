@@ -9,17 +9,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// <summary>
     /// Lógica de interacción para MainPage.xaml
     /// </summary>
+    
     public partial class MainPage : Page
     {
-        private bool estadoEvaluacion;
         private Evaluacion miEvaluacion;
+
+        private bool estadoEvaluacion;
+
         private RegistroSWPage paginaRegistro;
 
         public MainPage(Evaluacion nueva, RegistroSWPage pagina)
         {
             InitializeComponent();
+
             this.miEvaluacion = nueva;
             this.estadoEvaluacion = false;
+
             this.paginaRegistro = pagina;
         }
 

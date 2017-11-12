@@ -10,13 +10,13 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
     /// Estado SubCaracteristicas:  Guarda el estado (booleano) de las subcaracteristicas
     /// </summary>
 
-    public class ESCaracteristicas
+    public class ESubCaracteristicas
     {
         private ESCFuncionalidad subCarfuncionalidad;
         private ESCUsabilidad subCarusabilidad;
         private ESCMantenibilidad subCarmantenibilidad;
 
-        public ESCaracteristicas()
+        public ESubCaracteristicas()
         {
             this.subCarfuncionalidad = new ESCFuncionalidad();
             this.subCarusabilidad = new ESCUsabilidad();

@@ -4,7 +4,6 @@ using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using Xceed.Wpf.Toolkit;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -21,7 +20,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private EstadoModulo estadoCaracteristicas;
         private ESubCaracteristicas estadoSubCaractetisticas;
 
-        public RegistroSWPage(Evaluacion nueva) {
+        private VistaPreviaSeleccionMetricaPage paginaMetricas;
+
+        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage pagina) {
 
             InitializeComponent();
 
@@ -30,6 +31,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.grados = new Importancia();
             this.estadoCaracteristicas = new EstadoModulo();
             this.estadoSubCaractetisticas = new ESubCaracteristicas();
+
+            this.paginaMetricas = pagina;
         }
 
         // guardar datos de la evaluacion
@@ -564,7 +567,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-
             }
             else
             {
@@ -576,8 +578,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if ( (datosSW == true) && ( (lblFuncionalidad.IsChecked == true && funcionalidad == true) || (lblUsabilidad.IsChecked == true && usabilidad == true) || (lblMantenibilidad.IsChecked == true && mantenibilidad == true)) )
             {
                 resgistrarDatos();
-                Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.NavigationService.Navigate(new VistaPreviaSeleccionMetricaPage(miEvaluacion));
+                Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);             
+                this.NavigationService.Navigate(paginaMetricas);
             }
         }
 

@@ -78,7 +78,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarEstadoCaracteristica();
             inicializarListas();
             inicializarSeleccion();
-            cargarJsonMetricas();
 
             // Tablas iniciales
             cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
@@ -87,12 +86,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarEstadoCaracteristica()
         {
-            this.isFunIntAct = true;
-            this.isFunExtAct = true;
-            this.isUsaIntAct = true;
-            this.isUsaExtAct = true;
-            this.isManIntAct = true;
-            this.isManExtAct = true;
+            this.isFunIntAct = false;
+            this.isFunExtAct = false;
+            this.isUsaIntAct = false;
+            this.isUsaExtAct = false;
+            this.isManIntAct = false;
+            this.isManExtAct = false;
         }
 
         private void inicializarListas()
@@ -113,6 +112,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.MTSusabilidadExterna = new ArrayList();
             this.MTSmantenibilidadInterna = new ArrayList();
             this.MTSmantenibilidadExterna = new ArrayList();
+        }
+
+        private void cargarEstado()
+        {
+            if (miEvaluacion.Estado)
+            {
+
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         // Crear listas de metricas por caracteristicas
@@ -175,43 +186,36 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void cargarJsonMetricas()
         {
-            if (isFunIntAct)
-            {
-                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-                cargarListaFuncionabilidad(funInt,funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
-            }
-                
-            if (isUsaIntAct)
-            {
-                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-                cargarListaUsabilidad(usaInt, usabilidadInterna);
-            }
-                
-            if (isUsaExtAct)
-            {
-                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-                cargarListaUsabilidad(usaExt, usabilidadExterna);
-            }
-                
-            if (isManIntAct)
-            {
-                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
-                cargarListaMantenibilidad(manExt, mantenibilidadExterna);
-            } 
+            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
+            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));             
+            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));               
+            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
         }
 
+        // Crea las listas de metricas por caracteristicas Internas/Externas
+
+        private void cargarListasMetricas()
+        {
+            if (isFunIntAct)         
+                cargarListaFuncionabilidad(funInt, funcionalidadInterna);
+            
+            if (isFunExtAct)
+                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
+            
+            if (isUsaIntAct)
+                cargarListaUsabilidad(usaInt, usabilidadInterna);
+ 
+            if (isUsaExtAct)
+                cargarListaUsabilidad(usaExt, usabilidadExterna);
+
+            if (isManIntAct)       
+                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
+
+            if (isManExtAct)         
+                cargarListaMantenibilidad(manExt, mantenibilidadExterna);       
+        }
         // Centrar columnas de las tablas
 
         private void centrarColumnas(DataGrid tabla)

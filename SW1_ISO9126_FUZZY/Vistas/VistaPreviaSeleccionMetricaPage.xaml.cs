@@ -200,21 +200,33 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarMenuMetricas()
         {
             if (isFunIntAct)
+                btnFuncInterna.IsEnabled = true;
+            else
                 btnFuncInterna.IsEnabled = false;
 
             if (isFunExtAct)
+                btnFuncExterna.IsEnabled = true;
+            else
                 btnFuncExterna.IsEnabled = false;
 
             if (isUsaIntAct)
+                btnUsabInterna.IsEnabled = true;
+            else
                 btnUsabInterna.IsEnabled = false;
 
             if (isUsaExtAct)
+                btnUsabExterna.IsEnabled = true;
+            else
                 btnUsabExterna.IsEnabled = false;
 
             if (isManIntAct)
+                btnMantInterna.IsEnabled = true;
+            else
                 btnMantInterna.IsEnabled = false;
 
             if (isManExtAct)
+                btnMantExterna.IsEnabled = true;
+            else
                 btnMantExterna.IsEnabled = false;
         }
 
@@ -451,10 +463,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {
-            menuMetricas.IsOpen = true;
-            cambiarEstado(1, lblEstadoMetricasFuncInterna);
-            cambiarEstado(2, lblEstadoMetricasUsabInterna);
-            cambiarEstado(3, lblEstadoMetricasMantInterna);
+            if (miEvaluacion.Estado)
+            {
+                menuMetricas.IsOpen = true;
+            }
+            else
+            {
+                cambiarEstado(1, lblEstadoMetricasFuncInterna);
+                cambiarEstado(2, lblEstadoMetricasUsabInterna);
+                cambiarEstado(3, lblEstadoMetricasMantInterna);
+
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
             //centrarColumnas(DataGridEstadoMetricasInternas);
         }
 

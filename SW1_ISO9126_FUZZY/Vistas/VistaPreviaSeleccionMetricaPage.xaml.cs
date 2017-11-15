@@ -195,6 +195,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cargarListaMantenibilidad(miEvaluacion, manExt, mantenibilidadExterna);
         }
 
+        // Cambia las etiquetas de los estados de la seleccion de metricas
+
+        private void cargarEtiquetasEstados()
+        {
+            if (isFunIntAct)
+                cambiarEstado(1, lblEstadoMetricasFuncInterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasFuncInterna);
+
+            if (isFunExtAct)
+                cambiarEstado(1, lblEstadoMetricasFuncExterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasFuncExterna);
+
+            if (isUsaIntAct)
+                cambiarEstado(1, lblEstadoMetricasUsabInterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasUsabInterna);
+
+            if (isUsaExtAct)
+                cambiarEstado(1, lblEstadoMetricasUsabExterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasUsabExterna);
+
+            if (isManIntAct)
+                cambiarEstado(1, lblEstadoMetricasMantInterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasMantInterna);
+
+            if (isManExtAct)
+                cambiarEstado(1, lblEstadoMetricasMantExterna);
+            else
+                cambiarEstado(0, lblEstadoMetricasMantExterna);
+        }
+
         // Activa los botones del menu de seleccion de metricas
 
         private void cargarMenuMetricas()
@@ -239,6 +274,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cargarEstados(evaSeleccion);
                 inicializarListas();
                 cargarListasMetricas();
+                cargarEtiquetasEstados();
                 cargarMenuMetricas();
             }
             else

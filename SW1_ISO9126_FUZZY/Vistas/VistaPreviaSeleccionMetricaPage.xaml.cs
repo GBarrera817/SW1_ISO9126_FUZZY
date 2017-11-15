@@ -232,7 +232,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Carga el modulo completo segun los datos obtenidos desde pagina de registro
 
-        private void cargarDatosModulo(Evaluacion evaSeleccion)
+        public void cargarDatosModulo(Evaluacion evaSeleccion)
         {
             if (evaSeleccion.Estado)
             {

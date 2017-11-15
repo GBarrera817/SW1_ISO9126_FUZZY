@@ -617,7 +617,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if ( (datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
             {
                 resgistrarDatos();
-                Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);             
+                Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
+                paginaMetricas.cargarDatosModulo(miEvaluacion);
                 this.NavigationService.Navigate(paginaMetricas);
             }
         }

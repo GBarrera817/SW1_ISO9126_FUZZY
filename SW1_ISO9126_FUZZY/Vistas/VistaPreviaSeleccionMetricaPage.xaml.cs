@@ -265,24 +265,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 btnMantExterna.IsEnabled = false;
         }
 
-        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
-
-        public void cargarDatosModulo(Evaluacion evaSeleccion)
-        {
-            if (evaSeleccion.Estado)
-            {
-                cargarEstados(evaSeleccion);
-                inicializarListas();
-                cargarListasMetricas();
-                cargarEtiquetasEstados();
-                cargarMenuMetricas();
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         // Crear listas de metricas por caracteristicas
      
         private void cargarListaFuncionabilidad(Evaluacion datosEvaluacion, JFuncionabilidad funcionalidad, ArrayList metricas)
@@ -303,7 +285,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
                     metricas.Add(funcionalidad.SeguridadAcceso[i]);
 
-            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstCumplimientoFuncional)
                 for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
                     metricas.Add(funcionalidad.CumplimientoFuncional[i]);
         }
@@ -343,7 +325,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
                 for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Estabilidad[i]);
+                    metricas.Add(mantenibilidad.Estabilidad[i]);
 
             if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
                 for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
@@ -352,6 +334,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
                 for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
                     metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+        }
+
+        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
+
+        public void cargarDatosModulo(Evaluacion evaSeleccion)
+        {
+            if (evaSeleccion.Estado)
+            {
+                cargarEstados(evaSeleccion);
+                inicializarListas();
+                cargarListasMetricas();
+                cargarEtiquetasEstados();
+                cargarMenuMetricas();
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         // Centrar columnas de las tablas
@@ -505,14 +505,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                cambiarEstado(1, lblEstadoMetricasFuncInterna);
-                cambiarEstado(2, lblEstadoMetricasUsabInterna);
-                cambiarEstado(3, lblEstadoMetricasMantInterna);
-
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-            //centrarColumnas(DataGridEstadoMetricasInternas);
         }
 
         // Eventos botones menu flotante (flyout)

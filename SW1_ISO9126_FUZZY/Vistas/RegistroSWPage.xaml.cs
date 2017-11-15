@@ -601,7 +601,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnSigSW_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex + 1;
+            if (miEvaluacion.Estado)
+                tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex + 1;
+            else
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -611,110 +614,116 @@ namespace SW1_ISO9126_FUZZY.Vistas
             bool usabilidad = false;
             bool mantenibilidad = false;
 
-            if (validar_datos_sw())
+            if (miEvaluacion.Estado)
             {
-                datosSW = true;
-                //Xceed.Wpf.Toolkit.MessageBox.Show(datos.ToString(), "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                if (validar_seleccion_caracteristicas())
+                if (validar_datos_sw())
                 {
-                    if (lblFuncionalidad.IsChecked == true)
+                    datosSW = true;
+                    
+                    if (validar_seleccion_caracteristicas())
                     {
-                        if (validar_valor_caracteristica_funcionalidad())
+                        if (lblFuncionalidad.IsChecked == true)
                         {
-                            if (validar_seleccion_subcaracteristicas_funcionabilidad())
+                            if (validar_valor_caracteristica_funcionalidad())
                             {
-                                if (validar_valores_subcaracteristicas_funcionabilidad())
+                                if (validar_seleccion_subcaracteristicas_funcionabilidad())
                                 {
-                                    funcionalidad = true;
+                                    if (validar_valores_subcaracteristicas_funcionabilidad())
+                                    {
+                                        funcionalidad = true;
+                                    }
+                                    else
+                                    {
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    }
                                 }
                                 else
                                 {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                 }
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
-                        else
+
+
+                        if (lblUsabilidad.IsChecked == true)
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (validar_valor_caracteristica_usabilidad())
+                            {
+                                if (validar_seleccion_subcaracteristicas_usabilidad())
+                                {
+                                    if (validar_valores_subcaracteristicas_usabilidad())
+                                    {
+                                        usabilidad = true;
+                                    }
+                                    else
+                                    {
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                }
+                            }
+                            else
+                            {
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                        }
+
+
+                        if (lblMantenibilidad.IsChecked == true)
+                        {
+                            if (validar_valor_caracteristica_mantenibilidad())
+                            {
+                                if (validar_seleccion_subcaracteristicas_mantenibilidad())
+                                {
+                                    if (validar_valores_subcaracteristicas_mantenibilidad())
+                                    {
+                                        mantenibilidad = true;
+                                    }
+                                    else
+                                    {
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                }
+                            }
+                            else
+                            {
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
                         }
                     }
-
-
-                    if (lblUsabilidad.IsChecked == true)
+                    else
                     {
-                        if (validar_valor_caracteristica_usabilidad())
-                        {
-                            if (validar_seleccion_subcaracteristicas_usabilidad())
-                            {
-                                if (validar_valores_subcaracteristicas_usabilidad())
-                                {
-                                    usabilidad = true;
-                                }
-                                else
-                                {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                            }
-                            else
-                            {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                        }
-                        else
-                        {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-
-
-                    if (lblMantenibilidad.IsChecked == true)
-                    {
-                        if (validar_valor_caracteristica_mantenibilidad())
-                        {
-                            if (validar_seleccion_subcaracteristicas_mantenibilidad())
-                            {
-                                if (validar_valores_subcaracteristicas_mantenibilidad())
-                                {
-                                    mantenibilidad = true;
-                                }
-                                else
-                                {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                            }
-                            else
-                            {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                        }
-                        else
-                        {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 else
                 {
-                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar los datos del evaluador y del software para realizar la evaluación", "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
+                    tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex - 1;
+                }
+
+                if ((datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
+                {
+                    resgistrarDatos();
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
+                    paginaMetricas.cargarDatosModulo(miEvaluacion);
+                    this.NavigationService.Navigate(paginaMetricas);
                 }
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar los datos del evaluador y del software para realizar la evaluación", "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
-                tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex -1;
-            }
-
-            if ( (datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
-            {
-                resgistrarDatos();
-                Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
-                paginaMetricas.cargarDatosModulo(miEvaluacion);
-                this.NavigationService.Navigate(paginaMetricas);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

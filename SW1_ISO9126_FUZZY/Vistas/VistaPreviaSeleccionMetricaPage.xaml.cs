@@ -195,6 +195,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cargarListaMantenibilidad(miEvaluacion, manExt, mantenibilidadExterna);
         }
 
+        // Activa los botones del menu de seleccion de metricas
+
         private void cargarMenuMetricas()
         {
             if (isFunIntAct)
@@ -215,6 +217,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (isManExtAct)
                 btnMantExterna.IsEnabled = false;
         }
+
         // Carga el modulo completo segun los datos obtenidos desde pagina de registro
 
         private void cargarDatosModulo(Evaluacion evaSeleccion)
@@ -415,10 +418,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaSelec = new MTSeleccion();
                 metricaSelec = (MTSeleccion)seleccion[i];
 
-                if (metricaSelec.Estado)
-                {
-                    local.Add(metricaSelec);
-                }
+                if (metricaSelec.Estado)               
+                    local.Add(metricaSelec);               
             }
 
             return local;
@@ -440,9 +441,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaSelec = (MTSeleccion)seleccion[i];
 
                 if (metricaSelec.Estado)
-                {
-                    local.Add(metricaJson);
-                }       
+                    local.Add(metricaJson);    
             }
 
             return local;

@@ -68,11 +68,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoCaracteristicas.FuncionalidadExterna = true;
                 grados.Funcionalidad = Convert.ToDouble(dudFuncionalidad.Text);
             }
+            else
+            {
+                estadoCaracteristicas.FuncionalidadInterna = false;
+                estadoCaracteristicas.FuncionalidadExterna = false;
+                grados.Funcionalidad = 0;
+            }
 
             if (lblAdecuacion.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstAdecuacion = true;
                 grados.SbcFuncionalidad.Adecuacion = Convert.ToDouble(dudAdecuacion.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstAdecuacion = false;
+                grados.SbcFuncionalidad.Adecuacion = 0;
             }
 
             if (lblExactitud.IsChecked == true)
@@ -80,23 +91,43 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstExactitud = true;
                 grados.SbcFuncionalidad.Exactitud = Convert.ToDouble(dudExactitud.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstExactitud = false;
+                grados.SbcFuncionalidad.Exactitud = 0;
+            }
               
             if (lblInteroperabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstInteroperabilidad = true;
                 grados.SbcFuncionalidad.Interoperabilidad = Convert.ToDouble(dudInteroperabilidad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstInteroperabilidad = false;
+                grados.SbcFuncionalidad.Interoperabilidad = 0;
+            }
 
             if (lblSeguridad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstSeguridadAcceso = true;
                 grados.SbcFuncionalidad.SeguridadAcceso = Convert.ToDouble(dudSeguridad.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstSeguridadAcceso = false;
+                grados.SbcFuncionalidad.SeguridadAcceso = 0;
             }            
 
             if (lblCumpFuncionalidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarfuncionalidad.EstCumplimientoFuncional = true;
                 grados.SbcFuncionalidad.CumplimientoFuncional = Convert.ToDouble(dudCumpFuncionalidad.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarfuncionalidad.EstCumplimientoFuncional = false;
+                grados.SbcFuncionalidad.CumplimientoFuncional = 0;
             }    
         }
 
@@ -108,17 +139,33 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoCaracteristicas.UsabilidadExterna = true;
                 grados.Usabilidad = Convert.ToDouble(dudUsabilidad.Text);
             }
+            else
+            {
+                estadoCaracteristicas.UsabilidadInterna = false;
+                estadoCaracteristicas.UsabilidadExterna = false;
+                grados.Usabilidad = 0;
+            }
 
             if (lblComprensibilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarusabilidad.EstComprensibilidad = true;
                 grados.SbcUsabilidad.Comprensibilidad= Convert.ToDouble(dudComprensibilidad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarusabilidad.EstComprensibilidad = false;
+                grados.SbcUsabilidad.Comprensibilidad = 0;
+            }
 
             if (lblAprendizaje.IsChecked == true)
             {
-                estadoSubCaractetisticas.SubCarusabilidad.EstAprendizaje= true;
+                estadoSubCaractetisticas.SubCarusabilidad.EstAprendizaje = true;
                 grados.SbcUsabilidad.Aprendizaje = Convert.ToDouble(dudAprendizaje.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarusabilidad.EstAprendizaje = false;
+                grados.SbcUsabilidad.Aprendizaje = 0;
             }
 
             if (lblOperabilidad.IsChecked == true)
@@ -126,17 +173,32 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoSubCaractetisticas.SubCarusabilidad.EstOperabilidad = true;
                 grados.SbcUsabilidad.Operabilidad = Convert.ToDouble(dudOperabilidad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarusabilidad.EstOperabilidad = false;
+                grados.SbcUsabilidad.Operabilidad = 0;
+            }
 
             if (lblAtractividad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarusabilidad.EstAtractividad = true;
                 grados.SbcUsabilidad.Atractividad = Convert.ToDouble(dudAtractividad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarusabilidad.EstAtractividad = false;
+                grados.SbcUsabilidad.Atractividad = 0;
+            }
 
             if (lblCumpUsabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarusabilidad.EstCumplimientoUsabilidad = true;
                 grados.SbcUsabilidad.CumplimientoUsabilidad = Convert.ToDouble(dudCumpUsabilidad.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarusabilidad.EstCumplimientoUsabilidad = false;
+                grados.SbcUsabilidad.CumplimientoUsabilidad = 0;
             }
         }
 
@@ -148,11 +210,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoCaracteristicas.MantenibilidadExterna = true;
                 grados.Mantenibilidad = Convert.ToDouble(dudMantenibilidad.Text);
             }
+            else
+            {
+                estadoCaracteristicas.MantenibilidadInterna = false;
+                estadoCaracteristicas.MantenibilidadExterna = false;
+                grados.Mantenibilidad = 0;
+            }
 
             if (lblFacAnalisis.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstAnalizabilidad = true;
                 grados.SbcMantenibilidad.Analizabilidad = Convert.ToDouble(dudFacAnalisis.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarmantenibilidad.EstAnalizabilidad = false;
+                grados.SbcMantenibilidad.Analizabilidad = 0;
             }
 
             if (lblModificabilidad.IsChecked == true)
@@ -160,11 +233,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstModificabilidad = true;
                 grados.SbcMantenibilidad.Modificabilidad = Convert.ToDouble(dudModificabilidad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarmantenibilidad.EstModificabilidad = false;
+                grados.SbcMantenibilidad.Modificabilidad = 0;
+            }
 
             if (lblEstabilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstEstabilidad = true;
                 grados.SbcMantenibilidad.Estabilidad = Convert.ToDouble(dudEstabilidad.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarmantenibilidad.EstEstabilidad = false;
+                grados.SbcMantenibilidad.Estabilidad = 0;
             }
 
             if (lblTesteabilidad.IsChecked == true)
@@ -172,11 +255,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstTesteabilidad = true;
                 grados.SbcMantenibilidad.Testeabilidad = Convert.ToDouble(dudTesteabilidad.Text);
             }
+            else
+            {
+                estadoSubCaractetisticas.SubCarmantenibilidad.EstTesteabilidad = false;
+                grados.SbcMantenibilidad.Testeabilidad = 0;
+            }
 
             if (lblCumpMantenibilidad.IsChecked == true)
             {
                 estadoSubCaractetisticas.SubCarmantenibilidad.EstCumplimientoMantenibilidad = true;
                 grados.SbcMantenibilidad.CumplimientoMantenibilidad = Convert.ToDouble(dudCumpMantenibilidad.Text);
+            }
+            else
+            {
+                estadoSubCaractetisticas.SubCarmantenibilidad.EstCumplimientoMantenibilidad = false;
+                grados.SbcMantenibilidad.CumplimientoMantenibilidad = 0;
             }
         }
 
@@ -184,6 +277,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             // Obtener desde la interfaz grafica
             guardarDatosSw();
+
+            // Actualiza los estados Activa/Desactiva
             guardarGradosFuncionalidad();
             guardarGradosUsabilidad();
             guardarGradosMantenbilidad();

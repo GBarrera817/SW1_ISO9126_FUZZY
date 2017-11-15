@@ -556,6 +556,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             this.NavigationService.Navigate(paginaSeleccion);
-        }
+        } 
     }
 }

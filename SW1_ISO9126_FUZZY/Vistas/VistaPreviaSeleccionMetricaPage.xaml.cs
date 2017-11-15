@@ -500,13 +500,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {
             if (miEvaluacion.Estado)
-            {
-                menuMetricas.IsOpen = true;
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+                menuMetricas.IsOpen = true;           
+            else           
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
         }
 
         // Eventos botones menu flotante (flyout)

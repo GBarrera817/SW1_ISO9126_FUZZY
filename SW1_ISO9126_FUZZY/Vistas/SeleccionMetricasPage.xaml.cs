@@ -42,12 +42,16 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             btnSiguiente.IsEnabled = true;
         }
 
+        // Crear las listas para las metricas
+
         private void inicializarListas()
         {
             this.listaMetricas = new ArrayList();
             this.listaSeleccion =  new ArrayList();
             this.indiceListas = 0;
         }
+
+        // Crear lista para guardar la seleccion
 
         private void inicializarSeleccion(ArrayList metricas)
         {
@@ -188,17 +192,23 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             lblCaracteristica.Content = caracteristica;
             lblPerspectiva.Content = perspectiva;
 
-            //Cargar listas metricas y seleccion
+            // Cargar listas metricas y seleccion
             listaMetricas = (ArrayList)metricas.Clone();
             listaSeleccion = (ArrayList)seleccion.Clone();
 
-            //Si no hay seleccion previa, se crea
+            // Lista de metrica con un elemento
+            if (listaMetricas.Count == 1)
+            {
+                btnSiguiente.IsEnabled = false;
+            }
+
+            // Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)
             {
                 inicializarSeleccion(listaMetricas);
             }
 
-            //Cargo y compruebo metrica inicial
+            // Cargo y compruebo metrica inicial
             cargarMetrica((JMetrica)listaMetricas[0]);
             cargarSeleccion(0);
         }

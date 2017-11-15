@@ -76,13 +76,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.miEvaluacion = nueva;
 
             inicializarEstadoCaracteristica();
-            inicializarListas();
-            inicializarSeleccion();
+            cargarJsonMetricas();
 
             // Tablas iniciales
             cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
             cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
         }
+
+        // Inicializar estados caracteristicas Interna/Externa
 
         private void inicializarEstadoCaracteristica()
         {
@@ -94,31 +95,147 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.isManExtAct = false;
         }
 
+        // Cargar las metricas desde archivos JSON
+
+        private void cargarJsonMetricas()
+        {
+            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
+            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
+            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
+            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
+            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
+            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
+        }
+
+        // Crea las listas para mostrar y guardar las metricas
+
         private void inicializarListas()
         {
-            this.funcionalidadInterna = new ArrayList();
-            this.funcionalidadExterna = new ArrayList();
-            this.usabilidadInterna = new ArrayList();
-            this.usabilidadExterna = new ArrayList();
-            this.mantenibilidadInterna = new ArrayList();
-            this.mantenibilidadExterna = new ArrayList();
-        }
-
-        private void inicializarSeleccion()
-        {
-            this.MTSfuncionalidadInterna = new ArrayList();
-            this.MTSfuncionalidadExterna = new ArrayList();
-            this.MTSusabilidadInterna = new ArrayList();
-            this.MTSusabilidadExterna = new ArrayList();
-            this.MTSmantenibilidadInterna = new ArrayList();
-            this.MTSmantenibilidadExterna = new ArrayList();
-        }
-
-        private void cargarEstado()
-        {
-            if (miEvaluacion.Estado)
+            if (isFunIntAct)
             {
+                this.funcionalidadInterna = new ArrayList();
+                this.MTSfuncionalidadInterna = new ArrayList();
+            }
 
+            if (isFunExtAct)
+            {
+                this.funcionalidadExterna = new ArrayList();
+                this.MTSfuncionalidadExterna = new ArrayList();
+            }
+
+            if (isUsaIntAct)
+            {
+                this.usabilidadInterna = new ArrayList();
+                this.MTSusabilidadInterna = new ArrayList();
+            }
+
+            if (isUsaExtAct)
+            {
+                this.usabilidadExterna = new ArrayList();
+                this.MTSusabilidadExterna = new ArrayList();
+            }
+
+            if (isManIntAct)
+            {
+                this.mantenibilidadInterna = new ArrayList();
+                this.MTSmantenibilidadInterna = new ArrayList();
+            }
+
+            if (isManExtAct)
+            {
+                this.mantenibilidadExterna = new ArrayList();
+                this.MTSmantenibilidadExterna = new ArrayList();
+            }
+        }
+
+        // Carga los estado de la seleccion de las caracteristicas Interna/externa
+
+        private void cargarEstados(Evaluacion evaSeleccion)
+        {
+            if (evaSeleccion.DatosMetricas.FuncionalidadInterna)
+                isFunIntAct = true;
+            else
+                isFunIntAct = false;
+
+            if (evaSeleccion.DatosMetricas.FuncionalidadExterna)
+                isFunExtAct = true;
+            else
+                isFunExtAct = false;
+
+            if (evaSeleccion.DatosMetricas.UsabilidadInterna)
+                isUsaIntAct = true;
+            else
+                isUsaIntAct = false;
+
+            if (evaSeleccion.DatosMetricas.UsabilidadExterna)
+                isUsaExtAct = true;
+            else
+                isUsaExtAct = false;
+
+            if (evaSeleccion.DatosMetricas.MantenibilidadInterna)
+                isManIntAct = true;
+            else
+                isManIntAct = false;
+
+            if (evaSeleccion.DatosMetricas.MantenibilidadExterna)
+                isManExtAct = true;
+            else
+                isManExtAct = false;
+        }
+
+        // Crea las listas de metricas por caracteristicas Internas/Externas
+
+        private void cargarListasMetricas()
+        {
+            if (isFunIntAct)
+                cargarListaFuncionabilidad(miEvaluacion, funInt, funcionalidadInterna);
+
+            if (isFunExtAct)
+                cargarListaFuncionabilidad(miEvaluacion, funExt, funcionalidadExterna);
+
+            if (isUsaIntAct)
+                cargarListaUsabilidad(miEvaluacion, usaInt, usabilidadInterna);
+
+            if (isUsaExtAct)
+                cargarListaUsabilidad(miEvaluacion, usaExt, usabilidadExterna);
+
+            if (isManIntAct)
+                cargarListaMantenibilidad(miEvaluacion, manInt, mantenibilidadInterna);
+
+            if (isManExtAct)
+                cargarListaMantenibilidad(miEvaluacion, manExt, mantenibilidadExterna);
+        }
+
+        private void cargarMenuMetricas()
+        {
+            if (isFunIntAct)
+                btnFuncInterna.IsEnabled = false;
+
+            if (isFunExtAct)
+                btnFuncExterna.IsEnabled = false;
+
+            if (isUsaIntAct)
+                btnUsabInterna.IsEnabled = false;
+
+            if (isUsaExtAct)
+                btnUsabExterna.IsEnabled = false;
+
+            if (isManIntAct)
+                btnMantInterna.IsEnabled = false;
+
+            if (isManExtAct)
+                btnMantExterna.IsEnabled = false;
+        }
+        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
+
+        private void cargarDatosModulo(Evaluacion evaSeleccion)
+        {
+            if (evaSeleccion.Estado)
+            {
+                cargarEstados(evaSeleccion);
+                inicializarListas();
+                cargarListasMetricas();
+                cargarMenuMetricas();
             }
             else
             {
@@ -127,95 +244,76 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
         // Crear listas de metricas por caracteristicas
-
-        private void cargarListaFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
+     
+        private void cargarListaFuncionabilidad(Evaluacion datosEvaluacion, JFuncionabilidad funcionalidad, ArrayList metricas)
         {
-            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
-                metricas.Add(funcionalidad.Adecuacion[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
+                for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
+                    metricas.Add(funcionalidad.Adecuacion[i]);
 
-            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
-                metricas.Add(funcionalidad.Exactitud[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+                for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
+                    metricas.Add(funcionalidad.Exactitud[i]);
 
-            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
-                metricas.Add(funcionalidad.Interoperabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstInteroperabilidad)
+                for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
+                    metricas.Add(funcionalidad.Interoperabilidad[i]);
 
-            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
-                metricas.Add(funcionalidad.SeguridadAcceso[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstSeguridadAcceso)
+                for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
+                    metricas.Add(funcionalidad.SeguridadAcceso[i]);
 
-            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
-                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+                for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
+                    metricas.Add(funcionalidad.CumplimientoFuncional[i]);
         }
 
-        private void cargarListaUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
+        private void cargarListaUsabilidad(Evaluacion datosEvaluacion, JUsabilidad usabilidad, ArrayList metricas)
         {
-            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
-                metricas.Add(usabilidad.Comprensibilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
+                for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
+                    metricas.Add(usabilidad.Comprensibilidad[i]);
 
-            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
-                metricas.Add(usabilidad.Aprendizaje[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstAprendizaje)
+                for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
+                    metricas.Add(usabilidad.Aprendizaje[i]);
 
-            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
-                metricas.Add(usabilidad.Operabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstOperabilidad)
+                for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
+                    metricas.Add(usabilidad.Operabilidad[i]);
 
-            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
-                metricas.Add(usabilidad.Atractividad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstAtractividad)
+                for (int i = 0; i < usabilidad.Atractividad.Length; i++)
+                    metricas.Add(usabilidad.Atractividad[i]);
 
-            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
-                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstCumplimientoUsabilidad)
+                for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
+                    metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
         }
 
-        private void cargarListaMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
+        private void cargarListaMantenibilidad(Evaluacion datosEvaluacion, JMantenibilidad mantenibilidad, ArrayList metricas)
         {
-            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Analizabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
+                for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
+                    metricas.Add(mantenibilidad.Analizabilidad[i]);
 
-            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Modificabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstModificabilidad)
+                for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
+                    metricas.Add(mantenibilidad.Modificabilidad[i]);
 
-            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
+                for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
                 metricas.Add(mantenibilidad.Estabilidad[i]);
 
-            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Testeabilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
+                for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
+                    metricas.Add(mantenibilidad.Testeabilidad[i]);
 
-            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
-                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
+            if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
+                for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
+                    metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
         }
 
-        // Cargar las metricas desde archivos JSON
-
-        private void cargarJsonMetricas()
-        {
-            funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-            funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-            usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));             
-            usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));               
-            manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-            manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
-        }
-
-        // Crea las listas de metricas por caracteristicas Internas/Externas
-
-        private void cargarListasMetricas()
-        {
-            if (isFunIntAct)         
-                cargarListaFuncionabilidad(funInt, funcionalidadInterna);
-            
-            if (isFunExtAct)
-                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
-            
-            if (isUsaIntAct)
-                cargarListaUsabilidad(usaInt, usabilidadInterna);
- 
-            if (isUsaExtAct)
-                cargarListaUsabilidad(usaExt, usabilidadExterna);
-
-            if (isManIntAct)       
-                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
-
-            if (isManExtAct)         
-                cargarListaMantenibilidad(manExt, mantenibilidadExterna);       
-        }
         // Centrar columnas de las tablas
 
         private void centrarColumnas(DataGrid tabla)

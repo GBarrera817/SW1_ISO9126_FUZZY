@@ -634,17 +634,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                     }
                                     else
                                     {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                     }
                                 }
                                 else
                                 {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                 }
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
 
@@ -661,17 +661,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                     }
                                     else
                                     {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                     }
                                 }
                                 else
                                 {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                 }
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
 
@@ -688,23 +688,23 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                     }
                                     else
                                     {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                     }
                                 }
                                 else
                                 {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                                 }
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Grados de importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una característica para la evaluación del software", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 else

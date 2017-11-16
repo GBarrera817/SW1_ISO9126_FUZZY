@@ -7,6 +7,7 @@ using System.Collections;
 using System.Data;
 using System.IO;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SW1_ISO9126_FUZZY.Vistas {
@@ -308,13 +309,22 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             guardarSeleccion(indiceListas);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(origen);
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarSeleccion(indiceListas);
-            NavigationService.Navigate(origen);
+            MessageBoxResult respuesta;
+
+            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la selección no podra agregar más metricas, ¿desea finalizar la selección? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (respuesta == MessageBoxResult.Yes)
+            {
+                guardarSeleccion(indiceListas);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                NavigationService.Navigate(origen);
+            }
         }
     }
 }

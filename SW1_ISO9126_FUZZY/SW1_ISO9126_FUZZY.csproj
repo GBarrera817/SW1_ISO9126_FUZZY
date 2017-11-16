@@ -197,8 +197,8 @@
     <Compile Include="Vistas\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistroSWPage.xaml.cs">
-      <DependentUpon>RegistroSWPage.xaml</DependentUpon>
+    <Compile Include="Vistas\RegistroEvaluacionPage.xaml.cs">
+      <DependentUpon>RegistroEvaluacionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
       <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
@@ -238,7 +238,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\RegistroSWPage.xaml">
+    <Page Include="Vistas\RegistroEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

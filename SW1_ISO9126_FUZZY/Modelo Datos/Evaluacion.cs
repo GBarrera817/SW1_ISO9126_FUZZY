@@ -1,12 +1,8 @@
 ﻿using SW1_ISO9126_FUZZY.Modelo_Datos.Estados;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Resultados;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Modelo_Datos
 {
@@ -22,8 +18,10 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private ESubCaracteristicas estSubcaracteristicas;
         private Importancia grados;
         private EstadoModulo seleccionMetricas;
+        private Etiqueta etiquetasSeleccion;
         private ListSeleccion seleccion;
         private EstadoModulo evaluacionMetricas;
+        private Etiqueta etiquetasEvaluacion;
         private ListEvaluacion fomulario;
         private ListCalculo calculos;
         private EstadoModulo calidadMetricas;
@@ -33,22 +31,24 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
 
         public Evaluacion()
         {
-            this.estado = false;
-            this.informacion = new Software();
-            this.datosMetricas = new EstadoModulo();
-            this.estSubcaracteristicas = new ESubCaracteristicas();
-            this.grados = new Importancia();
-            this.seleccionMetricas = new EstadoModulo();
-            this.seleccion = new ListSeleccion();
-            this.evaluacionMetricas = new EstadoModulo();
-            this.fomulario = new ListEvaluacion();
-            this.calculos = new ListCalculo();
-            this.calidadMetricas = new EstadoModulo();
-            this.estadoCalidadSoftware = new EstadoFinal();
-            this.valorCalidadSoftware = new Resultado();
+            this.Estado = false;
+            this.Informacion = new Software();
+            this.DatosMetricas = new EstadoModulo();
+            this.EstSubcaracteristicas = new ESubCaracteristicas();
+            this.Grados = new Importancia();
+            this.SeleccionMetricas = new EstadoModulo();
+            this.EtiquetasSeleccion = new Etiqueta();
+            this.Seleccion = new ListSeleccion();
+            this.EvaluacionMetricas = new EstadoModulo();
+            this.EtiquetasEvaluacion = new Etiqueta();
+            this.Fomulario = new ListEvaluacion();
+            this.Calculos = new ListCalculo();
+            this.CalidadMetricas = new EstadoModulo();
+            this.EstadoCalidadSoftware = new EstadoFinal();
+            this.ValorCalidadSoftware = new Resultado();
         }
 
-        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESubCaracteristicas estSubcaracteristicas, Importancia grados, EstadoModulo seleccionMetricas, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
+        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESubCaracteristicas estSubcaracteristicas, Importancia grados, EstadoModulo seleccionMetricas, Etiqueta etiquetasSeleccion, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, Etiqueta etiquetasEvaluacion, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
         {
             this.estado = estado;
             this.informacion = informacion;
@@ -56,8 +56,10 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.estSubcaracteristicas = estSubcaracteristicas;
             this.grados = grados;
             this.seleccionMetricas = seleccionMetricas;
+            this.etiquetasSeleccion = etiquetasSeleccion;
             this.seleccion = seleccion;
             this.evaluacionMetricas = evaluacionMetricas;
+            this.etiquetasEvaluacion = etiquetasEvaluacion;
             this.fomulario = fomulario;
             this.calculos = calculos;
             this.calidadMetricas = calidadMetricas;
@@ -71,8 +73,10 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         public ESubCaracteristicas EstSubcaracteristicas { get => estSubcaracteristicas; set => estSubcaracteristicas = value; }
         public Importancia Grados { get => grados; set => grados = value; }
         public EstadoModulo SeleccionMetricas { get => seleccionMetricas; set => seleccionMetricas = value; }
+        public Etiqueta EtiquetasSeleccion { get => etiquetasSeleccion; set => etiquetasSeleccion = value; }
         public ListSeleccion Seleccion { get => seleccion; set => seleccion = value; }
         public EstadoModulo EvaluacionMetricas { get => evaluacionMetricas; set => evaluacionMetricas = value; }
+        public Etiqueta EtiquetasEvaluacion { get => etiquetasEvaluacion; set => etiquetasEvaluacion = value; }
         public ListEvaluacion Fomulario { get => fomulario; set => fomulario = value; }
         public ListCalculo Calculos { get => calculos; set => calculos = value; }
         public EstadoModulo CalidadMetricas { get => calidadMetricas; set => calidadMetricas = value; }

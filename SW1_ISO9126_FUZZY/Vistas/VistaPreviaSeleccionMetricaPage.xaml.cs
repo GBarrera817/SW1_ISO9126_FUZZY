@@ -200,35 +200,55 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void cargarEtiquetasEstados()
         {
-            if (isFunIntAct)
-                cambiarEstado(1, lblEstadoMetricasFuncInterna);
-            else
-                cambiarEstado(0, lblEstadoMetricasFuncInterna);
+            // A futuro comprobar el estado actual al hacer la re seleccion de caracteristicas y subcaracteristicas
+            // para editar el estado actual y no reescribir de cero.
 
+            if (isFunIntAct)          
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(1);                       
+            else          
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(0);
+
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
+            
+                
             if (isFunExtAct)
-                cambiarEstado(1, lblEstadoMetricasFuncExterna);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(1);
             else
-                cambiarEstado(0, lblEstadoMetricasFuncExterna);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(0);
 
-            if (isUsaIntAct)
-                cambiarEstado(1, lblEstadoMetricasUsabInterna);
-            else
-                cambiarEstado(0, lblEstadoMetricasUsabInterna);
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
+             
+            
+            if (isUsaIntAct)           
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(1);           
+            else           
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(0);
+
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
+              
 
             if (isUsaExtAct)
-                cambiarEstado(1, lblEstadoMetricasUsabExterna);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(1);
             else
-                cambiarEstado(0, lblEstadoMetricasUsabExterna);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(0);
 
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
+              
+            
             if (isManIntAct)
-                cambiarEstado(1, lblEstadoMetricasMantInterna);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(1);
             else
-                cambiarEstado(0, lblEstadoMetricasMantInterna);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(0);
+
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
+                
 
             if (isManExtAct)
-                cambiarEstado(1, lblEstadoMetricasMantExterna);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(1);
             else
-                cambiarEstado(0, lblEstadoMetricasMantExterna);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(0);
+
+            cambiarEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
         }
 
         // Activa los botones del menu de seleccion de metricas
@@ -341,9 +361,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void cargarDatosModulo(Evaluacion evaSeleccion)
         {
-            if (evaSeleccion.Estado)
+            miEvaluacion = evaSeleccion;
+
+            if (miEvaluacion.Estado)
             {
-                cargarEstados(evaSeleccion);
+                cargarEstados(miEvaluacion);
                 inicializarListas();
                 cargarListasMetricas();
                 cargarEtiquetasEstados();

@@ -7,7 +7,7 @@
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                       xmlns:viewModels="clr-namespace:SW1_ISO9126_FUZZY.ModelosVistas"
-                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF2D364C" Background="#FF2D364C" BorderBrush="#FF353F59" Icon="Imagenes/logo6btn.png" ResizeMode="CanMinimize">
+                      Title="Fuzzisoft 9126" Height="630" Width="848" WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF2D364C" Background="#FF2D364C" BorderBrush="#FF353F59" Icon="Imagenes/logo.png" ResizeMode="CanMinimize">
 
     <controls:MetroWindow.DataContext>
         <viewModels:ModeloHamburgerMenu />

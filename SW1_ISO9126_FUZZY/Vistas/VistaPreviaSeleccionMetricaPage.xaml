@@ -18,30 +18,78 @@
             <Grid>
 
                 <Button x:Name="btnEstadoFuncInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="16,6,401,0" Click="controlTablas">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OData-Edit.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OData-Edit-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OData-Edit.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <Button x:Name="btnEstadoUsabInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="16,73,401,0" Click="controlTablas">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTouch.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTouch-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTouch.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <Button x:Name="btnEstadoMantInterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="16,140,401,0" Click="controlTablas">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTools-01.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTools-01-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTools-01.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="106,43,20,14" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
@@ -55,32 +103,79 @@
         <GroupBox Header="Métricas de Calidad Externa" HorizontalAlignment="Left" Height="250" Margin="10,331,0,0" VerticalAlignment="Top" Width="489" BorderBrush="#FF01A221" Background="#FF01A221">
             <Grid>
 
-
                 <Button x:Name="btnEstadoFuncExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Click="controlTablas" Margin="16,0,401,0">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OBranch-Engineering.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OBranch-Engineering-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OBranch-Engineering.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <Button x:Name="btnEstadoUsabExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="16,73,401,0" Click="controlTablas">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OHand-Sign-06.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OHand-Sign-06-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OHand-Sign-06.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <Button x:Name="btnEstadoMantExterna" Style="{DynamicResource MetroCircleButtonStyle}" VerticalAlignment="Top" Width="60" Height="60" Margin="16,140,401,0" Click="controlTablas">
+                    <Image Height="50" Width="50">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OToolbox.png"/>
+                                <Setter Property="Height" Value="auto"/>
+                                <Setter Property="Width" Value="125"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OToolbox-ylw.png"/>
+                                        <Setter Property="Height" Value="auto"/>
+                                        <Setter Property="Width" Value="140"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
-                    <Button.Background>
+                    <!--<Button.Background>
                         <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OToolbox.png"/>
-                    </Button.Background>
+                    </Button.Background>-->
                 </Button>
 
                 <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="106,43,20,14" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>

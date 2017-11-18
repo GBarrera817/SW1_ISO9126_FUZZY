@@ -338,5 +338,23 @@
     <Resource Include="Imagenes\Seleccion\OTools-01.png" />
     <Resource Include="Imagenes\Seleccion\OTouch.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OBranch-Engineering-ylw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OData-Edit-ylw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OHand-Sign-06-ylw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OToolbox-ylw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OTools-01-ylw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Seleccion\OTouch-ylw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -456,16 +456,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             switch (clickedButton.Name)
             {
-                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);    break;
-                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);         break;
-                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);     break;
-                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);    break;
-                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);         break;
-                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);     break;
+                case "btnEstadoFuncInterna": cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); txTablaInterna.Text = "Funcionalidad";  break;
+                case "btnEstadoUsabInterna": cargarTablaUsabilidad(usaInt, DataGridEstadoMetricasInternas);      txTablaInterna.Text = "Usabilidad";     break;
+                case "btnEstadoMantInterna": cargarTablaMantenibilidad(manInt, DataGridEstadoMetricasInternas);  txTablaInterna.Text = "Mantenibilidad"; break;
+                case "btnEstadoFuncExterna": cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); txTablaExterna.Text = "Funcionalidad";  break;
+                case "btnEstadoUsabExterna": cargarTablaUsabilidad(usaExt, DataGridEstadoMetricasExternas);      txTablaExterna.Text = "Usabilidad";     break;
+                case "btnEstadoMantExterna": cargarTablaMantenibilidad(manExt, DataGridEstadoMetricasExternas);  txTablaExterna.Text = "Mantenibilidad"; break;
 
                 default:
-                    cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
-                    cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+                    cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas); txTablaInterna.Text = "Funcionalidad";
+                    cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas); txTablaExterna.Text = "Funcionalidad";
                 break;
             }
         }

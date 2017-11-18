@@ -521,7 +521,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {
             if (miEvaluacion.Estado)
-                menuMetricas.IsOpen = true;           
+
+                if(isFunIntAct || isFunExtAct || isUsaIntAct || isUsaExtAct || isManIntAct || isManExtAct)
+                    menuMetricas.IsOpen = true;        
+                else
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar alguna caracteristica desde la sección Selección e Importancia", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             else           
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
         }

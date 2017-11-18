@@ -319,8 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\OData-Edit.png" />
-    <Resource Include="Imagenes\OEditor.png" />
-    <Resource Include="Imagenes\OGear.png" />
     <Resource Include="Imagenes\OHand-Sign-06.png" />
     <Resource Include="Imagenes\OToolbox.png" />
     <Resource Include="Imagenes\OTools-01.png" />
@@ -333,7 +331,7 @@
     <Resource Include="Imagenes\OBranch-Engineering.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png" />
+    <Resource Include="Imagenes\mainBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\logo6btn.png" />

@@ -551,7 +551,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
 
@@ -571,7 +573,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
                             
@@ -591,7 +595,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
                             
@@ -611,7 +617,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
 
@@ -631,7 +639,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
                             
@@ -651,7 +661,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
                             
@@ -671,7 +683,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
-
+                            paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                            this.NavigationService.Navigate(paginaSeleccion);
+                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
                         }
                     }
 

@@ -440,7 +440,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cambia las letras y los colores de las etiquetas de estado
 
-        private void cambiarEstado(ColorEstado estado, Label etiqueta)
+        public void cambiarEstado(ColorEstado estado, Label etiqueta)
         {
             var bc = new BrushConverter();
 
@@ -477,7 +477,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Comprimir lista seleccion de metricas a solo las activadas
 
-        public ArrayList comprimirSeleccion(ArrayList seleccion)
+        private ArrayList comprimirSeleccion(ArrayList seleccion)
         {
             MTSeleccion metricaSelec;
             ArrayList local = new ArrayList();
@@ -496,7 +496,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Comprimir lista de metricas a solo las seleccionadas
 
-        public ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
+        private ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
         {
             JMetrica metricaJson;
             MTSeleccion metricaSelec;
@@ -530,6 +530,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnMenuClick(object sender, System.Windows.RoutedEventArgs e)
         {
+            MessageBoxResult respuesta;
             Button clickedButton = (Button) e.Source;
 
             menuMetricas.IsOpen = false;
@@ -537,42 +538,145 @@ namespace SW1_ISO9126_FUZZY.Vistas
             switch (clickedButton.Name)
             {
                 case "btnFuncInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
-                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
-                break;
 
+                    if (miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+
+                break;
+                
                 case "btnUsabInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
-                            MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+                            
                 break;
 
                 case "btnMantInterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
-                            MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+                            
                 break;
 
                 case "btnFuncExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
-                            MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+
                 break;
 
                 case "btnUsabExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
-                            MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+                            
                 break;
 
                 case "btnMantExterna":
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
-                            MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+                            
                 break;
 
                 default:
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
-                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+
+                    if (miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
+                    {
+                        paginaSeleccion.cargarSeleccionMetricas(this, miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                        this.NavigationService.Navigate(paginaSeleccion);
+                        MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                    }
+                    else
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+
+                        }
+                    }
+
                 break;
             }
-
-            this.NavigationService.Navigate(paginaSeleccion);
         } 
     }
 }

@@ -26,12 +26,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Data-Edit.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Data-Edit-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>
@@ -53,12 +53,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Touch.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Touch-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Touch-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>
@@ -80,12 +80,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Tools-01.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Tools-01-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>
@@ -113,12 +113,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Branch-Engineering.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Branch-Engineering-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>
@@ -140,12 +140,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Hand-Sign-06.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Hand-Sign-06-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>
@@ -167,12 +167,12 @@
                         <Image Width="140">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png"/>
+                                    <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Toolbox.png"/>
                                     <Setter Property="Height" Value="auto"/>
                                     <Setter Property="Width" Value="125"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox-ylw.png"/>
+                                            <Setter Property="Source" Value="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Toolbox-ylw.png"/>
                                             <Setter Property="Height" Value="auto"/>
                                             <Setter Property="Width" Value="140"/>
                                         </Trigger>

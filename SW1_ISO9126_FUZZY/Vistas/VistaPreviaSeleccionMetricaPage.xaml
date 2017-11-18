@@ -22,7 +22,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OData-Edit.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OData-Edit.png"/>
                     </Button.Background>
                 </Button>
 
@@ -31,7 +31,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OTouch.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTouch.png"/>
                     </Button.Background>
                 </Button>
 
@@ -40,7 +40,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OTools-01.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OTools-01.png"/>
                     </Button.Background>
                 </Button>
 
@@ -61,7 +61,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OBranch-Engineering.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OBranch-Engineering.png"/>
                     </Button.Background>
                 </Button>
 
@@ -70,7 +70,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OHand-Sign-06.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OHand-Sign-06.png"/>
                     </Button.Background>
                 </Button>
 
@@ -79,7 +79,7 @@
                         <DropShadowEffect ShadowDepth="3"/>
                     </Button.Effect>
                     <Button.Background>
-                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/OToolbox.png"/>
+                        <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/OToolbox.png"/>
                     </Button.Background>
                 </Button>
 
@@ -132,7 +132,7 @@
         <!-- Botón para abrir el flyout -->
         <Button x:Name="btnAbrirFlyout" Margin="555,21,65,534" Click="btnAbrirFlyout_Click">
             <StackPanel Orientation="Horizontal" Height="32" Width="242">
-                <Image Stretch="Fill" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Open.png" Height="31" Width="35" RenderTransformOrigin="0.571,0.258" Margin="0,0,0,-1" />
+                <Image Stretch="Fill" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Open.png" Height="31" Width="35" RenderTransformOrigin="0.571,0.258" Margin="0,0,0,-1" />
                 <Label Content="Selección de métricas" FontSize="12" Height="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
@@ -144,19 +144,19 @@
                 <Label Content=" Métricas Internas" HorizontalContentAlignment="Left" FontSize="18" Foreground="White" Width="296" Background="#FF33A133"/>
                 <Button x:Name="btnFuncInterna" Height="64" Width="221" Canvas.Top="50" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Data-Edit.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Data-Edit.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Interna</Label>
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnUsabInterna" Height="64" Width="221" Canvas.Top="119" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Touch.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Touch.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Interna</Label>
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnMantInterna" Height="64" Width="221" Canvas.Top="188" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Tools-01.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Tools-01.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Interna</Label>
                     </StackPanel>
                 </Button>
@@ -166,19 +166,19 @@
                 <Label Content=" Métricas Externas"  HorizontalContentAlignment="Left" FontSize="18" Foreground="White" Canvas.Top="268" Background="#FF33A133" Width="296"/>
                 <Button x:Name="btnFuncExterna" Height="64" Width="221" Canvas.Top="307" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Branch-Engineering.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Branch-Engineering.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Funcionabilidad Externa</Label>
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnUsabExterna" Height="64" Width="221" Canvas.Top="372" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Hand-Sign-06.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Hand-Sign-06.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Usabilidad Externa</Label>
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnMantExterna" Height="64" Width="221" Canvas.Top="441" Canvas.Left="40" Background="#FF2D364C" BorderBrush="#FF2D364C" Click="btnMenuClick">
                     <StackPanel Orientation="Horizontal" Background="#FF2D364C" Width="211">
-                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Toolbox.png" Height="52" Width="46" Stretch="UniformToFill"/>
+                        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Evaluacion/Toolbox.png" Height="52" Width="46" Stretch="UniformToFill"/>
                         <Label Padding="0" FontSize="14" VerticalAlignment="Center" Foreground="White" Width="160">Mantenibilidad Externa</Label>
                     </StackPanel>
                 </Button>

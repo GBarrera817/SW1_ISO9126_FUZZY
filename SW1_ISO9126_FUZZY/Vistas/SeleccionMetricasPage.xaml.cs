@@ -16,8 +16,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private ArrayList listaMetricas;
         private ArrayList listaSeleccion;
         private int indiceListas;
-        private ColorEstado datosEtiqueta;
-        private Label graficaEtiqueta;
+        private string caracteristica;
+        private string perspectiva;
 
         private VistaPreviaSeleccionMetricaPage origen;
 
@@ -50,8 +50,8 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void inicializarVariables()
         {
-            this.datosEtiqueta = new ColorEstado();
-            this.graficaEtiqueta = new Label();
+            this.caracteristica = "";
+            this.perspectiva = "";
         }
 
         private void inicializarListas()
@@ -193,14 +193,14 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Cargar la caracteristicas (Eventos menu flotante)
 
-        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, ColorEstado estadoEntrada, Label etiquetaEntrada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion)
+        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion)
         {
             // Ventana emisora
             origen = llamada;
 
             // Datos etiqueta estado por colores
-            datosEtiqueta = estadoEntrada;
-            graficaEtiqueta = etiquetaEntrada;
+            this.caracteristica = caracteristica;
+            this.perspectiva = perspectiva;
 
             // Condiciones iniciales
             cargarEntorno();
@@ -324,8 +324,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            datosEtiqueta.cambiarEstado(2);
-            origen.cambiarEstado(datosEtiqueta, graficaEtiqueta);
+            origen.guardarSeleccionSMbtn(caracteristica, perspectiva);
             guardarSeleccion(indiceListas);
             Xceed.Wpf.Toolkit.MessageBox.Show("Métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(origen);
@@ -339,8 +338,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
             if (respuesta == MessageBoxResult.Yes)
             {
-                datosEtiqueta.cambiarEstado(3);
-                origen.cambiarEstado(datosEtiqueta, graficaEtiqueta);
+                origen.finalizarSeleccionSMbtn(caracteristica, perspectiva);
                 guardarSeleccion(indiceListas);
                 Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);

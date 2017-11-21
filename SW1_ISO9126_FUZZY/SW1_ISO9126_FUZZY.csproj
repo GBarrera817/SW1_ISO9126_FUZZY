@@ -153,12 +153,14 @@
     <Compile Include="Logica Difusa\ReglaDifusa.cs" />
     <Compile Include="Logica Difusa\ValorLinguistico.cs" />
     <Compile Include="Logica Difusa\VariableLinguistica.cs" />
+    <Compile Include="Modelo Datos\Etiquetas\ColorEstado.cs" />
     <Compile Include="Modelo Datos\Estados\ESubCaracteristicas.cs" />
     <Compile Include="Modelo Datos\Estados\ESCFuncionalidad.cs" />
     <Compile Include="Modelo Datos\Estados\ESCMantenibilidad.cs" />
     <Compile Include="Modelo Datos\Estados\ESCUsabilidad.cs" />
     <Compile Include="Modelo Datos\Estados\EstadoFinal.cs" />
     <Compile Include="Modelo Datos\Estados\EstadoModulo.cs" />
+    <Compile Include="Modelo Datos\Etiquetas\Etiqueta.cs" />
     <Compile Include="Modelo Datos\Evaluacion.cs" />
     <Compile Include="Modelo Datos\Importancias\Importancia.cs" />
     <Compile Include="Modelo Datos\Importancias\ISCFuncionalidad.cs" />
@@ -197,8 +199,8 @@
     <Compile Include="Vistas\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistroSWPage.xaml.cs">
-      <DependentUpon>RegistroSWPage.xaml</DependentUpon>
+    <Compile Include="Vistas\RegistroEvaluacionPage.xaml.cs">
+      <DependentUpon>RegistroEvaluacionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\SeleccionMetricasPage.xaml.cs">
       <DependentUpon>SeleccionMetricasPage.xaml</DependentUpon>
@@ -238,7 +240,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\RegistroSWPage.xaml">
+    <Page Include="Vistas\RegistroEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,63 +299,62 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Data-Edit.png" />
-    <Resource Include="Imagenes\Hand-Sign-06.png" />
-    <Resource Include="Imagenes\Toolbox.png" />
-    <Resource Include="Imagenes\Tools-01.png" />
-    <Resource Include="Imagenes\Touch.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\iso-logo-9126.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Save.png" />
+    <Resource Include="Imagenes\mainBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Open.png" />
+    <Resource Include="Imagenes\Botones\Agreement-02.png" />
+    <Resource Include="Imagenes\Botones\Arrowhead-Left.png" />
+    <Resource Include="Imagenes\Botones\Arrowhead-Right.png" />
+    <Resource Include="Imagenes\Botones\Document-Check.png" />
+    <Resource Include="Imagenes\Botones\Open.png" />
+    <Resource Include="Imagenes\Botones\Save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\OData-Edit.png" />
-    <Resource Include="Imagenes\OEditor.png" />
-    <Resource Include="Imagenes\OGear.png" />
-    <Resource Include="Imagenes\OHand-Sign-06.png" />
-    <Resource Include="Imagenes\OToolbox.png" />
-    <Resource Include="Imagenes\OTools-01.png" />
-    <Resource Include="Imagenes\OTouch.png" />
+    <Resource Include="Imagenes\Evaluacion\Branch-Engineering-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Branch-Engineering.png" />
+    <Resource Include="Imagenes\Evaluacion\Data-Edit-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Data-Edit.png" />
+    <Resource Include="Imagenes\Evaluacion\Hand-Sign-06-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Hand-Sign-06.png" />
+    <Resource Include="Imagenes\Evaluacion\Toolbox-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Toolbox.png" />
+    <Resource Include="Imagenes\Evaluacion\Tools-01-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Tools-01.png" />
+    <Resource Include="Imagenes\Evaluacion\Touch-ylw.png" />
+    <Resource Include="Imagenes\Evaluacion\Touch.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Branch-Engineering.png" />
+    <Resource Include="Imagenes\Seleccion\Note-disable.png" />
+    <Resource Include="Imagenes\Seleccion\OBranch-Engineering.png" />
+    <Resource Include="Imagenes\Seleccion\OData-Edit.png" />
+    <Resource Include="Imagenes\Seleccion\OHand-Sign-06.png" />
+    <Resource Include="Imagenes\Seleccion\OToolbox.png" />
+    <Resource Include="Imagenes\Seleccion\OTools-01.png" />
+    <Resource Include="Imagenes\Seleccion\OTouch.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\OBranch-Engineering.png" />
+    <Resource Include="Imagenes\Seleccion\OBranch-Engineering-ylw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png" />
+    <Resource Include="Imagenes\Seleccion\OData-Edit-ylw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\logo6btn.png" />
+    <Resource Include="Imagenes\Seleccion\OHand-Sign-06-ylw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Data-Edit-ylw.png" />
+    <Resource Include="Imagenes\Seleccion\OToolbox-ylw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Branch-Engineering-ylw.png" />
-    <Resource Include="Imagenes\Hand-Sign-06-ylw.png" />
-    <Resource Include="Imagenes\Toolbox-ylw.png" />
-    <Resource Include="Imagenes\Tools-01-ylw.png" />
-    <Resource Include="Imagenes\Touch-ylw.png" />
+    <Resource Include="Imagenes\Seleccion\OTools-01-ylw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Arrowhead-Left.png" />
-    <Resource Include="Imagenes\Arrowhead-Right.png" />
-    <Resource Include="Imagenes\Document-Check.png" />
+    <Resource Include="Imagenes\Seleccion\OTouch-ylw.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Note-disable.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

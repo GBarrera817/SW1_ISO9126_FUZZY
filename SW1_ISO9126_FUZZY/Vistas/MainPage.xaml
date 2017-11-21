@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/ice_metro_swirl_lockscreen_by_snowince-d5t9cry.png"/>
+            <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/mainBackground.png"/>
         </Grid.Background>
 
         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,76,172,90"/>

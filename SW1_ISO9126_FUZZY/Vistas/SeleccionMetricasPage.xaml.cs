@@ -1,12 +1,9 @@
-﻿using Newtonsoft.Json;
-using SW1_ISO9126_FUZZY.JSON;
-using SW1_ISO9126_FUZZY.Modelo_Datos;
+﻿using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SW1_ISO9126_FUZZY.Vistas {
@@ -16,9 +13,11 @@ namespace SW1_ISO9126_FUZZY.Vistas {
     public partial class SeleccionMetricasPage : Page
     {
         // Listas metricas y seleccion metrica
-        private ArrayList listaMetricas;
-        private ArrayList listaSeleccion;
+        private List<JMetrica> listaMetricas;
+        private List<MTSeleccion> listaSeleccion;
         private int indiceListas;
+        private string caracteristica;
+        private string perspectiva;
 
         private VistaPreviaSeleccionMetricaPage origen;
 
@@ -26,6 +25,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             InitializeComponent();
             cargarEntorno();
+            inicializarVariables();
         }
 
         // Metodos
@@ -36,20 +36,34 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             inicializarListas();
         }
 
+        // Asigna estado inicial botones de movimiento
+
         private void inicializarBotones()
         {
             btnAnterior.IsEnabled = false;
             btnSiguiente.IsEnabled = true;
         }
 
+        // Inicializar variables
+
+        private void inicializarVariables()
+        {
+            this.caracteristica = "";
+            this.perspectiva = "";
+        }
+
+        // Crear las listas para las metricas
+
         private void inicializarListas()
         {
-            this.listaMetricas = new ArrayList();
-            this.listaSeleccion =  new ArrayList();
+            this.listaMetricas = new List<JMetrica>();
+            this.listaSeleccion = new List<MTSeleccion>();
             this.indiceListas = 0;
         }
 
-        private void inicializarSeleccion(ArrayList metricas)
+        // Crear lista para guardar la seleccion
+
+        private void inicializarSeleccion(List<JMetrica> metricas)
         {
             JMetrica metricaJson;
             MTSeleccion metricaSelec;
@@ -58,7 +72,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             {
                 metricaSelec = new MTSeleccion();
 
-                metricaJson = (JMetrica)metricas[i];
+                metricaJson = metricas[i];
                 metricaSelec.Id = metricaJson.Id;
                 metricaSelec.Estado = true;
                 metricaSelec.Proposito = 0;
@@ -134,7 +148,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             MTSeleccion metrica;
 
-            metrica = (MTSeleccion)listaSeleccion[indice];
+            metrica = listaSeleccion[indice];
 
             dataGridDetalleMetrica.SelectedIndex = metrica.Proposito;
 
@@ -154,7 +168,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         {
             MTSeleccion metrica;           
 
-            metrica = (MTSeleccion)listaSeleccion[indice];
+            metrica = listaSeleccion[indice];
 
             metrica.Estado = (bool) chckDetallesMetricas.IsChecked;
 
@@ -172,40 +186,53 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Retorna las metricas seleccionadas
 
-        public ArrayList seleccionarMetrica()
+        public List<MTSeleccion> seleccionarMetrica()
         {
             return listaSeleccion;
         }
 
         // Cargar la caracteristicas (Eventos menu flotante)
 
-        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion)
+        public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, List<JMetrica> metricas, List<MTSeleccion> seleccion)
         {
+            // Ventana emisora
             origen = llamada;
+
+            // Datos etiqueta estado por colores
+            this.caracteristica = caracteristica;
+            this.perspectiva = perspectiva;
+
+            // Condiciones iniciales
             cargarEntorno();
 
             // Etiquetas pricipales 
             lblCaracteristica.Content = caracteristica;
             lblPerspectiva.Content = perspectiva;
 
-            //Cargar listas metricas y seleccion
-            listaMetricas = (ArrayList)metricas.Clone();
-            listaSeleccion = (ArrayList)seleccion.Clone();
+            // Cargar listas metricas y seleccion
+            listaMetricas = new List<JMetrica>(metricas); 
+            listaSeleccion = new List<MTSeleccion>(seleccion);
 
-            //Si no hay seleccion previa, se crea
+            // Lista de metrica con un elemento
+            if (listaMetricas.Count == 1)
+            {
+                btnSiguiente.IsEnabled = false;
+            }
+
+            // Si no hay seleccion previa, se crea
             if (listaSeleccion.Count == 0)
             {
                 inicializarSeleccion(listaMetricas);
             }
 
-            //Cargo y compruebo metrica inicial
-            cargarMetrica((JMetrica)listaMetricas[0]);
+            // Cargo y compruebo metrica inicial
+            cargarMetrica(listaMetricas[0]);
             cargarSeleccion(0);
         }
 
         // Retroceder
 
-        private void retroceder(ref int indice, ArrayList lista)
+        private void retroceder(ref int indice, List<JMetrica> lista)
         {
             guardarSeleccion(indice);
 
@@ -218,7 +245,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                     btnAnterior.IsEnabled = false;
                 }
 
-                cargarMetrica((JMetrica)lista[indice]);
+                cargarMetrica(lista[indice]);
                 cargarSeleccion(indice);
 
                 if (btnSiguiente.IsEnabled == false)
@@ -235,7 +262,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Avanzar
 
-        private void avanzar(ref int indice, ArrayList lista)
+        private void avanzar(ref int indice, List<JMetrica> lista)
         {
             guardarSeleccion(indice);
 
@@ -248,7 +275,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                     btnSiguiente.IsEnabled = false;
                 }
 
-                cargarMetrica((JMetrica)lista[indice]);
+                cargarMetrica(lista[indice]);
                 cargarSeleccion(indice);
 
                 if (btnAnterior.IsEnabled == false)
@@ -297,14 +324,25 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            origen.guardarSeleccionSMbtn(caracteristica, perspectiva);
             guardarSeleccion(indiceListas);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(origen);
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarSeleccion(indiceListas);
-            NavigationService.Navigate(origen);
+            MessageBoxResult respuesta;
+
+            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la selección no podra agregar más metricas, ¿desea finalizar la selección? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (respuesta == MessageBoxResult.Yes)
+            {
+                origen.finalizarSeleccionSMbtn(caracteristica, perspectiva);
+                guardarSeleccion(indiceListas);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                NavigationService.Navigate(origen);
+            }
         }
     }
 }

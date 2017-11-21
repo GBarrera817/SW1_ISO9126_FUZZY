@@ -77,7 +77,7 @@ namespace SW1_ISO9126_FUZZY {
                 Navigation.Navigation.Navigate(principal);
             }
 
-            if (menuItem.Text == "Registro de Software")
+            if (menuItem.Text == "Registro de Evaluación")
             {             
                 Navigation.Navigation.Navigate(registro);
             }
@@ -100,7 +100,6 @@ namespace SW1_ISO9126_FUZZY {
             if (menuItem.Text == "Acerca")
             {
                 Navigation.Navigation.Navigate(acerca);
-                Xceed.Wpf.Toolkit.MessageBox.Show(proyecto.Informacion.ToString(), "Datos del software", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

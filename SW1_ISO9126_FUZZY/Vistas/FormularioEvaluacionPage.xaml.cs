@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas;
 using System;
 using System.Collections;
 using System.IO;
@@ -210,14 +211,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        private void cambiarEstado(int estado, Label etiqueta)
+        // Cambia las letras y los colores de las etiquetas de estado
+
+        private void cambiarEstado(ColorEstado estado, Label etiqueta)
         {
             var bc = new BrushConverter();
-            string[] estados = new string[] { "INACTIVA", "REALIZAR", "COMPLETAR", "FINALIZADO" };
-            string[] colores = new string[] { "#FF000033", "#FFCC0000", "#FFE6E600", "#FF00802B" };
 
-            etiqueta.Background = (Brush)bc.ConvertFrom(colores[estado]);
-            etiqueta.Content = estados[estado];
+            etiqueta.Background = (Brush)bc.ConvertFrom(estado.Color);
+            etiqueta.Content = estado.Etiqueta;
         }
 
         // Eventos botones menu flotante (flyout)

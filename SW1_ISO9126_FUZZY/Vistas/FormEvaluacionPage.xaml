@@ -68,7 +68,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="89">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
             </StackPanel>
         </Button>
@@ -79,7 +79,7 @@
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="89">
                 <Label Content="Siguiente" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="63"/>
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
             </StackPanel>
         </Button>
 
@@ -88,7 +88,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="130">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Guardar y salir" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="92"/>
             </StackPanel>
         </Button>
@@ -98,7 +98,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="155">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Document-Check.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Document-Check.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Finalizar Evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="122"/>
             </StackPanel>
         </Button>

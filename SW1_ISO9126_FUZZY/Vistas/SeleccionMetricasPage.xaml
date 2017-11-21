@@ -13,7 +13,7 @@
     <Grid Background="White">
 
         <TextBlock FontSize="36" HorizontalAlignment="Stretch" Margin="227,0,229,0" TextWrapping="Wrap" Text="Selección de métricas" VerticalAlignment="Top" Height="40" Foreground="#FF149FDA"/>
-        <Image x:Name="img_no_metric" HorizontalAlignment="Left" Height="294" Margin="250,179,0,0" VerticalAlignment="Top" Width="291" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Note-disable.png"/>
+        <Image x:Name="img_no_metric" HorizontalAlignment="Left" Height="294" Margin="250,179,0,0" VerticalAlignment="Top" Width="291" Source="/SW1_ISO9126_FUZZY;component/Imagenes/Seleccion/Note-disable.png"/>
 
         <TextBlock x:Name="txt_metric_disable" HorizontalAlignment="Left" Margin="250,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontSize="30" FontWeight="SemiBold" Foreground="#FF858585"><Run Text="Metrica desactivada"/></TextBlock>
         <!-- Identificación de la Característica y subcaracterítisca asociada -->
@@ -68,7 +68,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="89">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
             </StackPanel>
         </Button>
@@ -79,7 +79,7 @@
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="89">
                 <Label Content="Siguiente" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="63"/>
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
             </StackPanel>
         </Button>
 
@@ -88,7 +88,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="130">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Guardar y salir" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="92"/>
             </StackPanel>
         </Button>
@@ -98,7 +98,7 @@
                 <ImageBrush/>
             </Button.Background>
             <StackPanel Orientation="Horizontal" Height="35" Width="155">
-                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Document-Check.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Document-Check.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Finalizar Selección" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="122"/>
             </StackPanel>
         </Button>

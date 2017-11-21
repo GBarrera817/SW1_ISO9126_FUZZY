@@ -190,11 +190,11 @@
     <Compile Include="Vistas\EvaluacionCalidadPage.xaml.cs">
       <DependentUpon>EvaluacionCalidadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormEvaluacionPage.xaml.cs">
-      <DependentUpon>FormEvaluacionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FormularioEvaluacionPage.xaml.cs">
       <DependentUpon>FormularioEvaluacionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaPreviaFormularioEvaluacionPage.xaml.cs">
+      <DependentUpon>VistaPreviaFormularioEvaluacionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -228,11 +228,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\FormEvaluacionPage.xaml">
+    <Page Include="Vistas\FormularioEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\FormularioEvaluacionPage.xaml">
+    <Page Include="Vistas\VistaPreviaFormularioEvaluacionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

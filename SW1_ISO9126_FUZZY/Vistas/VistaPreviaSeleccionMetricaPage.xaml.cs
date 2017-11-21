@@ -3,7 +3,7 @@ using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
-using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows;
@@ -35,20 +35,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private bool isManExtAct;
 
         // Listas de caracteristicas
-        private ArrayList funcionalidadInterna;
-        private ArrayList funcionalidadExterna;
-        private ArrayList usabilidadInterna;
-        private ArrayList usabilidadExterna;
-        private ArrayList mantenibilidadInterna;
-        private ArrayList mantenibilidadExterna;
+        private List<JMetrica> funcionalidadInterna;
+        private List<JMetrica> funcionalidadExterna;
+        private List<JMetrica> usabilidadInterna;
+        private List<JMetrica> usabilidadExterna;
+        private List<JMetrica> mantenibilidadInterna;
+        private List<JMetrica> mantenibilidadExterna;
 
         // Listas de caracteristicas seleccionadas
-        private ArrayList MTSfuncionalidadInterna;
-        private ArrayList MTSfuncionalidadExterna;
-        private ArrayList MTSusabilidadInterna;
-        private ArrayList MTSusabilidadExterna;
-        private ArrayList MTSmantenibilidadInterna;
-        private ArrayList MTSmantenibilidadExterna;
+        private List<MTSeleccion> MTSfuncionalidadInterna;
+        private List<MTSeleccion> MTSfuncionalidadExterna;
+        private List<MTSeleccion> MTSusabilidadInterna;
+        private List<MTSeleccion> MTSusabilidadExterna;
+        private List<MTSeleccion> MTSmantenibilidadInterna;
+        private List<MTSeleccion> MTSmantenibilidadExterna;
 
         private SeleccionMetricasPage paginaSeleccion;
         /*private Seleccion metricas;
@@ -103,38 +103,38 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             if (isFunIntAct)
             {
-                this.funcionalidadInterna = new ArrayList();
-                this.MTSfuncionalidadInterna = new ArrayList();
+                this.funcionalidadInterna = new List<JMetrica>();
+                this.MTSfuncionalidadInterna = new List<MTSeleccion>();
             }
 
             if (isFunExtAct)
             {
-                this.funcionalidadExterna = new ArrayList();
-                this.MTSfuncionalidadExterna = new ArrayList();
+                this.funcionalidadExterna = new List<JMetrica>();
+                this.MTSfuncionalidadExterna = new List<MTSeleccion>();
             }
 
             if (isUsaIntAct)
             {
-                this.usabilidadInterna = new ArrayList();
-                this.MTSusabilidadInterna = new ArrayList();
+                this.usabilidadInterna = new List<JMetrica>();
+                this.MTSusabilidadInterna = new List<MTSeleccion>();
             }
 
             if (isUsaExtAct)
             {
-                this.usabilidadExterna = new ArrayList();
-                this.MTSusabilidadExterna = new ArrayList();
+                this.usabilidadExterna = new List<JMetrica>();
+                this.MTSusabilidadExterna = new List<MTSeleccion>();
             }
 
             if (isManIntAct)
             {
-                this.mantenibilidadInterna = new ArrayList();
-                this.MTSmantenibilidadInterna = new ArrayList();
+                this.mantenibilidadInterna = new List<JMetrica>();
+                this.MTSmantenibilidadInterna = new List<MTSeleccion>();
             }
 
             if (isManExtAct)
             {
-                this.mantenibilidadExterna = new ArrayList();
-                this.MTSmantenibilidadExterna = new ArrayList();
+                this.mantenibilidadExterna = new List<JMetrica>();
+                this.MTSmantenibilidadExterna = new List<MTSeleccion>();
             }
         }
 
@@ -288,7 +288,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Crear listas de metricas por caracteristicas
      
-        private void cargarListaFuncionabilidad(Evaluacion datosEvaluacion, JFuncionabilidad funcionalidad, ArrayList metricas)
+        private void cargarListaFuncionabilidad(Evaluacion datosEvaluacion, JFuncionabilidad funcionalidad, List<JMetrica> metricas)
         {
             if (datosEvaluacion.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
                 for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
@@ -311,7 +311,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     metricas.Add(funcionalidad.CumplimientoFuncional[i]);
         }
 
-        private void cargarListaUsabilidad(Evaluacion datosEvaluacion, JUsabilidad usabilidad, ArrayList metricas)
+        private void cargarListaUsabilidad(Evaluacion datosEvaluacion, JUsabilidad usabilidad, List<JMetrica> metricas)
         {
             if (datosEvaluacion.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
                 for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
@@ -334,7 +334,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
         }
 
-        private void cargarListaMantenibilidad(Evaluacion datosEvaluacion, JMantenibilidad mantenibilidad, ArrayList metricas)
+        private void cargarListaMantenibilidad(Evaluacion datosEvaluacion, JMantenibilidad mantenibilidad, List<JMetrica> metricas)
         {
             if (datosEvaluacion.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
                 for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
@@ -477,15 +477,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Comprimir lista seleccion de metricas a solo las activadas
 
-        private ArrayList comprimirSeleccion(ArrayList seleccion)
+        private List<MTSeleccion> comprimirSeleccion(List<MTSeleccion> seleccion)
         {
             MTSeleccion metricaSelec;
-            ArrayList local = new ArrayList();
+            List<MTSeleccion> local = new List<MTSeleccion>();
 
             for (int i = 0; i < seleccion.Count; i++)
             {
                 metricaSelec = new MTSeleccion();
-                metricaSelec = (MTSeleccion)seleccion[i];
+                metricaSelec = seleccion[i];
 
                 if (metricaSelec.Estado)               
                     local.Add(metricaSelec);               
@@ -496,18 +496,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Comprimir lista de metricas a solo las seleccionadas
 
-        private ArrayList comprimirMetricas(ArrayList metricas, ArrayList seleccion)
+        private List<JMetrica> comprimirMetricas(List<JMetrica> metricas, List<MTSeleccion> seleccion)
         {
             JMetrica metricaJson;
             MTSeleccion metricaSelec;
-            ArrayList local = new ArrayList();
+            List<JMetrica> local = new List<JMetrica>();
 
             for (int i = 0; i < metricas.Count; i++)
             {
                 metricaJson = new JMetrica();
 
-                metricaJson = (JMetrica)metricas[i];
-                metricaSelec = (MTSeleccion)seleccion[i];
+                metricaJson = metricas[i];
+                metricaSelec = seleccion[i];
 
                 if (metricaSelec.Estado)
                     local.Add(metricaJson);    
@@ -523,6 +523,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
+                //miEvaluacion.Seleccion.FuncionalidadInterna = (List) funcionalidadInterna.Clone();
+
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(2);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
             }
@@ -567,7 +569,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
 
-
+                // comprimir lista de seleccion de metricas y metricas
+                // Activar seleccion en formulario evaluacion
+                // contar las metricas
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))

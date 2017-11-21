@@ -246,26 +246,17 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Retroceder
 
-        private void retroceder(ref int indice, List<JMetrica> lista)
+        private void retroceder(ref int indice)
         {
-            guardarSeleccion(indice);
-
             if ((indice - 1) > -1)
             {
                 indice--;
 
-                if (indice == 0)
-                {
+                if (indice == 0)               
                     btnAnterior.IsEnabled = false;
-                }
-
-                cargarMetrica(lista[indice]);
-                cargarSeleccion(indice);
-
-                if (btnSiguiente.IsEnabled == false)
-                {
-                    btnSiguiente.IsEnabled = true;
-                }
+                
+                if (btnSiguiente.IsEnabled == false)               
+                    btnSiguiente.IsEnabled = true;             
             }
             else
             {
@@ -278,24 +269,15 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void avanzar(ref int indice, List<JMetrica> lista)
         {
-            guardarSeleccion(indice);
-
             if ((indice + 1) < lista.Count)
             {
                 indice++;
 
-                if (indice == (lista.Count - 1))
-                {
+                if (indice == (lista.Count - 1))                
                     btnSiguiente.IsEnabled = false;
-                }
 
-                cargarMetrica(lista[indice]);
-                cargarSeleccion(indice);
-
-                if (btnAnterior.IsEnabled == false)
-                {
-                    btnAnterior.IsEnabled = true;
-                }
+                if (btnAnterior.IsEnabled == false)              
+                    btnAnterior.IsEnabled = true;             
             }
             else
             {
@@ -328,12 +310,18 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            retroceder(ref indiceListas, listaMetricas);
+            guardarSeleccion(indiceListas);
+            retroceder(ref indiceListas);
+            cargarMetrica(listaMetricas[indiceListas]);
+            cargarSeleccion(indiceListas);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            avanzar(ref indiceListas, listaMetricas);                                                               
+            guardarSeleccion(indiceListas);
+            avanzar(ref indiceListas, listaMetricas);
+            cargarMetrica(listaMetricas[indiceListas]);
+            cargarSeleccion(indiceListas);
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)

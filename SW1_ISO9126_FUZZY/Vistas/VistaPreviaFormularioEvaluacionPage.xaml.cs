@@ -1,11 +1,9 @@
-﻿using Newtonsoft.Json;
-using SW1_ISO9126_FUZZY.JSON;
+﻿using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas;
-using System;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
 using System.Collections;
-using System.IO;
-using System.Windows;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -14,16 +12,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
     /// <summary>
     /// Lógica de interacción para FormularioEvaluacionPage.xaml
     /// </summary>
-    public partial class FormularioEvaluacionPage : Page {
-
-        // Caracteristicas
-        private JFuncionabilidad funInt;
-        private JFuncionabilidad funExt;
-        private JUsabilidad usaInt;
-        private JUsabilidad usaExt;
-        private JMantenibilidad manInt;
-        private JMantenibilidad manExt;
-
+    
+    public partial class FormularioEvaluacionPage : Page
+    {
         // Estado caracteristicas
         private bool isFunIntAct;
         private bool isFunExtAct;
@@ -33,48 +24,45 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private bool isManExtAct;
 
         // Listas de caracteristicas
-        private ArrayList funcionalidadInterna;
-        private ArrayList funcionalidadExterna;
-        private ArrayList usabilidadInterna;
-        private ArrayList usabilidadExterna;
-        private ArrayList mantenibilidadInterna;
-        private ArrayList mantenibilidadExterna;
+        private List<JMetrica> funcionalidadInterna;
+        private List<JMetrica> funcionalidadExterna;
+        private List<JMetrica> usabilidadInterna;
+        private List<JMetrica> usabilidadExterna;
+        private List<JMetrica> mantenibilidadInterna;
+        private List<JMetrica> mantenibilidadExterna;
 
         // Listas de caracteristicas seleccionadas
-        private ArrayList MTSfuncionalidadInterna;
-        private ArrayList MTSfuncionalidadExterna;
-        private ArrayList MTSusabilidadInterna;
-        private ArrayList MTSusabilidadExterna;
-        private ArrayList MTSmantenibilidadInterna;
-        private ArrayList MTSmantenibilidadExterna;
+        private List<MTSeleccion> MTSfuncionalidadInterna;
+        private List<MTSeleccion> MTSfuncionalidadExterna;
+        private List<MTSeleccion> MTSusabilidadInterna;
+        private List<MTSeleccion> MTSusabilidadExterna;
+        private List<MTSeleccion> MTSmantenibilidadInterna;
+        private List<MTSeleccion> MTSmantenibilidadExterna;
 
         // Listas de caracteristicas evaluadas
-        private ArrayList MTEfuncionalidadInterna;
-        private ArrayList MTEfuncionalidadExterna;
-        private ArrayList MTEusabilidadInterna;
-        private ArrayList MTEusabilidadExterna;
-        private ArrayList MTEmantenibilidadInterna;
-        private ArrayList MTEmantenibilidadExterna;
+        private List<MTEvaluacion> MTEfuncionalidadInterna;
+        private List<MTEvaluacion> MTEfuncionalidadExterna;
+        private List<MTEvaluacion> MTEusabilidadInterna;
+        private List<MTEvaluacion> MTEusabilidadExterna;
+        private List<MTEvaluacion> MTEmantenibilidadInterna;
+        private List<MTEvaluacion> MTEmantenibilidadExterna;
 
         private FormEvaluacionPage paginaEvaluacion;
-        /*private Respuesta metricas;
-        private EstadoModulo evalMetricas;*/
         private Evaluacion miEvaluacion;
 
         public FormularioEvaluacionPage(Evaluacion nueva) {
 
             InitializeComponent();
+
             this.paginaEvaluacion = new FormEvaluacionPage();
-           /* this.metricas = new Respuesta();
-            this.evalMetricas = new EstadoModulo();*/
             this.miEvaluacion = nueva;
 
+            // Componentes necesarios
             inicializarEstadoCaracteristica();
-            inicializarListas();
-            inicializarSeleccion();
-            inicializarEvaluacion();
-            cargarJsonMetricas();
+            inicializarListasEvaluacion();
         }
+
+        // Inicializar estados caracteristicas Interna/Externa
 
         private void inicializarEstadoCaracteristica()
         {
@@ -86,134 +74,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.isManExtAct = false;
         }
 
-        private void inicializarListas()
+        // Crea las listas para guardar la evaluacion
+
+        private void inicializarListasEvaluacion()
         {
-            this.funcionalidadInterna = new ArrayList();
-            this.funcionalidadExterna = new ArrayList();
-            this.usabilidadInterna = new ArrayList();
-            this.usabilidadExterna = new ArrayList();
-            this.mantenibilidadInterna = new ArrayList();
-            this.mantenibilidadExterna = new ArrayList();
-        }
-
-        private void inicializarSeleccion()
-        {
-            this.MTSfuncionalidadInterna = new ArrayList();
-            this.MTSfuncionalidadExterna = new ArrayList();
-            this.MTSusabilidadInterna = new ArrayList();
-            this.MTSusabilidadExterna = new ArrayList();
-            this.MTSmantenibilidadInterna = new ArrayList();
-            this.MTSmantenibilidadExterna = new ArrayList();
-        }
-
-        private void inicializarEvaluacion()
-        {
-            this.MTEfuncionalidadInterna = new ArrayList();
-            this.MTEfuncionalidadExterna = new ArrayList();
-            this.MTEusabilidadInterna = new ArrayList();
-            this.MTEusabilidadExterna = new ArrayList();
-            this.MTEmantenibilidadInterna = new ArrayList();
-            this.MTEmantenibilidadExterna = new ArrayList();
-        }
-
-        // Crear listas de metricas por caracteristicas
-
-        private void cargarListaFuncionabilidad(JFuncionabilidad funcionalidad, ArrayList metricas)
-        {
-            for (int i = 0; i < funcionalidad.Adecuacion.Length; i++)
-                metricas.Add(funcionalidad.Adecuacion[i]);
-
-            for (int i = 0; i < funcionalidad.Exactitud.Length; i++)
-                metricas.Add(funcionalidad.Exactitud[i]);
-
-            for (int i = 0; i < funcionalidad.Interoperabilidad.Length; i++)
-                metricas.Add(funcionalidad.Interoperabilidad[i]);
-
-            for (int i = 0; i < funcionalidad.SeguridadAcceso.Length; i++)
-                metricas.Add(funcionalidad.SeguridadAcceso[i]);
-
-            for (int i = 0; i < funcionalidad.CumplimientoFuncional.Length; i++)
-                metricas.Add(funcionalidad.CumplimientoFuncional[i]);
-        }
-
-        private void cargarListaUsabilidad(JUsabilidad usabilidad, ArrayList metricas)
-        {
-            for (int i = 0; i < usabilidad.Comprensibilidad.Length; i++)
-                metricas.Add(usabilidad.Comprensibilidad[i]);
-
-            for (int i = 0; i < usabilidad.Aprendizaje.Length; i++)
-                metricas.Add(usabilidad.Aprendizaje[i]);
-
-            for (int i = 0; i < usabilidad.Operabilidad.Length; i++)
-                metricas.Add(usabilidad.Operabilidad[i]);
-
-            for (int i = 0; i < usabilidad.Atractividad.Length; i++)
-                metricas.Add(usabilidad.Atractividad[i]);
-
-            for (int i = 0; i < usabilidad.CumplimientoUsabilidad.Length; i++)
-                metricas.Add(usabilidad.CumplimientoUsabilidad[i]);
-        }
-
-        private void cargarListaMantenibilidad(JMantenibilidad mantenibilidad, ArrayList metricas)
-        {
-            for (int i = 0; i < mantenibilidad.Analizabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Analizabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Modificabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Modificabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Estabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Estabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.Testeabilidad.Length; i++)
-                metricas.Add(mantenibilidad.Testeabilidad[i]);
-
-            for (int i = 0; i < mantenibilidad.CumplimientoMantenibilidad.Length; i++)
-                metricas.Add(mantenibilidad.CumplimientoMantenibilidad[i]);
-        }
-
-        private void cargarJsonMetricas()
-        {
-            if (isFunIntAct)
-            {
-                funInt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadInterna.json"));
-                cargarListaFuncionabilidad(funInt, funcionalidadInterna);
-            }
-
-            if (isFunExtAct)
-            {
-                funExt = JsonConvert.DeserializeObject<JFuncionabilidad>(File.ReadAllText("../../Archivos_configuracion/FuncionalidadExterna.json"));
-                cargarListaFuncionabilidad(funExt, funcionalidadExterna);
-            }
-
-            if (isUsaIntAct)
-            {
-                usaInt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadInterna.json"));
-                cargarListaUsabilidad(usaInt, usabilidadInterna);
-            }
-
-            if (isUsaExtAct)
-            {
-                usaExt = JsonConvert.DeserializeObject<JUsabilidad>(File.ReadAllText("../../Archivos_configuracion/UsabilidadExterna.json"));
-                cargarListaUsabilidad(usaExt, usabilidadExterna);
-            }
-
-            if (isManIntAct)
-            {
-                manInt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadInterna.json"));
-                cargarListaMantenibilidad(manInt, mantenibilidadInterna);
-            }
-
-            if (isManExtAct)
-            {
-                manExt = JsonConvert.DeserializeObject<JMantenibilidad>(File.ReadAllText("../../Archivos_configuracion/MantenibilidadExterna.json"));
-                cargarListaMantenibilidad(manExt, mantenibilidadExterna);
-            }
+            this.MTEfuncionalidadInterna = new List<MTEvaluacion>();
+            this.MTEfuncionalidadExterna = new List<MTEvaluacion>();
+            this.MTEusabilidadInterna = new List<MTEvaluacion>();
+            this.MTEusabilidadExterna = new List<MTEvaluacion>();
+            this.MTEmantenibilidadInterna = new List<MTEvaluacion>();
+            this.MTEmantenibilidadExterna = new List<MTEvaluacion>();
         }
 
         // Cambia las letras y los colores de las etiquetas de estado
 
-        private void cambiarEstado(ColorEstado estado, Label etiqueta)
+        public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)
         {
             var bc = new BrushConverter();
 

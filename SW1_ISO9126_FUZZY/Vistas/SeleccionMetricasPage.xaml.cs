@@ -210,7 +210,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             lblPerspectiva.Content = perspectiva;
 
             // Cargar listas metricas y seleccion
-            listaMetricas = new List<JMetrica>(metricas); // listaMetricas.AddRange(metricas);
+            listaMetricas = new List<JMetrica>(metricas); 
             listaSeleccion = new List<MTSeleccion>(seleccion);
 
             // Lista de metrica con un elemento

@@ -193,6 +193,20 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Cargar la caracteristicas (Eventos menu flotante)
 
+        private bool verificarSeleccion()
+        {
+            int seleccionadas = 0;
+
+            foreach (MTSeleccion item in listaSeleccion)
+            {
+                if (item.Estado)
+                    seleccionadas++;
+            }
+
+            if (seleccionadas != 0) return true;  else  return false;
+        }
+
+
         public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, List<JMetrica> metricas, List<MTSeleccion> seleccion)
         {
             // Ventana emisora
@@ -232,26 +246,17 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Retroceder
 
-        private void retroceder(ref int indice, List<JMetrica> lista)
+        private void retroceder(ref int indice)
         {
-            guardarSeleccion(indice);
-
             if ((indice - 1) > -1)
             {
                 indice--;
 
-                if (indice == 0)
-                {
+                if (indice == 0)               
                     btnAnterior.IsEnabled = false;
-                }
-
-                cargarMetrica(lista[indice]);
-                cargarSeleccion(indice);
-
-                if (btnSiguiente.IsEnabled == false)
-                {
-                    btnSiguiente.IsEnabled = true;
-                }
+                
+                if (btnSiguiente.IsEnabled == false)               
+                    btnSiguiente.IsEnabled = true;             
             }
             else
             {
@@ -264,24 +269,15 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void avanzar(ref int indice, List<JMetrica> lista)
         {
-            guardarSeleccion(indice);
-
             if ((indice + 1) < lista.Count)
             {
                 indice++;
 
-                if (indice == (lista.Count - 1))
-                {
+                if (indice == (lista.Count - 1))                
                     btnSiguiente.IsEnabled = false;
-                }
 
-                cargarMetrica(lista[indice]);
-                cargarSeleccion(indice);
-
-                if (btnAnterior.IsEnabled == false)
-                {
-                    btnAnterior.IsEnabled = true;
-                }
+                if (btnAnterior.IsEnabled == false)              
+                    btnAnterior.IsEnabled = true;             
             }
             else
             {
@@ -314,34 +310,56 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            retroceder(ref indiceListas, listaMetricas);
+            guardarSeleccion(indiceListas);
+            retroceder(ref indiceListas);
+            cargarMetrica(listaMetricas[indiceListas]);
+            cargarSeleccion(indiceListas);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            avanzar(ref indiceListas, listaMetricas);                                                               
+            guardarSeleccion(indiceListas);
+            avanzar(ref indiceListas, listaMetricas);
+            cargarMetrica(listaMetricas[indiceListas]);
+            cargarSeleccion(indiceListas);
         }
 
         private void btnGuardar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            origen.guardarSeleccionSMbtn(caracteristica, perspectiva);
             guardarSeleccion(indiceListas);
-            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
-            NavigationService.Navigate(origen);
+
+            if (verificarSeleccion())
+            {
+                origen.guardarSeleccionSMbtn(caracteristica, perspectiva);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
+                NavigationService.Navigate(origen);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una métrica, si desea desactivar características o subcaracterísticas vaya a la sección Selección e Importancia", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnTerminar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             MessageBoxResult respuesta;
 
-            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la selección no podra agregar más metricas, ¿desea finalizar la selección? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            guardarSeleccion(indiceListas);
 
-            if (respuesta == MessageBoxResult.Yes)
+            if (verificarSeleccion())
             {
-                origen.finalizarSeleccionSMbtn(caracteristica, perspectiva);
-                guardarSeleccion(indiceListas);
-                Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-                NavigationService.Navigate(origen);
+                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la selección no podra agregar más metricas, ¿desea finalizar la selección? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (respuesta == MessageBoxResult.Yes)
+                {
+                    origen.finalizarSeleccionSMbtn(caracteristica, perspectiva);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Navigate(origen);
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una métrica, si desea desactivar características o subcaracterísticas vaya a la sección Selección e Importancia", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -51,20 +51,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTSeleccion> MTSmantenibilidadExterna;
 
         private SeleccionMetricasPage paginaSeleccion;
-        /*private Seleccion metricas;
-        private EstadoModulo selecMetricas;*/
         private Evaluacion miEvaluacion;
-
 
         public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
 		{
 			InitializeComponent();
 
             this.paginaSeleccion = new SeleccionMetricasPage();
-            /*this.metricas = new Seleccion();
-            this.selecMetricas = new EstadoModulo();*/
             this.miEvaluacion = nueva;
 
+            // Componentes necesarios
             inicializarEstadoCaracteristica();
             cargarJsonMetricas();
 
@@ -611,7 +607,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        // Evento Flyout
+        // Evento menu Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {

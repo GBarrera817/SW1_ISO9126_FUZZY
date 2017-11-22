@@ -2,8 +2,8 @@
 using SW1_ISO9126_FUZZY.Modelo_Datos;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
-using System.Collections;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -59,7 +59,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Componentes necesarios
             inicializarEstadoCaracteristica();
-            inicializarListasEvaluacion();
         }
 
         // Inicializar estados caracteristicas Interna/Externa
@@ -74,16 +73,52 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.isManExtAct = false;
         }
 
-        // Crea las listas para guardar la evaluacion
 
-        private void inicializarListasEvaluacion()
+        // Crea las listas para mostrar y guardar las metricas respondidas
+
+        private void inicializarListas()
         {
-            this.MTEfuncionalidadInterna = new List<MTEvaluacion>();
-            this.MTEfuncionalidadExterna = new List<MTEvaluacion>();
-            this.MTEusabilidadInterna = new List<MTEvaluacion>();
-            this.MTEusabilidadExterna = new List<MTEvaluacion>();
-            this.MTEmantenibilidadInterna = new List<MTEvaluacion>();
-            this.MTEmantenibilidadExterna = new List<MTEvaluacion>();
+            if (isFunIntAct)
+            {
+                this.funcionalidadInterna = new List<JMetrica>();
+                this.MTSfuncionalidadInterna = new List<MTSeleccion>();
+                this.MTEfuncionalidadInterna = new List<MTEvaluacion>();
+            }
+
+            if (isFunExtAct)
+            {
+                this.funcionalidadExterna = new List<JMetrica>();
+                this.MTSfuncionalidadExterna = new List<MTSeleccion>();
+                this.MTEfuncionalidadExterna = new List<MTEvaluacion>();
+            }
+
+            if (isUsaIntAct)
+            {
+                this.usabilidadInterna = new List<JMetrica>();
+                this.MTSusabilidadInterna = new List<MTSeleccion>();
+                this.MTEusabilidadInterna = new List<MTEvaluacion>();
+            }
+
+            if (isUsaExtAct)
+            {
+                this.usabilidadExterna = new List<JMetrica>();
+                this.MTSusabilidadExterna = new List<MTSeleccion>();
+                this.MTEusabilidadExterna = new List<MTEvaluacion>();
+            }
+
+            if (isManIntAct)
+            {
+                this.mantenibilidadInterna = new List<JMetrica>();
+                this.MTSmantenibilidadInterna = new List<MTSeleccion>();
+                this.MTEmantenibilidadInterna = new List<MTEvaluacion>();
+            }
+
+            if (isManExtAct)
+            {
+                this.mantenibilidadExterna = new List<JMetrica>();
+                this.MTSmantenibilidadExterna = new List<MTSeleccion>();
+                this.MTEmantenibilidadExterna = new List<MTEvaluacion>();
+            }
         }
 
         // Cambia las letras y los colores de las etiquetas de estado
@@ -102,47 +137,56 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             Button clickedButton = (Button)e.Source;
 
-            //Comprobar el estado de la seleccion de metricas
+            //Comprobar el estado de la evaluación
 
-            switch (clickedButton.Name)
+            if (miEvaluacion.Estado)
             {
-                case "btnFuncInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                    MTSfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                switch (clickedButton.Name)
+                {
+                    case "btnFuncInterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                        MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                case "btnUsabInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
-                    MTSusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    case "btnUsabInterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
+                        MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                case "btnMantInterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
-                    MTSmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    case "btnMantInterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
+                        MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                case "btnFuncExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
-                    MTSfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    case "btnFuncExterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
+                        MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                case "btnUsabExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
-                    MTSusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    case "btnUsabExterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
+                        MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                case "btnMantExterna":
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
-                    MTSmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    case "btnMantExterna":
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
+                        MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
 
-                default:
-                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                    MTSfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
-                break;
+                    default:
+                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                        MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                    break;
+                }
+
+                this.NavigationService.Navigate(paginaEvaluacion);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            this.NavigationService.Navigate(paginaEvaluacion);
+
         }
     }
 }

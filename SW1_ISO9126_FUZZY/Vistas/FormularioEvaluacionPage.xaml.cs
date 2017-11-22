@@ -1,7 +1,6 @@
 ﻿using SW1_ISO9126_FUZZY.JSON;
-using SW1_ISO9126_FUZZY.Modelo_Datos;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -11,13 +10,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// <summary>
 	/// Lógica de interacción para FormEvaluacionPage.xaml
 	/// </summary>
+    
 	public partial class FormEvaluacionPage : Page
 	{
-        // Listas metricas y seleccion metrica
-        private ArrayList listaMetricas;
-        private ArrayList listaSeleccion;
-        private ArrayList listaEvaluacion;
+        // Listas metricas, seleccion metrica y evaluacion metricas
+        private List<JMetrica> listaMetricas;
+        private List<MTSeleccion> listaSeleccion;
+        private List<MTEvaluacion> listaEvaluacion;
         private int indiceListas;
+        private string caracteristica;
+        private string perspectiva;
 
         private FormularioEvaluacionPage origen;
 
@@ -35,32 +37,49 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarListas();
         }
 
+        // Asigna estado inicial botones de movimiento
+
         private void inicializarBotones()
         {
             btnAnterior.IsEnabled = false;
             btnSiguiente.IsEnabled = true;
         }
 
+        // Inicializar variables
+
+        private void inicializarVariables()
+        {
+            this.caracteristica = "";
+            this.perspectiva = "";
+        }
+
+        // Crear las listas para las metricas
+
         private void inicializarListas()
         {
-            this.listaMetricas = new ArrayList();
-            this.listaSeleccion = new ArrayList();
-            this.listaEvaluacion = new ArrayList();
+            this.listaMetricas = new List<JMetrica>();
+            this.listaSeleccion = new List<MTSeleccion>();
+            this.listaEvaluacion = new List<MTEvaluacion>();
             this.indiceListas = 0;
         }
 
-        private void inicializarEvaluacion(ArrayList metricas, int idProposito)
+        // Crear lista para guardar la evaluación
+
+        private void inicializarEvaluacion(List<JMetrica> metricas, List<MTSeleccion> selecciones)
         {
             JMetrica metricaJson;
+            MTSeleccion metricaSel;
             MTEvaluacion metricaEval;
 
             for (int i = 0; i < metricas.Count; i++)
             {
                 metricaEval = new MTEvaluacion();
 
-                metricaJson = (JMetrica)metricas[i];
+                metricaJson = metricas[i];
+                metricaSel = selecciones[i];
+
                 metricaEval.Id = metricaJson.Id;
-                metricaEval.Formula = metricaJson.Formula[idProposito];
+                metricaEval.Formula = metricaJson.Formula[metricaSel.Proposito];
                 metricaEval.Parametros = metricaJson.Parametros;
 
                 for (int j = 0; j < metricaJson.Parametros.Length; j++)
@@ -71,9 +90,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaEval.MejorValor = metricaJson.Mejor_valor;
                 metricaEval.PeorValor = metricaJson.Peor_valor;
 
-                listaSeleccion.Add(metricaEval);
+                listaEvaluacion.Add(metricaEval);
             }
         }
+
+        // Limpia los sliders no activados
 
         private void limpiarSlider()
         {
@@ -164,7 +185,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             MTEvaluacion metrica;
             int parametros = 0;
 
-            metrica = (MTEvaluacion)listaEvaluacion[indice];
+            metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
             if (parametros == 1)
@@ -184,7 +205,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             MTEvaluacion metrica;
             int parametros = 0;
 
-            metrica = (MTEvaluacion)listaEvaluacion[indice];
+            metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
             if (parametros == 1)            
@@ -201,68 +222,88 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Retorna las metricas evaluadas
 
-        public ArrayList evaluacionMetrica()
+        public List<MTEvaluacion> evaluacionMetrica()
         {
             return listaEvaluacion;
         }
 
-        // Cargar la caracteristicas (Eventos botones tile)
+        // Verificar condiciones de finalizacion
 
-        public void cargarEvaluacionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, ArrayList metricas, ArrayList seleccion, ArrayList evaluacion)
+        private bool verificarEvaluacion()
         {
-            MTSeleccion metricaSeleccionada;
+            int respondidas = 0;
+            int parametros = 0;
 
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    if (item.Valores[i] != 0)
+                        parametros++;
+                }
+
+                if (parametros != 0)
+                    respondidas++;
+            }
+
+            if (respondidas != 0) return true; else return false;
+        }
+
+        // Metodo principal para evaluar las metricas
+
+        public void cargarEvaluacionMetricas(FormularioEvaluacionPage llamada, string caracteristica, string perspectiva, List<JMetrica> metricas, List<MTSeleccion> seleccion, List<MTEvaluacion> evaluacion)
+        {
+            // Ventana emisora
             origen = llamada;
+
+            // Datos etiqueta estado por colores
+            this.caracteristica = caracteristica;
+            this.perspectiva = perspectiva;
+
+            // Condiciones iniciales
             cargarEntorno();
 
             // Etiquetas pricipales 
             lblCaracteristica.Content = caracteristica;
             lblPerspectiva.Content = perspectiva;
 
-            //Cargar listas metricas y seleccion
-            listaMetricas = (ArrayList)metricas.Clone();
-            listaSeleccion = (ArrayList)seleccion.Clone();
-            listaEvaluacion = (ArrayList)evaluacion.Clone();
+            //Cargar listas metricas, seleccion y evaluacion
+            listaMetricas = new List<JMetrica>(metricas); 
+            listaSeleccion = new List<MTSeleccion>(seleccion);
+            listaEvaluacion = new List<MTEvaluacion>(evaluacion);
 
-            metricaSeleccionada = (MTSeleccion)listaSeleccion[0];
-
-            //Si no hay seleccion previa, se crea
-            if (listaSeleccion.Count == 0)
+            // Lista de metrica con un elemento
+            if (listaMetricas.Count == 1)
             {
-                inicializarEvaluacion(listaMetricas, metricaSeleccionada.Proposito);
+                btnSiguiente.IsEnabled = false;
+            }
+
+            //Si no hay evaluacion previa, se crea
+            if (listaEvaluacion.Count == 0)
+            {
+                inicializarEvaluacion(listaMetricas, listaSeleccion);
             }
 
             //Cargo y compruebo metrica inicial
-            cargarMetrica((JMetrica)listaMetricas[0], metricaSeleccionada.Proposito);
+            cargarMetrica(listaMetricas[0], listaSeleccion[0].Proposito);
             cargarEvaluacion(0);
         }
 
         // Retroceder
 
-        private void retroceder(ref int indice, ArrayList metricas, ArrayList seleccionadas)
+        private void retroceder(ref int indice)
         {
-            MTSeleccion metricaSeleccionada;
-
-            guardarEvaluacion(indice);
-
             if ((indice - 1) > -1)
             {
                 indice--;
 
-                if (indice == 0)
-                {
+                if (indice == 0)               
                     btnAnterior.IsEnabled = false;
-                }
-
-                metricaSeleccionada = (MTSeleccion)seleccionadas[indice];
-
-                cargarMetrica((JMetrica)metricas[indice], metricaSeleccionada.Proposito);
-                cargarEvaluacion(indice);
-
-                if (btnSiguiente.IsEnabled == false)
-                {
-                    btnSiguiente.IsEnabled = true;
-                }
+               
+                if (btnSiguiente.IsEnabled == false)           
+                    btnSiguiente.IsEnabled = true;               
             }
             else
             {
@@ -273,30 +314,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Avanzar
 
-        private void avanzar(ref int indice, ArrayList metricas, ArrayList seleccionadas)
+        private void avanzar(ref int indice)
         {
-            MTSeleccion metricaSeleccionada;
+            int max = listaMetricas.Count;
 
-            guardarEvaluacion(indice);
-
-            if ((indice + 1) < metricas.Count)
+            if ((indice + 1) < max)
             {
                 indice++;
 
-                if (indice == (metricas.Count - 1))
-                {
+                if (indice == (max - 1))               
                     btnSiguiente.IsEnabled = false;
-                }
-
-                metricaSeleccionada = (MTSeleccion)seleccionadas[indice];
-
-                cargarMetrica((JMetrica)metricas[indice], metricaSeleccionada.Proposito);
-                cargarEvaluacion(indice);
-
-                if (btnAnterior.IsEnabled == false)
-                {
-                    btnAnterior.IsEnabled = true;
-                }
+                
+                if (btnAnterior.IsEnabled == false)               
+                    btnAnterior.IsEnabled = true;                
             }
             else
             {
@@ -326,24 +356,39 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            retroceder(ref indiceListas, listaMetricas, listaSeleccion);
+            guardarEvaluacion(indiceListas);
+            retroceder(ref indiceListas);
+            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
+            cargarEvaluacion(indiceListas);
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            avanzar(ref indiceListas, listaMetricas, listaSeleccion);
+            guardarEvaluacion(indiceListas);
+            avanzar(ref indiceListas);
+            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
+            cargarEvaluacion(indiceListas);
         }
 
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
             guardarEvaluacion(indiceListas);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(origen);
         }
 
         private void btnTerminar_Click(object sender, RoutedEventArgs e)
         {
             guardarEvaluacion(indiceListas);
-            NavigationService.Navigate(origen);
+
+            if (verificarEvaluacion())
+            {
+                NavigationService.Navigate(origen);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

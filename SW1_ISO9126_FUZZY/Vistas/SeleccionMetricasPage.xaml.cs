@@ -1,6 +1,5 @@
 ﻿using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
@@ -191,7 +190,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             return listaSeleccion;
         }
 
-        // Cargar la caracteristicas (Eventos menu flotante)
+        // Verificar condiciones de finalizacion
 
         private bool verificarSeleccion()
         {
@@ -206,6 +205,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
             if (seleccionadas != 0) return true;  else  return false;
         }
 
+        // Metodo principal para seleccionar las metricas
 
         public void cargarSeleccionMetricas(VistaPreviaSeleccionMetricaPage llamada, string caracteristica, string perspectiva, List<JMetrica> metricas, List<MTSeleccion> seleccion)
         {
@@ -267,13 +267,15 @@ namespace SW1_ISO9126_FUZZY.Vistas {
 
         // Avanzar
 
-        private void avanzar(ref int indice, List<JMetrica> lista)
+        private void avanzar(ref int indice)
         {
-            if ((indice + 1) < lista.Count)
+            int max = listaMetricas.Count;
+
+            if ((indice + 1) < max)
             {
                 indice++;
 
-                if (indice == (lista.Count - 1))                
+                if (indice == (max - 1))                
                     btnSiguiente.IsEnabled = false;
 
                 if (btnAnterior.IsEnabled == false)              
@@ -319,7 +321,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             guardarSeleccion(indiceListas);
-            avanzar(ref indiceListas, listaMetricas);
+            avanzar(ref indiceListas);
             cargarMetrica(listaMetricas[indiceListas]);
             cargarSeleccion(indiceListas);
         }

@@ -642,7 +642,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -664,7 +664,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -686,7 +686,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -708,7 +708,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -730,7 +730,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -752,7 +752,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {
@@ -774,7 +774,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                         if (respuesta == MessageBoxResult.Yes)
                         {

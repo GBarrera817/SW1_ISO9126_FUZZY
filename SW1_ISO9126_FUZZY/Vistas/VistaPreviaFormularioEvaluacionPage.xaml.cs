@@ -73,7 +73,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.isManExtAct = false;
         }
 
-
         // Crea las listas para mostrar y guardar las metricas respondidas
 
         private void inicializarListas()
@@ -119,6 +118,42 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 this.MTSmantenibilidadExterna = new List<MTSeleccion>();
                 this.MTEmantenibilidadExterna = new List<MTEvaluacion>();
             }
+        }
+
+
+        // Carga los estado de la seleccion de las caracteristicas Interna/externa
+
+        private void cargarEstados(Evaluacion evaSeleccion)
+        {
+            if (evaSeleccion.EvaluacionMetricas.FuncionalidadInterna)
+                isFunIntAct = true;
+            else
+                isFunIntAct = false;
+
+            if (evaSeleccion.EvaluacionMetricas.FuncionalidadExterna)
+                isFunExtAct = true;
+            else
+                isFunExtAct = false;
+
+            if (evaSeleccion.EvaluacionMetricas.UsabilidadInterna)
+                isUsaIntAct = true;
+            else
+                isUsaIntAct = false;
+
+            if (evaSeleccion.EvaluacionMetricas.UsabilidadExterna)
+                isUsaExtAct = true;
+            else
+                isUsaExtAct = false;
+
+            if (evaSeleccion.EvaluacionMetricas.MantenibilidadInterna)
+                isManIntAct = true;
+            else
+                isManIntAct = false;
+
+            if (evaSeleccion.EvaluacionMetricas.MantenibilidadExterna)
+                isManExtAct = true;
+            else
+                isManExtAct = false;
         }
 
         // Cambia las letras y los colores de las etiquetas de estado
@@ -185,8 +220,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-
         }
     }
 }

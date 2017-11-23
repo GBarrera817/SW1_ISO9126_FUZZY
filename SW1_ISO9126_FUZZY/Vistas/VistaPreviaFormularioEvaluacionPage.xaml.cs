@@ -156,6 +156,61 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 isManExtAct = false;
         }
 
+        // Cambia las etiquetas de los estados de la evaluacion de metricas
+
+        private void cargarEtiquetasEstados()
+        {
+            // A futuro comprobar el estado actual al hacer la re seleccion de caracteristicas y subcaracteristicas
+            // para editar el estado actual y no reescribir de cero.
+
+            if (isFunIntAct)
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna, lblEstadoFuncInterna);
+
+
+            if (isFunExtAct)
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna, lblEstadoFuncExterna);
+
+
+            if (isUsaIntAct)
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna, lblEstadoUsabInterna);
+
+
+            if (isUsaExtAct)
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna, lblEstadoUsabExterna);
+
+
+            if (isManIntAct)
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna, lblEstadoMantInterna);
+
+
+            if (isManExtAct)
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.cambiarEstado(1);
+            else
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.cambiarEstado(0);
+
+            cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna, lblEstadoMantExterna);
+        }
+
         // Cambia las letras y los colores de las etiquetas de estado
 
         public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)

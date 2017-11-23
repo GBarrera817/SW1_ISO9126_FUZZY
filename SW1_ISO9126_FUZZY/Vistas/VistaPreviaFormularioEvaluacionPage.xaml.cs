@@ -245,6 +245,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 btnMantExterna.IsEnabled = false;
         }
 
+        // Activa las medallas (badges) del los Tile de evaluacion de metricas
+
+        private void cargarBadgesMetricas()
+        {
+            if (isFunIntAct)
+                cantFuncsInterna.Visibility = Visibility.Visible;
+            else
+                cantFuncsInterna.Visibility = Visibility.Hidden;
+
+            if (isFunExtAct)
+                cantFuncExterna.Visibility = Visibility.Visible;
+            else
+                cantFuncExterna.Visibility = Visibility.Hidden;
+
+            if (isUsaIntAct)
+                cantUsabInterna.Visibility = Visibility.Visible;
+            else
+                cantUsabInterna.Visibility = Visibility.Hidden;
+
+            if (isUsaExtAct)
+                cantUsabExterna.Visibility = Visibility.Visible;
+            else
+                cantUsabExterna.Visibility = Visibility.Hidden;
+
+            if (isManIntAct)
+                cantMantInterna.Visibility = Visibility.Visible;
+            else
+                cantMantInterna.Visibility = Visibility.Hidden;
+
+            if (isManExtAct)
+                cantMantExterna.Visibility = Visibility.Visible;
+            else
+                cantMantExterna.Visibility = Visibility.Hidden;
+        }
+
         // Cambia las letras y los colores de las etiquetas de estado
 
         public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)
@@ -267,6 +302,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 inicializarListas();
                 cargarEtiquetasEstados();
                 cargarTilesMetricas();
+                cargarBadgesMetricas();
             }
             else
             {

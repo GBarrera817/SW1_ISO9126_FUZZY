@@ -255,6 +255,26 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estado.Etiqueta;
         }
 
+        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
+
+        public void cargarDatosModulo(Evaluacion evaSeleccion)
+        {
+            miEvaluacion = evaSeleccion;
+
+            if (miEvaluacion.Estado)
+            {
+                cargarEstados(miEvaluacion);
+                inicializarListas();
+                cargarEtiquetasEstados();
+                cargarTilesMetricas();
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
         // Eventos botones menu flotante (flyout)
 
         private void btnTileClick(object sender, System.Windows.RoutedEventArgs e)
@@ -286,7 +306,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
                             }
-
                         }
                       
                     break;

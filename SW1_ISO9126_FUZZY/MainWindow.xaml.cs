@@ -50,7 +50,7 @@ namespace SW1_ISO9126_FUZZY {
             calidad = new EvaluacionCalidadPage(proyecto);
             previaEvaluacion = new FormularioEvaluacionPage(proyecto);
             previaSeleccion = new VistaPreviaSeleccionMetricaPage(proyecto);
-            registro = new RegistroSWPage(proyecto, previaSeleccion);
+            registro = new RegistroSWPage(proyecto, previaSeleccion, previaEvaluacion);
             principal = new MainPage(proyecto,registro);
 
             //HamburgerMenuItemCollection itemCollection = HamburgerMenuControl.ItemsSource as HamburgerMenuItemCollection;

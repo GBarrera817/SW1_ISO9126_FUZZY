@@ -21,8 +21,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ESubCaracteristicas estadoSubCaractetisticas;
 
         private VistaPreviaSeleccionMetricaPage paginaMetricas;
+        private FormularioEvaluacionPage paginaEvaluaciones;
 
-        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage pagina) {
+        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion) {
 
             InitializeComponent();
 
@@ -32,7 +33,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.estadoCaracteristicas = new EstadoModulo();
             this.estadoSubCaractetisticas = new ESubCaracteristicas();
 
-            this.paginaMetricas = pagina;
+            this.paginaMetricas = paginaMetrica;
+            this.paginaEvaluaciones = paginaEvaluacion;
         }
 
         // guardar datos de la evaluacion
@@ -288,6 +290,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             miEvaluacion.DatosMetricas = estadoCaracteristicas;
             miEvaluacion.EstSubcaracteristicas = estadoSubCaractetisticas;
             miEvaluacion.Grados = grados;
+            miEvaluacion.EvaluacionMetricas = estadoCaracteristicas;
         }
 
         // validar datos del software
@@ -718,6 +721,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     resgistrarDatos();
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
                     paginaMetricas.cargarDatosModulo(miEvaluacion);
+                    paginaEvaluaciones.cargarDatosModulo(miEvaluacion);
                     this.NavigationService.Navigate(paginaMetricas);
                 }
             }

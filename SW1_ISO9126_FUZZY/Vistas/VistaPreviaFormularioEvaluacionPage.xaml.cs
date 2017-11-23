@@ -120,7 +120,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-
         // Carga los estado de la seleccion de las caracteristicas Interna/externa
 
         private void cargarEstados(Evaluacion evaSeleccion)
@@ -209,6 +208,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.cambiarEstado(0);
 
             cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna, lblEstadoMantExterna);
+        }
+
+        // Activa los botones del los Tile de evaluacion de metricas
+
+        private void cargarTilesMetricas()
+        {
+            if (isFunIntAct)
+                btnFuncInterna.IsEnabled = true;
+            else
+                btnFuncInterna.IsEnabled = false;
+
+            if (isFunExtAct)
+                btnFuncExterna.IsEnabled = true;
+            else
+                btnFuncExterna.IsEnabled = false;
+
+            if (isUsaIntAct)
+                btnUsabInterna.IsEnabled = true;
+            else
+                btnUsabInterna.IsEnabled = false;
+
+            if (isUsaExtAct)
+                btnUsabExterna.IsEnabled = true;
+            else
+                btnUsabExterna.IsEnabled = false;
+
+            if (isManIntAct)
+                btnMantInterna.IsEnabled = true;
+            else
+                btnMantInterna.IsEnabled = false;
+
+            if (isManExtAct)
+                btnMantExterna.IsEnabled = true;
+            else
+                btnMantExterna.IsEnabled = false;
         }
 
         // Cambia las letras y los colores de las etiquetas de estado

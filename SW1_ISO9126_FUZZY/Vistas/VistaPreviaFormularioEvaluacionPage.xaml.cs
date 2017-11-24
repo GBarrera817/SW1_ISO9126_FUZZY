@@ -280,6 +280,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cantMantExterna.Visibility = Visibility.Hidden;
         }
 
+        // Carga la medalla con valor inicial (dimension lista evaluacion)
+
+        private void cargarBadge(Button medalla, int dimension)
+        {           
+            medalla.Content = "0/"+dimension;
+        }
+
+        // Actualiza medalla con metricas respondidas y dimension lista evaluacion
+
+        private void actualizarBadge(Button medalla, int valor)
+        {
+            string[] contenido = medalla.Content.ToString().Split('/');
+            medalla.Content = valor + "/" + contenido[1];
+        }
+
         // Cambia las letras y los colores de las etiquetas de estado
 
         public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)

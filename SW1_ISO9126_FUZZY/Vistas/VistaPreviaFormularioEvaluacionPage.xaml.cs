@@ -155,6 +155,48 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 isManExtAct = false;
         }
 
+        // Carga estado inicial evaluacion
+
+        private void IniciarEtiquetaEstado(string caracteristica, string perspectiva)
+        {
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna, lblEstadoFuncInterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
+            {
+
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna, lblEstadoUsabInterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna, lblEstadoMantInterna);
+            }
+
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna, lblEstadoFuncExterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna, lblEstadoUsabExterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.cambiarEstado(2);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna, lblEstadoMantExterna);
+            }
+        }
+
         // Cambia las etiquetas de los estados de la evaluacion de metricas
 
         private void cargarEtiquetasEstados()
@@ -315,7 +357,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 cargarEstados(miEvaluacion);
                 inicializarListas();
-                cargarEtiquetasEstados();
+                //cargarEtiquetasEstados();
                 cargarTilesMetricas();
                 cargarBadgesMetricas();
             }
@@ -325,6 +367,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        // Carga el contenido enviado desde la Seleccion de metricas
+
+        public void CargarContenidoSeleccion(Evaluacion evaSeleccion, string caracteristica, string perspectiva )
+        {
+            // comprimir lista de seleccion de metricas y metricas
+            // Activar seleccion en formulario evaluacion
+            // contar las metricas
+        }
 
         // Eventos botones menu flotante (flyout)
 

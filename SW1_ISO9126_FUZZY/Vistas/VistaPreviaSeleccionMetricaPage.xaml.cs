@@ -568,6 +568,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.FuncionalidadInterna = new List<JMetrica>(funcionalidadInterna);
                 miEvaluacion.Seleccion.FuncionalidadInterna = new List<MTSeleccion>(MTSfuncionalidadInterna);
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
@@ -579,6 +580,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.UsabilidadInterna = new List<JMetrica>(usabilidadInterna);
                 miEvaluacion.Seleccion.UsabilidadInterna = new List<MTSeleccion>(MTSusabilidadInterna);
                 miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
@@ -586,6 +588,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.MantenibilidadInterna = new List<JMetrica>(mantenibilidadInterna);
                 miEvaluacion.Seleccion.MantenibilidadInterna = new List<MTSeleccion>(MTSmantenibilidadInterna);
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
@@ -593,6 +596,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.FuncionalidadExterna = new List<JMetrica>(funcionalidadExterna);
                 miEvaluacion.Seleccion.FuncionalidadExterna = new List<MTSeleccion>(MTSfuncionalidadExterna);
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
@@ -600,6 +604,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.UsabilidadExterna = new List<JMetrica>(usabilidadExterna);
                 miEvaluacion.Seleccion.UsabilidadExterna = new List<MTSeleccion>(MTSusabilidadExterna);
                 miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
@@ -607,6 +612,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.MantenibilidadExterna = new List<JMetrica>(mantenibilidadExterna);
                 miEvaluacion.Seleccion.MantenibilidadExterna = new List<MTSeleccion>(MTSmantenibilidadExterna);
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);

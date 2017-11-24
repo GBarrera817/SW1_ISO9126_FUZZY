@@ -157,7 +157,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Carga estado inicial evaluacion
 
-        private void IniciarEtiquetaEstado(string caracteristica, string perspectiva)
+        private void iniciarEtiquetaEstado(string caracteristica, string perspectiva)
         {
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
@@ -337,6 +337,47 @@ namespace SW1_ISO9126_FUZZY.Vistas
             medalla.Content = valor + "/" + contenido[1];
         }
 
+        // Comprimir lista seleccion de metricas a solo las activadas
+
+        private List<MTSeleccion> comprimirSeleccion(List<MTSeleccion> seleccion)
+        {
+            MTSeleccion metricaSelec;
+            List<MTSeleccion> local = new List<MTSeleccion>();
+
+            for (int i = 0; i < seleccion.Count; i++)
+            {
+                metricaSelec = new MTSeleccion();
+                metricaSelec = seleccion[i];
+
+                if (metricaSelec.Estado)
+                    local.Add(metricaSelec);
+            }
+
+            return local;
+        }
+
+        // Comprimir lista de metricas a solo las seleccionadas
+
+        private List<JMetrica> comprimirMetricas(List<JMetrica> metricas, List<MTSeleccion> seleccion)
+        {
+            JMetrica metricaJson;
+            MTSeleccion metricaSelec;
+            List<JMetrica> local = new List<JMetrica>();
+
+            for (int i = 0; i < metricas.Count; i++)
+            {
+                metricaJson = new JMetrica();
+
+                metricaJson = metricas[i];
+                metricaSelec = seleccion[i];
+
+                if (metricaSelec.Estado)
+                    local.Add(metricaJson);
+            }
+
+            return local;
+        }
+
         // Cambia las letras y los colores de las etiquetas de estado
 
         public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)
@@ -371,6 +412,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void CargarContenidoSeleccion(Evaluacion evaSeleccion, string caracteristica, string perspectiva )
         {
+            iniciarEtiquetaEstado(caracteristica, perspectiva);
+
             // comprimir lista de seleccion de metricas y metricas
             // Activar seleccion en formulario evaluacion
             // contar las metricas

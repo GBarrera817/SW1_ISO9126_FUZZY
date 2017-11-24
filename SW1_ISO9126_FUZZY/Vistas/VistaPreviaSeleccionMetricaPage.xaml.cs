@@ -473,47 +473,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarTabla(e);
         }
 
-        // Comprimir lista seleccion de metricas a solo las activadas
-
-        private List<MTSeleccion> comprimirSeleccion(List<MTSeleccion> seleccion)
-        {
-            MTSeleccion metricaSelec;
-            List<MTSeleccion> local = new List<MTSeleccion>();
-
-            for (int i = 0; i < seleccion.Count; i++)
-            {
-                metricaSelec = new MTSeleccion();
-                metricaSelec = seleccion[i];
-
-                if (metricaSelec.Estado)               
-                    local.Add(metricaSelec);               
-            }
-
-            return local;
-        }
-
-        // Comprimir lista de metricas a solo las seleccionadas
-
-        private List<JMetrica> comprimirMetricas(List<JMetrica> metricas, List<MTSeleccion> seleccion)
-        {
-            JMetrica metricaJson;
-            MTSeleccion metricaSelec;
-            List<JMetrica> local = new List<JMetrica>();
-
-            for (int i = 0; i < metricas.Count; i++)
-            {
-                metricaJson = new JMetrica();
-
-                metricaJson = metricas[i];
-                metricaSelec = seleccion[i];
-
-                if (metricaSelec.Estado)
-                    local.Add(metricaJson);    
-            }
-
-            return local;
-        }
-
         // Accion de salida boton guardar de seleccion de metricas
 
         public void guardarSeleccionSMbtn(string caracteristica, string perspectiva)

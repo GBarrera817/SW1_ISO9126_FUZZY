@@ -168,6 +168,7 @@
     <Compile Include="Modelo Datos\Importancias\ISCUsabilidad.cs" />
     <Compile Include="Modelo Datos\Listas\ListCalculo.cs" />
     <Compile Include="Modelo Datos\Listas\ListEvaluacion.cs" />
+    <Compile Include="Modelo Datos\Listas\ListMetrica.cs" />
     <Compile Include="Modelo Datos\Listas\ListSeleccion.cs" />
     <Compile Include="Modelo Datos\Listas\MTCalculo.cs" />
     <Compile Include="Modelo Datos\Listas\MTEvaluacion.cs" />

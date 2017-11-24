@@ -51,13 +51,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTSeleccion> MTSmantenibilidadExterna;
 
         private SeleccionMetricasPage paginaSeleccion;
+        private FormularioEvaluacionPage paginaEvaluacion;
         private Evaluacion miEvaluacion;
 
-        public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
+        public VistaPreviaSeleccionMetricaPage(Evaluacion nueva, FormularioEvaluacionPage pagina)
 		{
 			InitializeComponent();
 
             this.paginaSeleccion = new SeleccionMetricasPage();
+            this.paginaEvaluacion = pagina;
             this.miEvaluacion = nueva;
 
             // Componentes necesarios
@@ -576,15 +578,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
-
-                // comprimir lista de seleccion de metricas y metricas
-                // Activar seleccion en formulario evaluacion
-                // contar las metricas
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
             {
-
                 miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
             }
@@ -612,6 +609,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
             }
+
+            paginaEvaluacion.CargarContenidoSeleccion(miEvaluacion, caracteristica, perspectiva);
         }
 
         // Evento menu Flyout

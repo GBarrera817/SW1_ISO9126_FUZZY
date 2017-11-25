@@ -17,6 +17,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         private EstadoModulo datosMetricas;
         private ESubCaracteristicas estSubcaracteristicas;
         private Importancia grados;
+        private ListMetrica cargaMetricas;
         private EstadoModulo seleccionMetricas;
         private Etiqueta etiquetasSeleccion;
         private ListSeleccion seleccion;
@@ -36,6 +37,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.DatosMetricas = new EstadoModulo();
             this.EstSubcaracteristicas = new ESubCaracteristicas();
             this.Grados = new Importancia();
+            this.CargaMetricas = new ListMetrica();
             this.SeleccionMetricas = new EstadoModulo();
             this.EtiquetasSeleccion = new Etiqueta();
             this.Seleccion = new ListSeleccion();
@@ -48,13 +50,14 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
             this.ValorCalidadSoftware = new Resultado();
         }
 
-        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESubCaracteristicas estSubcaracteristicas, Importancia grados, EstadoModulo seleccionMetricas, Etiqueta etiquetasSeleccion, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, Etiqueta etiquetasEvaluacion, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
+        public Evaluacion(bool estado, Software informacion, EstadoModulo datosMetricas, ESubCaracteristicas estSubcaracteristicas, Importancia grados, ListMetrica cargaMetricas, EstadoModulo seleccionMetricas, Etiqueta etiquetasSeleccion, ListSeleccion seleccion, EstadoModulo evaluacionMetricas, Etiqueta etiquetasEvaluacion, ListEvaluacion fomulario, ListCalculo calculos, EstadoModulo calidadMetricas, EstadoFinal estadoCalidadSoftware, Resultado valorCalidadSoftware)
         {
             this.estado = estado;
             this.informacion = informacion;
             this.datosMetricas = datosMetricas;
             this.estSubcaracteristicas = estSubcaracteristicas;
             this.grados = grados;
+            this.CargaMetricas = cargaMetricas;
             this.seleccionMetricas = seleccionMetricas;
             this.etiquetasSeleccion = etiquetasSeleccion;
             this.seleccion = seleccion;
@@ -72,6 +75,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos
         public EstadoModulo DatosMetricas { get => datosMetricas; set => datosMetricas = value; }
         public ESubCaracteristicas EstSubcaracteristicas { get => estSubcaracteristicas; set => estSubcaracteristicas = value; }
         public Importancia Grados { get => grados; set => grados = value; }
+        public ListMetrica CargaMetricas { get => cargaMetricas; set => cargaMetricas = value; }
         public EstadoModulo SeleccionMetricas { get => seleccionMetricas; set => seleccionMetricas = value; }
         public Etiqueta EtiquetasSeleccion { get => etiquetasSeleccion; set => etiquetasSeleccion = value; }
         public ListSeleccion Seleccion { get => seleccion; set => seleccion = value; }

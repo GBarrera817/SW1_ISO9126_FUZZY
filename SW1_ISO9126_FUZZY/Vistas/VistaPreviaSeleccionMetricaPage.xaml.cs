@@ -51,20 +51,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTSeleccion> MTSmantenibilidadExterna;
 
         private SeleccionMetricasPage paginaSeleccion;
-        /*private Seleccion metricas;
-        private EstadoModulo selecMetricas;*/
+        private FormularioEvaluacionPage paginaEvaluacion;
         private Evaluacion miEvaluacion;
 
-
-        public VistaPreviaSeleccionMetricaPage(Evaluacion nueva)
+        public VistaPreviaSeleccionMetricaPage(Evaluacion nueva, FormularioEvaluacionPage pagina)
 		{
 			InitializeComponent();
 
             this.paginaSeleccion = new SeleccionMetricasPage();
-            /*this.metricas = new Seleccion();
-            this.selecMetricas = new EstadoModulo();*/
+            this.paginaEvaluacion = pagina;
             this.miEvaluacion = nueva;
 
+            // Componentes necesarios
             inicializarEstadoCaracteristica();
             cargarJsonMetricas();
 
@@ -204,7 +202,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             // para editar el estado actual y no reescribir de cero.
 
             if (isFunIntAct)          
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(1);                       
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(2);                       
             else          
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(0);
 
@@ -212,7 +210,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             
                 
             if (isFunExtAct)
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(0);
 
@@ -220,7 +218,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
              
             
             if (isUsaIntAct)           
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(1);           
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(2);           
             else           
                 miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(0);
 
@@ -228,7 +226,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
               
 
             if (isUsaExtAct)
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(0);
 
@@ -236,7 +234,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
               
             
             if (isManIntAct)
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(0);
 
@@ -244,7 +242,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 
 
             if (isManExtAct)
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(0);
 
@@ -373,7 +371,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -475,90 +473,55 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarTabla(e);
         }
 
-        // Comprimir lista seleccion de metricas a solo las activadas
-
-        private List<MTSeleccion> comprimirSeleccion(List<MTSeleccion> seleccion)
-        {
-            MTSeleccion metricaSelec;
-            List<MTSeleccion> local = new List<MTSeleccion>();
-
-            for (int i = 0; i < seleccion.Count; i++)
-            {
-                metricaSelec = new MTSeleccion();
-                metricaSelec = seleccion[i];
-
-                if (metricaSelec.Estado)               
-                    local.Add(metricaSelec);               
-            }
-
-            return local;
-        }
-
-        // Comprimir lista de metricas a solo las seleccionadas
-
-        private List<JMetrica> comprimirMetricas(List<JMetrica> metricas, List<MTSeleccion> seleccion)
-        {
-            JMetrica metricaJson;
-            MTSeleccion metricaSelec;
-            List<JMetrica> local = new List<JMetrica>();
-
-            for (int i = 0; i < metricas.Count; i++)
-            {
-                metricaJson = new JMetrica();
-
-                metricaJson = metricas[i];
-                metricaSelec = seleccion[i];
-
-                if (metricaSelec.Estado)
-                    local.Add(metricaJson);    
-            }
-
-            return local;
-        }
-
         // Accion de salida boton guardar de seleccion de metricas
 
         public void guardarSeleccionSMbtn(string caracteristica, string perspectiva)
         {
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.FuncionalidadInterna = new List<JMetrica>(funcionalidadInterna);
                 miEvaluacion.Seleccion.FuncionalidadInterna = new List<MTSeleccion>(MTSfuncionalidadInterna);
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.UsabilidadInterna = new List<JMetrica>(usabilidadInterna);
                 miEvaluacion.Seleccion.UsabilidadInterna = new List<MTSeleccion>(MTSusabilidadInterna);
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
             {
+                miEvaluacion.CargaMetricas.MantenibilidadInterna = new List<JMetrica>(mantenibilidadInterna);
                 miEvaluacion.Seleccion.MantenibilidadInterna = new List<MTSeleccion>(MTSmantenibilidadInterna);
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
             }
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.FuncionalidadExterna = new List<JMetrica>(funcionalidadExterna);
                 miEvaluacion.Seleccion.FuncionalidadExterna = new List<MTSeleccion>(MTSfuncionalidadExterna);
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.UsabilidadExterna = new List<JMetrica>(usabilidadExterna);
                 miEvaluacion.Seleccion.UsabilidadExterna = new List<MTSeleccion>(MTSusabilidadExterna);
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
             {
+                miEvaluacion.CargaMetricas.MantenibilidadExterna = new List<JMetrica>(mantenibilidadExterna);
                 miEvaluacion.Seleccion.MantenibilidadExterna = new List<MTSeleccion>(MTSmantenibilidadExterna);
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
             }
         }
@@ -572,46 +535,44 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
-
-                // comprimir lista de seleccion de metricas y metricas
-                // Activar seleccion en formulario evaluacion
-                // contar las metricas
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
             }
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
-            {
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(3);
+            {             
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
             {
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
             {
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
             }
+
+            paginaEvaluacion.CargarContenidoSeleccion(miEvaluacion, caracteristica, perspectiva);
         }
 
-        // Evento Flyout
+        // Evento menu Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {
@@ -622,7 +583,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 else
                     Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar alguna caracteristica desde la sección Selección e Importancia", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             else           
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
         }
 
         // Eventos botones menu flotante (flyout)
@@ -646,13 +607,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
 
@@ -668,13 +632,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSusabilidadInterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
                             
@@ -690,13 +657,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSmantenibilidadInterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
                             
@@ -712,13 +682,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSfuncionalidadExterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
 
@@ -734,13 +707,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSusabilidadExterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
                             
@@ -756,13 +732,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSmantenibilidadExterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
                             
@@ -778,13 +757,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     }
                     else
                     {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluacón, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                        if (respuesta == MessageBoxResult.Yes)
+                        if (miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.Etiqueta.Equals("FINALIZADO"))
                         {
-                            paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
-                            this.NavigationService.Navigate(paginaSeleccion);
-                            MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                paginaSeleccion.cargarSeleccionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna);
+                                this.NavigationService.Navigate(paginaSeleccion);
+                                MTSfuncionalidadInterna = paginaSeleccion.seleccionarMetrica();
+                            }
                         }
                     }
 

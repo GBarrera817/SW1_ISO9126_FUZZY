@@ -21,8 +21,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private ESubCaracteristicas estadoSubCaractetisticas;
 
         private VistaPreviaSeleccionMetricaPage paginaMetricas;
+        private FormularioEvaluacionPage paginaEvaluaciones;
 
-        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage pagina) {
+        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion) {
 
             InitializeComponent();
 
@@ -32,7 +33,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.estadoCaracteristicas = new EstadoModulo();
             this.estadoSubCaractetisticas = new ESubCaracteristicas();
 
-            this.paginaMetricas = pagina;
+            this.paginaMetricas = paginaMetrica;
+            this.paginaEvaluaciones = paginaEvaluacion;
         }
 
         // guardar datos de la evaluacion
@@ -288,6 +290,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             miEvaluacion.DatosMetricas = estadoCaracteristicas;
             miEvaluacion.EstSubcaracteristicas = estadoSubCaractetisticas;
             miEvaluacion.Grados = grados;
+            miEvaluacion.EvaluacionMetricas = estadoCaracteristicas;
         }
 
         // validar datos del software
@@ -604,7 +607,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (miEvaluacion.Estado)
                 tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex + 1;
             else
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -717,13 +720,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     resgistrarDatos();
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // Cargar los datos en el modulo Vista Previa Seleccion de Metricas
                     paginaMetricas.cargarDatosModulo(miEvaluacion);
+                    // Cargar los datos en el modulo Vista Previa Formulario Evaluacion
+                    paginaEvaluaciones.cargarDatosModulo(miEvaluacion);
                     this.NavigationService.Navigate(paginaMetricas);
                 }
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

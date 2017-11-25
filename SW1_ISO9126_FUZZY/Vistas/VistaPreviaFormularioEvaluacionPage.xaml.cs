@@ -510,13 +510,21 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                        if (respuesta == MessageBoxResult.Yes)
+                                        {
+                                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                                            this.NavigationService.Navigate(paginaEvaluacion);
+                                            MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -539,13 +547,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }
                         }
@@ -568,13 +579,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }                        
                         }
@@ -597,13 +611,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }
                         }
@@ -626,13 +643,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }
                         }
@@ -655,13 +675,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }
                         }
@@ -684,13 +707,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                if (respuesta == MessageBoxResult.Yes)
+                                if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                                    this.NavigationService.Navigate(paginaEvaluacion);
-                                    MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                    if (respuesta == MessageBoxResult.Yes)
+                                    {
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                    }
                                 }
                             }
                         }

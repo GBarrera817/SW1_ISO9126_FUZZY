@@ -324,7 +324,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Carga la medalla con valor inicial (dimension lista evaluacion)
 
-        private void cargarBadge(Button medalla, int dimension)
+        private void iniciarBadge(Button medalla, int dimension)
         {           
             medalla.Content = "0/"+dimension;
         }
@@ -448,15 +448,36 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
       
+        // Inicia el badge con el tamaño de la lista
+
+        private void inicializarBagdesMetricas(string caracteristica, string perspectiva)
+        {
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
+                iniciarBadge(cantFuncsInterna, funcionalidadInterna.Count);            
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
+                iniciarBadge(cantUsabInterna, usabilidadInterna.Count);
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
+                iniciarBadge(cantMantInterna, mantenibilidadInterna.Count);
+
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
+                iniciarBadge(cantFuncExterna, funcionalidadExterna.Count);
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
+                iniciarBadge(cantUsabExterna, usabilidadExterna.Count);
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
+                iniciarBadge(cantMantExterna, mantenibilidadExterna.Count);
+        }
+
         // Carga el contenido enviado desde la Seleccion de metricas
 
         public void CargarContenidoSeleccion(Evaluacion evaSeleccion, string caracteristica, string perspectiva)
         {
             iniciarEtiquetaEstado(caracteristica, perspectiva);
-
-            // comprimir lista de seleccion de metricas y metricas
-
-            // contar las metricas
+            cargarlistasSeleccion(caracteristica, perspectiva);
+            inicializarBagdesMetricas(caracteristica, perspectiva);
         }
 
         // Eventos botones menu flotante (flyout)

@@ -398,7 +398,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 cargarEstados(miEvaluacion);
                 inicializarListas();
-                //cargarEtiquetasEstados();
                 cargarTilesMetricas();
                 cargarBadgesMetricas();
             }
@@ -408,14 +407,55 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        // Carga las listas creadas en la seleccion de metricas
+
+        private void cargarlistasSeleccion(string caracteristica, string perspectiva)
+        {
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
+            {
+                funcionalidadInterna = comprimirMetricas(miEvaluacion.CargaMetricas.FuncionalidadInterna, miEvaluacion.Seleccion.FuncionalidadInterna);
+                MTSfuncionalidadInterna = comprimirSeleccion(miEvaluacion.Seleccion.FuncionalidadInterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
+            {
+                usabilidadInterna = comprimirMetricas(miEvaluacion.CargaMetricas.UsabilidadInterna, miEvaluacion.Seleccion.UsabilidadInterna);
+                MTSusabilidadInterna = comprimirSeleccion(miEvaluacion.Seleccion.UsabilidadInterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
+            {
+                mantenibilidadInterna = comprimirMetricas(miEvaluacion.CargaMetricas.MantenibilidadInterna, miEvaluacion.Seleccion.MantenibilidadInterna);
+                MTSmantenibilidadInterna = comprimirSeleccion(miEvaluacion.Seleccion.MantenibilidadInterna);
+            }
+
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
+            {
+                funcionalidadExterna = comprimirMetricas(miEvaluacion.CargaMetricas.FuncionalidadExterna, miEvaluacion.Seleccion.FuncionalidadExterna);
+                MTSfuncionalidadExterna = comprimirSeleccion(miEvaluacion.Seleccion.FuncionalidadExterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
+            {
+                usabilidadExterna = comprimirMetricas(miEvaluacion.CargaMetricas.UsabilidadExterna, miEvaluacion.Seleccion.UsabilidadExterna);
+                MTSusabilidadExterna = comprimirSeleccion(miEvaluacion.Seleccion.UsabilidadExterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
+            {
+                mantenibilidadExterna = comprimirMetricas(miEvaluacion.CargaMetricas.MantenibilidadExterna, miEvaluacion.Seleccion.MantenibilidadExterna);
+                MTSmantenibilidadExterna = comprimirSeleccion(miEvaluacion.Seleccion.MantenibilidadExterna);
+            }
+        }
+      
         // Carga el contenido enviado desde la Seleccion de metricas
 
-        public void CargarContenidoSeleccion(Evaluacion evaSeleccion, string caracteristica, string perspectiva )
+        public void CargarContenidoSeleccion(Evaluacion evaSeleccion, string caracteristica, string perspectiva)
         {
             iniciarEtiquetaEstado(caracteristica, perspectiva);
 
             // comprimir lista de seleccion de metricas y metricas
-            // Activar seleccion en formulario evaluacion
+
             // contar las metricas
         }
 

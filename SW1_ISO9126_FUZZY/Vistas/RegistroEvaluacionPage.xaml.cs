@@ -607,7 +607,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (miEvaluacion.Estado)
                 tabInfoSoftware.SelectedIndex = tabInfoSoftware.SelectedIndex + 1;
             else
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -729,7 +729,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

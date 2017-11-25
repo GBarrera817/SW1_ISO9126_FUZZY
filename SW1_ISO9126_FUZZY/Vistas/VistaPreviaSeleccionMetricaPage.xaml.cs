@@ -371,7 +371,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -583,7 +583,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 else
                     Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar alguna caracteristica desde la sección Selección e Importancia", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             else           
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
         }
 
         // Eventos botones menu flotante (flyout)

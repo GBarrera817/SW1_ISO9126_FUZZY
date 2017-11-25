@@ -388,25 +388,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             etiqueta.Content = estado.Etiqueta;
         }
 
-        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
-
-        public void cargarDatosModulo(Evaluacion evaSeleccion)
-        {
-            miEvaluacion = evaSeleccion;
-
-            if (miEvaluacion.Estado)
-            {
-                cargarEstados(miEvaluacion);
-                inicializarListas();
-                cargarTilesMetricas();
-                cargarBadgesMetricas();
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         // Carga las listas creadas en la seleccion de metricas
 
         private void cargarlistasSeleccion(string caracteristica, string perspectiva)
@@ -447,13 +428,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 MTSmantenibilidadExterna = comprimirSeleccion(miEvaluacion.Seleccion.MantenibilidadExterna);
             }
         }
-      
+
         // Inicia el badge con el tamaño de la lista
 
         private void inicializarBagdesMetricas(string caracteristica, string perspectiva)
         {
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
-                iniciarBadge(cantFuncsInterna, funcionalidadInterna.Count);            
+                iniciarBadge(cantFuncsInterna, funcionalidadInterna.Count);
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
                 iniciarBadge(cantUsabInterna, usabilidadInterna.Count);
@@ -469,6 +450,26 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
                 iniciarBadge(cantMantExterna, mantenibilidadExterna.Count);
+        }
+
+        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
+
+        public void cargarDatosModulo(Evaluacion evaSeleccion)
+        {
+            miEvaluacion = evaSeleccion;
+
+            if (miEvaluacion.Estado)
+            {
+                cargarEstados(miEvaluacion);
+                cargarEtiquetasEstados();
+                inicializarListas();
+                cargarTilesMetricas();
+                cargarBadgesMetricas();
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         // Carga el contenido enviado desde la Seleccion de metricas

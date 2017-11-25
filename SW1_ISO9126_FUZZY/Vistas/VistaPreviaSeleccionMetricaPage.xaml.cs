@@ -202,7 +202,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             // para editar el estado actual y no reescribir de cero.
 
             if (isFunIntAct)          
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(1);                       
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(2);                       
             else          
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(0);
 
@@ -210,7 +210,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             
                 
             if (isFunExtAct)
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(0);
 
@@ -218,7 +218,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
              
             
             if (isUsaIntAct)           
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(1);           
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(2);           
             else           
                 miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(0);
 
@@ -226,7 +226,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
               
 
             if (isUsaExtAct)
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(0);
 
@@ -234,7 +234,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
               
             
             if (isManIntAct)
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(0);
 
@@ -242,7 +242,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 
 
             if (isManExtAct)
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(1);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
             else
                 miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(0);
 
@@ -481,7 +481,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.FuncionalidadInterna = new List<JMetrica>(funcionalidadInterna);
                 miEvaluacion.Seleccion.FuncionalidadInterna = new List<MTSeleccion>(MTSfuncionalidadInterna);
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
             }
 
@@ -489,7 +489,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.UsabilidadInterna = new List<JMetrica>(usabilidadInterna);
                 miEvaluacion.Seleccion.UsabilidadInterna = new List<MTSeleccion>(MTSusabilidadInterna);
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
             }
 
@@ -497,7 +497,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.MantenibilidadInterna = new List<JMetrica>(mantenibilidadInterna);
                 miEvaluacion.Seleccion.MantenibilidadInterna = new List<MTSeleccion>(MTSmantenibilidadInterna);
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
             }
 
@@ -505,7 +505,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.FuncionalidadExterna = new List<JMetrica>(funcionalidadExterna);
                 miEvaluacion.Seleccion.FuncionalidadExterna = new List<MTSeleccion>(MTSfuncionalidadExterna);
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
             }
 
@@ -513,7 +513,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.UsabilidadExterna = new List<JMetrica>(usabilidadExterna);
                 miEvaluacion.Seleccion.UsabilidadExterna = new List<MTSeleccion>(MTSusabilidadExterna);
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
             }
 
@@ -521,7 +521,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 miEvaluacion.CargaMetricas.MantenibilidadExterna = new List<JMetrica>(mantenibilidadExterna);
                 miEvaluacion.Seleccion.MantenibilidadExterna = new List<MTSeleccion>(MTSmantenibilidadExterna);
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(3);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
             }
         }
@@ -535,37 +535,37 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
             {
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
             }
 
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
             {             
-                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
             }
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
             {
-                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(3);
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
             }
 
             if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
             {
-                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(2);
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(4);
                 cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
             }
 

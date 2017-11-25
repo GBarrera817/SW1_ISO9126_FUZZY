@@ -8,8 +8,8 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Etiquetas
 {
     public class ColorEstado
     {
-        private string[] estados = new string[] { "INACTIVA", "REALIZAR", "COMPLETAR", "FINALIZADO" };
-        private string[] colores = new string[] { "#FF000033", "#FFCC0000", "#FFE6E600", "#FF00802B" };
+        private string[] estados = new string[] { "INACTIVA", "ESPERAR", "REALIZAR", "COMPLETAR", "FINALIZADO" };
+        private string[] colores = new string[] { "#FF000033", "#FF7E7E7E", "#FFCC0000", "#FFE6E600", "#FF00802B" };
 
         private string etiqueta;
         private string color;

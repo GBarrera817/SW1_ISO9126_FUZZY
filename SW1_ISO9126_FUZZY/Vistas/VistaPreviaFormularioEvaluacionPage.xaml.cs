@@ -496,21 +496,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     case "btnFuncInterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                            if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
                       
@@ -518,21 +525,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                     case "btnUsabInterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
-                        {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                        {                        
+                            if (miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Interna", usabilidadInterna, MTSusabilidadInterna, MTEusabilidadInterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEusabilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
 
@@ -540,43 +554,57 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                     case "btnMantInterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                            if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
                             }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Interna", mantenibilidadInterna, MTSmantenibilidadInterna, MTEmantenibilidadInterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEmantenibilidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                }
+                            }                        
                         }
 
                     break;
 
                     case "btnFuncExterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
-                        {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                        {                         
+                            if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Externa", funcionalidadExterna, MTSfuncionalidadExterna, MTEfuncionalidadExterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEfuncionalidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
 
@@ -584,21 +612,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                     case "btnUsabExterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
-                        {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                        {                            
+                            if (miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Usabilidad", "Externa", usabilidadExterna, MTSusabilidadExterna, MTEusabilidadExterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEusabilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
 
@@ -606,21 +641,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                     case "btnMantExterna":
 
-                        if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                            if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Mantenibilidad", "Externa", mantenibilidadExterna, MTSmantenibilidadExterna, MTEmantenibilidadExterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEmantenibilidadExterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
 
@@ -628,21 +670,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                     default:
 
-                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
+                        if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                            this.NavigationService.Navigate(paginaEvaluacion);
-                            MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                            if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("REALIZAR") || miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("COMPLETAR"))
                             {
                                 paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
                                 this.NavigationService.Navigate(paginaEvaluacion);
                                 MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                            }
+                            else
+                            {
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                                    this.NavigationService.Navigate(paginaEvaluacion);
+                                    MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
+                                }
                             }
                         }
 

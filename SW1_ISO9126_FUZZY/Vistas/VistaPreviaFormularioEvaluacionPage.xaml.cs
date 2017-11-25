@@ -468,7 +468,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -498,7 +498,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
@@ -527,7 +527,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {                        
@@ -556,7 +556,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
@@ -585,7 +585,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {                         
@@ -614,7 +614,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {                            
@@ -643,7 +643,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
@@ -672,7 +672,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                         if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("ESPERAR"))
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe completar la selección de métricas para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
@@ -700,7 +700,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este modulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -130,7 +130,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cargar una metrica
 
-        private void cargarMetrica(JMetrica metrica, int idProposito) 
+        private void cargarMetrica(JMetrica metrica, int idProposito, MTEvaluacion datos) 
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
@@ -150,7 +150,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 lblParam0.Content = metrica.Parametros[0];
                 lblParam0.Visibility = Visibility.Visible;
                 txtParam0.IsEnabled = true;
+                txtParam0.Text = datos.Valores[0].ToString();
                 txtParam0.Visibility = Visibility.Visible;
+                sldparam0.Value = datos.Valores[0];
                 sldparam0.IsEnabled = true;
                 sldparam0.Visibility = Visibility.Visible;
             }
@@ -159,8 +161,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 lblParam1.Content = metrica.Parametros[1];
                 lblParam1.Visibility = Visibility.Visible;
+                txtParam1.Text = datos.Valores[1].ToString();
                 txtParam1.IsEnabled = true;
                 txtParam1.Visibility = Visibility.Visible;
+                sldparam1.Value = datos.Valores[1];
                 sldparam1.IsEnabled = true;
                 sldparam1.Visibility = Visibility.Visible;
             }
@@ -169,8 +173,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 lblParam2.Content = metrica.Parametros[2];
                 lblParam2.Visibility = Visibility.Visible;
+                txtParam2.Text = datos.Valores[2].ToString();
                 txtParam2.IsEnabled = true;
                 txtParam2.Visibility = Visibility.Visible;
+                sldparam2.Value = datos.Valores[2];
                 sldparam2.IsEnabled = true;
                 sldparam2.Visibility = Visibility.Visible;
             }
@@ -312,7 +318,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             //Cargo y compruebo metrica inicial
-            cargarMetrica(listaMetricas[0], listaSeleccion[0].Proposito);
+            cargarMetrica(listaMetricas[0], listaSeleccion[0].Proposito, listaEvaluacion[0]);
             cargarEvaluacion(0);
         }
 
@@ -383,7 +389,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             guardarEvaluacion(indiceListas);
             retroceder(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
+            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
             cargarEvaluacion(indiceListas);
         }
 
@@ -391,7 +397,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             guardarEvaluacion(indiceListas);
             avanzar(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
+            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
             cargarEvaluacion(indiceListas);
         }
 

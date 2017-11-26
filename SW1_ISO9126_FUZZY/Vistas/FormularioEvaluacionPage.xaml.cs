@@ -213,12 +213,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (parametros == 1)            
                 metrica.Valores[0] = float.Parse(txtParam0.Text);           
 
-            if (parametros == 2)            
+            if (parametros == 2)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
-            
-            if (parametros == 3)           
+            }            
+                            
+            if (parametros == 3)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
+                metrica.Valores[1] = float.Parse(txtParam1.Text);
                 metrica.Valores[2] = float.Parse(txtParam2.Text);
-            
+            }           
+                           
             listaEvaluacion[indice] = metrica;
         }
 

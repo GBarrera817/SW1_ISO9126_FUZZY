@@ -96,28 +96,34 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        // Limpia los sliders no activados
+        // Limpia los campos para contestar la evaluacion
 
-        private void limpiarSlider()
+        private void limpiarContenidoEvaluacion()
         {
             lblParam0.Content = "";
             lblParam0.Visibility = Visibility.Hidden;
+            txtParam0.Text = "";
             txtParam0.IsEnabled = false;
             txtParam0.Visibility = Visibility.Hidden;
+            sldparam0.Value = 0;
             sldparam0.IsEnabled = false;
             sldparam0.Visibility = Visibility.Hidden;
 
             lblParam1.Content = "";
             lblParam1.Visibility = Visibility.Hidden;
+            txtParam1.Text = "";
             txtParam1.IsEnabled = false;
             txtParam1.Visibility = Visibility.Hidden;
+            sldparam1.Value = 0;
             sldparam1.IsEnabled = false;
             sldparam1.Visibility = Visibility.Hidden;
             
             lblParam2.Content = "";
             lblParam2.Visibility = Visibility.Hidden;
             txtParam2.IsEnabled = false;
+            txtParam2.Text = "";
             txtParam2.Visibility = Visibility.Hidden;
+            sldparam2.Value = 0;
             sldparam2.IsEnabled = false;
             sldparam2.Visibility = Visibility.Hidden;
         }
@@ -137,7 +143,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
 
-            limpiarSlider();
+            limpiarContenidoEvaluacion();
 
             if (metrica.Parametros.Length == 1 || metrica.Parametros.Length > 1)
             {
@@ -210,13 +216,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
             metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
-            if (parametros == 1)            
-                metrica.Valores[0] = float.Parse(txtParam0.Text);           
+            System.Console.WriteLine("\nID: "+indice);
 
+            if (parametros == 1)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
+                System.Console.WriteLine("P0: "+ metrica.Valores[0]);
+            }            
+                     
             if (parametros == 2)
             {
                 metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
+                System.Console.WriteLine("P1: " + metrica.Valores[0]);
+                System.Console.WriteLine("P2: " + metrica.Valores[1]);
             }            
                             
             if (parametros == 3)
@@ -224,6 +237,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
                 metrica.Valores[2] = float.Parse(txtParam2.Text);
+                System.Console.WriteLine("P1: " + metrica.Valores[0]);
+                System.Console.WriteLine("P2: " + metrica.Valores[1]);
+                System.Console.WriteLine("P3: " + metrica.Valores[2]);
             }           
                            
             listaEvaluacion[indice] = metrica;

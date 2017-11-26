@@ -258,6 +258,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return listaEvaluacion;
         }
 
+        // Validar respuestas usuario
+
+        private bool validadRespuesta(JMetrica metrica, int indice)
+        {
+            int numeroParametros = metrica.Parametros.Length;
+            double valor = 0;
+            bool salida = true;
+
+            if (numeroParametros == 1 || numeroParametros > 1)
+            {
+                valor = float.Parse(txtParam0.Text);
+
+                if (valor < 0 || valor > 100)
+                    salida = false;
+            }
+
+            if (numeroParametros == 2 || numeroParametros > 2)
+            {
+                valor = float.Parse(txtParam1.Text);
+
+                if (valor < 0 || valor > 100)
+                    salida = false;
+            }
+
+            if (numeroParametros == 3)
+            {
+                valor = float.Parse(txtParam2.Text);
+
+                if (valor < 0 || valor > 100)
+                    salida = false;
+            }
+
+            return salida;
+        }
+
         // Verificar condiciones de finalizacion
 
         private bool verificarEvaluacion()

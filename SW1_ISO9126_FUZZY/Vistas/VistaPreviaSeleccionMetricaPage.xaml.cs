@@ -572,6 +572,27 @@ namespace SW1_ISO9126_FUZZY.Vistas
             paginaEvaluacion.CargarContenidoSeleccion(miEvaluacion, caracteristica, perspectiva);
         }
 
+        // Metodo para imprimir la lista de metricas
+
+        private void imprimirListaMetricas(List<JMetrica> lista)
+        {
+            System.Console.WriteLine("\nLista Métrica\n-------------");
+
+            foreach (JMetrica metrica in lista)
+                System.Console.WriteLine(metrica.Id + " " + metrica.Nombre);
+        }
+
+
+        // metodo para imprimir la lista de seleccion
+
+        private void imprimirListaSeleccion(List<MTSeleccion> lista)
+        {
+            System.Console.WriteLine("\nLista Selección\n---------------");
+
+            foreach (MTSeleccion seleccion in lista)
+                System.Console.WriteLine(seleccion.Id + " " +seleccion.Estado);
+        }
+        
         // Evento menu Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)

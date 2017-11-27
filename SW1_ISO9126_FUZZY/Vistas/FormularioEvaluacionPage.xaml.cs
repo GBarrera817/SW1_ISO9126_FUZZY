@@ -139,7 +139,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblNombre.Content = metrica.Nombre;
             labelProposito.Text = metrica.Proposito[idProposito]; 
             labelMetodo.Text = metrica.Metodo;
-            label1_formula.Content = metrica.Formula[idProposito]; 
+            label1_formula.Content = metrica.Formula[0]; // Existe una unica formula para cada métrica
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
 
@@ -422,6 +422,29 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        private void actualizarSliderTexbox(Slider desplazamiento, TextBox datos)
+        {
+            double valor = 0;
+
+            try
+            {
+                valor = float.Parse(datos.Text);
+
+                if (valor < 0 || valor > 100)
+                {
+                    desplazamiento.Value = 0;
+                    datos.Text = "0";
+                }
+                else
+                    desplazamiento.Value = float.Parse(datos.Text);
+            }
+            catch (System.FormatException)
+            {
+                desplazamiento.Value = 0;
+                datos.Text = "0";
+            }
+        } 
+        
         // Eventos Sliders
 
         private void sldparam0_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -504,6 +527,23 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        // Eventos TextBox
+
+        private void txtParam0_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam0, txtParam0);
+        }
+
+        private void txtParam1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam1, txtParam1);
+        }
+
+        private void txtParam2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam2, txtParam2);
         }
     }
 }

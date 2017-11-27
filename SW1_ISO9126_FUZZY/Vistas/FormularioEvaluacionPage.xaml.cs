@@ -260,7 +260,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Validar respuestas usuario
 
-        private bool validadRespuesta(JMetrica metrica, int indice)
+        private bool validadRespuesta(JMetrica metrica)
         {
             int numeroParametros = metrica.Parametros.Length;
             double valor = 0;
@@ -268,26 +268,47 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (numeroParametros == 1 || numeroParametros > 1)
             {
-                valor = float.Parse(txtParam0.Text);
+                try
+                {
+                    valor = float.Parse(txtParam0.Text);
 
-                if (valor < 0 || valor > 100)
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                {
                     salida = false;
+                }
             }
 
             if (numeroParametros == 2 || numeroParametros > 2)
             {
-                valor = float.Parse(txtParam1.Text);
+                try
+                {
+                    valor = float.Parse(txtParam1.Text);
 
-                if (valor < 0 || valor > 100)
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                { 
                     salida = false;
+                }
             }
 
             if (numeroParametros == 3)
             {
-                valor = float.Parse(txtParam2.Text);
+                try
+                {
+                    valor = float.Parse(txtParam2.Text);
 
-                if (valor < 0 || valor > 100)
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                {
                     salida = false;
+                }
             }
 
             return salida;
@@ -422,38 +443,66 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarEvaluacion(indiceListas);
-            retroceder(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
-            cargarEvaluacion(indiceListas);
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+                retroceder(ref indiceListas);
+                cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
+                cargarEvaluacion(indiceListas);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarEvaluacion(indiceListas);
-            avanzar(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
-            cargarEvaluacion(indiceListas);
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+                avanzar(ref indiceListas);
+                cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
+                cargarEvaluacion(indiceListas);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
-            guardarEvaluacion(indiceListas);
-            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
-            NavigationService.Navigate(origen);
-        }
-
-        private void btnTerminar_Click(object sender, RoutedEventArgs e)
-        {
-            guardarEvaluacion(indiceListas);
-
-            if (verificarEvaluacion())
+            if (validadRespuesta(listaMetricas[indiceListas]))
             {
+                guardarEvaluacion(indiceListas);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnTerminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+
+                if (verificarEvaluacion())
+                {
+                    NavigationService.Navigate(origen);
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

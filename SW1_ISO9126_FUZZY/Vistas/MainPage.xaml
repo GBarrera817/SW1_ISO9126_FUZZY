@@ -14,9 +14,29 @@
             <ImageBrush ImageSource="/SW1_ISO9126_FUZZY;component/Imagenes/mainBackground.png"/>
         </Grid.Background>
 
-        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,76,172,90"/>
+        <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/logo.png" Margin="170,70,172,96"/>
         <TextBlock x:Name="titulo" Foreground="#FF73B3DF" HorizontalAlignment="Stretch" FontSize="36" Margin="126,37,118,0" TextWrapping="Wrap" Text="Evaluación de Calidad del Software" VerticalAlignment="Top" Height="52"/>
-        <Button x:Name="btnComenzarEvaluacion" Content="Iniciar evaluación" HorizontalAlignment="Left" Margin="203,492,0,0" VerticalAlignment="Top" Width="132" Click="btnComenzarEvaluacion_Click"/>
-        <Button x:Name="btnCargarEvaluacion" Content="Cargar evaluación" HorizontalAlignment="Left" Margin="443,492,0,0" VerticalAlignment="Top" Width="130" Click="btnCargarEvaluacion_Click"/>
+
+        <Button x:Name="btnComenzarEvaluacion" Margin="115,485,528,80" Click="btnComenzarEvaluacion_Click">
+            <StackPanel Orientation="Horizontal" Height="35" Width="150">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Inventory.png" Width="35" RenderTransformOrigin="0.571,0.258" Margin="0,-16,0,0" />
+                <Label Content="Iniciar evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-3,0,9" Width="108"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnCargarEvaluacion" Margin="325,485,319,80" Click="btnCargarEvaluacion_Click">
+            <StackPanel Orientation="Horizontal" Height="35" Width="150">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Document-Settings.png" Width="30" RenderTransformOrigin="0.571,0.258" Margin="0,-11,0,4" />
+                <Label Content="Cargar evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="112"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnGuardarEvaluacion" Margin="529,485,115,80">
+            <StackPanel Orientation="Horizontal" Height="35" Width="150">
+                <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                <Label Content="Guardar Evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="119"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </Page>

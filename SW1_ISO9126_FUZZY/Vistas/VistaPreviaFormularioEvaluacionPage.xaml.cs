@@ -481,6 +481,103 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarBagdesMetricas(caracteristica, perspectiva);
         }
 
+        // Accion de salida boton guardar de formulario evaluacion
+
+        public void guardarEvaluacionFEbtn(string caracteristica, string perspectiva, int respondidas)
+        {
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.Fomulario.FuncionalidadInterna = new List<MTEvaluacion>(MTEfuncionalidadInterna);
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna, lblEstadoFuncInterna);
+                actualizarBadge(cantFuncInterna, respondidas);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.Fomulario.UsabilidadInterna = new List<MTEvaluacion>(MTEusabilidadInterna);
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna, lblEstadoUsabInterna);
+                actualizarBadge(cantUsabInterna, respondidas);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.Fomulario.MantenibilidadInterna = new List<MTEvaluacion>(MTEmantenibilidadInterna);
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna, lblEstadoMantInterna);
+                actualizarBadge(cantMantInterna, respondidas);
+            }
+
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.Fomulario.FuncionalidadExterna = new List<MTEvaluacion>(MTEfuncionalidadExterna);
+                miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna, lblEstadoFuncExterna);
+                actualizarBadge(cantFuncExterna, respondidas); ;
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.Fomulario.UsabilidadExterna = new List<MTEvaluacion>(MTEusabilidadExterna);
+                miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna, lblEstadoUsabExterna);
+                actualizarBadge(cantUsabExterna, respondidas);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.Fomulario.MantenibilidadExterna = new List<MTEvaluacion>(MTEmantenibilidadExterna);
+                miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.cambiarEstado(3);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna, lblEstadoMantExterna);
+                actualizarBadge(cantMantExterna, respondidas);
+            }
+        }
+
+        // Accion de salida boton finalizar de seleccion de metricas
+
+        public void finalizarEvaluacionFEbtn(string caracteristica, string perspectiva, int respondidas)
+        {
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadInterna, lblEstadoMetricasFuncInterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.EtiquetasSeleccion.UsabilidadInterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadInterna, lblEstadoMetricasUsabInterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Interna"))
+            {
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadInterna, lblEstadoMetricasMantInterna);
+            }
+
+            if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.FuncionalidadExterna, lblEstadoMetricasFuncExterna);
+            }
+
+            if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasSeleccion.UsabilidadExterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.UsabilidadExterna, lblEstadoMetricasUsabExterna);
+            }
+
+            if (caracteristica.Equals("Mantenibilidad") && perspectiva.Equals("Externa"))
+            {
+                miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna.cambiarEstado(4);
+                cambiarEtiquetaGraficaEstado(miEvaluacion.EtiquetasSeleccion.MantenibilidadExterna, lblEstadoMetricasMantExterna);
+            }
+
+            paginaEvaluacion.CargarContenidoSeleccion(miEvaluacion, caracteristica, perspectiva);
+        }
+
+
         // Eventos botones menu flotante (flyout)
 
         private void btnTileClick(object sender, System.Windows.RoutedEventArgs e)

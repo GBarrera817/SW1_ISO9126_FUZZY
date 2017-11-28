@@ -82,7 +82,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaEval.Formula = metricaJson.Formula[0]; // Existe una unica formula por metrica
                 metricaEval.Parametros = metricaJson.Parametros;
 
-                metricaEval.Valores = new float[metricaJson.Parametros.Length];
+                metricaEval.Valores = new double[metricaJson.Parametros.Length];
 
                 for (int j = 0; j < metricaEval.Valores.Length; j++)
                 {
@@ -222,22 +222,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
             metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
-            if (parametros == 1)
+            if (parametros == 1) 
             {
-                metrica.Valores[0] = float.Parse(txtParam0.Text);
+                metrica.Valores[0] = double.Parse(txtParam0.Text);
             }            
                      
             if (parametros == 2)
             {
-                metrica.Valores[0] = float.Parse(txtParam0.Text);
-                metrica.Valores[1] = float.Parse(txtParam1.Text);
+                metrica.Valores[0] = double.Parse(txtParam0.Text);
+                metrica.Valores[1] = double.Parse(txtParam1.Text);
             }            
                             
             if (parametros == 3)
             {
-                metrica.Valores[0] = float.Parse(txtParam0.Text);
-                metrica.Valores[1] = float.Parse(txtParam1.Text);
-                metrica.Valores[2] = float.Parse(txtParam2.Text);
+                metrica.Valores[0] = double.Parse(txtParam0.Text);
+                metrica.Valores[1] = double.Parse(txtParam1.Text);
+                metrica.Valores[2] = double.Parse(txtParam2.Text);
             }           
                            
             listaEvaluacion[indice] = metrica;
@@ -262,7 +262,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 try
                 {
-                    valor = float.Parse(txtParam0.Text);
+                    valor = double.Parse(txtParam0.Text);
 
                     if (valor < 0 || valor > 100)
                         salida = false;
@@ -277,7 +277,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 try
                 {
-                    valor = float.Parse(txtParam1.Text);
+                    valor = double.Parse(txtParam1.Text);
 
                     if (valor < 0 || valor > 100)
                         salida = false;
@@ -292,7 +292,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 try
                 {
-                    valor = float.Parse(txtParam2.Text);
+                    valor = double.Parse(txtParam2.Text);
 
                     if (valor < 0 || valor > 100)
                         salida = false;
@@ -529,7 +529,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             try
             {
-                valor = float.Parse(datos.Text);
+                valor = double.Parse(datos.Text);
 
                 if (valor < 0 || valor > 100)
                 {
@@ -537,7 +537,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     datos.Text = "0";
                 }
                 else
-                    desplazamiento.Value = float.Parse(datos.Text);
+                    desplazamiento.Value = double.Parse(datos.Text);
             }
             catch (System.FormatException)
             {

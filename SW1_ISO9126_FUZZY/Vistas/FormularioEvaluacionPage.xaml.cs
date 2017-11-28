@@ -314,9 +314,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return salida;
         }
 
-        // Verificar condiciones de finalizacion
+        // Entrega el numero de metricas respondidas (Total Parametros != 0 x metrica)
 
-        private bool verificarEvaluacion()
+        private int metricasRespondidas()
         {
             int respondidas = 0;
             int parametros = 0;
@@ -331,11 +331,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                         parametros++;
                 }
 
-                if (parametros != 0)
+                if (parametros == item.Valores.Length)
                     respondidas++;
             }
 
-            if (respondidas != 0) return true; else return false;
+            return respondidas;
         }
 
         // Metodo principal para evaluar las metricas

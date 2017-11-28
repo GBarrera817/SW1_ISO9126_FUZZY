@@ -611,7 +611,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
                     {
-                        origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                        origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
                         Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                         NavigationService.Navigate(origen);
                     }
@@ -624,7 +624,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                             if (respuesta == MessageBoxResult.Yes)
                             {
-                                origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                                origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
                                 Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                                 NavigationService.Navigate(origen);
                             }

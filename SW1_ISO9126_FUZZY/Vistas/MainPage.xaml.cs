@@ -28,42 +28,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.paginaRegistro = pagina;
         }
 
-        private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
-		{
-            if (!estadoEvaluacion)
-            {               
-                estadoEvaluacion = true;
-                miEvaluacion.Estado = estadoEvaluacion;
-
-                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación creada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.NavigationService.Navigate(paginaRegistro);
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-		private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
-		{
-            MessageBoxResult respuesta;
-
-            if (!estadoEvaluacion)
-            {
-                cargarJson();
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("¿Desea sobre escribir la evaluación ya cargada?, se perderan todos los datos actuales", "Cargar evaluación desde archivo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-               if (respuesta == MessageBoxResult.Yes)
-                {
-                    cargarJson();
-                }
-            }
-        }
-
         private void cargarJson()
         {
             //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
@@ -111,6 +75,57 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void loadMessenger()
         {
             Navigation.Navigation.Navigate(new Uri("https://www.messenger.com/login.php"));
+        }
+
+
+        // Evento botones
+
+        private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (!estadoEvaluacion)
+            {
+                estadoEvaluacion = true;
+                miEvaluacion.Estado = estadoEvaluacion;
+
+                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación creada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.NavigationService.Navigate(paginaRegistro);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void btnCargarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBoxResult respuesta;
+
+            if (!estadoEvaluacion)
+            {
+                cargarJson();
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("La evaluación ya fue creada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("¿Desea sobre escribir la evaluación ya cargada?, se perderan todos los datos actuales", "Cargar evaluación desde archivo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (respuesta == MessageBoxResult.Yes)
+                {
+                    cargarJson();
+                }
+            }
+        }
+
+        private void btnGuardarEvaluacion_Click(object sender, RoutedEventArgs e)
+        {
+            if (estadoEvaluacion)
+            {
+
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para guardar", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         /* Ejemplos de MessageBox

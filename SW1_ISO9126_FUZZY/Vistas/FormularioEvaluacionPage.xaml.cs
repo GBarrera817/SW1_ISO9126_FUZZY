@@ -643,10 +643,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     {
                         if (buscaCeroTodosParametros() != listaEvaluacion.Count)
                         {
-                            if(buscaCeroTodosParametros() != 0)
+                            if(buscaCeroTodosParametros() == 0)
                             {
-                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ",
-                                "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                if (buscaAlgunCeroParametros() == 1)
+                                {
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se ha encontrado " + buscaAlgunCeroParametros() + " metrica con valor cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores ceros ingresados son válidos, ¿desea finalizar la evaluación?",
+                                    "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                }
+                                else
+                                {
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros() + " metricas con valores cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores ceros ingresados son válidos, ¿desea finalizar la evaluación?",
+                                    "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                }
 
                                 if (respuesta == MessageBoxResult.Yes)
                                 {
@@ -657,9 +665,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             }
                             else
                             {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado métricas sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                                if(buscaCeroTodosParametros() == 1)                              
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Se ha encontrado " + buscaCeroTodosParametros() + " métrica sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                                else
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaCeroTodosParametros() + " métricas sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
-
                         }
                         else
                         {

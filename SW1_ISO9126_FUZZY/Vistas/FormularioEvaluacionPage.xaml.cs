@@ -586,7 +586,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     respondidas = buscaHibrido();              
                 else             
                     respondidas = 0;
-               
+
+                origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, respondidas);
                 Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);
             }
@@ -610,7 +611,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
                     {
-                        //Respondidas = listaEvaluacion.Count
+                        origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                         NavigationService.Navigate(origen);
                     }
                     else
@@ -622,7 +624,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                             if (respuesta == MessageBoxResult.Yes)
                             {
-                                //Respondidas = listaEvaluacion.Count
+                                origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                                 NavigationService.Navigate(origen);
                             }
                         }

@@ -20,7 +20,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
-                                <Button x:Name="btnCalcSubInterna" Content="Calcular" Width="70" Click="btnCalcSubInterna_Click" />
+                                <Button x:Name="btnCalcSubInterna" Content="Calcular" Width="70" Click="btnCalcSubInterna_Click" Background="#FFF7F7F7" />
                             </StackPanel>
                         </GroupBox.Header>
 
@@ -115,7 +115,7 @@
                             <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
                         </StackPanel>
                     </Button>
-                    
+
                     <Button x:Name="btnSiguienteCaracteristica" Margin="601,458,100,8" Click="avanzarTabControl">
                         <Button.Background>
                             <ImageBrush/>
@@ -181,7 +181,7 @@
                                 <ComboBoxItem>COURIER</ComboBoxItem>
                             </ComboBox>
                             <Label Content="Tamaño fuente: " FontSize="14" HorizontalAlignment="Left" Width="114" Background="{x:Null}" FontWeight="Bold" Margin="26,72,0,4"/>
-                            <xctk:DoubleUpDown x:Name="dudtTamFuente" TextAlignment="Center" FontSize="14"  Value="10" Increment="1" Minimum="10" Maximum="20" Margin="157,72,187,3" RenderTransformOrigin="0.5,0.5"/>
+                            <xctk:DoubleUpDown x:Name="dudtTamFuente" TextAlignment="Center" FontSize="14"  Value="10" Increment="1" Minimum="10" Maximum="15" Margin="157,72,187,3" RenderTransformOrigin="0.5,0.5"/>
                         </Grid>
                     </GroupBox>
 

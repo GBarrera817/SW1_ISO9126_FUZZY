@@ -79,7 +79,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaSel = selecciones[i];
 
                 metricaEval.Id = metricaJson.Id;
-                metricaEval.Formula = metricaJson.Formula[metricaSel.Proposito];
+                metricaEval.Formula = metricaJson.Formula[0]; // Existe una unica formula por metrica
                 metricaEval.Parametros = metricaJson.Parametros;
 
                 metricaEval.Valores = new float[metricaJson.Parametros.Length];
@@ -421,6 +421,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 btnSiguiente.IsEnabled = false;
             }
         }
+
+        // Metodo para cambiar valor slider segun valor ingresado al textbox
 
         private void actualizarSliderTexbox(Slider desplazamiento, TextBox datos)
         {

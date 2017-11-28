@@ -604,27 +604,32 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 guardarEvaluacion(indiceListas);
 
-                if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
-                {
-                    //Respondidas = listaEvaluacion.Count
-                    NavigationService.Navigate(origen);                   
-                }
-                else
-                {
-                    if(buscaCeroTodosParametros() != listaEvaluacion.Count)
-                    {
-                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros().ToString() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ", 
-                        "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la evaluación no podra modificar las respuestas, ¿desea finalizar la evaluación? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-                        if (respuesta == MessageBoxResult.Yes)
-                        {
-                            //Respondidas = listaEvaluacion.Count
-                            NavigationService.Navigate(origen);
-                        }
+                if (respuesta == MessageBoxResult.Yes)
+                {
+                    if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
+                    {
+                        //Respondidas = listaEvaluacion.Count
+                        NavigationService.Navigate(origen);
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                        if (buscaCeroTodosParametros() != listaEvaluacion.Count)
+                        {
+                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros().ToString() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ",
+                            "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                            if (respuesta == MessageBoxResult.Yes)
+                            {
+                                //Respondidas = listaEvaluacion.Count
+                                NavigationService.Navigate(origen);
+                            }
+                        }
+                        else
+                        {
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
             }

@@ -355,7 +355,7 @@ namespace SW1_ISO9126_FUZZY.Vistas {
                 if (respuesta == MessageBoxResult.Yes)
                 {
                     origen.finalizarSeleccionSMbtn(caracteristica, perspectiva);
-                    Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Selección de métricas finalizada, métricas seleccionadas almacenadas satisfactoriamente", "Selección de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.Navigate(origen);
                 }
             }

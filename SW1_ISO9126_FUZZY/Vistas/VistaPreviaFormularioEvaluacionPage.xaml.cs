@@ -292,9 +292,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarBadgesMetricas()
         {
             if (isFunIntAct)
-                cantFuncsInterna.Visibility = Visibility.Visible;
+                cantFuncInterna.Visibility = Visibility.Visible;
             else
-                cantFuncsInterna.Visibility = Visibility.Hidden;
+                cantFuncInterna.Visibility = Visibility.Hidden;
 
             if (isFunExtAct)
                 cantFuncExterna.Visibility = Visibility.Visible;
@@ -434,7 +434,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void inicializarBagdesMetricas(string caracteristica, string perspectiva)
         {
             if (caracteristica.Equals("Funcionalidad") && perspectiva.Equals("Interna"))
-                iniciarBadge(cantFuncsInterna, funcionalidadInterna.Count);
+                iniciarBadge(cantFuncInterna, funcionalidadInterna.Count);
 
             if (caracteristica.Equals("Usabilidad") && perspectiva.Equals("Interna"))
                 iniciarBadge(cantUsabInterna, usabilidadInterna.Count);

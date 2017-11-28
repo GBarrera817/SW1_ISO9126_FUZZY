@@ -82,7 +82,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Eventos botones
 
-        private void btnCalcCalidadInterna_Click(object sender, RoutedEventArgs e)
+        private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
         {
 
         }

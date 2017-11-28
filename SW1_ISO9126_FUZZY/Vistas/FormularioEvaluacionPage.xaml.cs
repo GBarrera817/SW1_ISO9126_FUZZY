@@ -314,11 +314,35 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return salida;
         }
 
-        // Entrega el numero de metricas respondidas (Total Parametros != 0 x metrica)
+        // Revisa cada metrica buscando ceros en todos sus parametros
 
-        private int metricasRespondidas()
+        private int buscaCeroTodosParametros()
         {
-            int respondidas = 0;
+            int encontradas = 0;
+            int parametros = 0;
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    if (item.Valores[i] == 0)
+                        parametros++;
+                }
+
+                if (parametros == item.Valores.Length)
+                    encontradas++;
+            }
+
+            return encontradas;
+        }
+
+        // Revisa cada metrica buscando numeros distintos de cero en todos sus parametros
+
+        private int buscaNingunCeroTodosParametros()
+        {
+            int encontradas = 0;
             int parametros = 0;
 
             foreach (MTEvaluacion item in listaEvaluacion)
@@ -332,10 +356,34 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 if (parametros == item.Valores.Length)
-                    respondidas++;
+                    encontradas++;
             }
 
-            return respondidas;
+            return encontradas;
+        }
+
+        // Revisa cada metrica buscando algun cero en sus parametros
+
+        private int buscaAlgunCeroParametros()
+        {
+            int encontradas = 0;
+            int parametros = 0;
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    if (item.Valores[i] == 0)
+                        parametros++;
+                }
+
+                if (parametros != item.Valores.Length)
+                    encontradas++;
+            }
+
+            return encontradas;
         }
 
         // Metodo principal para evaluar las metricas
@@ -516,7 +564,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 guardarEvaluacion(indiceListas);
 
-                if (verificarEvaluacion())
+                if (metricasRespondidas() == MTEvaluacion.)
                 {
                     NavigationService.Navigate(origen);
                 }

@@ -512,18 +512,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
                             {
                                 if (miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta.Equals("FINALIZADO"))
                                 {
-                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Selección finalizada, al continuar se perderan las respuestas ingresadas en el formulario de evaluación, ¿desea continuar? ", "Selección de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                                     if (respuesta == MessageBoxResult.Yes)
                                     {
-                                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, al continuar se perderan los calculos realizados en la sección Evaluación de Calidad, ¿desea continuar? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                                        if (respuesta == MessageBoxResult.Yes)
-                                        {
-                                            paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
-                                            this.NavigationService.Navigate(paginaEvaluacion);
-                                            MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
-                                        }
+                                        paginaEvaluacion.cargarEvaluacionMetricas(this, "Funcionalidad", "Interna", funcionalidadInterna, MTSfuncionalidadInterna, MTEfuncionalidadInterna);
+                                        this.NavigationService.Navigate(paginaEvaluacion);
+                                        MTEfuncionalidadInterna = paginaEvaluacion.evaluacionMetrica();
                                     }
                                 }
                             }

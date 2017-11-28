@@ -222,20 +222,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
             metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
-            System.Console.WriteLine("\nID: "+indice);
-
             if (parametros == 1)
             {
                 metrica.Valores[0] = float.Parse(txtParam0.Text);
-                System.Console.WriteLine("P0: "+ metrica.Valores[0]);
             }            
                      
             if (parametros == 2)
             {
                 metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
-                System.Console.WriteLine("P1: " + metrica.Valores[0]);
-                System.Console.WriteLine("P2: " + metrica.Valores[1]);
             }            
                             
             if (parametros == 3)
@@ -243,9 +238,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
                 metrica.Valores[2] = float.Parse(txtParam2.Text);
-                System.Console.WriteLine("P1: " + metrica.Valores[0]);
-                System.Console.WriteLine("P2: " + metrica.Valores[1]);
-                System.Console.WriteLine("P3: " + metrica.Valores[2]);
             }           
                            
             listaEvaluacion[indice] = metrica;

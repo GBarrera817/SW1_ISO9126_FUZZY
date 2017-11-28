@@ -31,7 +31,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnGuardarEvaluacion" Margin="529,485,115,80">
+        <Button x:Name="btnGuardarEvaluacion" Margin="529,485,115,80" Click="btnGuardarEvaluacion_Click">
             <StackPanel Orientation="Horizontal" Height="35" Width="150">
                 <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Save.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
                 <Label Content="Guardar Evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="119"/>

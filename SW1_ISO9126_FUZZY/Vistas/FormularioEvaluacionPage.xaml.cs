@@ -313,12 +313,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             int encontradas = 0;
             int parametros = 0;
 
+            System.Console.WriteLine("Metodo: buscaCeroTodosParametros");
+
             foreach (MTEvaluacion item in listaEvaluacion)
             {
                 parametros = 0;
 
+                System.Console.WriteLine("Metrica");
+
                 for (int i = 0; i < item.Valores.Length; i++)
                 {
+                    System.Console.WriteLine("item.Valores[i]: "+item.Valores[i]+" == 0");
+
                     if (item.Valores[i] == 0)
                         parametros++;
                 }
@@ -326,6 +332,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 if (parametros == item.Valores.Length)
                     encontradas++;
             }
+
+            System.Console.WriteLine("Resultados: "+ encontradas);
 
             return encontradas;
         }
@@ -337,12 +345,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             int encontradas = 0;
             int parametros = 0;
 
+            System.Console.WriteLine("Metodo: buscaNingunCeroTodosParametros");
+
             foreach (MTEvaluacion item in listaEvaluacion)
             {
                 parametros = 0;
 
+                System.Console.WriteLine("Metrica");
+
                 for (int i = 0; i < item.Valores.Length; i++)
                 {
+                    System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " != 0");
+
                     if (item.Valores[i] != 0)
                         parametros++;
                 }
@@ -350,6 +364,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 if (parametros == item.Valores.Length)
                     encontradas++;
             }
+
+            System.Console.WriteLine("Resultados: " + encontradas);
 
             return encontradas;
         }
@@ -361,12 +377,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             int encontradas = 0;
             int parametros = 0;
 
+            System.Console.WriteLine("Metodo: buscaAlgunCeroParametros");
+
             foreach (MTEvaluacion item in listaEvaluacion)
             {
                 parametros = 0;
 
+                System.Console.WriteLine("Metrica");
+
                 for (int i = 0; i < item.Valores.Length; i++)
                 {
+                    System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " == 0");
+
                     if (item.Valores[i] == 0)
                         parametros++;
                 }
@@ -375,6 +397,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     if (parametros != item.Valores.Length)
                         encontradas++;
             }
+
+            System.Console.WriteLine("Resultados: " + encontradas);
 
             return encontradas;
         }
@@ -387,12 +411,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             int encontradas = 0;
             int parametros = 0;
 
+            System.Console.WriteLine("Metodo: buscaHibrido");
+
             foreach (MTEvaluacion item in listaEvaluacion)
             {
                 parametros = 0;
 
+                System.Console.WriteLine("Metrica");
+
                 for (int i = 0; i < item.Valores.Length; i++)
                 {
+                    System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " != 0");
+
                     if (item.Valores[i] != 0)
                         parametros++;
                 }
@@ -400,6 +430,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 if (parametros != 0)
                     encontradas++;
             }
+
+            System.Console.WriteLine("Resultados: " + encontradas);
 
             return encontradas;
         }

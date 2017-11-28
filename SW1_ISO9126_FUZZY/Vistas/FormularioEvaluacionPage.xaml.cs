@@ -582,15 +582,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 salida = buscaCeroTodosParametros();
 
-                if (salida != listaEvaluacion.Count)
-                {
-                    respondidas = buscaHibrido();
-                }
-                else
-                {
+                if (salida != listaEvaluacion.Count)              
+                    respondidas = buscaHibrido();              
+                else             
                     respondidas = 0;
-                }
-
+               
                 Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);
             }
@@ -602,17 +598,34 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnTerminar_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult respuesta;
+
             if (validadRespuesta(listaMetricas[indiceListas]))
             {
                 guardarEvaluacion(indiceListas);
 
-                if (metricasRespondidas() == MTEvaluacion.)
+                if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
                 {
-                    NavigationService.Navigate(origen);
+                    //Respondidas = listaEvaluacion.Count
+                    NavigationService.Navigate(origen);                   
                 }
                 else
                 {
-                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if(buscaCeroTodosParametros() != listaEvaluacion.Count)
+                    {
+                        respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros().ToString() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ", 
+                        "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (respuesta == MessageBoxResult.Yes)
+                        {
+                            //Respondidas = listaEvaluacion.Count
+                            NavigationService.Navigate(origen);
+                        }
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             else

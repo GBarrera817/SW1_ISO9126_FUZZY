@@ -79,10 +79,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 metricaSel = selecciones[i];
 
                 metricaEval.Id = metricaJson.Id;
-                metricaEval.Formula = metricaJson.Formula[metricaSel.Proposito];
+                metricaEval.Formula = metricaJson.Formula[0]; // Existe una unica formula por metrica
                 metricaEval.Parametros = metricaJson.Parametros;
 
-                for (int j = 0; j < metricaJson.Parametros.Length; j++)
+                metricaEval.Valores = new float[metricaJson.Parametros.Length];
+
+                for (int j = 0; j < metricaEval.Valores.Length; j++)
                 {
                     metricaEval.Valores[j] = 0f;
                 }
@@ -94,35 +96,41 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        // Limpia los sliders no activados
+        // Limpia los campos para contestar la evaluacion
 
-        private void limpiarSlider()
+        private void limpiarContenidoEvaluacion()
         {
             lblParam0.Content = "";
             lblParam0.Visibility = Visibility.Hidden;
+            txtParam0.Text = "";
             txtParam0.IsEnabled = false;
             txtParam0.Visibility = Visibility.Hidden;
+            sldparam0.Value = 0;
             sldparam0.IsEnabled = false;
             sldparam0.Visibility = Visibility.Hidden;
 
             lblParam1.Content = "";
             lblParam1.Visibility = Visibility.Hidden;
+            txtParam1.Text = "";
             txtParam1.IsEnabled = false;
             txtParam1.Visibility = Visibility.Hidden;
+            sldparam1.Value = 0;
             sldparam1.IsEnabled = false;
             sldparam1.Visibility = Visibility.Hidden;
             
             lblParam2.Content = "";
             lblParam2.Visibility = Visibility.Hidden;
             txtParam2.IsEnabled = false;
+            txtParam2.Text = "";
             txtParam2.Visibility = Visibility.Hidden;
+            sldparam2.Value = 0;
             sldparam2.IsEnabled = false;
             sldparam2.Visibility = Visibility.Hidden;
         }
 
         // Cargar una metrica
 
-        private void cargarMetrica(JMetrica metrica, int idProposito) 
+        private void cargarMetrica(JMetrica metrica, int idProposito, MTEvaluacion datos) 
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
@@ -131,18 +139,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lblNombre.Content = metrica.Nombre;
             labelProposito.Text = metrica.Proposito[idProposito]; 
             labelMetodo.Text = metrica.Metodo;
-            label1_formula.Content = metrica.Formula[idProposito]; 
+            label1_formula.Content = metrica.Formula[0]; // Existe una unica formula para cada métrica
             lblMejorValor.Content = metrica.Mejor_valor;
             lblPeorValor.Content = metrica.Peor_valor;
 
-            limpiarSlider();
+            limpiarContenidoEvaluacion();
 
             if (metrica.Parametros.Length == 1 || metrica.Parametros.Length > 1)
             {
                 lblParam0.Content = metrica.Parametros[0];
                 lblParam0.Visibility = Visibility.Visible;
                 txtParam0.IsEnabled = true;
+                txtParam0.Text = datos.Valores[0].ToString();
                 txtParam0.Visibility = Visibility.Visible;
+                sldparam0.Value = datos.Valores[0];
                 sldparam0.IsEnabled = true;
                 sldparam0.Visibility = Visibility.Visible;
             }
@@ -151,8 +161,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 lblParam1.Content = metrica.Parametros[1];
                 lblParam1.Visibility = Visibility.Visible;
+                txtParam1.Text = datos.Valores[1].ToString();
                 txtParam1.IsEnabled = true;
                 txtParam1.Visibility = Visibility.Visible;
+                sldparam1.Value = datos.Valores[1];
                 sldparam1.IsEnabled = true;
                 sldparam1.Visibility = Visibility.Visible;
             }
@@ -161,8 +173,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 lblParam2.Content = metrica.Parametros[2];
                 lblParam2.Visibility = Visibility.Visible;
+                txtParam2.Text = datos.Valores[2].ToString();
                 txtParam2.IsEnabled = true;
                 txtParam2.Visibility = Visibility.Visible;
+                sldparam2.Value = datos.Valores[2];
                 sldparam2.IsEnabled = true;
                 sldparam2.Visibility = Visibility.Visible;
             }
@@ -208,15 +222,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
             metrica = listaEvaluacion[indice];
             parametros = metrica.Parametros.Length;
 
-            if (parametros == 1)            
-                metrica.Valores[0] = float.Parse(txtParam0.Text);           
-
-            if (parametros == 2)            
+            if (parametros == 1)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
+            }            
+                     
+            if (parametros == 2)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
                 metrica.Valores[1] = float.Parse(txtParam1.Text);
-            
-            if (parametros == 3)           
+            }            
+                            
+            if (parametros == 3)
+            {
+                metrica.Valores[0] = float.Parse(txtParam0.Text);
+                metrica.Valores[1] = float.Parse(txtParam1.Text);
                 metrica.Valores[2] = float.Parse(txtParam2.Text);
-            
+            }           
+                           
             listaEvaluacion[indice] = metrica;
         }
 
@@ -227,29 +250,192 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return listaEvaluacion;
         }
 
-        // Verificar condiciones de finalizacion
+        // Validar respuestas usuario
 
-        private bool verificarEvaluacion()
+        private bool validadRespuesta(JMetrica metrica)
         {
-            int respondidas = 0;
+            int numeroParametros = metrica.Parametros.Length;
+            double valor = 0;
+            bool salida = true;
+
+            if (numeroParametros == 1 || numeroParametros > 1)
+            {
+                try
+                {
+                    valor = float.Parse(txtParam0.Text);
+
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                {
+                    salida = false;
+                }
+            }
+
+            if (numeroParametros == 2 || numeroParametros > 2)
+            {
+                try
+                {
+                    valor = float.Parse(txtParam1.Text);
+
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                { 
+                    salida = false;
+                }
+            }
+
+            if (numeroParametros == 3)
+            {
+                try
+                {
+                    valor = float.Parse(txtParam2.Text);
+
+                    if (valor < 0 || valor > 100)
+                        salida = false;
+                }
+                catch (System.FormatException)
+                {
+                    salida = false;
+                }
+            }
+
+            return salida;
+        }
+
+        // Revisa cada metrica buscando ceros en todos sus parametros
+
+        private int buscaCeroTodosParametros()
+        {
+            int encontradas = 0;
             int parametros = 0;
+
+            //System.Console.WriteLine("Metodo: buscaCeroTodosParametros");
 
             foreach (MTEvaluacion item in listaEvaluacion)
             {
                 parametros = 0;
 
+                //System.Console.WriteLine("Metrica");
+
                 for (int i = 0; i < item.Valores.Length; i++)
                 {
+                    //System.Console.WriteLine("item.Valores[i]: "+item.Valores[i]+" == 0");
+
+                    if (item.Valores[i] == 0)
+                        parametros++;
+                }
+
+                if (parametros == item.Valores.Length)
+                    encontradas++;
+            }
+
+            //System.Console.WriteLine("Resultados: "+ encontradas);
+
+            return encontradas;
+        }
+
+        // Revisa cada metrica buscando numeros distintos de cero en todos sus parametros
+
+        private int buscaNingunCeroTodosParametros()
+        {
+            int encontradas = 0;
+            int parametros = 0;
+
+            //System.Console.WriteLine("Metodo: buscaNingunCeroTodosParametros");
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                //System.Console.WriteLine("Metrica");
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    //System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " != 0");
+
+                    if (item.Valores[i] != 0)
+                        parametros++;
+                }
+
+                if (parametros == item.Valores.Length)
+                    encontradas++;
+            }
+
+            //System.Console.WriteLine("Resultados: " + encontradas);
+
+            return encontradas;
+        }
+
+        // Revisa cada metrica buscando algun cero en sus parametros
+
+        private int buscaAlgunCeroParametros()
+        {
+            int encontradas = 0;
+            int parametros = 0;
+
+            //System.Console.WriteLine("Metodo: buscaAlgunCeroParametros");
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                //System.Console.WriteLine("Metrica");
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    //System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " == 0");
+
+                    if (item.Valores[i] == 0)
+                        parametros++;
+                }
+
+                if (parametros != 0)
+                    if (parametros != item.Valores.Length)
+                        encontradas++;
+            }
+
+            //System.Console.WriteLine("Resultados: " + encontradas);
+
+            return encontradas;
+        }
+
+
+        // Revisa cada metrica si tiene todos los campos distintos de cero o alguno difente de cero
+
+        private int buscaHibrido()
+        {
+            int encontradas = 0;
+            int parametros = 0;
+
+            //System.Console.WriteLine("Metodo: buscaHibrido");
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                //System.Console.WriteLine("Metrica");
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    //System.Console.WriteLine("item.Valores[i]: " + item.Valores[i] + " != 0");
+
                     if (item.Valores[i] != 0)
                         parametros++;
                 }
 
                 if (parametros != 0)
-                    respondidas++;
+                    encontradas++;
             }
 
-            if (respondidas != 0) return true; else return false;
+            //System.Console.WriteLine("Resultados: " + encontradas);
+
+            return encontradas;
         }
+
 
         // Metodo principal para evaluar las metricas
 
@@ -287,7 +473,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             //Cargo y compruebo metrica inicial
-            cargarMetrica(listaMetricas[0], listaSeleccion[0].Proposito);
+            cargarMetrica(listaMetricas[0], listaSeleccion[0].Proposito, listaEvaluacion[0]);
             cargarEvaluacion(0);
         }
 
@@ -335,6 +521,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        // Metodo para cambiar valor slider segun valor ingresado al textbox
+
+        private void actualizarSliderTexbox(Slider desplazamiento, TextBox datos)
+        {
+            double valor = 0;
+
+            try
+            {
+                valor = float.Parse(datos.Text);
+
+                if (valor < 0 || valor > 100)
+                {
+                    desplazamiento.Value = 0;
+                    datos.Text = "0";
+                }
+                else
+                    desplazamiento.Value = float.Parse(datos.Text);
+            }
+            catch (System.FormatException)
+            {
+                desplazamiento.Value = 0;
+                datos.Text = "0";
+            }
+        } 
+        
         // Eventos Sliders
 
         private void sldparam0_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -356,39 +567,138 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnAnterior_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarEvaluacion(indiceListas);
-            retroceder(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
-            cargarEvaluacion(indiceListas);
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+                retroceder(ref indiceListas);
+                cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
+                cargarEvaluacion(indiceListas);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnSiguiente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            guardarEvaluacion(indiceListas);
-            avanzar(ref indiceListas);
-            cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito);
-            cargarEvaluacion(indiceListas);
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+                avanzar(ref indiceListas);
+                cargarMetrica(listaMetricas[indiceListas], listaSeleccion[indiceListas].Proposito, listaEvaluacion[indiceListas]);
+                cargarEvaluacion(indiceListas);
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
-            guardarEvaluacion(indiceListas);
-            Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
-            NavigationService.Navigate(origen);
-        }
+            int salida = 0;
+            int respondidas = 0;
 
-        private void btnTerminar_Click(object sender, RoutedEventArgs e)
-        {
-            guardarEvaluacion(indiceListas);
-
-            if (verificarEvaluacion())
+            if (validadRespuesta(listaMetricas[indiceListas]))
             {
+                guardarEvaluacion(indiceListas);
+
+                salida = buscaCeroTodosParametros();
+
+                if (salida != listaEvaluacion.Count)              
+                    respondidas = buscaHibrido();              
+                else             
+                    respondidas = 0;
+
+                origen.guardarEvaluacionFEbtn(caracteristica, perspectiva, respondidas);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);
             }
             else
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores  numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnTerminar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult respuesta;
+
+            if (validadRespuesta(listaMetricas[indiceListas]))
+            {
+                guardarEvaluacion(indiceListas);
+
+                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Al finalizar la evaluación no podra modificar las respuestas, ¿desea finalizar la evaluación? ", "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (respuesta == MessageBoxResult.Yes)
+                {
+                    if (buscaNingunCeroTodosParametros() == listaEvaluacion.Count)
+                    {
+                        origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
+                        NavigationService.Navigate(origen);
+                    }
+                    else
+                    {
+                        if (buscaCeroTodosParametros() != listaEvaluacion.Count)
+                        {
+                            if(buscaCeroTodosParametros() == 0)
+                            {
+                                if (buscaAlgunCeroParametros() == 1)
+                                {
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se ha encontrado " + buscaAlgunCeroParametros() + " metrica con valor cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores ceros ingresados son válidos, ¿desea finalizar la evaluación?",
+                                    "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                }
+                                else
+                                {
+                                    respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros() + " metricas con valores cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores ceros ingresados son válidos, ¿desea finalizar la evaluación?",
+                                    "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                }
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    NavigationService.Navigate(origen);
+                                }
+                            }
+                            else
+                            {
+                                if(buscaCeroTodosParametros() == 1)                              
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Se ha encontrado " + buscaCeroTodosParametros() + " métrica sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                                else
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaCeroTodosParametros() + " métricas sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                        else
+                        {
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar valores numéricos válidos, mínimo 0 y máximo 100", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        // Eventos TextBox
+
+        private void txtParam0_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam0, txtParam0);
+        }
+
+        private void txtParam1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam1, txtParam1);
+        }
+
+        private void txtParam2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarSliderTexbox(sldparam2, txtParam2);
         }
     }
 }

@@ -572,18 +572,47 @@ namespace SW1_ISO9126_FUZZY.Vistas
             paginaEvaluacion.CargarContenidoSeleccion(miEvaluacion, caracteristica, perspectiva);
         }
 
+        // Metodo para imprimir la lista de metricas
+
+        private void imprimirListaMetricas(List<JMetrica> lista)
+        {
+            System.Console.WriteLine("\nLista Métrica\n-------------");
+
+            if (lista.Count == 0)
+                System.Console.WriteLine("Lista vacía");
+            else
+                foreach (JMetrica metrica in lista)
+                    System.Console.WriteLine(metrica.Id + " " + metrica.Nombre);
+        }
+
+        // metodo para imprimir la lista de seleccion
+
+        private void imprimirListaSeleccion(List<MTSeleccion> lista)
+        {
+            System.Console.WriteLine("\nLista Selección\n---------------");
+
+            if (lista.Count == 0)
+                System.Console.WriteLine("Lista vacía");
+            else
+                foreach (MTSeleccion seleccion in lista)
+                    System.Console.WriteLine(seleccion.Id + " " +seleccion.Estado);
+        }
+        
         // Evento menu Flyout
 
         private void btnAbrirFlyout_Click(object sender, RoutedEventArgs e)
         {
             if (miEvaluacion.Estado)
-
-                if(isFunIntAct || isFunExtAct || isUsaIntAct || isUsaExtAct || isManIntAct || isManExtAct)
-                    menuMetricas.IsOpen = true;        
+            {
+                if (isFunIntAct || isFunExtAct || isUsaIntAct || isUsaExtAct || isManIntAct || isManExtAct)
+                    menuMetricas.IsOpen = true;
                 else
                     Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar alguna caracteristica desde la sección Selección e Importancia", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-            else           
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);           
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para usar este módulo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }                        
         }
 
         // Eventos botones menu flotante (flyout)

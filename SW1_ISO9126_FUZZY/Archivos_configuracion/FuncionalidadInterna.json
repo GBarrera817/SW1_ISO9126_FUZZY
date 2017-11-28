@@ -22,7 +22,7 @@
             {
             	"id": 2,
               "subcaracteristica" : "Adecuación",
-	            "nombre": "Completitud de la implemetación funcional",
+	            "nombre": "Completitud de la implementación funcional",
 	            "proposito": ["¿Qué tan completa es la implementación funcional?"],
 	            "metodo": "Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito ",
 	            "formula": ["1 - A/B"],

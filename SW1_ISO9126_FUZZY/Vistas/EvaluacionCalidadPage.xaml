@@ -55,12 +55,22 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnSiguienteSubCaracterística" Content="Siguiente" Margin="674,463,50,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
+
+                    <Button x:Name="btnSiguienteSubCaracteristica" Margin="601,458,100,8" Click="avanzarTabControl">
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                        <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                            <Label Content="Siguiente" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="63"/>
+                            <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                        </StackPanel>
+                    </Button>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCaracteristicas" Header="Características" Margin="12,0,-7,0">
                 <Grid Background="White">
-                    <GroupBox HorizontalAlignment="Left" Margin="10,0,0,282" Width="780" Background="#FF33A133" BorderBrush="#FF33A133" Height="180" VerticalAlignment="Bottom">
+                    <GroupBox HorizontalAlignment="Left" Margin="10,0,0,290" Width="780" Background="#FF33A133" BorderBrush="#FF33A133" Height="180" VerticalAlignment="Bottom">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="661"/>
@@ -78,7 +88,7 @@
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="180" Margin="10,242,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="180" Margin="10,255,0,0" VerticalAlignment="Top" Width="780" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS EXTERNAS" Foreground="White" Width="661"/>
@@ -95,8 +105,27 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <Button x:Name="btnAnteriorCaracteristica" Content="Anterior" HorizontalAlignment="Left" Margin="540,449,0,0" VerticalAlignment="Top" Width="70" Click="retrocederTabControl"/>
-                    <Button x:Name="btnSiguienteCaracteristica" Content="Siguiente" HorizontalAlignment="Left" Margin="678,449,0,0" VerticalAlignment="Top" Width="70" Click="avanzarTabControl"/>
+
+                    <Button x:Name="btnAnteriorCaracteristica" Margin="451,458,250,7" Click="retrocederTabControl">
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                        <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                            <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                            <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button x:Name="btnSiguienteCaracteristica" Margin="601,458,100,8" Click="avanzarTabControl">
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                        <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                            <Label Content="Siguiente" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="63"/>
+                            <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Right.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                        </StackPanel>
+                    </Button>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCalidadFinal" Header="Calidad Final" Margin="10,0,-3,0">
@@ -117,7 +146,7 @@
                             <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
-                    <GroupBox Height="289" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
+                    <GroupBox Height="284" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="667"/>
@@ -156,8 +185,15 @@
                         </Grid>
                     </GroupBox>
 
-                    <Button x:Name="btnAnteriorCalidadFinal" Content="Anterior" HorizontalAlignment="Left" Margin="277,465,0,0" VerticalAlignment="Top" Width="70" Click="retrocederTabControl"/>
-
+                    <Button x:Name="btnAnteriorCalidadFinal" Margin="451,458,250,7" Click="retrocederTabControl">
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                        <StackPanel Orientation="Horizontal" Height="35" Width="89">
+                            <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Arrowhead-Left.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,10" />
+                            <Label Content="Anterior" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="57"/>
+                        </StackPanel>
+                    </Button>
 
                 </Grid>
             </TabItem>

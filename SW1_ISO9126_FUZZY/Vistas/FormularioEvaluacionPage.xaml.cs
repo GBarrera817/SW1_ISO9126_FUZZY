@@ -379,12 +379,39 @@ namespace SW1_ISO9126_FUZZY.Vistas
                         parametros++;
                 }
 
-                if (parametros != item.Valores.Length)
+                if (parametros != 0)
+                    if (parametros != item.Valores.Length)
+                        encontradas++;
+            }
+
+            return encontradas;
+        }
+
+
+        // Revisa cada metrica si tiene todos los campos distintos de cero o alguno difente de cero
+
+        private int buscaHibrido()
+        {
+            int encontradas = 0;
+            int parametros = 0;
+
+            foreach (MTEvaluacion item in listaEvaluacion)
+            {
+                parametros = 0;
+
+                for (int i = 0; i < item.Valores.Length; i++)
+                {
+                    if (item.Valores[i] != 0)
+                        parametros++;
+                }
+
+                if (parametros != 0)
                     encontradas++;
             }
 
             return encontradas;
         }
+
 
         // Metodo principal para evaluar las metricas
 
@@ -546,9 +573,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnGuardar_Click(object sender, RoutedEventArgs e)
 		{
+            int salida = 0;
+            int respondidas = 0;
+
             if (validadRespuesta(listaMetricas[indiceListas]))
             {
                 guardarEvaluacion(indiceListas);
+
+                salida = buscaCeroTodosParametros();
+
+                if (salida != listaEvaluacion.Count)
+                {
+                    respondidas = buscaHibrido();
+                }
+                else
+                {
+                    respondidas = 0;
+                }
+
                 Xceed.Wpf.Toolkit.MessageBox.Show("Métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(origen);
             }

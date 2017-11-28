@@ -619,15 +619,23 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     {
                         if (buscaCeroTodosParametros() != listaEvaluacion.Count)
                         {
-                            respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros().ToString() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ",
-                            "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                            if (respuesta == MessageBoxResult.Yes)
+                            if(buscaCeroTodosParametros() != 0)
                             {
-                                origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
-                                NavigationService.Navigate(origen);
+                                respuesta = Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado " + buscaAlgunCeroParametros() + " metrica(s) con valor(es) cero en sus parametros, le recomendamos revisar en caso de encontrar división por cero o continuar si los valores cero(s) ingresados son válidos, ¿desea finalizar la evaluación? ",
+                                "Evaluación de métricas", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                                if (respuesta == MessageBoxResult.Yes)
+                                {
+                                    origen.finalizarEvaluacionFEbtn(caracteristica, perspectiva, listaEvaluacion.Count);
+                                    Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación finalizada, métricas evaluadas almacenadas satisfactoriamente", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    NavigationService.Navigate(origen);
+                                }
                             }
+                            else
+                            {
+                                Xceed.Wpf.Toolkit.MessageBox.Show("Se han encontrado métricas sin responder, debe responder todas las métricas para realizar la evaluación", "Evaluación de métricas", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+
                         }
                         else
                         {

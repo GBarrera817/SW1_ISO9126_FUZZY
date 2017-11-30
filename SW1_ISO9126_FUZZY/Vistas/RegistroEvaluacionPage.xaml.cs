@@ -625,6 +625,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     
                     if (validar_seleccion_caracteristicas())
                     {
+
+
                         if (lblFuncionalidad.IsChecked == true)
                         {
                             if (validar_valor_caracteristica_funcionalidad())
@@ -704,6 +706,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
+
+
                     }
                     else
                     {

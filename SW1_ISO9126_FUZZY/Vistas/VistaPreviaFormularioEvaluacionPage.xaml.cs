@@ -48,13 +48,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTEvaluacion> MTEmantenibilidadExterna;
 
         private FormEvaluacionPage paginaEvaluacion;
+        private EvaluacionCalidadPage paginaCalidad;
         private Evaluacion miEvaluacion;
 
-        public FormularioEvaluacionPage(Evaluacion nueva) {
+        public FormularioEvaluacionPage(Evaluacion nueva, EvaluacionCalidadPage pagina) {
 
             InitializeComponent();
 
             this.paginaEvaluacion = new FormEvaluacionPage();
+            this.paginaCalidad = pagina;
             this.miEvaluacion = nueva;
 
             // Componentes necesarios
@@ -380,7 +382,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Cambia las letras y los colores de las etiquetas de estado
 
-        public void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)
+        private void cambiarEtiquetaGraficaEstado(ColorEstado estado, Label etiqueta)
         {
             var bc = new BrushConverter();
 
@@ -568,7 +570,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cambiarBadge(cantMantExterna, respondidas);
         }
 
-        // Comprueba si las caracteristicas activadas han finalizado la evaluacion
+        /// Comprueba si las caracteristicas activadas han finalizado la evaluación
 
         private bool verificarEstadoFinal(string perspectiva)
         {
@@ -655,6 +657,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             guardarEvaluacion(caracteristica, perspectiva);
             actualizarEstados(caracteristica, perspectiva, 3);
             actualizarBadges(caracteristica, perspectiva, respondidas);
+
+            if (verificarEstadoFinal(perspectiva))
+            {
+                if (perspectiva.Equals("Interna"))
+                {
+                    //Activar boton calcular interna
+                }
+                else
+                {
+                    //Activar boton calcular externa
+                }
+            }
         }
 
         // Accion de salida boton finalizar de seleccion de metricas

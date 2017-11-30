@@ -568,6 +568,86 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cambiarBadge(cantMantExterna, respondidas);
         }
 
+        // Comprueba si las caracteristicas activadas han finalizado la evaluacion
+
+        private bool verificarEstadoFinal(string perspectiva)
+        {
+            bool actFuncionalidad, actUsabilidad, actMantenibilidad;
+            string funcionalidad, usabilidad, mantenibilidad;
+
+            //Cargar perspectiva
+
+            if (perspectiva.Equals("Interna"))
+            {
+                actFuncionalidad = isFunIntAct;
+                actUsabilidad = isUsaIntAct;
+                actMantenibilidad = isManIntAct;
+                funcionalidad = miEvaluacion.EtiquetasEvaluacion.FuncionalidadInterna.Etiqueta;
+                usabilidad = miEvaluacion.EtiquetasEvaluacion.UsabilidadInterna.Etiqueta;
+                mantenibilidad = miEvaluacion.EtiquetasEvaluacion.MantenibilidadInterna.Etiqueta;
+            }
+            else
+            {
+                actFuncionalidad = isFunExtAct;
+                actUsabilidad = isUsaExtAct;
+                actMantenibilidad = isManExtAct;
+                funcionalidad = miEvaluacion.EtiquetasEvaluacion.FuncionalidadExterna.Etiqueta;
+                usabilidad = miEvaluacion.EtiquetasEvaluacion.UsabilidadExterna.Etiqueta;
+                mantenibilidad = miEvaluacion.EtiquetasEvaluacion.MantenibilidadExterna.Etiqueta;
+            }
+
+            // CASO VERDADERO VERDADERO VERDADERO
+            if (actFuncionalidad == true && actUsabilidad == true && actMantenibilidad == true)
+            {
+                if (funcionalidad.Equals("FINALIZADO") && usabilidad.Equals("FINALIZADO") && mantenibilidad.Equals("FINALIZADO"))              
+                    return true;               
+            }
+
+            // CASO VERDADERO VERADERO FALSO
+            if (actFuncionalidad == true && actUsabilidad == true && actMantenibilidad == false)
+            {
+                if (funcionalidad.Equals("FINALIZADO") && usabilidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            // CASO VERDADERO FALSO VERADERO
+            if (actFuncionalidad == true && actUsabilidad == false && actMantenibilidad == true)
+            {
+                if (funcionalidad.Equals("FINALIZADO") && mantenibilidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            // CASO FALSO VERADERO VERDADERO
+            if (actFuncionalidad == false && actUsabilidad == true && actMantenibilidad == true)
+            {
+                if (usabilidad.Equals("FINALIZADO") && mantenibilidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            // CASO VERDADERO FALSO FALSO
+            if (actFuncionalidad == true && actUsabilidad == false && actMantenibilidad == false)
+            {
+                if (actFuncionalidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            // CASO FALSO VERDADERO FALSO
+            if (actFuncionalidad == false && actUsabilidad == true && actMantenibilidad == false)
+            {
+                if (usabilidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            // CASO FALSO FALSO VERDADERO
+            if (actFuncionalidad == false && actUsabilidad == false && actMantenibilidad == true)
+            {
+                if (actMantenibilidad.Equals("FINALIZADO"))
+                    return true;
+            }
+
+            return false;
+        }
+
         // Accion de salida boton guardar de formulario evaluacion
 
         public void guardarEvaluacionFEbtn(string caracteristica, string perspectiva, int respondidas)

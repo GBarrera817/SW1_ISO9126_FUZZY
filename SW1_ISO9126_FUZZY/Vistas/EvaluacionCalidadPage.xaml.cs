@@ -1,7 +1,8 @@
 ﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 
 
 namespace SW1_ISO9126_FUZZY.Vistas
@@ -9,10 +10,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
 	/// <summary>
 	/// Lógica de interacción para EvaluacionCalidadPage.xaml
 	/// </summary>
+    
 	public partial class EvaluacionCalidadPage : Page
 	{
-      /*  private Calculo metricas;
-        private EstadoModulo resulMetricas;*/
+        /*  private Calculo metricas;
+          private EstadoModulo resulMetricas;*/
+
+        // Listas resultados caracteristicas
+        private List<MTCalculo> MTCfuncionalidadInterna;
+        private List<MTCalculo> MTCusabilidadInterna;
+        private List<MTCalculo> MTCmantenibilidadInterna;
+        private List<MTCalculo> MTCfuncionalidadExterna;
+        private List<MTCalculo> MTCusabilidadExterna;
+        private List<MTCalculo> MTCmantenibilidadExterna;
+
         private Evaluacion miEvaluacion;
 
         public EvaluacionCalidadPage(Evaluacion nueva)
@@ -21,6 +32,34 @@ namespace SW1_ISO9126_FUZZY.Vistas
            /* this.metricas = new Calculo();
             this.resulMetricas = new EstadoModulo();*/
             this.miEvaluacion = nueva;
+        }
+
+        // Crear listas calculos metricas internas
+
+        private void inicializarListasInternas(Evaluacion datos)
+        {
+            if (datos.DatosMetricas.FuncionalidadInterna)
+                MTCfuncionalidadInterna = new List<MTCalculo>();
+
+            if (datos.DatosMetricas.UsabilidadInterna)
+                MTCusabilidadInterna = new List<MTCalculo>();
+
+            if (datos.DatosMetricas.MantenibilidadInterna)          
+                MTCmantenibilidadInterna = new List<MTCalculo>();        
+        }
+
+        // Crear listas calculos metricas externas
+
+        private void inicializarListasExternas(Evaluacion datos)
+        {
+            if (datos.DatosMetricas.FuncionalidadExterna)
+                MTCfuncionalidadExterna = new List<MTCalculo>();
+
+            if (datos.DatosMetricas.UsabilidadExterna)
+                MTCusabilidadExterna = new List<MTCalculo>();
+
+            if (datos.DatosMetricas.MantenibilidadExterna)
+                MTCmantenibilidadExterna = new List<MTCalculo>();
         }
 
         // Eventos de movimiento
@@ -35,7 +74,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             tabControlEvaluacionCalidad.SelectedIndex = tabControlEvaluacionCalidad.SelectedIndex + 1;
         }
 
-        // PAGINA CALIDAD SUBCARACTERISTICAS
+        // ----------------------------- PAGINA CALIDAD SUBCARACTERISTICAS ---------------------------------------
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
@@ -47,8 +86,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
-
-        // PAGINA CALIDAD CARACTERISTICAS
+        // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
 
         private void btnCalcCaractInterna_Click(object sender, RoutedEventArgs e)
         {
@@ -60,18 +98,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         }
 
-        // PAGINA CALIDAD FINAL
+        // ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
 
-        // Validar datos
+        // Validar datos para configurar PDF
         
-        private bool configPDF()
+        private bool validarConfigPDF()
         {
             if (txtNombreArchivor.Text == string.Empty)
                 return false;
             return true;
         }
 
-        private bool datosReporte()
+        private bool validarDatosReporte()
         {
             if (txtObjetivos.Text == string.Empty)
             {
@@ -89,11 +127,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
         {
-            if (datosReporte())
+            if (validarDatosReporte())
             {
-                if (configPDF())
+                if (validarConfigPDF())
                 {
-
+                    /*if (validarEvaluacion())
+                    {
+                        btnGenerarPDF();
+                    }
+                    */
                 }
                 else
                 {
@@ -105,32 +147,5 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el objetivo de la evaluación para generar el reporte", "Reporte calidad final software", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-
-
-        // FIN 
-
-		private void tileGenerarPDF_Click(object sender, RoutedEventArgs e)
-		{
-			// Contruir el archivo pdf
-
-			// Guardar Archivo PDF
-
-			OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-			// Set filter options and filter index.
-			openFileDialog1.Filter = "JSON Files (.json)|*.json|All Files (*.*)|*.*";
-			openFileDialog1.FilterIndex = 1;
-
-			openFileDialog1.Multiselect = true;
-
-			// Call the ShowDialog method to show the dialog box.
-
-
-			// Process input if the user clicked OK.
-			if (openFileDialog1.ShowDialog() == DialogResult.OK)
-			{
-
-			}
-		}
     }
 }

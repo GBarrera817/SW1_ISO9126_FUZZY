@@ -1,5 +1,7 @@
 ﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Estados;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Resultados;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,9 +15,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
     
 	public partial class EvaluacionCalidadPage : Page
 	{
-        /*  private Calculo metricas;
-          private EstadoModulo resulMetricas;*/
-
         // Listas resultados caracteristicas
         private List<MTCalculo> MTCfuncionalidadInterna;
         private List<MTCalculo> MTCusabilidadInterna;
@@ -24,14 +23,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTCalculo> MTCusabilidadExterna;
         private List<MTCalculo> MTCmantenibilidadExterna;
 
+        private EstadoModulo calidadMetricas;
+        private EstadoFinal estadoFinalEvaluacion;
+        private Resultado resultadoFinalEvaluacion;
         private Evaluacion miEvaluacion;
 
         public EvaluacionCalidadPage(Evaluacion nueva)
 		{
 			InitializeComponent();
-           /* this.metricas = new Calculo();
-            this.resulMetricas = new EstadoModulo();*/
+
             this.miEvaluacion = nueva;
+            this.calidadMetricas = new EstadoModulo();
+            this.estadoFinalEvaluacion = new EstadoFinal();
+            this.resultadoFinalEvaluacion = new Resultado();
         }
 
         // Crear listas calculos metricas internas

@@ -22,8 +22,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private VistaPreviaSeleccionMetricaPage paginaMetricas;
         private FormularioEvaluacionPage paginaEvaluaciones;
+        private EvaluacionCalidadPage paginaCalidades;
 
-        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion) {
+        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion, EvaluacionCalidadPage paginaCalidad)
+        {
 
             InitializeComponent();
 
@@ -35,6 +37,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             this.paginaMetricas = paginaMetrica;
             this.paginaEvaluaciones = paginaEvaluacion;
+            this.paginaCalidades = paginaCalidad;
         }
 
         // guardar datos de la evaluacion
@@ -728,6 +731,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     paginaMetricas.cargarDatosModulo(miEvaluacion);
                     // Cargar los datos en el modulo Vista Previa Formulario Evaluacion
                     paginaEvaluaciones.cargarDatosModulo(miEvaluacion);
+                    // Cargar los datos en el modulo Calidad
+                    paginaCalidades.inicializarListasCalculos(miEvaluacion);
                     this.NavigationService.Navigate(paginaMetricas);
                 }
             }

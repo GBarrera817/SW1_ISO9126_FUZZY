@@ -38,9 +38,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.resultadoFinalEvaluacion = new Resultado();
         }
 
-        // Crear listas calculos metricas internas
+        // Crear listas calculos metricas 
 
-        private void inicializarListasInternas(Evaluacion datos)
+        public void inicializarListasCalculos(Evaluacion datos)
         {
             if (datos.DatosMetricas.FuncionalidadInterna)
                 MTCfuncionalidadInterna = new List<MTCalculo>();
@@ -50,12 +50,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (datos.DatosMetricas.MantenibilidadInterna)          
                 MTCmantenibilidadInterna = new List<MTCalculo>();        
-        }
 
-        // Crear listas calculos metricas externas
-
-        private void inicializarListasExternas(Evaluacion datos)
-        {
             if (datos.DatosMetricas.FuncionalidadExterna)
                 MTCfuncionalidadExterna = new List<MTCalculo>();
 

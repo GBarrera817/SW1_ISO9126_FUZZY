@@ -40,7 +40,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // Crear listas calculos metricas 
 
-        public void inicializarListasCalculos(Evaluacion datos)
+        private void inicializarListasCalculos(Evaluacion datos)
         {
             if (datos.DatosMetricas.FuncionalidadInterna)
                 MTCfuncionalidadInterna = new List<MTCalculo>();
@@ -60,6 +60,20 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (datos.DatosMetricas.MantenibilidadExterna)
                 MTCmantenibilidadExterna = new List<MTCalculo>();
         }
+
+        // Cargar tablas subcaracteristicas internas
+
+        // Cargar tablas subcaracteristicas externas
+
+        // Carga el modulo completo segun los datos obtenidos desde pagina de registro
+
+        public void cargarDatosModulo(Evaluacion datos)
+        {
+            inicializarListasCalculos(datos);
+        }
+        
+
+
 
         // Eventos de movimiento
 

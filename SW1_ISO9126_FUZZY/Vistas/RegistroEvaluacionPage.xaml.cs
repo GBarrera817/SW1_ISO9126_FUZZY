@@ -726,13 +726,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 if ((datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
                 {
                     resgistrarDatos();
+
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
+                   
                     // Cargar los datos en el modulo Vista Previa Seleccion de Metricas
                     paginaMetricas.cargarDatosModulo(miEvaluacion);
                     // Cargar los datos en el modulo Vista Previa Formulario Evaluacion
                     paginaEvaluaciones.cargarDatosModulo(miEvaluacion);
                     // Cargar los datos en el modulo Calidad
-                    paginaCalidades.inicializarListasCalculos(miEvaluacion);
+                    paginaCalidades.cargarDatosModulo(miEvaluacion);
+
                     this.NavigationService.Navigate(paginaMetricas);
                 }
             }

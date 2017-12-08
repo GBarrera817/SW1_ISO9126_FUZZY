@@ -70,8 +70,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             int elementos = visual.Columns.Count;
 
-             for (int i = 0; i < elementos; i++)
-                 visual.Columns.RemoveAt(0);
+            for (int i = 0; i < elementos; i++)
+                visual.Columns.RemoveAt(0);
         }
 
         // Carga el modulo completo segun los datos obtenidos desde pagina de registro
@@ -134,9 +134,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Columns.Add("valor", typeof(string));
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 
-            for (int i = 0; i < subcaracteristicas.Length; i++)         
+            for (int i = 0; i < subcaracteristicas.Length; i++)
                 dtColumnas.Rows.Add(new object[] { subcaracteristicas[i].Item1, subcaracteristicas[i].Item2, importancia[i], numResultados[i], lingResultados[i] });
-           
+
             visual.ItemsSource = dtColumnas.DefaultView;
         }
 

@@ -29,7 +29,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbSubCarInterna" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
@@ -53,7 +53,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbSubCarExterna" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="subcaracterística"/>
                                 <DataGridTextColumn Header="característica"/>
@@ -91,7 +91,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbcarInterna" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Característica"/>
                                 <DataGridTextColumn Header="grado importancia"/>
@@ -114,7 +114,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbcarExterna" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="característica"/>
                                 <DataGridTextColumn Header="grado importancia"/>
@@ -161,7 +161,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbCalidadFinal" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
+                        <DataGrid x:Name="tbCalidadFinal" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="atributo"/>
                                 <DataGridTextColumn Header="valor"/>

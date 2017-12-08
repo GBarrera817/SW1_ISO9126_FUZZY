@@ -22,10 +22,6 @@
 			return 0;
 		}
 
-		public virtual double ValorCorte
-		{ 
-			get { return -1; }
-			set { }
-		}
+		public virtual double ValorCorte { get => -1; set { } }
 	}
 }

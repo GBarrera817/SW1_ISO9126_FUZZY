@@ -34,11 +34,9 @@
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
                                 <DataGridTextColumn Header="Grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
+                                <DataGridTextColumn Header="Valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer>
-
-                            </ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -57,12 +55,12 @@
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="subcaracterística"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="subcaracterística"/>
+                                <DataGridTextColumn Header="característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -95,11 +93,11 @@
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="Característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -118,11 +116,11 @@
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -165,10 +163,10 @@
 
                         <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="atributo"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="atributo"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
                     <GroupBox Height="284" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">

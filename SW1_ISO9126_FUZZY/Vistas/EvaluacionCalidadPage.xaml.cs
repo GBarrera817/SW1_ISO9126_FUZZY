@@ -2,7 +2,10 @@
 using SW1_ISO9126_FUZZY.Modelo_Datos.Estados;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Listas;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Resultados;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -61,9 +64,62 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 MTCmantenibilidadExterna = new List<MTCalculo>();
         }
 
-        // Cargar tablas subcaracteristicas internas
+        private ArrayList llenarTabla(int tamano)
+        {
+            ArrayList chuna = new ArrayList();
 
-        // Cargar tablas subcaracteristicas externas
+            Tuple<string, string>[] subcaracteristicas = new Tuple<string, string>[tamano];
+            double[] importancia = new double[tamano];
+            double[] numResultados = new double[tamano];
+            string[] lingResultados = new string[tamano];
+
+            for (int i = 0; i < tamano; i++)
+            {
+                subcaracteristicas[i] =  new Tuple<string, string> ("FUNCIONALIDAD", "EXACTITUD");
+                importancia[i] = 0.5;
+                numResultados[i] = 2.5;
+                lingResultados[i] = "NINGUNA";
+            }
+
+            System.Console.WriteLine("Len subcar interno: "+subcaracteristicas.Length);
+
+            chuna.Add(subcaracteristicas);
+            chuna.Add(importancia);
+            chuna.Add(numResultados);
+            chuna.Add(lingResultados);
+
+            return chuna;
+        }
+
+        private void limpiarColumnasTabla(DataGrid visual)
+        {
+            int elementos = visual.Columns.Count;
+
+             for (int i = 0; i < elementos; i++)
+                 visual.Columns.RemoveAt(0);
+        }
+
+        // Cargar tablas subcaracteristicas 
+
+        private void cargarTablaSubcaracteristicas(DataGrid visual, Tuple<string, string>[] subcaracteristicas, double[] importancia, double[] numResultados, string[] lingResultados)
+        {
+            DataTable dtColumnas = new DataTable();
+
+            dtColumnas.Columns.Add("subcaracterística", typeof(string));
+            dtColumnas.Columns.Add("característica", typeof(string));
+            dtColumnas.Columns.Add("grado importancia", typeof(string));
+            dtColumnas.Columns.Add("valor", typeof(string));
+            dtColumnas.Columns.Add("etiqueta", typeof(string));
+
+            System.Console.WriteLine("Len subcar externo: " + subcaracteristicas.Length);
+
+            for (int i = 0; i < subcaracteristicas.Length; i++)
+            {
+                dtColumnas.Rows.Add(new object[] { subcaracteristicas[i].Item1, subcaracteristicas[i].Item2, importancia[i], lingResultados[i], numResultados[i]});
+            }
+
+            visual.ItemsSource = dtColumnas.DefaultView;
+        }
 
         // Carga el modulo completo segun los datos obtenidos desde pagina de registro
 
@@ -72,9 +128,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             inicializarListasCalculos(datos);
         }
         
-
-
-
         // Eventos de movimiento
 
 		private void retrocederTabControl(object sender, RoutedEventArgs e)
@@ -91,7 +144,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-
+            limpiarColumnasTabla(tbSubCarInterna);
+            ArrayList entrada = llenarTabla(10);
+            cargarTablaSubcaracteristicas(tbSubCarInterna, (Tuple<string, string>[]) entrada[0], (double[]) entrada[1], (double[]) entrada[2], (string[]) entrada[3]);
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)

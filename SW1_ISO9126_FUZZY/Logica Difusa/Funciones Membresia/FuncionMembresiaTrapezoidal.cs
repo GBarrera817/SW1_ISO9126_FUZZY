@@ -24,16 +24,14 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 		public FuncionMembresiaTrapezoidal(double a, double b, double c, double d)
 		{
 			if (!(a <= b && b <= c && c <= d))
-			{
 				throw new ArgumentException();
-			}
 
 			_a = a;
 			_b = b;
 			_c = c;
 			_d = d;
-			Corte = false;
-			ValorCorte = 0;	
+			_corte = false;
+			_valorCorte = 0;	
 		}
 
 		
@@ -54,7 +52,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 			{
 				valorFuzzificado = 1.0;
 			} 
-			else if( (x <= _a) || (x >= _d) )
+			else if( x <= _a || x >= _d )
 			{
 				valorFuzzificado = 0;
 			} 
@@ -72,9 +70,9 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 			}
 
 			// Si la función fue cortada, el valor de membresía no puede sobrepasar al valor de corte.
-			if (valorFuzzificado > ValorCorte && Corte)
+			if (valorFuzzificado > _valorCorte && _corte)
 			{
-				valorFuzzificado = ValorCorte;
+				valorFuzzificado = _valorCorte;
 			}
 
 			return valorFuzzificado;
@@ -84,8 +82,8 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 		{
 			if(valorMembresia >= 0 && valorMembresia <= 1)
 			{
-				ValorCorte = valorMembresia;
-				Corte = true;
+				_valorCorte = valorMembresia;
+				_corte = true;
 
 				return true;
 			}
@@ -95,12 +93,12 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia
 
 		public override double LimInferior()
 		{
-			return A;
+			return _a;
 		}
 
 		public override double LimSuperior()
 		{
-			return D;
+			return _d;
 		}
 
 		public bool Corte { get => _corte; set => _corte = value; }

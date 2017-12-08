@@ -13,16 +13,17 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		private double _valorMinimo, _valorMaximo;
 		private Dictionary<string, ValorLinguistico> _valoresLinguisticos;
 
+
 		/// <summary>
 		/// Constructor por defecto para crear una variable lingüística
 		/// Se inicializa sin valores lingüísticos
 		/// </summary>
 		public VariableLinguistica(string nombre, double min, double max)
 		{
-			NombreVariable = nombre;
-			ValorMaximo = max;
-			ValorMinimo = min;
-			ValoresLinguisticos = new Dictionary<string, ValorLinguistico>();
+			_nombreVariable = nombre;
+			_valorMinimo = max;
+			_valorMaximo = min;
+			_valoresLinguisticos = new Dictionary<string, ValorLinguistico>();
 		}
 
 		/// <summary>
@@ -31,15 +32,13 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="variableLinguistica"></param>
 		public VariableLinguistica(VariableLinguistica variableLinguistica)
 		{
-			NombreVariable = variableLinguistica.NombreVariable;
-			ValorMaximo = variableLinguistica.ValorMaximo;
-			ValorMinimo = variableLinguistica.ValorMinimo;
-			ValoresLinguisticos = new Dictionary<string, ValorLinguistico>();
+			_nombreVariable = variableLinguistica.NombreVariable;
+			_valorMinimo = variableLinguistica.ValorMaximo;
+			_valorMaximo = variableLinguistica.ValorMinimo;
+			_valoresLinguisticos = new Dictionary<string, ValorLinguistico>();
 
 			foreach (KeyValuePair<string, ValorLinguistico> valor in variableLinguistica.ValoresLinguisticos)
-			{
 				AgregarValorLinguistico(valor.Value);
-			}
 		}
 
 
@@ -66,8 +65,8 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		public bool AgregarValorLinguistico(ValorLinguistico valorLinguistico)
 		{
 			ValorLinguistico vl = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia, valorLinguistico.ValorMembresia);
+			//Console.WriteLine("\n" + vl.Nombre + " " + vl.FuncionMembresia + " " + vl.ValorMembresia);
 			_valoresLinguisticos.Add(vl.Nombre, vl);
-
 			return true;
 		}
 
@@ -79,12 +78,11 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <returns></returns>
 		public bool Fuzzificar(double valorEntrada)
 		{
-			if(valorEntrada >= ValorMinimo && valorEntrada <= ValorMaximo)
+			if (valorEntrada >= _valorMinimo && valorEntrada <= _valorMaximo)
 			{
-				foreach (KeyValuePair<string, ValorLinguistico> valor  in ValoresLinguisticos)
-				{
+				foreach (KeyValuePair<string, ValorLinguistico> valor in _valoresLinguisticos)
 					valor.Value.CalcularValorMembresia(valorEntrada);
-				}
+
 				return true;
 			}
 			return false;
@@ -98,9 +96,9 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		public bool EliminarValorLinguistico(string nombreValorLinguistico)
 		{
 			//REVISAR
-			if (ValoresLinguisticos.ContainsKey(nombreValorLinguistico))
+			if (_valoresLinguisticos.ContainsKey(nombreValorLinguistico))
 			{
-				ValoresLinguisticos.Remove(nombreValorLinguistico);
+				_valoresLinguisticos.Remove(nombreValorLinguistico);
 				return true;
 			}
 			return false;
@@ -113,37 +111,17 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <returns></returns>
 		public ValorLinguistico ValorLinguistico(string nombreValorLinguistico)
 		{
-			if (ValoresLinguisticos.ContainsKey(nombreValorLinguistico))
-				return ValoresLinguisticos[nombreValorLinguistico];
+			if (_valoresLinguisticos.ContainsKey(nombreValorLinguistico))
+				return _valoresLinguisticos[nombreValorLinguistico];
 
 			return null;
 		}
 
 
 		//Accesores
-		public string NombreVariable
-		{
-			get { return _nombreVariable; }
-			set { _nombreVariable = value; }
-		}
-
-		public Dictionary<string, ValorLinguistico> ValoresLinguisticos
-		{
-			get { return _valoresLinguisticos; }
-			set { _valoresLinguisticos = value; }
-		}
-
-		public double ValorMaximo
-		{
-			get { return _valorMaximo; }
-			set { _valorMaximo = value; }
-		}
-
-		public double ValorMinimo
-		{
-			get { return _valorMinimo; }
-			set { _valorMinimo = value; }
-		}
-
+		public string NombreVariable { get => _nombreVariable; set => _nombreVariable = value; }
+		public double ValorMinimo { get => _valorMinimo; set => _valorMinimo = value; }
+		public double ValorMaximo { get => _valorMaximo; set => _valorMaximo = value; }
+		public Dictionary<string, ValorLinguistico> ValoresLinguisticos { get => _valoresLinguisticos; set => _valoresLinguisticos = value; }
 	}
 }

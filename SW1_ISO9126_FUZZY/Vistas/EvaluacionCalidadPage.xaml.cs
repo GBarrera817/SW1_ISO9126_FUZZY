@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-
+using SW1_ISO9126_FUZZY.Archivos;
+using System.IO;
+using System;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -66,7 +68,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         
         private bool configPDF()
         {
-            if (txtNombreArchivor.Text == string.Empty)
+            if (txtNombreArchivo.Text == string.Empty)
                 return false;
             return true;
         }
@@ -89,21 +91,37 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
         {
-            if (datosReporte())
-            {
-                if (configPDF())
-                {
+           // if (datosReporte())
+          //  {
+           //     if (configPDF())
+            //    {
+					Stream myStream = null;
+			
+					SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+					string ruta = saveFileDialog1.FileName;
+					saveFileDialog1.InitialDirectory = "c:\\Documentos";
+					saveFileDialog1.FileName = txtNombreArchivo.Text;
+					saveFileDialog1.Filter = "Archivos PDF (*.pdf)|*.pdf";
+					saveFileDialog1.DefaultExt = "pdf";
+					saveFileDialog1.AddExtension = true;
+					saveFileDialog1.FilterIndex = 2;
+					saveFileDialog1.RestoreDirectory = true;
 
-                }
-                else
-                {
-                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el nombre del archivo para generar el reporte", "Configuración reporte calidad", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el objetivo de la evaluación para generar el reporte", "Reporte calidad final software", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+					if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+					{
+						Reportes r = new Reportes(saveFileDialog1.FileName);
+				Xceed.Wpf.Toolkit.MessageBox.Show("El archivo se ha creado correctamente");
+					}
+			//	}
+             //   else
+            //    {
+            //        Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el nombre del archivo para generar el reporte", "Configuración reporte calidad", MessageBoxButton.OK, MessageBoxImage.Error);
+				//}
+           // }
+           // else
+           // {
+           //     Xceed.Wpf.Toolkit.MessageBox.Show("Debe ingresar el objetivo de la evaluación para generar el reporte", "Reporte calidad final software", MessageBoxButton.OK, MessageBoxImage.Warning);
+           // }
         }
 
 

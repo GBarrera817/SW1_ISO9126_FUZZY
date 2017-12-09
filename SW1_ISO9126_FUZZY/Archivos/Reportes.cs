@@ -9,7 +9,6 @@ namespace SW1_ISO9126_FUZZY.Archivos {
     public class Reportes
 	{
 		private string imageURL;
-		private string appRootDir;
 		private Document doc;
 		private FileStream fs;
 		private PdfWriter writer;
@@ -20,12 +19,9 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 		private Font endingMessageFont;
 		private Font bodyFont;
 
-		public Reportes()
+		public Reportes(string nombreArchivo)
 		{
-			imageURL = @"D:/Documentos/Visual Studio 2017/Projects/FuzzynetEjemplo/FuzzynetEjemplo/img/";
-			appRootDir = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
-
-
+			imageURL = @"D:/Documentos/Visual Studio 2017/Projects/SW1_ISO9126_FUZZY/SW1_ISO9126_FUZZY/Imagenes/";
 			titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
 			subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
 			boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
@@ -35,20 +31,20 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 			try
 			{
 				doc = new Document();
-				fs = new FileStream(appRootDir + "/PDFs/" + "ejemplo2.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+				fs = new FileStream(nombreArchivo, FileMode.Create, FileAccess.Write, FileShare.None);
 				writer = PdfWriter.GetInstance(doc, fs);
 
 				doc.Open();
 
 				// ENCABEZADO
-				Image logoISO = Image.GetInstance(imageURL + "/logo.jpg");
+				Image logoISO = Image.GetInstance(imageURL + "/logoPDF.jpg");
 				//logoISO.ScalePercent(0.2f * 100);
 				logoISO.ScaleAbsoluteHeight(60);
 				logoISO.ScaleAbsoluteWidth(60);
 				logoISO.SetAbsolutePosition(460, 740);
 				doc.Add(logoISO);
 
-				Image logoULS = Image.GetInstance(imageURL + "/logo_nuevo.jpg");
+				Image logoULS = Image.GetInstance(imageURL + "/logoIngecomp.jpg");
 				logoULS.ScaleAbsoluteHeight(60);
 				logoULS.ScaleAbsoluteWidth(60);
 				logoULS.SetAbsolutePosition(60, 740);
@@ -210,10 +206,7 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 			} catch (IOException ioe)
 			{
 				throw ioe;
-			}
+      }
 		}
-        
-
-        
-    }
+	}
 }

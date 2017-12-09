@@ -78,7 +78,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void cargarDatosModulo(Evaluacion datos)
         {
+            ArrayList temporal = new ArrayList();
+
             inicializarListasCalculos(datos);
+            //cargarDatosSubcaracteristicas(datos);
+
+            temporal.Clear();
+
+            limpiarColumnasTabla(tbcarInterna);
+            limpiarColumnasTabla(tbcarExterna);
+            temporal = cargarDatosCaracteristicas(datos);
+            cargarTablaCaracteristicas(tbcarInterna, (string[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
+            cargarTablaCaracteristicas(tbcarExterna, (string[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
+
+            temporal.Clear();
+
+            limpiarColumnasTabla(tbCalidadFinal);
+            temporal = cargarDatosCalidad();
+            cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
         }
         
         // Eventos de movimiento
@@ -156,29 +173,51 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
 
-        private ArrayList llenarTablaC(int tamano)
+        private ArrayList cargarDatosCaracteristicas(Evaluacion datos)
         {
-            ArrayList chuna = new ArrayList();
+            ArrayList lista = new ArrayList();
+            ArrayList info = new ArrayList();
+            ArrayList grados = new ArrayList();
+            int activadas = 0;
 
-            string[] caracteristicas = new string[tamano];
-            double[] importancia = new double[tamano];
-            double[] numResultados = new double[tamano];
-            string[] lingResultados = new string[tamano];
-
-            for (int i = 0; i < tamano; i++)
+            if(datos.DatosMetricas.FuncionalidadInterna || datos.DatosMetricas.FuncionalidadExterna)
             {
-                caracteristicas[i] = "FUNCIONALIDAD";
-                importancia[i] = 0.5;
-                numResultados[i] = 2.5;
+                info.Add("Funcionalidad");
+                grados.Add(datos.Grados.Funcionalidad);
+                activadas++;
+            }
+
+            if (datos.DatosMetricas.UsabilidadInterna || datos.DatosMetricas.UsabilidadExterna)
+            {
+                info.Add("Usabilidad");
+                grados.Add(datos.Grados.Usabilidad);
+                activadas++;
+            }
+
+            if (datos.DatosMetricas.MantenibilidadInterna || datos.DatosMetricas.MantenibilidadExterna)
+            {
+                info.Add("Mantenibilidad");
+                grados.Add(datos.Grados.Mantenibilidad);
+                activadas++;
+            }
+
+            string[] caracteristicas = (string[]) info.ToArray(typeof(string));
+            double[] importancia = (double[]) grados.ToArray(typeof(double));
+            double[] numResultados = new double[activadas];
+            string[] lingResultados = new string[activadas];
+
+            for (int i = 0; i < activadas; i++)
+            {
+                numResultados[i] = 0;
                 lingResultados[i] = "NINGUNA";
             }
 
-            chuna.Add(caracteristicas);
-            chuna.Add(importancia);
-            chuna.Add(numResultados);
-            chuna.Add(lingResultados);
+            lista.Add(caracteristicas);
+            lista.Add(importancia);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
 
-            return chuna;
+            return lista;
         }
 
         // Cargar tablas subcaracteristicas 
@@ -202,9 +241,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcCaractInterna_Click(object sender, RoutedEventArgs e)
         {
-            limpiarColumnasTabla(tbcarInterna);
-            ArrayList entrada = llenarTablaC(10);
-            cargarTablaCaracteristicas(tbcarInterna, (string[]) entrada[0], (double[])entrada[1], (double[])entrada[2], (string[])entrada[3]);
+
         }
 
         private void btnCalcCaractExterna_Click(object sender, RoutedEventArgs e)
@@ -214,26 +251,30 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
 
-        private ArrayList llenarTablaF(int tamano)
+        private ArrayList cargarDatosCalidad()
         {
-            ArrayList chuna = new ArrayList();
+            int contenido = 3;
+            ArrayList lista = new ArrayList();
 
-            string[] atributos = new string[tamano];
-            double[] numResultados = new double[tamano];
-            string[] lingResultados = new string[tamano];
+            string[] atributos = new string[contenido];
+            double[] numResultados = new double[contenido];
+            string[] lingResultados = new string[contenido];
 
-            for (int i = 0; i < tamano; i++)
+            atributos[0] = "Calidad Interna";
+            atributos[1] = "Calidad Externa";
+            atributos[2] = "Calidad Final";
+
+            for (int i = 0; i < contenido; i++)
             {
-                atributos[i] = "FUNCIONALIDAD";
-                numResultados[i] = 2.5;
+                numResultados[i] = 0;
                 lingResultados[i] = "NINGUNA";
             }
 
-            chuna.Add(atributos);
-            chuna.Add(numResultados);
-            chuna.Add(lingResultados);
+            lista.Add(atributos);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
 
-            return chuna;
+            return lista;
         }
 
         // Cargar tablas subcaracteristicas 
@@ -266,9 +307,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private bool validarDatosReporte()
         {
             if (txtObjetivos.Text == string.Empty)
-            {
                 return false;
-            }
             return true;
         }
 
@@ -276,9 +315,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
         {
-            limpiarColumnasTabla(tbCalidadFinal);
-            ArrayList entrada = llenarTablaF(10);
-            cargarTablaCalidad(tbCalidadFinal, (string[])entrada[0], (double[])entrada[1], (string[])entrada[2]);
+
         }
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)

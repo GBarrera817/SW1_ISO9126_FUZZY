@@ -659,16 +659,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             actualizarBadges(caracteristica, perspectiva, respondidas);
 
             if (verificarEstadoFinal(perspectiva))
-            {
-                if (perspectiva.Equals("Interna"))
-                {
-                    //Activar boton calcular interna
-                }
-                else
-                {
-                    //Activar boton calcular externa
-                }
-            }
+                paginaCalidad.cargarModuloEvaluacion(miEvaluacion, perspectiva);
         }
 
         // Accion de salida boton finalizar de seleccion de metricas

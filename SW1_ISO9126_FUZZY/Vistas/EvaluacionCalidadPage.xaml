@@ -20,7 +20,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcSubInterna" Width="98" Click="btnCalcSubInterna_Click" Background="#FFF7F7F7" IsEnabled="True">
+                                <Button x:Name="btnCalcSubInterna" Width="98" Click="btnCalcSubInterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -82,7 +82,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcCaractInterna" Width="98" Click="btnCalcCaractInterna_Click" Background="#FFF7F7F7" IsEnabled="True">
+                                <Button x:Name="btnCalcCaractInterna" Width="98" Click="btnCalcCaractInterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -152,7 +152,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="245"/>
-                                <Button x:Name="btnCalcCalidadFinal" Width="98" Click="btnCalcCalidadFinal_Click" Background="#FFF7F7F7" IsEnabled="True">
+                                <Button x:Name="btnCalcCalidadFinal" Width="98" Click="btnCalcCalidadFinal_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>

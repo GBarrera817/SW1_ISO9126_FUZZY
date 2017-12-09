@@ -629,7 +629,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             // CASO VERDADERO FALSO FALSO
             if (actFuncionalidad == true && actUsabilidad == false && actMantenibilidad == false)
             {
-                if (actFuncionalidad.Equals("FINALIZADO"))
+                if (funcionalidad.Equals("FINALIZADO"))
                     return true;
             }
 
@@ -657,9 +657,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             guardarEvaluacion(caracteristica, perspectiva);
             actualizarEstados(caracteristica, perspectiva, 3);
             actualizarBadges(caracteristica, perspectiva, respondidas);
-
-            if (verificarEstadoFinal(perspectiva))
-                paginaCalidad.cargarModuloEvaluacion(miEvaluacion, perspectiva);
         }
 
         // Accion de salida boton finalizar de seleccion de metricas
@@ -669,7 +666,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             guardarEvaluacion(caracteristica, perspectiva);
             actualizarEstados(caracteristica, perspectiva, 4);
             actualizarBadges(caracteristica, perspectiva, respondidas);
-            //Comprobar mas estados para habilitar botones en calidad
+
+            if (verificarEstadoFinal(perspectiva))
+                paginaCalidad.cargarModuloEvaluacion(miEvaluacion, perspectiva);
         }
 
         // Eventos botones menu flotante (flyout)

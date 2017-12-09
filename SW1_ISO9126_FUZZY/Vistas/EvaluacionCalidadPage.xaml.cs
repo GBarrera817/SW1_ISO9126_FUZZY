@@ -102,6 +102,32 @@ namespace SW1_ISO9126_FUZZY.Vistas
             temporal = cargarDatosCalidad();
             cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
         }
+
+        // Cargas datos desde modulo evaluacion
+
+        public void cargarModuloEvaluacion(Evaluacion datos, string pespectiva)
+        {
+            Console.WriteLine("Pagina calidad cargarModuloEvaluacion");
+
+            if (pespectiva.Equals("Interna"))
+            {
+                // calcular formulas
+                // agrupar por subcaracteristicas
+                // agrupar por caracteristicas
+                // promediar y aplicar importancia
+                // mandar a controlador 
+                btnCalcSubInterna.IsEnabled = true;
+            }
+            else
+            {
+                // calcular formulas
+                // agrupar por subcaracteristicas
+                // agrupar por caracteristicas
+                // promediar y aplicar importancia
+                // mandar a controlador 
+                btnCalcSubExterna.IsEnabled = true;
+            }
+        }
         
         // Eventos de movimiento
 
@@ -272,7 +298,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-            if (calcularFormulasmetricas())
+            /*if (calcularFormulasmetricas())
             {
                 if (calcularFuzzySubcaracteristicas())
                 {
@@ -282,12 +308,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     btnCalcCaractInterna.IsEnabled = false;
                 }
-            }
+            }*/
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
         {
-            if (calcularFormulasmetricas())
+           /* if (calcularFormulasmetricas())
             {
                 if (calcularFuzzySubcaracteristicas())
                 {
@@ -297,7 +323,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     btnCalcCaractExterna.IsEnabled = false;
                 }
-            }
+            }*/
         }
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
@@ -381,7 +407,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcCaractInterna_Click(object sender, RoutedEventArgs e)
         {
-            if (calcularFuzzyCacteristicas())
+           /* if (calcularFuzzyCacteristicas())
             {
                 if (comprobarEstadoEvaCar())
                 {
@@ -391,12 +417,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     btnCalcCalidadFinal.IsEnabled = false;
                 }
-            }
+            }*/
         }
 
         private void btnCalcCaractExterna_Click(object sender, RoutedEventArgs e)
         {
-            if (calcularFuzzyCacteristicas())
+           /* if (calcularFuzzyCacteristicas())
             {
                 if (comprobarEstadoEvaCar())
                 {
@@ -406,7 +432,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 {
                     btnCalcCalidadFinal.IsEnabled = false;
                 }
-            }
+            }*/
         }
 
         // ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
@@ -477,14 +503,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
         {
-            if (calcularFuzzyCalidad())
+            /*if (calcularFuzzyCalidad())
             {
                 btnGenerarPDF.IsEnabled = true;
             }
             else
             {
                 btnGenerarPDF.IsEnabled = false;
-            }
+            }*/
         }
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)

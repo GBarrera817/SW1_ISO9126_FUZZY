@@ -272,12 +272,32 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-
+            if (calcularFormulasmetricas())
+            {
+                if (calcularFuzzySubcaracteristicas())
+                {
+                    btnCalcCaractInterna.IsEnabled = true;
+                }
+                else
+                {
+                    btnCalcCaractInterna.IsEnabled = false;
+                }
+            }
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
         {
-
+            if (calcularFormulasmetricas())
+            {
+                if (calcularFuzzySubcaracteristicas())
+                {
+                    btnCalcCaractExterna.IsEnabled = true;
+                }
+                else
+                {
+                    btnCalcCaractExterna.IsEnabled = false;
+                }
+            }
         }
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
@@ -348,16 +368,45 @@ namespace SW1_ISO9126_FUZZY.Vistas
             visual.ItemsSource = dtColumnas.DefaultView;
         }
 
+        // Comprueba el estado de la evaluacion de las caracteristicas
+
+        private bool comprobarEstadoEvaCar()
+        {
+            if (btnCalcCaractInterna.IsEnabled && btnCalcCaractExterna.IsEnabled)
+                return true;
+            return false;
+        }
+
         // Eventos botones
 
         private void btnCalcCaractInterna_Click(object sender, RoutedEventArgs e)
         {
-
+            if (calcularFuzzyCacteristicas())
+            {
+                if (comprobarEstadoEvaCar())
+                {
+                    btnCalcCalidadFinal.IsEnabled = true;
+                }
+                else
+                {
+                    btnCalcCalidadFinal.IsEnabled = false;
+                }
+            }
         }
 
         private void btnCalcCaractExterna_Click(object sender, RoutedEventArgs e)
         {
-
+            if (calcularFuzzyCacteristicas())
+            {
+                if (comprobarEstadoEvaCar())
+                {
+                    btnCalcCalidadFinal.IsEnabled = true;
+                }
+                else
+                {
+                    btnCalcCalidadFinal.IsEnabled = false;
+                }
+            }
         }
 
         // ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
@@ -428,7 +477,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
         {
-
+            if (calcularFuzzyCalidad())
+            {
+                btnGenerarPDF.IsEnabled = true;
+            }
+            else
+            {
+                btnGenerarPDF.IsEnabled = false;
+            }
         }
 
         private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)

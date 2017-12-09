@@ -81,7 +81,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
             ArrayList temporal = new ArrayList();
 
             inicializarListasCalculos(datos);
-            //cargarDatosSubcaracteristicas(datos);
+
+            limpiarColumnasTabla(tbSubCarInterna);
+            limpiarColumnasTabla(tbSubCarExterna);
+            temporal = cargarDatosSubcaracteristicas(datos);
+            cargarTablaSubcaracteristicas(tbSubCarInterna, (Tuple<string, string>[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
+            cargarTablaSubcaracteristicas(tbSubCarExterna, (Tuple<string, string>[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
 
             temporal.Clear();
 
@@ -112,31 +117,137 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         // ----------------------------- PAGINA CALIDAD SUBCARACTERISTICAS ---------------------------------------
 
-        // Carga de prueba para subcaracteristicas
+        // Carga datos inicial para subcaracteristicas
 
-        private ArrayList llenarTablaSC(int tamano)
+        private ArrayList cargarDatosSubcaracteristicas(Evaluacion datos)
         {
-            ArrayList chuna = new ArrayList();
+            ArrayList lista = new ArrayList();
+            ArrayList info = new ArrayList();
+            ArrayList grados = new ArrayList();
+            int activadas = 0;
 
-            Tuple<string, string>[] subcaracteristicas = new Tuple<string, string>[tamano];
-            double[] importancia = new double[tamano];
-            double[] numResultados = new double[tamano];
-            string[] lingResultados = new string[tamano];
-
-            for (int i = 0; i < tamano; i++)
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
             {
-                subcaracteristicas[i] = new Tuple<string, string>("FUNCIONALIDAD", "EXACTITUD");
-                importancia[i] = 0.5;
-                numResultados[i] = 2.5;
+                info.Add(new Tuple<string, string>("Funcionalidad", "Adecuación"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Adecuacion);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Exactitud"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Exactitud);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstInteroperabilidad)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Interoperabilidad"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Interoperabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstSeguridadAcceso)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Seguridad Acceso"));
+                grados.Add(datos.Grados.SbcFuncionalidad.SeguridadAcceso);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstCumplimientoFuncional)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Cumplimiento Funcional"));
+                grados.Add(datos.Grados.SbcFuncionalidad.CumplimientoFuncional);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Comprensibilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Comprensibilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAprendizaje)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Aprendizaje"));
+                grados.Add(datos.Grados.SbcUsabilidad.Aprendizaje);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstOperabilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Operabilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Operabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAtractividad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Atractividad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Atractividad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstCumplimientoUsabilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Cumplimiento Usabilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.CumplimientoUsabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Facilidad Análisis"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Analizabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstModificabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Modificabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Modificabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Estabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Estabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Testeabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Testeabilidad);
+                activadas++;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Cumplimiento Mantenibilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.CumplimientoMantenibilidad);
+                activadas++;
+            }
+
+            Tuple<string, string>[] subcaracteristicas = (Tuple<string, string>[])info.ToArray(typeof(Tuple<string, string>));
+            double[] importancia = (double[])grados.ToArray(typeof(double));
+            double[] numResultados = new double[activadas];
+            string[] lingResultados = new string[activadas];
+
+            for (int i = 0; i < activadas; i++)
+            {
+                numResultados[i] = 0;
                 lingResultados[i] = "NINGUNA";
             }
 
-            chuna.Add(subcaracteristicas);
-            chuna.Add(importancia);
-            chuna.Add(numResultados);
-            chuna.Add(lingResultados);
+            lista.Add(subcaracteristicas);
+            lista.Add(importancia);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
 
-            return chuna;
+            return lista;
         }
 
         // Cargar tablas subcaracteristicas 
@@ -152,7 +263,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 
             for (int i = 0; i < subcaracteristicas.Length; i++)
-                dtColumnas.Rows.Add(new object[] { subcaracteristicas[i].Item1, subcaracteristicas[i].Item2, importancia[i], numResultados[i], lingResultados[i] });
+                dtColumnas.Rows.Add(new object[] { subcaracteristicas[i].Item2, subcaracteristicas[i].Item1, importancia[i], numResultados[i], lingResultados[i] });
 
             visual.ItemsSource = dtColumnas.DefaultView;
         }
@@ -161,9 +272,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-            limpiarColumnasTabla(tbSubCarInterna);
-            ArrayList entrada = llenarTablaSC(10);
-            cargarTablaSubcaracteristicas(tbSubCarInterna, (Tuple<string, string>[]) entrada[0], (double[]) entrada[1], (double[]) entrada[2], (string[]) entrada[3]);
+
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
@@ -172,6 +281,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
+
+        // Carga datos inicial para caracteristicas
 
         private ArrayList cargarDatosCaracteristicas(Evaluacion datos)
         {
@@ -250,6 +361,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         }
 
         // ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
+
+        // Carga datos inicial para calidad final
 
         private ArrayList cargarDatosCalidad()
         {

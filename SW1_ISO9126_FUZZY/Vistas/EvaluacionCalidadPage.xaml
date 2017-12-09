@@ -40,7 +40,7 @@
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,222,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,236,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="630"/>

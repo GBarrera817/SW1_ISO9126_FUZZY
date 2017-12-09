@@ -20,7 +20,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS INTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcSubInterna" Width="98" Click="btnCalcSubInterna_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnCalcSubInterna" Width="98" Click="btnCalcSubInterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -29,24 +29,22 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
                                 <DataGridTextColumn Header="Grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
+                                <DataGridTextColumn Header="Valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer>
-
-                            </ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
-                    <GroupBox HorizontalAlignment="Left" Height="229" Margin="10,222,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
+                    <GroupBox HorizontalAlignment="Left" Height="207" Margin="10,236,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FF33A133" Background="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD SUBCARACTERÍSTICAS EXTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcSubExterna" Width="98" Click="btnCalcSubExterna_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnCalcSubExterna" Width="98" Click="btnCalcSubExterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -55,14 +53,14 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="subcaracterística"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="subcaracterística"/>
+                                <DataGridTextColumn Header="característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -84,7 +82,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS INTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcCaractInterna" Width="98" Click="btnCalcCaractInterna_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnCalcCaractInterna" Width="98" Click="btnCalcCaractInterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -93,13 +91,13 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="Característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -107,7 +105,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD CARACTERÍSTICAS EXTERNAS" Foreground="White" Width="630"/>
-                                <Button x:Name="btnCalcCaractExterna" Width="98" Click="btnCalcCaractExterna_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnCalcCaractExterna" Width="98" Click="btnCalcCaractExterna_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -116,13 +114,13 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="característica"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="grado importancia"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="característica"/>
+                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
 
@@ -154,7 +152,7 @@
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="NIVEL DE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="245"/>
-                                <Button x:Name="btnCalcCalidadFinal" Width="98" Click="btnCalcCalidadFinal_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnCalcCalidadFinal" Width="98" Click="btnCalcCalidadFinal_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="89">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Calculator.png" Width="27" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Calcular" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="55"/>
@@ -163,19 +161,19 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
+                        <DataGrid x:Name="tbCalidadFinal" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="atributo"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="valor"/>
+                                <DataGridTextColumn Header="atributo"/>
+                                <DataGridTextColumn Header="valor"/>
+                                <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
-                            <ScrollViewer></ScrollViewer>
                         </DataGrid>
                     </GroupBox>
                     <GroupBox Height="284" Margin="10,169,10,0" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
                         <GroupBox.Header>
                             <StackPanel Height="27" Orientation="Horizontal">
                                 <Label Content="REPORTE CALIDAD FINAL DEL SOFTWARE" Foreground="White" Width="602"/>
-                                <Button x:Name="btnGenerarPDF" Width="112" Click="btnGenerarPDF_Click" Background="#FFF7F7F7">
+                                <Button x:Name="btnGenerarPDF" Width="112" Click="btnGenerarPDF_Click" Background="#FFF7F7F7" IsEnabled="False">
                                     <StackPanel Orientation="Horizontal" Height="27" Width="112">
                                         <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Calculos/Adobe-Acrobat-2.png" Width="30" RenderTransformOrigin="0.571,0.258" Margin="0,-7,0,7" />
                                         <Label Content="Crear PDF" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-7,0,7" Width="65"/>

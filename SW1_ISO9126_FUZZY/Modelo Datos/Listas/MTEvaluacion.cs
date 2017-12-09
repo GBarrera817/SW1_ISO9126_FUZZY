@@ -15,7 +15,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
         private int id;
         private string formula;
         private string[] parametros;
-        private float[] valores;
+        private double[] valores;
         private int mejorValor;
         private int peorValor;
 
@@ -24,7 +24,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
         public int Id { get => id; set => id = value; }
         public string Formula { get => formula; set => formula = value; }
         public string[] Parametros { get => parametros; set => parametros = value; }
-        public float[] Valores { get => valores; set => valores = value; }
+        public double[] Valores { get => valores; set => valores = value; }
         public int MejorValor { get => mejorValor; set => mejorValor = value; }
         public int PeorValor { get => peorValor; set => peorValor = value; }
     }

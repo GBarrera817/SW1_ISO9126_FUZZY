@@ -22,8 +22,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private VistaPreviaSeleccionMetricaPage paginaMetricas;
         private FormularioEvaluacionPage paginaEvaluaciones;
+        private EvaluacionCalidadPage paginaCalidades;
 
-        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion) {
+        public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion, EvaluacionCalidadPage paginaCalidad)
+        {
 
             InitializeComponent();
 
@@ -35,6 +37,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             this.paginaMetricas = paginaMetrica;
             this.paginaEvaluaciones = paginaEvaluacion;
+            this.paginaCalidades = paginaCalidad;
         }
 
         // guardar datos de la evaluacion
@@ -625,6 +628,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     
                     if (validar_seleccion_caracteristicas())
                     {
+
+
                         if (lblFuncionalidad.IsChecked == true)
                         {
                             if (validar_valor_caracteristica_funcionalidad())
@@ -704,6 +709,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                         }
+
+
                     }
                     else
                     {
@@ -719,11 +726,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 if ((datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
                 {
                     resgistrarDatos();
+
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
+                   
                     // Cargar los datos en el modulo Vista Previa Seleccion de Metricas
                     paginaMetricas.cargarDatosModulo(miEvaluacion);
                     // Cargar los datos en el modulo Vista Previa Formulario Evaluacion
                     paginaEvaluaciones.cargarDatosModulo(miEvaluacion);
+                    // Cargar los datos en el modulo Calidad
+                    paginaCalidades.cargarDatosModulo(miEvaluacion);
+
                     this.NavigationService.Navigate(paginaMetricas);
                 }
             }

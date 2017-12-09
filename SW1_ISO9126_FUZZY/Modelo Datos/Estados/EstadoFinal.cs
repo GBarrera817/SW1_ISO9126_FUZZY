@@ -12,17 +12,23 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Estados
 
     public class EstadoFinal
     {
+        private bool calidadSubCarateristicaIntena;
+        private bool calidadSubCaracteristicaExterna;
         private bool calidadCaracteristicasInterna;
         private bool calidadCaracteristicasExterna;
         private bool calidadFinal;
 
         public EstadoFinal()
         {
-            this.CalidadCaracteristicasInterna = false;
+            this.calidadSubCarateristicaIntena = false;
+            this.calidadSubCaracteristicaExterna = false;
+            this.calidadCaracteristicasInterna = false;
             this.CalidadCaracteristicasExterna = false;
-            this.CalidadFinal = false;
+            this.calidadFinal = false;
         }
 
+        public bool CalidadSubCarateristicaIntena { get => calidadSubCarateristicaIntena; set => calidadSubCarateristicaIntena = value; }
+        public bool CalidadSubCaracteristicaExterna { get => calidadSubCaracteristicaExterna; set => calidadSubCaracteristicaExterna = value; }
         public bool CalidadCaracteristicasInterna { get => calidadCaracteristicasInterna; set => calidadCaracteristicasInterna = value; }
         public bool CalidadCaracteristicasExterna { get => calidadCaracteristicasExterna; set => calidadCaracteristicasExterna = value; }
         public bool CalidadFinal { get => calidadFinal; set => calidadFinal = value; }

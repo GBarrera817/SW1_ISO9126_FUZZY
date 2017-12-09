@@ -20,7 +20,7 @@ namespace SW1_ISO9126_FUZZY.JSON
         public JMantenibilidad()
         {
             this.caracteristica = "Mantenibilidad";
-            this.subcaracteristicas = new string[] {"Analizabilidad",
+            this.subcaracteristicas = new string[] {"Facilidad Análisis",
                                                     "Modificabilidad",
                                                     "Estabilidad",
                                                     "Testeabilidad",

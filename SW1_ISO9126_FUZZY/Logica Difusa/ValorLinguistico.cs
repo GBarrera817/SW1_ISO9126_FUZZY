@@ -10,7 +10,7 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		private string _nombre;
 		private FuncionMembresia _funcionMembresia;
 		private double _valorMembresia;
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -18,9 +18,9 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="funcionMembresia"></param>
 		public ValorLinguistico(string nombre, FuncionMembresia funcionMembresia)
 		{
-			Nombre = nombre;
-			FuncionMembresia = funcionMembresia;
-			ValorMembresia = -1;
+			_nombre = nombre;
+			_funcionMembresia = funcionMembresia;
+			_valorMembresia = -1;
 		}
 
 		/// <summary>
@@ -31,38 +31,24 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="valorPertenencia"></param>
 		public ValorLinguistico(string nombre, FuncionMembresia funcionMembresia, double valorMembresia)
 		{
-			Nombre = nombre;
-			FuncionMembresia = funcionMembresia;
-			ValorMembresia = valorMembresia; //valor de membresia por defecto
+			_nombre = nombre;
+			_funcionMembresia = funcionMembresia;
+			_valorMembresia = valorMembresia; //valor de membresia por defecto
 		}
-		
+
 		/// <summary>
 		/// Calcula el valor de membresia del valor lingüístico
 		/// </summary>
 		/// <param name="valor"></param>
 		public void CalcularValorMembresia(double valor)
 		{
-			ValorMembresia = FuncionMembresia.ValorMembresia(valor);
+			_valorMembresia = FuncionMembresia.ValorMembresia(valor);
 		}
 
 		//Accesores
-		public string Nombre
-		{
-			get { return _nombre; }
-			set { _nombre = value; }
-		}
-
-		public FuncionMembresia FuncionMembresia
-		{
-			get { return _funcionMembresia; }
-			set { _funcionMembresia = value; }
-		}
-
-		public double ValorMembresia
-		{
-			get { return _valorMembresia; }
-			set { _valorMembresia = value; }
-		}
+		public string Nombre { get => _nombre; set => _nombre = value; }
+		public FuncionMembresia FuncionMembresia { get => _funcionMembresia; set => _funcionMembresia = value; }
+		public double ValorMembresia { get => _valorMembresia; set => _valorMembresia = value; }
 
 	}
 }

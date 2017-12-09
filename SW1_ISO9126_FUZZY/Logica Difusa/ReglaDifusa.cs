@@ -47,16 +47,16 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="operadorDifuso"></param>
 		public ReglaDifusa(Dictionary<string, ValorLinguistico> antecedente, Tuple<string, ValorLinguistico> consecuente, string operadorDifuso)
 		{
-			Antecedente = new Dictionary<string, ValorLinguistico>();
+			_antecedente = new Dictionary<string, ValorLinguistico>();
 
 			foreach (KeyValuePair<string, ValorLinguistico> actual in antecedente)
 				AgregarAntecedente(actual.Key, actual.Value);
-			
 
-			if( consecuente != null)		
+
+			if (consecuente != null)
 				AgregarConsecuente(consecuente.Item1, consecuente.Item2);
-		
-			OperadorDifuso = operadorDifuso;
+
+			_operadorDifuso = operadorDifuso;
 		}
 
 		/// <summary>
@@ -68,10 +68,8 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="operadorDifuso"></param>
 		public ReglaDifusa(string id, Dictionary<string, ValorLinguistico> antecedente, Tuple<string, ValorLinguistico> consecuente, string operadorDifuso)
 		{
-
-			//REVISAR PARSEO DEL STRING
 			this._id = id;
-			Antecedente = new Dictionary<string, ValorLinguistico>();
+			_antecedente = new Dictionary<string, ValorLinguistico>();
 
 			int contador = 0;
 			this._texto = "IF";
@@ -87,13 +85,13 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 			}
 
 			this._texto += " THEN ";
-			if(consecuente != null)
+			if (consecuente != null)
 			{
 				this._texto += consecuente.Item1 + " IS " + consecuente.Item2.Nombre;
 				AgregarConsecuente(consecuente.Item1, consecuente.Item2);
 			}
 
-			OperadorDifuso = operadorDifuso;
+			_operadorDifuso = operadorDifuso;
 		}
 
 
@@ -104,9 +102,11 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		/// <param name="nombreVariable"></param>
 		/// <param name="valorLinguistico"></param>
 		public void AgregarAntecedente(string nombreVariable, ValorLinguistico valorLinguistico)
-		{ 
-			//ValorLinguistico val = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
-			Antecedente.Add(nombreVariable, valorLinguistico);
+		{
+
+			//VOLVER A COMENTAR ESTA LINEA EN CASO DE SER NECESARIO
+			ValorLinguistico val = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia);
+			_antecedente.Add(nombreVariable, valorLinguistico);
 		}
 
 		/// <summary>
@@ -141,39 +141,15 @@ namespace SW1_ISO9126_FUZZY.Logica_Difusa
 		}
 
 		//Accesores
-		public string ID
-		{
-			get { return _id; }
-			set { _id = value; }
-		}
-
-		public string OperadorDifuso
-		{
-			get { return _operadorDifuso; }
-			set { _operadorDifuso = value; }
-		}
-
-		public Dictionary<string, ValorLinguistico> Antecedente
-		{
-			get { return _antecedente; }
-			set { _antecedente = value; }
-		}
-
-		public Tuple<string, ValorLinguistico> Consecuente
-		{
-			get { return _consecuente; }
-			set { _consecuente = value; }
-		}
-
-		public string Texto
-		{
-			get { return _texto; }
-		}
-
-		public override string ToString()
-		{
-			return this._texto;
-		}
-
+		public string Id { get => Id1; set => Id1 = value; }
+		public string OperadorDifuso { get => OperadorDifuso1; set => OperadorDifuso1 = value; }
+		public Dictionary<string, ValorLinguistico> Antecedente { get => Antecedente1; set => Antecedente1 = value; }
+		public Tuple<string, ValorLinguistico> Consecuente { get => Consecuente1; set => Consecuente1 = value; }
+		public string Texto { get => Texto1; set => Texto1 = value; }
+		public string Id1 { get => _id; set => _id = value; }
+		public string OperadorDifuso1 { get => _operadorDifuso; set => _operadorDifuso = value; }
+		public Dictionary<string, ValorLinguistico> Antecedente1 { get => _antecedente; set => _antecedente = value; }
+		public Tuple<string, ValorLinguistico> Consecuente1 { get => _consecuente; set => _consecuente = value; }
+		public string Texto1 { get => _texto; set => _texto = value; }
 	}
 }

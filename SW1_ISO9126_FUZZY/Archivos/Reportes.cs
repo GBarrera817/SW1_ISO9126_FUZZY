@@ -9,8 +9,6 @@ namespace SW1_ISO9126_FUZZY.Archivos {
     public class Reportes
 	{
 		private string imageURL;
-		private string appRootDir;
-		private string fileName;
 		private Document doc;
 		private FileStream fs;
 		private PdfWriter writer;
@@ -24,7 +22,6 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 		public Reportes(string nombreArchivo)
 		{
 			imageURL = @"D:/Documentos/Visual Studio 2017/Projects/SW1_ISO9126_FUZZY/SW1_ISO9126_FUZZY/Imagenes/";
-
 			titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
 			subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
 			boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
@@ -209,12 +206,7 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 			} catch (IOException ioe)
 			{
 				throw ioe;
-			}
-
-			
+      }
 		}
-
-		public string AppRootDir { get => appRootDir; set => appRootDir = value; }
-		public string FileName { get => fileName; set => fileName = value; }
 	}
 }

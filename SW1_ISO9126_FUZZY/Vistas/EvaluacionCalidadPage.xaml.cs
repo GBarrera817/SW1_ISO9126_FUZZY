@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using SW1_ISO9126_FUZZY.Archivos;
 using System.IO;
+using SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -102,6 +103,74 @@ namespace SW1_ISO9126_FUZZY.Vistas
             limpiarColumnasTabla(tbCalidadFinal);
             temporal = cargarDatosCalidad();
             cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
+        }
+
+        private List<MTCalculo> calcularLista(List<MTEvaluacion> listaEvaluacion)
+        {
+            List<MTCalculo> listaCalculo = new List<MTCalculo>();
+            MTEvaluacion datos;
+            MTCalculo valor;
+
+            for (int i = 0; i < listaEvaluacion.Count; i++)
+            {
+                datos = listaEvaluacion[i];
+                valor = new MTCalculo();
+
+                valor.Id = datos.Id;
+
+                if (datos.Parametros.Length == 2)
+                    valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1]);
+                else
+                    valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1], datos.Valores[2]);
+
+                listaCalculo.Add(valor);
+
+                Console.WriteLine(datos.ToString());
+                Console.WriteLine(valor.ToString());
+            }
+
+            return listaCalculo;
+        }
+
+        // Calcula las formulas de las metricas
+
+        private void calcularResultadoFormulas(Evaluacion datos, string perspectiva)
+        {
+            if (perspectiva.Equals("Interna"))
+            {
+                if (datos.DatosMetricas.FuncionalidadInterna)
+                {
+                    MTCfuncionalidadInterna =  new List<MTCalculo>(calcularLista(datos.Fomulario.FuncionalidadInterna));
+                }
+
+                if (datos.DatosMetricas.UsabilidadInterna)
+                {
+
+                }
+
+                if (datos.DatosMetricas.MantenibilidadInterna)
+                {
+
+                }
+            }
+            else
+            {
+                if (datos.DatosMetricas.FuncionalidadExterna)
+                {
+
+                }
+
+                if (datos.DatosMetricas.UsabilidadExterna)
+                {
+
+                }
+
+                if (datos.DatosMetricas.MantenibilidadExterna)
+                {
+
+                }
+            }
+
         }
 
         // Cargas datos desde modulo evaluacion

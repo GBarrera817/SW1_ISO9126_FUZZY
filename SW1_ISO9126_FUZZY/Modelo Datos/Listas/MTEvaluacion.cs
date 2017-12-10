@@ -16,6 +16,24 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 
         public MTEvaluacion() { }
 
+        public override string ToString()
+        {
+            string str = "";
+            str += "\nID: " + id;
+            str += "\nFormula: " + formula;
+
+            for (int i = 0; i < parametros.Length; i++)
+            {
+                str += "\nParametro: " + parametros[i];
+                str += "\nvalor: " + valores[i];
+            }
+
+            str += "\nMejor Valor: " + mejorValor;
+            str += "\nPeor Valor: " + peorValor;
+
+            return str;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Formula { get => formula; set => formula = value; }
         public string[] Parametros { get => parametros; set => parametros = value; }

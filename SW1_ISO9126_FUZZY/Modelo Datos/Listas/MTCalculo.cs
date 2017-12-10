@@ -10,7 +10,7 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
         private int id;
         private double resultado;
 
-        public MTCalculo(int id, double resultado)
+        public MTCalculo()
         {
             this.Id = 0;
             this.Resultado = 0;

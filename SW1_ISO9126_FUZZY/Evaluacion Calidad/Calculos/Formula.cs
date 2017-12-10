@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 {
-	public class Formula
+	public static class Formula
 	{
-		public double GetResultadoFormula(string formula, double param1, double param2)
+		public static double GetResultadoFormula(string formula, double param1, double param2)
 		{
 			double resultado = 0.0;
 
@@ -88,13 +84,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 				return Math.Round(resultado, 2);
 			}
 
-			
-
 			return resultado;
 		}
 
 
-		public double GetResultadoFormula(string formula, double param1, double param2, double param3) 
+		public static double GetResultadoFormula(string formula, double param1, double param2, double param3) 
 		{
 			double resultado = 0.0;
 

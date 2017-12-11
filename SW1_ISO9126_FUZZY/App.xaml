@@ -22,11 +22,11 @@
                    BasedOn="{StaticResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
 
             <!-- Centrar elementos DataGrid-->
-            <!--<Style TargetType="DataGridCell">
+            <Style x:Key="NameCellStyle" TargetType="DataGridCell">
                 <Style.Setters>
                     <Setter Property="TextBlock.TextAlignment" Value="Center" />
                 </Style.Setters>
-            </Style> -->
+            </Style> 
 
             <!-- Peronalizar MessageBox -->
             <!-- IMPORTAR = xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" -->

@@ -119,7 +119,7 @@
               "proposito": ["¿Se puede resolver el problema del usuario a su satisfacción dentro de una escala de tiempo aceptable?"],
               "metodo": "Supervisar la interacción entre el usuario y el proveedor. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
               "formula": ["(Sum(Trc)-Sum(Tsn))/N"],
-              "peor_valor": 100000,
+              "peor_valor": 10000,
               "mejor_valor": 0,
               "parametros": [
                 "Trc",
@@ -139,7 +139,7 @@
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema de falla?"],
               "metodo": "Observe el comportamiento del usuario o del mantenedor mientras intenta cambiar el software. Registre el tiempo transcurrido desde la solicitud inicial del usuario hasta la resolución del problema.",
               "formula": ["(Sum(Tout)-Sum(Tin))/N"],
-              "peor_valor": 100000,
+              "peor_valor": 10000,
               "mejor_valor": 0,
               "parametros": [
                 "Tout",
@@ -159,7 +159,7 @@
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema?"],
               "metodo": "Observe el comportamiento del mantenedor que intenta cambiar el software.",
               "formula": ["(Sum(A)/Sum(B))/N"],
-              "peor_valor": 100000,
+              "peor_valor": 10000,
               "mejor_valor": 0,
               "parametros": [
                 "A",

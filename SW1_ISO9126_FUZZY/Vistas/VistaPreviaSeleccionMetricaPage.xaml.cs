@@ -585,7 +585,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     System.Console.WriteLine(metrica.Id + " " + metrica.Nombre);
         }
 
-        // metodo para imprimir la lista de seleccion
+        // Metodo para imprimir la lista de seleccion
 
         private void imprimirListaSeleccion(List<MTSeleccion> lista)
         {

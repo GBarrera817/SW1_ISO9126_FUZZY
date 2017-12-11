@@ -10,6 +10,8 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("A/B"))
 			{
+                Console.WriteLine("Formula -> A/B");
+
 				if(param1 == 0 || param2 == 0)
 				{
 					return 0;
@@ -20,7 +22,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("A/T"))
 			{
-				if(param1 == 0 || param2 == 0)
+                Console.WriteLine("Formula -> A/T");
+
+                if (param1 == 0 || param2 == 0)
 				{
 					return 0;
 				}
@@ -30,7 +34,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("A/UOT"))
 			{
-				if(param1 == 0 || param2 == 0)
+                Console.WriteLine("Formula -> A/UOT");
+
+                if (param1 == 0 || param2 == 0)
 				{
 					return 0;
 				}
@@ -40,7 +46,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("T/N"))
 			{
-				if(param1 == 0 || param2 == 0)
+                Console.WriteLine("Formula -> T/N"");
+
+                if (param1 == 0 || param2 == 0)
 				{
 					return 0;
 				}
@@ -50,7 +58,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if(formula.Equals("1 - A/B"))
 			{
-				if(param2 == 0)
+                Console.WriteLine("Formula -> 1 - A/B");
+
+                if (param2 == 0)
 				{
 					return 0;
 				}
@@ -60,7 +70,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if(formula.Equals("1 - A/N"))
 			{
-				if(param2 == 0)
+                Console.WriteLine("Formula -> 1 - A/N");
+
+                if (param2 == 0)
 				{
 					return 0;
 				}
@@ -70,13 +82,17 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("Tc-Ts"))
 			{
-				resultado = param1 - param2;
+                Console.WriteLine("Formula -> Tc-Ts");
+
+                resultado = param1 - param2;
 				return Math.Round(resultado, 2);
 			}
 
 			if (formula.Equals("Sum(T)/N"))
 			{
-				if(param2 == 0)
+                Console.WriteLine("Formula -> Sum(T) / N");
+
+                if (param2 == 0)
 				{
 					return 0;
 				}
@@ -94,7 +110,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if(formula.Equals("(Sum(Trc)-Sum(Tsn))/N") || formula.Equals("(Sum(Tout)-Sum(Tin))/N"))
 			{
-				if(param3 == 0)
+                Console.WriteLine("Formula -> (Sum(Trc)-Sum(Tsn))/N  || -> (Sum(Tout)-Sum(Tin))/N");
+
+                if (param3 == 0)
 				{
 					return 0;
 				}

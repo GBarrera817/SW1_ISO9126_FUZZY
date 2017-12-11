@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using SW1_ISO9126_FUZZY.Archivos;
 using System.IO;
 using SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos;
+using SW1_ISO9126_FUZZY.JSON;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -29,13 +30,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTCalculo> MTCmantenibilidadExterna;
 
         // Lista de resultados con agrupamiento por subcaracteristicas
-        private List<MTCalculo[]> MTCAGfuncionalidadInterna;
-        private List<MTCalculo[]> MTCAGusabilidadInterna;
-        private List<MTCalculo[]> MTCAGmantenibilidadInterna;
-        private List<MTCalculo[]> MTCAGfuncionalidadExterna;
-        private List<MTCalculo[]> MTCAGusabilidadExterna;
-        private List<MTCalculo[]> MTCAGmantenibilidadExterna;
-
+        private List<List<MTCalculo>> MTCAGfuncionalidadInterna;
+        private List<List<MTCalculo>> MTCAGusabilidadInterna;
+        private List<List<MTCalculo>> MTCAGmantenibilidadInterna;
+        private List<List<MTCalculo>> MTCAGfuncionalidadExterna;
+        private List<List<MTCalculo>> MTCAGusabilidadExterna;
+        private List<List<MTCalculo>> MTCAGmantenibilidadExterna;
 
         private EstadoModulo calidadMetricas;
         private EstadoFinal estadoFinalEvaluacion;
@@ -59,41 +59,37 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (datos.DatosMetricas.FuncionalidadInterna)
             {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
-                MTCAGfuncionalidadInterna = new List<MTCalculo[]>();
+                MTCAGfuncionalidadInterna = new List<List<MTCalculo>>();
             }
               
             if (datos.DatosMetricas.UsabilidadInterna)
             {
                 MTCusabilidadInterna = new List<MTCalculo>();
-                MTCAGusabilidadInterna = new List<MTCalculo[]>();
-            }
-                
+                MTCAGusabilidadInterna = new List<List<MTCalculo>>();
+            }               
 
             if (datos.DatosMetricas.MantenibilidadInterna)
             {
                 MTCmantenibilidadInterna = new List<MTCalculo>();
-                MTCAGmantenibilidadInterna = new List<MTCalculo[]>();
+                MTCAGmantenibilidadInterna = new List<List<MTCalculo>>();
             }          
                 
-
             if (datos.DatosMetricas.FuncionalidadExterna)
             {
                 MTCfuncionalidadExterna = new List<MTCalculo>();
-                MTCAGfuncionalidadExterna = new List<MTCalculo[]>();
+                MTCAGfuncionalidadExterna = new List<List<MTCalculo>>();
             }
                 
-
             if (datos.DatosMetricas.UsabilidadExterna)
             {
                 MTCusabilidadExterna = new List<MTCalculo>();
-                MTCAGusabilidadExterna = new List<MTCalculo[]>();
+                MTCAGusabilidadExterna = new List<List<MTCalculo>>();
             }
                 
-
             if (datos.DatosMetricas.MantenibilidadExterna)
             {
                 MTCmantenibilidadExterna = new List<MTCalculo>();
-                MTCAGmantenibilidadExterna = new List<MTCalculo[]>();
+                MTCAGmantenibilidadExterna = new List<List<MTCalculo>>();
             }            
         }
 
@@ -136,7 +132,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
         }
 
-        private List<MTCalculo> calcularLista(List<MTEvaluacion> listaEvaluacion)
+        // Calcula las formulas de las metricas
+
+        private List<MTCalculo> calcularResultadoFormulas(List<MTEvaluacion> listaEvaluacion)
         {
             List<MTCalculo> listaCalculo = new List<MTCalculo>();
             MTEvaluacion datos;
@@ -163,42 +161,94 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return listaCalculo;
         }
 
-        // Calcula las formulas de las metricas
+        // Agrupa la lista de metricas por subcaracteristicas
 
-        private void calcularResultadoFormulas(Evaluacion datos, string perspectiva)
+        private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
+        {
+            List<List<MTCalculo>> lista = new List<List<MTCalculo>>();
+            List<MTCalculo> sublista = new List<MTCalculo>();
+            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas));
+            string subcarateristica = local[0].Subcaracteristica;
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                if (string.Equals(subcarateristica, local[i].Subcaracteristica))
+                {
+                    sublista.Add(original[i]);
+                }
+                else
+                {
+                    lista.Add(sublista);
+
+                    if (sublista.Count != 0)
+                        sublista.Clear();
+                }
+            }
+
+            return lista;
+        }
+
+        // Obtener metricas activadas del total de metricas
+
+        private List<JMetrica> obtenerListaReal(List<MTCalculo> original, List<JMetrica> metricas)
+        {
+            List<JMetrica> local = new List<JMetrica>();
+            int j = 0;
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                while (original[i].Id != metricas[j].Id)
+                    j++;
+
+                local.Add(metricas[j]);
+                j++;
+            }
+
+            return local;
+        }
+
+        // Prepara la lista de calculos para realizar la evaluacion difusa
+
+        private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)
         {
             if (perspectiva.Equals("Interna"))
             {
                 if (datos.DatosMetricas.FuncionalidadInterna)
                 {
-                    MTCfuncionalidadInterna =  new List<MTCalculo>(calcularLista(datos.Fomulario.FuncionalidadInterna));
+                    MTCfuncionalidadInterna =  new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadInterna));
+                    MTCAGfuncionalidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadInterna, datos.CargaMetricas.FuncionalidadInterna));
                 }
 
                 if (datos.DatosMetricas.UsabilidadInterna)
                 {
-                    MTCusabilidadInterna = new List<MTCalculo>(calcularLista(datos.Fomulario.UsabilidadInterna));
+                    MTCusabilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadInterna));
+                    MTCAGusabilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadInterna, datos.CargaMetricas.UsabilidadInterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadInterna)
                 {
-                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularLista(datos.Fomulario.MantenibilidadInterna));
+                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadInterna));
+                    MTCAGmantenibilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadInterna, datos.CargaMetricas.MantenibilidadInterna));
                 }
             }
             else
             {
                 if (datos.DatosMetricas.FuncionalidadExterna)
                 {
-                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.FuncionalidadExterna));
+                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadExterna));
+                    MTCAGfuncionalidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadExterna, datos.CargaMetricas.FuncionalidadExterna));
                 }
 
                 if (datos.DatosMetricas.UsabilidadExterna)
                 {
-                    MTCusabilidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.UsabilidadExterna));
+                    MTCusabilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadExterna));
+                    MTCAGusabilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadExterna, datos.CargaMetricas.UsabilidadExterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadExterna)
                 {
-                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.MantenibilidadExterna));
+                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadExterna));
+                    MTCAGmantenibilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadExterna, datos.CargaMetricas.MantenibilidadExterna));
                 }
             }
         }
@@ -211,7 +261,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (perspectiva.Equals("Interna"))
             {
-                calcularResultadoFormulas(datos, perspectiva);
+                prepararEvaluacionFuzzy(datos, perspectiva);
                 // agrupar por subcaracteristicas
                 // agrupar por caracteristicas
                 // promediar y aplicar importancia
@@ -222,7 +272,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 // calcular formulas
                 // agrupar por subcaracteristicas
-                // agrupar por caracteristicas
                 // promediar y aplicar importancia
                 // mandar a controlador 
                 btnCalcSubExterna.IsEnabled = true;

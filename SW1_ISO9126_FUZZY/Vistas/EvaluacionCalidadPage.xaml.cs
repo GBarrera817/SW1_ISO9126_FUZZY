@@ -221,15 +221,30 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return local;
         }
 
-        // ¿como guardar subcaracteristicas?
-        // calcular double promedio
-        // normalizar
-        // aplicar importancia
+        // Prepara las subcaracteristicas para la Fuzzy: Normalizar y aplicar importancia
 
-        /*private double finalizarSubcaracteristicas(List<ListCalculo> subcaracteristica, double importancia)
+        // Promedia las metricas de las subcaracteristicas de una caracteristica 
+
+        private List<double> promedioSubcaracteristicas(List<List<MTCalculo>> subcaracteristica)
         {
+            List<double> promedios = new List<double>();
+            List<MTCalculo> temporal;
+            double valor, resultado;
 
-        }*/
+            for (int i = 0; i < subcaracteristica.Count; i++)
+            {
+                temporal = new List<MTCalculo>(subcaracteristica[i]);
+                valor = 0;
+                resultado = 0;
+
+                for (int j = 0; j < temporal.Count; j++)
+                    valor = valor + temporal[i].Resultado;
+
+                resultado = valor / temporal.Count;
+                promedios.Add(resultado);
+            }
+            return promedios;
+        }
 
         // Prepara la lista de calculos para realizar la evaluacion difusa
 

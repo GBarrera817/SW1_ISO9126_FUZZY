@@ -28,6 +28,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTCalculo> MTCusabilidadExterna;
         private List<MTCalculo> MTCmantenibilidadExterna;
 
+        // Lista de resultados con agrupamiento por subcaracteristicas
+        private List<MTCalculo[]> MTCAGfuncionalidadInterna;
+        private List<MTCalculo[]> MTCAGusabilidadInterna;
+        private List<MTCalculo[]> MTCAGmantenibilidadInterna;
+        private List<MTCalculo[]> MTCAGfuncionalidadExterna;
+        private List<MTCalculo[]> MTCAGusabilidadExterna;
+        private List<MTCalculo[]> MTCAGmantenibilidadExterna;
+
+
         private EstadoModulo calidadMetricas;
         private EstadoFinal estadoFinalEvaluacion;
         private Resultado resultadoFinalEvaluacion;
@@ -48,22 +57,44 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void inicializarListasCalculos(Evaluacion datos)
         {
             if (datos.DatosMetricas.FuncionalidadInterna)
+            {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
-
+                MTCAGfuncionalidadInterna = new List<MTCalculo[]>();
+            }
+              
             if (datos.DatosMetricas.UsabilidadInterna)
+            {
                 MTCusabilidadInterna = new List<MTCalculo>();
+                MTCAGusabilidadInterna = new List<MTCalculo[]>();
+            }
+                
 
-            if (datos.DatosMetricas.MantenibilidadInterna)          
-                MTCmantenibilidadInterna = new List<MTCalculo>();        
+            if (datos.DatosMetricas.MantenibilidadInterna)
+            {
+                MTCmantenibilidadInterna = new List<MTCalculo>();
+                MTCAGmantenibilidadInterna = new List<MTCalculo[]>();
+            }          
+                
 
             if (datos.DatosMetricas.FuncionalidadExterna)
+            {
                 MTCfuncionalidadExterna = new List<MTCalculo>();
+                MTCAGfuncionalidadExterna = new List<MTCalculo[]>();
+            }
+                
 
             if (datos.DatosMetricas.UsabilidadExterna)
+            {
                 MTCusabilidadExterna = new List<MTCalculo>();
+                MTCAGusabilidadExterna = new List<MTCalculo[]>();
+            }
+                
 
             if (datos.DatosMetricas.MantenibilidadExterna)
+            {
                 MTCmantenibilidadExterna = new List<MTCalculo>();
+                MTCAGmantenibilidadExterna = new List<MTCalculo[]>();
+            }            
         }
 
         // Limpia las columnas de la tabla
@@ -145,43 +176,42 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 if (datos.DatosMetricas.UsabilidadInterna)
                 {
-
+                    MTCusabilidadInterna = new List<MTCalculo>(calcularLista(datos.Fomulario.UsabilidadInterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadInterna)
                 {
-
+                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularLista(datos.Fomulario.MantenibilidadInterna));
                 }
             }
             else
             {
                 if (datos.DatosMetricas.FuncionalidadExterna)
                 {
-
+                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.FuncionalidadExterna));
                 }
 
                 if (datos.DatosMetricas.UsabilidadExterna)
                 {
-
+                    MTCusabilidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.UsabilidadExterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadExterna)
                 {
-
+                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularLista(datos.Fomulario.MantenibilidadExterna));
                 }
             }
-
         }
 
         // Cargas datos desde modulo evaluacion
 
-        public void cargarModuloEvaluacion(Evaluacion datos, string pespectiva)
+        public void cargarModuloEvaluacion(Evaluacion datos, string perspectiva)
         {
             Console.WriteLine("Pagina calidad cargarModuloEvaluacion");
 
-            if (pespectiva.Equals("Interna"))
+            if (perspectiva.Equals("Interna"))
             {
-                // calcular formulas
+                calcularResultadoFormulas(datos, perspectiva);
                 // agrupar por subcaracteristicas
                 // agrupar por caracteristicas
                 // promediar y aplicar importancia

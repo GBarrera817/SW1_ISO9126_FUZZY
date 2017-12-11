@@ -37,9 +37,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<List<MTCalculo>> MTCAGusabilidadExterna;
         private List<List<MTCalculo>> MTCAGmantenibilidadExterna;
 
-        // Lista final de suncaracteristicas
-
-        //private List<List<double>> 
+        // Lista final de subcaracteristicas
+        private List<double> FFuncionalidadInterna;
+        private List<double> FUsabilidadInterna;
+        private List<double> FMantenibilidadIntena;
+        private List<double> FFuncionalidadExterna;
+        private List<double> FUsabilidadExterna;
+        private List<double> FMantenibilidadExterna;
 
         private EstadoModulo calidadMetricas;
         private EstadoFinal estadoFinalEvaluacion;
@@ -64,36 +68,42 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
                 MTCAGfuncionalidadInterna = new List<List<MTCalculo>>();
+                FFuncionalidadInterna = new List<double>();
             }
               
             if (datos.DatosMetricas.UsabilidadInterna)
             {
                 MTCusabilidadInterna = new List<MTCalculo>();
                 MTCAGusabilidadInterna = new List<List<MTCalculo>>();
+                FUsabilidadInterna = new List<double>();
             }               
 
             if (datos.DatosMetricas.MantenibilidadInterna)
             {
                 MTCmantenibilidadInterna = new List<MTCalculo>();
                 MTCAGmantenibilidadInterna = new List<List<MTCalculo>>();
+                FMantenibilidadIntena = new List<double>();
             }          
                 
             if (datos.DatosMetricas.FuncionalidadExterna)
             {
                 MTCfuncionalidadExterna = new List<MTCalculo>();
                 MTCAGfuncionalidadExterna = new List<List<MTCalculo>>();
+                FFuncionalidadExterna = new List<double>();
             }
                 
             if (datos.DatosMetricas.UsabilidadExterna)
             {
                 MTCusabilidadExterna = new List<MTCalculo>();
                 MTCAGusabilidadExterna = new List<List<MTCalculo>>();
+                FUsabilidadExterna = new List<double>();
             }
                 
             if (datos.DatosMetricas.MantenibilidadExterna)
             {
                 MTCmantenibilidadExterna = new List<MTCalculo>();
                 MTCAGmantenibilidadExterna = new List<List<MTCalculo>>();
+                FMantenibilidadExterna = new List<double>();
             }            
         }
 

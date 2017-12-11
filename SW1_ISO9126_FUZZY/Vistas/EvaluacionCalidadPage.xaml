@@ -33,7 +33,7 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
-                                <DataGridTextColumn Header="Grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="Valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
@@ -62,7 +62,7 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="subcaracterística"/>
                                 <DataGridTextColumn Header="característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
@@ -104,7 +104,7 @@
                         <DataGrid x:Name="tbcarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
@@ -132,7 +132,7 @@
                         <DataGrid x:Name="tbcarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>

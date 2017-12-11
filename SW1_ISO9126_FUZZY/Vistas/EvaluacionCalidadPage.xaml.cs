@@ -37,6 +37,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<List<MTCalculo>> MTCAGusabilidadExterna;
         private List<List<MTCalculo>> MTCAGmantenibilidadExterna;
 
+        // Lista final de suncaracteristicas
+
+        //private List<List<double>> 
+
         private EstadoModulo calidadMetricas;
         private EstadoFinal estadoFinalEvaluacion;
         private Resultado resultadoFinalEvaluacion;
@@ -207,6 +211,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return local;
         }
 
+        // ¿como guardar subcaracteristicas?
+        // calcular double promedio
+        // normalizar
+        // aplicar importancia
+
+        /*private double finalizarSubcaracteristicas(List<ListCalculo> subcaracteristica, double importancia)
+        {
+
+        }*/
+
         // Prepara la lista de calculos para realizar la evaluacion difusa
 
         private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)
@@ -262,8 +276,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (perspectiva.Equals("Interna"))
             {
                 prepararEvaluacionFuzzy(datos, perspectiva);
-                // agrupar por subcaracteristicas
-                // agrupar por caracteristicas
                 // promediar y aplicar importancia
                 // mandar a controlador 
                 btnCalcSubInterna.IsEnabled = true;
@@ -433,7 +445,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             dtColumnas.Columns.Add("subcaracterística", typeof(string));
             dtColumnas.Columns.Add("característica", typeof(string));
-            dtColumnas.Columns.Add("grado importancia", typeof(string));
+            dtColumnas.Columns.Add("importancia", typeof(string));
             dtColumnas.Columns.Add("valor", typeof(string));
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 
@@ -533,7 +545,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             DataTable dtColumnas = new DataTable();
 
             dtColumnas.Columns.Add("característica", typeof(string));
-            dtColumnas.Columns.Add("grado importancia", typeof(string));
+            dtColumnas.Columns.Add("importancia", typeof(string));
             dtColumnas.Columns.Add("valor", typeof(string));
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 

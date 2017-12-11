@@ -93,7 +93,7 @@
                     </Button.Background>-->
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="106,43,20,14" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
+                <DataGrid x:Name="DataGridEstadoMetricasInternas" Margin="106,43,20,14" IsHitTestVisible="False" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
 
                 <TextBlock x:Name="txTablaInterna" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Funcionalidad" VerticalAlignment="Top" Margin="205,3,0,0" FontSize="20" TextDecorations="{x:Null}" Foreground="#FF149FDA"/>
 
@@ -180,7 +180,8 @@
                     </Button.Background>-->
                 </Button>
 
-                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="106,43,20,14" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
+                <DataGrid x:Name="DataGridEstadoMetricasExternas" Margin="106,43,20,14" IsHitTestVisible="False" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False"/>
+
                 <TextBlock x:Name="txTablaExterna" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Funcionalidad" VerticalAlignment="Top" Margin="205,3,0,0" FontSize="20" TextDecorations="{x:Null}" Foreground="#FF149FDA"/>
 
             </Grid>

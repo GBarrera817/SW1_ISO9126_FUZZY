@@ -342,6 +342,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (info.CumplimientoFuncional != 0)
                 funcionalidad.Add(info.CumplimientoFuncional);
 
+            for (int i = 0; i < funcionalidad.Count; i++)
+                Console.WriteLine("Importancia "+i+": "+funcionalidad[i]);
+
             return funcionalidad;
         }
 
@@ -366,6 +369,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             if (info.CumplimientoUsabilidad != 0)
                 usabilidad.Add(info.CumplimientoUsabilidad);
 
+            for (int i = 0; i < usabilidad.Count; i++)
+                Console.WriteLine("Importancia " + i + ": " + usabilidad[i]);
+
             return usabilidad;
         }
 
@@ -389,6 +395,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (info.CumplimientoMantenibilidad != 0)
                 mantenibilidad.Add(info.CumplimientoMantenibilidad);
+
+            for (int i = 0; i < mantenibilidad.Count; i++)
+                Console.WriteLine("Importancia " + i + ": " + mantenibilidad[i]);
 
             return mantenibilidad;
         }

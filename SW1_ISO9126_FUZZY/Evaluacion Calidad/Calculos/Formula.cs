@@ -122,7 +122,9 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("(Sum(A)/Sum(B))/N"))
 			{
-				if(param2 == 0 || param3 == 0)
+                Console.WriteLine("Formula -> (Sum(A)/Sum(B))/N");
+
+                if (param2 == 0 || param3 == 0)
 				{
 					return 0;
 				}

@@ -168,6 +168,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 valor.Id = datos.Id;
 
+                Console.WriteLine("\n<<===================");
+
+                Console.WriteLine("Datos origen");
+                Console.WriteLine(datos.ToString());
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Datos evaluacion");
+
                 if (datos.Parametros.Length == 2)
                 {
                     valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1]);
@@ -180,11 +187,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }   
 
                 Console.WriteLine("Resultado: "+valor.Resultado);
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Datos almacenados");
+                Console.WriteLine(valor.ToString());
 
                 listaCalculo.Add(valor);
 
-                Console.WriteLine(datos.ToString());
-                Console.WriteLine(valor.ToString());
+                Console.WriteLine("\n===================>>");
             }
 
             return listaCalculo;
@@ -301,7 +310,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             for (int i = 0; i < subcaracteristicas.Count; i++)
             {
                 subcar = subcaracteristicas[i];
-                grado = grados[i];
+                grado = grados[i]; // error de indice
 
                 resultado = subcar * grado;
                 importancias.Add(resultado);

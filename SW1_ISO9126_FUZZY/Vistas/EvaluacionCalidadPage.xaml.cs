@@ -203,7 +203,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
         {
-            Console.WriteLine("agruparSubcaracteristicas");
+            Console.WriteLine("Modulo: agruparSubcaracteristicas");
 
             List<List<MTCalculo>> lista = new List<List<MTCalculo>>();
             List<MTCalculo> sublista = new List<MTCalculo>();
@@ -212,6 +212,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             for (int i = 0; i < original.Count; i++)
             {
+
                 if (string.Equals(subcarateristica, local[i].Subcaracteristica))
                 {
                     sublista.Add(original[i]);
@@ -232,7 +233,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<JMetrica> obtenerListaReal(List<MTCalculo> original, List<JMetrica> metricas)
         {
-            Console.WriteLine("obtenerListaReal");
+            Console.WriteLine("modulo: obtenerListaReal");
 
             List<JMetrica> local = new List<JMetrica>();
             int j = 0;
@@ -245,6 +246,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 local.Add(metricas[j]);
                 j++;
             }
+
+            Console.WriteLine("Lista original MTCalculo");
+
+            for (int i = 0; i < original.Count; i++)
+                Console.WriteLine("ID: "+original[i].Id);
+
+            Console.WriteLine("Lista original JMetrica");
+
+            for (int i = 0; i < local.Count; i++)
+                Console.WriteLine("ID: " + local[i].Id);
 
             return local;
         }

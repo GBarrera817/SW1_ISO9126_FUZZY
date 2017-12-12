@@ -12,6 +12,7 @@ using SW1_ISO9126_FUZZY.Archivos;
 using System.IO;
 using SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos;
 using SW1_ISO9126_FUZZY.JSON;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -221,8 +222,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return local;
         }
 
-        // Prepara las subcaracteristicas para la Fuzzy: Normalizar y aplicar importancia
-
         // Promedia las metricas de las subcaracteristicas de una caracteristica 
 
         private List<double> promedioSubcaracteristicas(List<List<MTCalculo>> subcaracteristica)
@@ -264,6 +263,85 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
 
             return normalizacion;
+        }
+
+        // Prepara las subcaracteristicas para la Fuzzy: Normalizar y aplicar importancia
+
+        private List<double> importanciaSubcaracteristicas(List<double> subcaracteristicas, List<double> grados)
+        {
+            List<double> importancias = new List<double>();
+            double valor = 0;
+            double resultado = 0;
+
+            return importancias;
+        }
+
+        // Metodos para recuperar los grados de importancia
+
+        private List<double> obtenerImportanciaFuncionalidad(ISCFuncionalidad info)
+        {
+            List<double> funcionalidad = new List<double>();
+
+            if (info.Adecuacion != 0)
+                funcionalidad.Add(info.Adecuacion);
+
+            if (info.Exactitud != 0)
+                funcionalidad.Add(info.Exactitud);
+
+            if (info.Interoperabilidad != 0)
+                funcionalidad.Add(info.Interoperabilidad)
+
+            if (info.SeguridadAcceso != 0)
+                funcionalidad.Add(info.SeguridadAcceso);
+
+            if (info.CumplimientoFuncional != 0)
+                funcionalidad.Add(info.CumplimientoFuncional);
+
+            return funcionalidad;
+        }
+
+        private List<double> obtenerImportanciaUsabilidad(ISCUsabilidad info)
+        {
+            List<double> usabilidad = new List<double>();
+
+            if (info.Comprensibilidad != 0)
+                usabilidad.Add(info.Comprensibilidad);
+
+            if (info.Aprendizaje != 0)
+                usabilidad.Add(info.Aprendizaje);
+
+            if (info.Operabilidad != 0)
+                usabilidad.Add(info.Operabilidad);
+
+            if (info.Atractividad != 0)
+                usabilidad.Add(info.Atractividad);
+
+            if (info.CumplimientoUsabilidad != 0)
+                usabilidad.Addr(info.CumplimientoUsabilidad);
+
+            return usabilidad;
+        }
+
+        private List<double> importanciaMantenibilidad(ISCMantenibilidad info)
+        {
+            List<double> mantenibilidad = new List<double>();
+
+            if (info.Analizabilidad != 0)
+                mantenibilidad.Add(info.Analizabilidad);
+
+            if (info.Modificabilidad != 0)
+                mantenibilidad.Add(info.Modificabilidad);
+
+            if (info.Estabilidad != 0)
+                mantenibilidad.Add(info.Estabilidad);
+
+            if (info.Testeabilidad != 0)
+                mantenibilidad.Add(info.Testeabilidad);
+
+            if (info.CumplimientoMantenibilidad != 0)
+                mantenibilidad.Add(info.CumplimientoMantenibilidad);
+
+            return mantenibilidad;
         }
 
         // Prepara la lista de calculos para realizar la evaluacion difusa

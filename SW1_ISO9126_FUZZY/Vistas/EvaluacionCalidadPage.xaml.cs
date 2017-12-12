@@ -246,6 +246,26 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return promedios;
         }
 
+        // Normaliza las subcaracteristicas de una caracteristica 
+
+        private List<double> normalizarSubcaracteristicas(List<double> subcaracteristicas)
+        {
+            List<double> normalizacion = new List<double>();
+            double valor = 0;
+            double resultado = 0;
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+                valor = valor + subcaracteristicas[i];
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                resultado = subcaracteristicas[i] / valor;
+                normalizacion.Add(resultado);
+            }
+
+            return normalizacion;
+        }
+
         // Prepara la lista de calculos para realizar la evaluacion difusa
 
         private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)

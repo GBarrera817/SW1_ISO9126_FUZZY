@@ -46,7 +46,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 
 			if (formula.Equals("T/N"))
 			{
-                Console.WriteLine("Formula -> T/N"");
+                Console.WriteLine("Formula -> T/N");
 
                 if (param1 == 0 || param2 == 0)
 				{

@@ -424,7 +424,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         {
             Console.WriteLine("Pagina calidad cargarModuloEvaluacion");
 
-            prepararEvaluacionFuzzy(datos, perspectiva);
+            miEvaluacion = datos;
 
             if (perspectiva.Equals("Interna"))
                 btnCalcSubInterna.IsEnabled = true;
@@ -601,32 +601,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-            /*if (calcularFormulasmetricas())
-            {
-                if (calcularFuzzySubcaracteristicas())
-                {
-                    btnCalcCaractInterna.IsEnabled = true;
-                }
-                else
-                {
-                    btnCalcCaractInterna.IsEnabled = false;
-                }
-            }*/
+            prepararEvaluacionFuzzy(miEvaluacion, "Interna");
+            
+            /*if (calcularFuzzySubcaracteristicas())
+                btnCalcCaractInterna.IsEnabled = true;
+            else
+                btnCalcCaractInterna.IsEnabled = false;*/
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
         {
-           /* if (calcularFormulasmetricas())
-            {
-                if (calcularFuzzySubcaracteristicas())
-                {
-                    btnCalcCaractExterna.IsEnabled = true;
-                }
-                else
-                {
-                    btnCalcCaractExterna.IsEnabled = false;
-                }
-            }*/
+            prepararEvaluacionFuzzy(miEvaluacion, "Externa");
+
+            /*if (calcularFuzzySubcaracteristicas())
+                btnCalcCaractInterna.IsEnabled = true;
+            else
+                btnCalcCaractInterna.IsEnabled = false;*/
         }
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------

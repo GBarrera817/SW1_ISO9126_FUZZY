@@ -317,12 +317,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 usabilidad.Add(info.Atractividad);
 
             if (info.CumplimientoUsabilidad != 0)
-                usabilidad.Addr(info.CumplimientoUsabilidad);
+                usabilidad.Add(info.CumplimientoUsabilidad);
 
             return usabilidad;
         }
 
-        private List<double> importanciaMantenibilidad(ISCMantenibilidad info)
+        private List<double> obtenerImportanciaMantenibilidad(ISCMantenibilidad info)
         {
             List<double> mantenibilidad = new List<double>();
 
@@ -348,6 +348,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)
         {
+            // Obtener los grados de importancia, son los mismo para interna y externa
+            List<double> importanciaFuncionalidad = new List<double>(obtenerImportanciaFuncionalidad(datos.Grados.SbcFuncionalidad));
+            List<double> importanciaUsabilidad = new List<double>(obtenerImportanciaUsabilidad(datos.Grados.SbcUsabilidad));
+            List<double> importanciaMantenibilidad = new List<double>(obtenerImportanciaMantenibilidad(datos.Grados.SbcMantenibilidad));
+
             if (perspectiva.Equals("Interna"))
             {
                 if (datos.DatosMetricas.FuncionalidadInterna)

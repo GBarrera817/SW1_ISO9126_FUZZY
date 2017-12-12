@@ -277,6 +277,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCfuncionalidadInterna =  new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadInterna));
                     MTCAGfuncionalidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadInterna, datos.CargaMetricas.FuncionalidadInterna));
                     FFuncionalidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));  
                 }
 
                 if (datos.DatosMetricas.UsabilidadInterna)
@@ -284,6 +285,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCusabilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadInterna));
                     MTCAGusabilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadInterna, datos.CargaMetricas.UsabilidadInterna));
                     FUsabilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadInterna));
+                    FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadInterna)
@@ -291,6 +293,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCmantenibilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadInterna));
                     MTCAGmantenibilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadInterna, datos.CargaMetricas.MantenibilidadInterna));
                     FMantenibilidadIntena = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
+                    FMantenibilidadIntena = new List<double>(normalizarSubcaracteristicas(FMantenibilidadIntena));
                 }
             }
             else
@@ -300,6 +303,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCfuncionalidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadExterna));
                     MTCAGfuncionalidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadExterna, datos.CargaMetricas.FuncionalidadExterna));
                     FFuncionalidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
                 }
 
                 if (datos.DatosMetricas.UsabilidadExterna)
@@ -307,6 +311,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCusabilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadExterna));
                     MTCAGusabilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadExterna, datos.CargaMetricas.UsabilidadExterna));
                     FUsabilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadExterna));
+                    FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
                 }
 
                 if (datos.DatosMetricas.MantenibilidadExterna)
@@ -314,6 +319,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     MTCmantenibilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadExterna));
                     MTCAGmantenibilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadExterna, datos.CargaMetricas.MantenibilidadExterna));
                     FMantenibilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
                 }
             }
         }

@@ -643,7 +643,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             // CASO FALSO FALSO VERDADERO
             if (actFuncionalidad == false && actUsabilidad == false && actMantenibilidad == true)
             {
-                if (actMantenibilidad.Equals("FINALIZADO"))
+                if (mantenibilidad.Equals("FINALIZADO"))
                     return true;
             }
 

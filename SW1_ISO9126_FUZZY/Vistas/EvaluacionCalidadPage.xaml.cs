@@ -65,6 +65,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarListasCalculos(Evaluacion datos)
         {
+            Console.WriteLine("inicializarListasCalculos");
+
             if (datos.DatosMetricas.FuncionalidadInterna)
             {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
@@ -122,6 +124,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void cargarDatosModulo(Evaluacion datos)
         {
+            Console.WriteLine("cargarDatosModulo");
+
             ArrayList temporal = new ArrayList();
 
             inicializarListasCalculos(datos);
@@ -151,6 +155,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<MTCalculo> calcularResultadoFormulas(List<MTEvaluacion> listaEvaluacion)
         {
+            Console.WriteLine("calcularResultadoFormulas");
+
             List<MTCalculo> listaCalculo = new List<MTCalculo>();
             MTEvaluacion datos;
             MTCalculo valor;
@@ -163,9 +169,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 valor.Id = datos.Id;
 
                 if (datos.Parametros.Length == 2)
+                {
                     valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1]);
+                    Console.WriteLine("P0: "+datos.Valores[0]+" P1: "+datos.Valores[1]);
+                }
                 else
+                {
                     valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1], datos.Valores[2]);
+                    Console.WriteLine("P0: " + datos.Valores[0] + " P1: " + datos.Valores[1] + " P2: "+datos.Valores[2]);
+                }   
+
+                Console.WriteLine("Resultado: "+valor.Resultado);
 
                 listaCalculo.Add(valor);
 
@@ -180,6 +194,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
         {
+            Console.WriteLine("agruparSubcaracteristicas");
+
             List<List<MTCalculo>> lista = new List<List<MTCalculo>>();
             List<MTCalculo> sublista = new List<MTCalculo>();
             List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas));
@@ -207,6 +223,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<JMetrica> obtenerListaReal(List<MTCalculo> original, List<JMetrica> metricas)
         {
+            Console.WriteLine("obtenerListaReal");
+
             List<JMetrica> local = new List<JMetrica>();
             int j = 0;
 
@@ -226,6 +244,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> promedioSubcaracteristicas(List<List<MTCalculo>> subcaracteristica)
         {
+            Console.WriteLine("promedioSubcaracteristicas");
+
             List<double> promedios = new List<double>();
             List<MTCalculo> temporal;
             double valor, resultado;
@@ -249,6 +269,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> normalizarSubcaracteristicas(List<double> subcaracteristicas)
         {
+            Console.WriteLine("normalizarSubcaracteristicas");
+
             List<double> normalizacion = new List<double>();
             double valor = 0;
             double resultado = 0;
@@ -269,12 +291,19 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> aplicarImportanciaSubcaracteristicas(List<double> subcaracteristicas, List<double> grados)
         {
+            Console.WriteLine("aplicarImportanciaSubcaracteristicas");
+
             List<double> importancias = new List<double>();
             double resultado = 0;
+            double subcar = 0;
+            double grado = 0;
 
             for (int i = 0; i < subcaracteristicas.Count; i++)
             {
-                resultado = subcaracteristicas[i] x grados[i];
+                subcar = subcaracteristicas[i];
+                grado = grados[i];
+
+                resultado = subcar * grado;
                 importancias.Add(resultado);
             }
 
@@ -285,6 +314,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> obtenerImportanciaSubcarFuncionalidad(ISCFuncionalidad info)
         {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarFuncionalidad");
+
             List<double> funcionalidad = new List<double>();
 
             if (info.Adecuacion != 0)
@@ -294,7 +325,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 funcionalidad.Add(info.Exactitud);
 
             if (info.Interoperabilidad != 0)
-                funcionalidad.Add(info.Interoperabilidad)
+                funcionalidad.Add(info.Interoperabilidad);
 
             if (info.SeguridadAcceso != 0)
                 funcionalidad.Add(info.SeguridadAcceso);
@@ -307,6 +338,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> obtenerImportanciaSubcarUsabilidad(ISCUsabilidad info)
         {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarUsabilidad");
+
             List<double> usabilidad = new List<double>();
 
             if (info.Comprensibilidad != 0)
@@ -329,6 +362,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<double> obtenerImportanciaSubcarMantenibilidad(ISCMantenibilidad info)
         {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarMantenibilidad");
+
             List<double> mantenibilidad = new List<double>();
 
             if (info.Analizabilidad != 0)
@@ -353,7 +388,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)
         {
-            // Obtener los grados de importancia, son los mismo para interna y externa
+            Console.WriteLine("Entrando a prepararEvaluacionFuzzy: " + perspectiva);
+
             List<double> importanciaSubcarFuncionalidad = new List<double>(obtenerImportanciaSubcarFuncionalidad(datos.Grados.SbcFuncionalidad));
             List<double> importanciaSubcarUsabilidad = new List<double>(obtenerImportanciaSubcarUsabilidad(datos.Grados.SbcUsabilidad));
             List<double> importanciaSubcarMantenibilidad = new List<double>(obtenerImportanciaSubcarMantenibilidad(datos.Grados.SbcMantenibilidad));

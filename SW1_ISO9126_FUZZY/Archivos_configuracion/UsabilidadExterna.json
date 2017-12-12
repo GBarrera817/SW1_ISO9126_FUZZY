@@ -2,7 +2,7 @@
 	"Perspectiva":"Externa",
   	"Comprensibilidad": [
 			{
-              "id": 57,
+              "id": 55,
               "subcaracteristica" : "Comprensibilidad",
               "nombre": "Integridad de la descripción",
               "proposito": ["¿Qué proporción de funciones (o tipos de funciones) se entiende después de leer la descripción del producto?"],
@@ -20,7 +20,7 @@
               ]
             },
             {
-            	"id": 58,
+            	"id": 56,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Accesibilidad de demostración",
 	            "proposito": ["¿A qué proporción de las demostraciones/tutoriales puede acceder el usuario?"],
@@ -38,7 +38,7 @@
               ]
             },
             {
-            	"id": 59,
+            	"id": 57,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Accesibilidad de demostración en uso",
 	            "proposito": ["¿Qué proporción de las demostraciones/tutoriales puede el usuario acceder cuando el usuario realmente necesita hacer durante la operación?"],
@@ -56,7 +56,7 @@
               ]
             },
             {
-            	"id": 60,
+            	"id": 58,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Eficacia de la demostración",
 	            "proposito": ["¿Qué proporción de las funciones que el usuario puede operar con éxito después de una demostración o tutorial?"],
@@ -74,7 +74,7 @@
               ]
             },
             {
-            	"id": 61,
+            	"id": 59,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Funciones evidentes",
 	            "proposito": ["¿Qué proporción de funciones (o tipos de funciones) puede ser identificada por el usuario en función de las condiciones de inicio?"],
@@ -92,7 +92,7 @@
               ]
             },
             {
-            	"id": 62,
+            	"id": 60,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Función capacidad de comprensión",
 	            "proposito": ["¿Qué proporción de las funciones del producto el usuario será capaz de entender correctamente?"],
@@ -110,7 +110,7 @@
               ]
             },
             {
-            	"id": 63,
+            	"id": 61,
 				"subcaracteristica" : "Comprensibilidad",
 	            "nombre": "Entradas y salidas comprensibles",
 	            "proposito": ["¿Pueden los usuarios entender lo que se requiere como datos de entrada y qué se proporciona como salida por el sistema de software?"],
@@ -130,7 +130,7 @@
    	],
   	"Aprendizaje": [
             {
-              "id": 64,
+              "id": 62,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o del sistema de ayuda",
               "proposito": ["¿Qué proporción de tareas se puede completar correctamente después de usar la documentación del usuario y / o el sistema de ayuda?"],
@@ -148,7 +148,7 @@
               ]
             },
             {
-              "id": 65,
+              "id": 63,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Eficacia de la documentación del usuario y / o sistemas de ayuda en uso",
               "proposito": ["¿Qué proporción de funciones se pueden utilizar correctamente después de leer la documentación o usar sistemas de ayuda?"],
@@ -166,7 +166,7 @@
               ]
             },
             {
-              "id": 66,
+              "id": 64,
               "subcaracteristica" : "Aprendizaje",
               "nombre": "Ayuda a la accesibilidad",
               "proposito": ["¿Qué proporción de los temas de ayuda puede localizar el usuario?"],
@@ -186,7 +186,7 @@
   	],
   	"Operabilidad" : [
 			{
-              "id": 67,
+              "id": 65,
               "subcaracteristica" : "Operabilidad",
               "nombre": "Consistencia operativa en el uso",
               "proposito": ["¿Qué tan consistente es el componente de la interfaz de usuario?"],
@@ -204,7 +204,7 @@
               ]
             },
             {
-            	"id": 68,
+            	"id": 66,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores",
 	            "proposito": ["¿Puede el usuario corregir fácilmente el error en las tareas?"],
@@ -222,7 +222,7 @@
               ]
             },
             {
-            	"id": 69,
+            	"id": 67,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Corrección de errores en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su entrada?"],
@@ -240,7 +240,7 @@
               ]
             },
             {
-            	"id": 70,
+            	"id": 68,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Disponibilidad de Valor Predeterminado en uso",
 	            "proposito": ["¿Puede el usuario seleccionar fácilmente valores de parámetros para su cómoda operación?"],
@@ -258,7 +258,7 @@
               ]
             },
             {
-            	"id": 71,
+            	"id": 69,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Comprensión del mensaje en uso",
 	            "proposito": [
@@ -281,7 +281,7 @@
               ]
             },
             {
-            	"id": 72,
+            	"id": 70,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Mensajes de error autoexplicativos",
 	            "proposito": ["¿En qué proporción de condiciones de error el usuario propone la acción de recuperación correcta?"],
@@ -299,7 +299,7 @@
               ]
             },
             {
-            	"id": 73,
+            	"id": 71,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Recuperabilidad del error operativo en uso",
 	            "proposito": ["¿Puede el usuario recuperar fácilmente su peor situación?"],
@@ -317,7 +317,7 @@
               ]
             },
             {
-            	"id": 74,
+            	"id": 72,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Tiempo entre operaciones de error humano en uso",
 	            "proposito": ["¿Puede el usuario operar el software lo suficiente sin error humano?"],
@@ -335,7 +335,7 @@
               ]
             },
             {
-            	"id": 75,
+            	"id": 73,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Capacidad de anular (Corrección de errores de usuario)",
 	            "proposito": ["¿Con qué frecuencia el usuario corrige correctamente los errores de entrada?"],
@@ -353,7 +353,7 @@
               ]
             },
             {
-            	"id": 76,
+            	"id": 74,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Personalización",
 	            "proposito": [
@@ -375,7 +375,7 @@
               	]
             },
             {
-            	"id": 77,
+            	"id": 75,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Reducción del procedimiento de operación",
 	            "proposito": ["¿Puede el usuario reducir fácilmente los procedimientos de operación para su comodidad?"],
@@ -393,7 +393,7 @@
               	]
             },
             {
-            	"id": 78,
+            	"id": 76,
 				"subcaracteristica" : "Operabilidad",
 	            "nombre": "Accesibilidad física",
 	            "proposito": ["¿Qué proporción de funciones pueden tener acceso los usuarios con discapacidades físicas?"],
@@ -413,7 +413,7 @@
 	],
 	"Atractividad": [
             {
-            	"id": 79,
+            	"id": 77,
 				"subcaracteristica" : "Atractividad",
 	            "nombre": "Aspecto de la interfaz",
 	            "proposito": ["¿Qué proporción de elementos de interfaz se pueden personalizar en apariencia para la satisfacción del usuario?"],
@@ -433,7 +433,7 @@
   	],
   	"CumplimientoUsabilidad": [
 			{
-              "id": 80,
+              "id": 78,
               "subcaracteristica": "Cumplimiento Usabilidad",
               "nombre": "Cumplimiento de la Usabilidad",
               "proposito": ["¿Qué tan completamente el software se adhiere a las normas, convenciones, guías de estilo o las regulaciones relacionadas con la usabilidad?"],

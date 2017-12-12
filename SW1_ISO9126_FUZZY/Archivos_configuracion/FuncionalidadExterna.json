@@ -228,9 +228,9 @@
 			{ 
 				"id": 53,
 				"subcaracteristica" : "Cumplimiento Funcional",
-				"nombre": "Adecuación funcional",
-				"proposito": ["¿Cuán adecuadas son las funciones evaluadas?"],
-				"metodo": "Compare el número de funciones adecuadas para realizar las tareas especificadas en comparación con el número de funciones evaluadas.",
+				"nombre": "Cumplimiento Funcional",
+				"proposito": ["¿Es compatible la funcionalidad del producto con las normas, normas y convenciones aplicables?"],
+				"metodo": "Cuente el número de artículos que requieren cumplimiento que se han cumplido y compare con el número de artículos que requieren cumplimiento en la especificación.",
 				"formula": ["1 - A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
@@ -239,17 +239,17 @@
 				  "B"
 				],
 				"desc_param": [
-				  "A: Número de funciones en las que se detectan problemas en la evaluación",
-				  "B: Número de funciones evaluadas."
+				  "A: Número de elementos de cumplimiento de funcionalidad especificados que no se han implementado durante las pruebas",
+				  "B: Número total de elementos de cumplimiento de funcionalidad especificados"
 				]
 			} , 
 			{
 				"id": 54,
 				"subcaracteristica" : "Cumplimiento Funcional",
-				"nombre": "Completitud de la implementación funcional",
-				"proposito": ["¿Qué tan completa es la implementación de acuerdo a especificaciones de requisitos?"],
-				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones faltantes detectadas en la evaluación y compare con el número de funciones que se describen en las especificaciones del requisito.",
-				"formula": ["1 - A/B"],
+				"nombre": "Cumplimiento de estándares de interfaz",
+				"proposito": ["¿Cuán completas son las interfaces con las regulaciones, estándares y convenciones aplicables?"],
+				"metodo": "Cuente el número de interfaces que cumplen con el cumplimiento requerido y compare con el número de interfaces que requieren cumplimiento como en las especificaciones.",
+				"formula": ["A/B"],
 				"peor_valor": 0,
 				"mejor_valor": 1,
 				"parametros": [
@@ -257,45 +257,9 @@
 				  "B"
 				],
 				"desc_param": [
-				  "A: Número de funciones perdidas detectadas en la evaluación.",
-				  "B: Número de funciones descritas en las especificaciones del requisito."
+				  "A: Número de interfaces correctamente implementadas como se especifica.",
+				  "B: Número total de interfaces que requieren cumplimiento."
 				]
-			},
-			{
-				"id": 55,
-				"subcaracteristica" : "Cumplimiento Funcional",
-				"nombre": "Cobertura funcional de la implementación",
-				"proposito": ["¿Qué tan correcta es la implementación funcional?"],
-				"metodo": "Realice pruebas funcionales (prueba de caja negra) del sistema de acuerdo con las especificaciones del requisito. Cuente el número de funciones incorrectamente implementadas o faltantes detectadas en la evaluación y comparar con el número total de funciones descritas en las especificaciones del requisito. Cuente el número de funciones que están completas en comparación con las que no lo son.",
-				"formula": ["1 - A/B"],
-				"peor_valor": 0,
-				"mejor_valor": 1,
-				"parametros": [
-				  "A",
-				  "B"
-				],
-				"desc_param": [
-				  "A: Número de funciones incorrectamente implementadas o faltantes detectadas.",
-				  "B: Número de funciones descritas en las especificaciones del requisito."
-				]
-			},
-			{
-				"id": 56,
-				"subcaracteristica" : "Cumplimiento Funcional",
-				"nombre": "Estabilidad de la especificación funcional (volatilidad)",
-				"proposito": ["¿Qué tan estable es la especificación funcional durante el ciclo de vida del desarrollo?"],
-				"metodo": "Cuente el número de funciones descritas en las especificaciones funcionales que se tuvieron que cambiar después de que el sistema se puso en funcionamiento y compare con el número total de funciones descritas en las especificaciones del requisito.",
-				"formula": ["1 - A/B"],
-				"peor_valor": 0,
-				"mejor_valor": 1,
-				"parametros": [
-				  "A",
-				  "B"
-				],
-				"desc_param": [
-				  "A: Número de funciones modificadas después de introducir la operación a partir de la operación de entrada.",
-				  "B: Número de funciones descritas en las especificaciones del requisito."
-				]
-			} 
+			}
   	]
 }

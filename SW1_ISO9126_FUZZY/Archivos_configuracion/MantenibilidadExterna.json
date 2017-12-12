@@ -2,7 +2,7 @@
 	"Perspectiva":"Externa",
   	"Analizabilidad": [
 	  		{
-              "id": 81,
+              "id": 79,
               "subcaracteristica" : "Analizabilidad",
               "nombre": "Capacidad de seguimiento de auditoría",
               "proposito": [
@@ -23,7 +23,7 @@
               ]
             },
             {
-              "id": 82,
+              "id": 80,
               "subcaracteristica" : "Analizabilidad",
               "nombre": "Soporte de la función de diagnóstico",
               "proposito": [
@@ -45,7 +45,7 @@
               ]
             },
             {
-              "id": 83,
+              "id": 81,
               "subcaracteristica" : "Analizabilidad",
               "nombre": "Capacidad de análisis de fallas",
               "proposito": [
@@ -66,7 +66,7 @@
               ]
             },
             {
-              "id": 84,
+              "id": 82,
               "subcaracteristica" : "Analizabilidad",
               "nombre": "Eficacia del análisis de fallos",
               "proposito": [
@@ -90,7 +90,7 @@
               ]
             },
             {
-              "id": 85,
+              "id": 83,
               "subcaracteristica" : "Analizabilidad",
               "nombre": "Supervisión del estado de la capacidad",
               "proposito": [
@@ -113,7 +113,7 @@
    	],
   	"Modificabilidad": [
   			{
-              "id": 86,
+              "id": 84,
               "subcaracteristica" : "Modificabilidad",
               "nombre": "Cambio de la eficiencia del ciclo",
               "proposito": ["¿Se puede resolver el problema del usuario a su satisfacción dentro de una escala de tiempo aceptable?"],
@@ -133,7 +133,7 @@
               ]
             },
             {
-              "id": 87,
+              "id": 85,
               "subcaracteristica" : "Modificabilidad",
               "nombre": "Cambio del tiempo de ejecución de la implementación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema de falla?"],
@@ -153,7 +153,7 @@
               ]
             },
             {
-              "id": 88,
+              "id": 86,
               "subcaracteristica" : "Modificabilidad",
               "nombre": "Complejidad de la Modificación",
               "proposito": ["¿Puede el mantenedor cambiar fácilmente el software para resolver el problema?"],
@@ -173,7 +173,7 @@
               ]
             },
             {
-              "id": 89,
+              "id": 87,
               "subcaracteristica" : "Modificabilidad",
               "nombre": "Modificabilidad parametrizada",
               "proposito": ["¿Puede el usuario o el mantenedor cambiar fácilmente el parámetro para cambiar el software y resolver problemas?"],
@@ -191,7 +191,7 @@
               ]
             },
             {
-              "id": 90,
+              "id": 88,
               "subcaracteristica" : "Modificabilidad",
               "nombre": "Capacidad de control de cambio de software",
               "proposito": [
@@ -214,7 +214,7 @@
   	],
   	"Estabilidad" : [
             {
-              "id": 91,
+              "id": 89,
               "subcaracteristica" : "Estabilidad",
               "nombre": "Localización del impacto de una modificación (Fracaso emergente después del cambio)",
               "proposito": [
@@ -237,7 +237,7 @@
 	],
 	"Testeabilidad": [
 			{
-              "id": 92,
+              "id": 90,
               "subcaracteristica" : "Testeabilidad",
               "nombre": "Disponibilidad de la función de prueba incorporada",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas sin preparación adicional de la instalación de prueba?"],
@@ -255,7 +255,7 @@
               ]
             },
             {
-              "id": 93,
+              "id": 91,
               "subcaracteristica" : "Testeabilidad",
               "nombre": "Eficiencia de volver a probar",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operacionales y determinar si el software está listo para funcionar o no?"],
@@ -273,7 +273,7 @@
               ]
             },
             {
-              "id": 94,
+              "id": 92,
               "subcaracteristica" : "Testeabilidad",
               "nombre": "Capacidad de volver a empezar la prueba",
               "proposito": ["¿Puede el usuario y el mantenedor realizar fácilmente pruebas operativas con puntos de verificación después del mantenimiento?"],
@@ -293,7 +293,7 @@
   	],
   	"CumplimientoMantenibilidad": [
   			{
-              "id": 95,
+              "id": 93,
               "subcaracteristica" : "Cumplimiento Mantenibilidad",
               "nombre": "Cumplimiento de la Mantenibilidad",
               "proposito": ["¿En qué medida es compatibles la mantenibildiad del producto de software a las regulaciones, normas y convenciones?"],

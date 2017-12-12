@@ -265,13 +265,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return normalizacion;
         }
 
-        // Prepara las subcaracteristicas para la Fuzzy: Normalizar y aplicar importancia
+        // Aplica importancia a las subcaracteristicas
 
-        private List<double> importanciaSubcaracteristicas(List<double> subcaracteristicas, List<double> grados)
+        private List<double> aplicarImportanciaSubcaracteristicas(List<double> subcaracteristicas, List<double> grados)
         {
             List<double> importancias = new List<double>();
-            double valor = 0;
             double resultado = 0;
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                resultado = subcaracteristicas[i] x grados[i];
+                importancias.Add(resultado);
+            }
 
             return importancias;
         }

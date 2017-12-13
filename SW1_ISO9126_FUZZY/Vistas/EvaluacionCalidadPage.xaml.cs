@@ -382,6 +382,28 @@ namespace SW1_ISO9126_FUZZY.Vistas
             double subcar = 0;
             double grado = 0;
 
+            Console.WriteLine("\nListas de entrada");
+            Console.WriteLine("-------------------");
+
+            Console.WriteLine("\nListas subcacteristicas");
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                Console.WriteLine("Valor: " + subcaracteristicas[i]);
+            }
+
+            Console.WriteLine("\nListas grados de importancia");
+
+            for (int i = 0; i < grados.Count; i++)
+            {
+                Console.WriteLine("grado: " + grados[i]);
+            }
+
+            if(subcaracteristicas.Count == grados.Count)
+                Console.WriteLine("\nMisma longitud");
+            else
+                Console.WriteLine("\nDiferente longitud CUIDADO !!!");
+
             for (int i = 0; i < subcaracteristicas.Count; i++)
             {
                 subcar = subcaracteristicas[i];
@@ -390,6 +412,12 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 resultado = subcar * grado;
                 importancias.Add(resultado);
             }
+
+            Console.WriteLine("\nLista de salida graduada");
+            Console.WriteLine("--------------------------");
+
+            for (int i = 0; i < importancias.Count; i++)
+                Console.WriteLine("Valor resultante: " + importancias[i]);
 
             return importancias;
         }

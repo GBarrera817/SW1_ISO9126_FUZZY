@@ -343,13 +343,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
             double valor = 0;
             double resultado = 0;
 
+            Console.WriteLine("\nLista de entrada");
+            Console.WriteLine("----------------");
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                Console.WriteLine("Valor: "+subcaracteristicas[i]);
+            }
+
             for (int i = 0; i < subcaracteristicas.Count; i++)
                 valor = valor + subcaracteristicas[i];
+
+            Console.WriteLine("Sumatoria: "+valor);
 
             for (int i = 0; i < subcaracteristicas.Count; i++)
             {
                 resultado = subcaracteristicas[i] / valor;
                 normalizacion.Add(resultado);
+            }
+
+            Console.WriteLine("\nLista de salida normalizada");
+            Console.WriteLine("-----------------------------");
+
+            for (int i = 0; i < normalizacion.Count; i++)
+            {
+                Console.WriteLine("Valor: " + normalizacion[i]);
             }
 
             return normalizacion;

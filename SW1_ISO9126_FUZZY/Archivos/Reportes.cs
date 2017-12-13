@@ -19,44 +19,49 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 		private Font titleFont;
 		private Font subTitleFont;
 		private Font boldTableFont;
-		private Font endingMessageFont;
 		private Font bodyFont;
 
 		private Evaluacion miEvaluacion;
 
+		private List<string> datosPDF;
+
 		public Reportes(string nombreArchivo, Evaluacion nueva, List<string> confPDF)
 		{
 			miEvaluacion = nueva;
+			datosPDF = confPDF;
 
 			imageURL = @"D:/Documentos/Visual Studio 2017/Projects/SW1_ISO9126_FUZZY/SW1_ISO9126_FUZZY/Imagenes/";
-			titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
-			subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
-			boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+			//titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
+			//subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
+			//boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
 			//endingMessageFont = FontFactory.GetFont("Arial", 10, Font.ITALIC);
 
-			if (confPDF[1].Equals("ARIAL"))
+			if (datosPDF[1].Equals("ARIAL"))
 			{
 				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Arial", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Arial", datosPDF[2]);
 			}
 
-			if (confPDF[1].Equals("HELVETICA"))
+			if (datosPDF[1].Equals("HELVETICA"))
 			{
 				titleFont = FontFactory.GetFont("Helvetica", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Helvetica", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Helvetica", 12, Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Helvetica", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Helvetica", datosPDF[2]);
 			}
 
-			if (confPDF[1].Equals("COURIER"))
+			if (datosPDF[1].Equals("COURIER"))
 			{
 				titleFont = FontFactory.GetFont("Courier", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Courier", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Courier", 12, Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Courier", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Courier", datosPDF[2]);
 			}
 
 			/*
-			if (confPDF[1].Equals("TIMES NEW ROMAN"))
+			if (datosPDF[1].Equals("TIMES NEW ROMAN"))
 			{
 				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
@@ -74,14 +79,14 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				// ENCABEZADO
 				Image logoISO = Image.GetInstance(imageURL + "/logoPDF.jpg");
 				//logoISO.ScalePercent(0.2f * 100);
-				logoISO.ScaleAbsoluteHeight(60);
-				logoISO.ScaleAbsoluteWidth(60);
+				logoISO.ScaleAbsoluteHeight(80);
+				logoISO.ScaleAbsoluteWidth(80);
 				logoISO.SetAbsolutePosition(460, 740);
 				doc.Add(logoISO);
 
 				Image logoULS = Image.GetInstance(imageURL + "/logoIngecomp.jpg");
-				logoULS.ScaleAbsoluteHeight(60);
-				logoULS.ScaleAbsoluteWidth(60);
+				logoULS.ScaleAbsoluteHeight(80);
+				logoULS.ScaleAbsoluteWidth(80);
 				logoULS.SetAbsolutePosition(60, 740);
 				doc.Add(logoULS);
 

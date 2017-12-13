@@ -304,15 +304,30 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             for (int i = 0; i < subcaracteristica.Count; i++)
             {
+                Console.WriteLine("\nSublista: "+i);
+
                 temporal = new List<MTCalculo>(subcaracteristica[i]);
                 valor = 0;
                 resultado = 0;
 
                 for (int j = 0; j < temporal.Count; j++)
-                    valor = valor + temporal[i].Resultado;
-
+                { 
+                    Console.WriteLine("valor: "+ temporal[j].Resultado);
+                    valor = valor + temporal[j].Resultado;
+                }
+   
                 resultado = valor / temporal.Count;
+
+                Console.WriteLine("Promedio: " + resultado);
                 promedios.Add(resultado);
+            }
+
+            Console.WriteLine("\nLista de promedios de salida");
+            Console.WriteLine("----------------------------");
+
+            foreach (double item in promedios)
+            {
+                Console.WriteLine("Promedio: " + item);
             }
 
             return promedios;

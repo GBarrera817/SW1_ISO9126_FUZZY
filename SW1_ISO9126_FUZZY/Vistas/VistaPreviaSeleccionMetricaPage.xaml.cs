@@ -68,7 +68,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             // Tablas iniciales
             cargarTablaFuncionabilidad(funInt, DataGridEstadoMetricasInternas);
+            centrarColumnas(DataGridEstadoMetricasInternas);
             cargarTablaFuncionabilidad(funExt, DataGridEstadoMetricasExternas);
+            centrarColumnas(DataGridEstadoMetricasExternas);
         }
 
         // Inicializar estados caracteristicas Interna/Externa
@@ -383,7 +385,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             estilo.Setters.Add(new Setter(TextBlock.HorizontalAlignmentProperty, HorizontalAlignment.Center));
 
-            tabla.Columns[1].CellStyle = estilo;
+            //tabla.Columns[0].CellStyle = estilo;
+            //tabla.Columns[2].CellStyle = estilo;
         }
 
         // Cargar tablas de subcaracteristicas por caracteristicas Interna/Externa
@@ -585,7 +588,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     System.Console.WriteLine(metrica.Id + " " + metrica.Nombre);
         }
 
-        // metodo para imprimir la lista de seleccion
+        // Metodo para imprimir la lista de seleccion
 
         private void imprimirListaSeleccion(List<MTSeleccion> lista)
         {

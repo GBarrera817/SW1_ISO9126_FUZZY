@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
     /// <summary>
@@ -21,6 +16,16 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
             this.id = 0;
             this.proposito = -1;
             this.estado = true;
+        }
+
+        public override string ToString()
+        {
+            string str = "";
+            str += "\nID: " + id;
+            str += "\nProposito: " + proposito;
+            str += "\nEstado: " + estado;
+
+            return str;
         }
 
         public int Id { get => id; set => id = value; }

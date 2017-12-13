@@ -29,14 +29,19 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbSubCarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Subcaracterística"/>
                                 <DataGridTextColumn Header="Característica"/>
-                                <DataGridTextColumn Header="Grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="Valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
                     </GroupBox>
 
@@ -53,14 +58,19 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbSubCarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbSubCarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="subcaracterística"/>
                                 <DataGridTextColumn Header="característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
                     </GroupBox>
 
@@ -91,13 +101,18 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbcarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarInterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
                     </GroupBox>
 
@@ -114,13 +129,18 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbcarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="tbcarExterna" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="característica"/>
-                                <DataGridTextColumn Header="grado importancia"/>
+                                <DataGridTextColumn Header="importancia"/>
                                 <DataGridTextColumn Header="valor"/>
                                 <DataGridTextColumn Header="etiqueta"/>
                             </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
                     </GroupBox>
 
@@ -161,7 +181,7 @@
                             </StackPanel>
                         </GroupBox.Header>
 
-                        <DataGrid x:Name="tbCalidadFinal" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
+                        <DataGrid x:Name="tbCalidadFinal" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-2,-4">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="atributo"/>
                                 <DataGridTextColumn Header="valor"/>

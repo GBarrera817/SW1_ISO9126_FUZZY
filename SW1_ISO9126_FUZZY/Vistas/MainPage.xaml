@@ -24,7 +24,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnCargarEvaluacion" Margin="325,485,319,80" Click="btnCargarEvaluacion_Click">
+        <Button x:Name="btnCargarEvaluacion" Margin="322,485,322,80" Click="btnCargarEvaluacion_Click">
             <StackPanel Orientation="Horizontal" Height="35" Width="150">
                 <Image Source="/SW1_ISO9126_FUZZY;component/Imagenes/Botones/Document-Settings.png" Width="30" RenderTransformOrigin="0.571,0.258" Margin="0,-11,0,4" />
                 <Label Content="Cargar evaluación" FontSize="12" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-4,0,10" Width="112"/>

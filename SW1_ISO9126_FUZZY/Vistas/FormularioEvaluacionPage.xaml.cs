@@ -140,8 +140,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
             labelProposito.Text = metrica.Proposito[idProposito]; 
             labelMetodo.Text = metrica.Metodo;
             label1_formula.Content = metrica.Formula[0]; // Existe una unica formula para cada métrica
-            lblMejorValor.Content = metrica.Mejor_valor;
-            lblPeorValor.Content = metrica.Peor_valor;
+
+            if (metrica.Peor_valor == 10000)
+                lblPeorValor.Content = "X";
+            else
+                lblPeorValor.Content = metrica.Peor_valor;
+
+            if (metrica.Mejor_valor == 10000)
+                lblMejorValor.Content = "X";
+            else
+                lblMejorValor.Content = metrica.Mejor_valor;
 
             limpiarContenidoEvaluacion();
 

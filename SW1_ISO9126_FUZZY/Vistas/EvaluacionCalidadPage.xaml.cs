@@ -10,6 +10,9 @@ using System.Windows;
 using System.Windows.Controls;
 using SW1_ISO9126_FUZZY.Archivos;
 using System.IO;
+using SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos;
+using SW1_ISO9126_FUZZY.JSON;
+using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -26,6 +29,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<MTCalculo> MTCfuncionalidadExterna;
         private List<MTCalculo> MTCusabilidadExterna;
         private List<MTCalculo> MTCmantenibilidadExterna;
+
+        // Lista de resultados con agrupamiento por subcaracteristicas
+        private List<List<MTCalculo>> MTCAGfuncionalidadInterna;
+        private List<List<MTCalculo>> MTCAGusabilidadInterna;
+        private List<List<MTCalculo>> MTCAGmantenibilidadInterna;
+        private List<List<MTCalculo>> MTCAGfuncionalidadExterna;
+        private List<List<MTCalculo>> MTCAGusabilidadExterna;
+        private List<List<MTCalculo>> MTCAGmantenibilidadExterna;
+
+        // Lista final de subcaracteristicas
+        private List<double> FFuncionalidadInterna;
+        private List<double> FUsabilidadInterna;
+        private List<double> FMantenibilidadIntena;
+        private List<double> FFuncionalidadExterna;
+        private List<double> FUsabilidadExterna;
+        private List<double> FMantenibilidadExterna;
 
         private EstadoModulo calidadMetricas;
         private EstadoFinal estadoFinalEvaluacion;
@@ -46,23 +65,49 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void inicializarListasCalculos(Evaluacion datos)
         {
+            Console.WriteLine("inicializarListasCalculos");
+
             if (datos.DatosMetricas.FuncionalidadInterna)
+            {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
-
+                MTCAGfuncionalidadInterna = new List<List<MTCalculo>>();
+                FFuncionalidadInterna = new List<double>();
+            }
+              
             if (datos.DatosMetricas.UsabilidadInterna)
+            {
                 MTCusabilidadInterna = new List<MTCalculo>();
+                MTCAGusabilidadInterna = new List<List<MTCalculo>>();
+                FUsabilidadInterna = new List<double>();
+            }               
 
-            if (datos.DatosMetricas.MantenibilidadInterna)          
-                MTCmantenibilidadInterna = new List<MTCalculo>();        
-
+            if (datos.DatosMetricas.MantenibilidadInterna)
+            {
+                MTCmantenibilidadInterna = new List<MTCalculo>();
+                MTCAGmantenibilidadInterna = new List<List<MTCalculo>>();
+                FMantenibilidadIntena = new List<double>();
+            }          
+                
             if (datos.DatosMetricas.FuncionalidadExterna)
+            {
                 MTCfuncionalidadExterna = new List<MTCalculo>();
-
+                MTCAGfuncionalidadExterna = new List<List<MTCalculo>>();
+                FFuncionalidadExterna = new List<double>();
+            }
+                
             if (datos.DatosMetricas.UsabilidadExterna)
+            {
                 MTCusabilidadExterna = new List<MTCalculo>();
-
+                MTCAGusabilidadExterna = new List<List<MTCalculo>>();
+                FUsabilidadExterna = new List<double>();
+            }
+                
             if (datos.DatosMetricas.MantenibilidadExterna)
+            {
                 MTCmantenibilidadExterna = new List<MTCalculo>();
+                MTCAGmantenibilidadExterna = new List<List<MTCalculo>>();
+                FMantenibilidadExterna = new List<double>();
+            }            
         }
 
         // Limpia las columnas de la tabla
@@ -79,6 +124,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public void cargarDatosModulo(Evaluacion datos)
         {
+            Console.WriteLine("cargarDatosModulo");
+
             ArrayList temporal = new ArrayList();
 
             inicializarListasCalculos(datos);
@@ -104,30 +151,442 @@ namespace SW1_ISO9126_FUZZY.Vistas
             cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
         }
 
-        // Cargas datos desde modulo evaluacion
+        // Calcula las formulas de las metricas
 
-        public void cargarModuloEvaluacion(Evaluacion datos, string pespectiva)
+        private List<MTCalculo> calcularResultadoFormulas(List<MTEvaluacion> listaEvaluacion)
         {
-            Console.WriteLine("Pagina calidad cargarModuloEvaluacion");
+            Console.WriteLine("calcularResultadoFormulas");
 
-            if (pespectiva.Equals("Interna"))
+            List<MTCalculo> listaCalculo = new List<MTCalculo>();
+            MTEvaluacion datos;
+            MTCalculo valor;
+
+            for (int i = 0; i < listaEvaluacion.Count; i++)
             {
-                // calcular formulas
-                // agrupar por subcaracteristicas
-                // agrupar por caracteristicas
-                // promediar y aplicar importancia
-                // mandar a controlador 
-                btnCalcSubInterna.IsEnabled = true;
+                datos = listaEvaluacion[i];
+                valor = new MTCalculo();
+
+                valor.Id = datos.Id;
+
+                Console.WriteLine("\n<<===================");
+
+                Console.WriteLine("Datos origen");
+                Console.WriteLine(datos.ToString());
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Datos evaluacion");
+
+                if (datos.Parametros.Length == 2)
+                {
+                    valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1]);
+                    Console.WriteLine("P0: "+datos.Valores[0]+" P1: "+datos.Valores[1]);
+                }
+                else
+                {
+                    valor.Resultado = Formula.GetResultadoFormula(datos.Formula, datos.Valores[0], datos.Valores[1], datos.Valores[2]);
+                    Console.WriteLine("P0: " + datos.Valores[0] + " P1: " + datos.Valores[1] + " P2: "+datos.Valores[2]);
+                }   
+
+                Console.WriteLine("Resultado: "+valor.Resultado);
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Datos almacenados");
+                Console.WriteLine(valor.ToString());
+
+                listaCalculo.Add(valor);
+
+                Console.WriteLine("\n===================>>");
+            }
+
+            return listaCalculo;
+        }
+
+        // Agrupa la lista de calculo de metricas por subcaracteristicas
+
+        private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
+        {
+            Console.WriteLine("Modulo: agruparSubcaracteristicas");
+
+            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas));
+            List<List<MTCalculo>> lista = new List<List<MTCalculo>>(); 
+            List<MTCalculo> sublista = new List<MTCalculo>(); 
+
+            string subcarateristica = local[0].Subcaracteristica; 
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                Console.WriteLine("comparar : " + subcarateristica + " VS " + local[i].Subcaracteristica);
+                if (string.Equals(subcarateristica, local[i].Subcaracteristica))
+                {
+                    sublista.Add(original[i]);
+                    Console.WriteLine("Agregado a la lista actual: " + original[i].Id);
+                }
+                else
+                {
+                    lista.Add(sublista); 
+
+                    Console.WriteLine("Imprimir sublista iteracion: "+i);
+
+                    for (int k = 0; k < sublista.Count; k++)
+                    {
+                        Console.WriteLine("ID: " + sublista[k].Id);
+                    }
+
+                    sublista = new List<MTCalculo>();
+
+                    sublista.Add(original[i]);
+                    subcarateristica = local[i].Subcaracteristica;
+                    Console.WriteLine("Agregado a la lista nueva: " + original[i].Id);
+                }
+            }
+
+            lista.Add(sublista);
+
+            Console.WriteLine("Imprimir sublista");
+
+            for (int k = 0; k < sublista.Count; k++)
+            {
+                Console.WriteLine("ID: " + sublista[k].Id);
+            }
+
+            Console.WriteLine("Sublistas creadas");
+            Console.WriteLine("-----------------");
+
+            foreach (List<MTCalculo> sublist in lista)
+            {
+                Console.WriteLine("Sublista");
+
+                foreach (MTCalculo item in sublist)           
+                    Console.WriteLine("ID: " + item.Id);              
+            }
+
+            return lista;
+        }
+
+        // Obtener metricas activadas del total de metricas
+
+        private List<JMetrica> obtenerListaReal(List<MTCalculo> original, List<JMetrica> metricas)
+        {
+            Console.WriteLine("modulo: obtenerListaReal");
+
+            List<JMetrica> local = new List<JMetrica>();
+            int j = 0;
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                while (original[i].Id != metricas[j].Id)
+                    j++;
+
+                local.Add(metricas[j]);
+                j++;
+            }
+
+            Console.WriteLine("Lista original MTCalculo");
+
+            for (int i = 0; i < original.Count; i++)
+                Console.WriteLine("ID: "+original[i].Id);
+
+            Console.WriteLine("Lista original JMetrica");
+
+            for (int i = 0; i < local.Count; i++)
+                Console.WriteLine("ID: " + local[i].Id);
+
+            return local;
+        }
+
+        // Promedia las metricas de las subcaracteristicas de una caracteristica 
+
+        private List<double> promedioSubcaracteristicas(List<List<MTCalculo>> subcaracteristica)
+        {
+            Console.WriteLine("promedioSubcaracteristicas");
+
+            List<double> promedios = new List<double>();
+            List<MTCalculo> temporal;
+            double valor, resultado;
+
+            for (int i = 0; i < subcaracteristica.Count; i++)
+            {
+                Console.WriteLine("\nSublista: "+i);
+
+                temporal = new List<MTCalculo>(subcaracteristica[i]);
+                valor = 0;
+                resultado = 0;
+
+                for (int j = 0; j < temporal.Count; j++)
+                { 
+                    Console.WriteLine("valor: "+ temporal[j].Resultado);
+                    valor = valor + temporal[j].Resultado;
+                }
+   
+                resultado = valor / temporal.Count;
+
+                Console.WriteLine("Promedio: " + resultado);
+                promedios.Add(resultado);
+            }
+
+            Console.WriteLine("\nLista de promedios de salida");
+            Console.WriteLine("----------------------------");
+
+            foreach (double item in promedios)
+            {
+                Console.WriteLine("Promedio: " + item);
+            }
+
+            return promedios;
+        }
+
+        // Normaliza las subcaracteristicas de una caracteristica 
+
+        private List<double> normalizarSubcaracteristicas(List<double> subcaracteristicas)
+        {
+            Console.WriteLine("normalizarSubcaracteristicas");
+
+            List<double> normalizacion = new List<double>();
+            double valor = 0;
+            double resultado = 0;
+
+            Console.WriteLine("\nLista de entrada");
+            Console.WriteLine("----------------");
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                Console.WriteLine("Valor: "+subcaracteristicas[i]);
+            }
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+                valor = valor + subcaracteristicas[i];
+
+            Console.WriteLine("Sumatoria: "+valor);
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                resultado = subcaracteristicas[i] / valor;
+                normalizacion.Add(Math.Round(resultado, 2));
+            }
+
+            Console.WriteLine("\nLista de salida normalizada");
+            Console.WriteLine("-----------------------------");
+
+            for (int i = 0; i < normalizacion.Count; i++)
+                Console.WriteLine("Valor: " + normalizacion[i]);
+
+            return normalizacion;
+        }
+
+        // Aplica importancia a las subcaracteristicas
+
+        private List<double> aplicarImportanciaSubcaracteristicas(List<double> subcaracteristicas, List<double> grados)
+        {
+            Console.WriteLine("aplicarImportanciaSubcaracteristicas");
+
+            List<double> importancias = new List<double>();
+            double resultado = 0;
+            double subcar = 0;
+            double grado = 0;
+
+            Console.WriteLine("\nListas de entrada");
+            Console.WriteLine("-------------------");
+
+            Console.WriteLine("\nListas subcacteristicas");
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                Console.WriteLine("Valor: " + subcaracteristicas[i]);
+            }
+
+            Console.WriteLine("\nListas grados de importancia");
+
+            for (int i = 0; i < grados.Count; i++)
+            {
+                Console.WriteLine("grado: " + grados[i]);
+            }
+
+            if(subcaracteristicas.Count == grados.Count)
+                Console.WriteLine("\nMisma longitud");
+            else
+                Console.WriteLine("\nDiferente longitud CUIDADO !!!");
+
+            for (int i = 0; i < subcaracteristicas.Count; i++)
+            {
+                subcar = subcaracteristicas[i];
+                grado = grados[i]; // error de indice
+
+                resultado = subcar * grado;
+                importancias.Add(resultado);
+            }
+
+            Console.WriteLine("\nLista de salida graduada");
+            Console.WriteLine("--------------------------");
+
+            for (int i = 0; i < importancias.Count; i++)
+                Console.WriteLine("Valor resultante: " + importancias[i]);
+
+            return importancias;
+        }
+
+        // Metodos para recuperar los grados de importancia subcaracteristicas
+
+        private List<double> obtenerImportanciaSubcarFuncionalidad(ISCFuncionalidad info)
+        {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarFuncionalidad");
+
+            List<double> funcionalidad = new List<double>();
+
+            if (info.Adecuacion != 0)
+                funcionalidad.Add(info.Adecuacion);
+
+            if (info.Exactitud != 0)
+                funcionalidad.Add(info.Exactitud);
+
+            if (info.Interoperabilidad != 0)
+                funcionalidad.Add(info.Interoperabilidad);
+
+            if (info.SeguridadAcceso != 0)
+                funcionalidad.Add(info.SeguridadAcceso);
+
+            if (info.CumplimientoFuncional != 0)
+                funcionalidad.Add(info.CumplimientoFuncional);
+
+            for (int i = 0; i < funcionalidad.Count; i++)
+                Console.WriteLine("Importancia "+i+": "+funcionalidad[i]);
+
+            return funcionalidad;
+        }
+
+        private List<double> obtenerImportanciaSubcarUsabilidad(ISCUsabilidad info)
+        {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarUsabilidad");
+
+            List<double> usabilidad = new List<double>();
+
+            if (info.Comprensibilidad != 0)
+                usabilidad.Add(info.Comprensibilidad);
+
+            if (info.Aprendizaje != 0)
+                usabilidad.Add(info.Aprendizaje);
+
+            if (info.Operabilidad != 0)
+                usabilidad.Add(info.Operabilidad);
+
+            if (info.Atractividad != 0)
+                usabilidad.Add(info.Atractividad);
+
+            if (info.CumplimientoUsabilidad != 0)
+                usabilidad.Add(info.CumplimientoUsabilidad);
+
+            for (int i = 0; i < usabilidad.Count; i++)
+                Console.WriteLine("Importancia " + i + ": " + usabilidad[i]);
+
+            return usabilidad;
+        }
+
+        private List<double> obtenerImportanciaSubcarMantenibilidad(ISCMantenibilidad info)
+        {
+            Console.WriteLine("Entando a: obtenerImportanciaSubcarMantenibilidad");
+
+            List<double> mantenibilidad = new List<double>();
+
+            if (info.Analizabilidad != 0)
+                mantenibilidad.Add(info.Analizabilidad);
+
+            if (info.Modificabilidad != 0)
+                mantenibilidad.Add(info.Modificabilidad);
+
+            if (info.Estabilidad != 0)
+                mantenibilidad.Add(info.Estabilidad);
+
+            if (info.Testeabilidad != 0)
+                mantenibilidad.Add(info.Testeabilidad);
+
+            if (info.CumplimientoMantenibilidad != 0)
+                mantenibilidad.Add(info.CumplimientoMantenibilidad);
+
+            for (int i = 0; i < mantenibilidad.Count; i++)
+                Console.WriteLine("Importancia " + i + ": " + mantenibilidad[i]);
+
+            return mantenibilidad;
+        }
+
+        // Prepara la lista de calculos para realizar la evaluacion difusa
+
+        private void prepararEvaluacionFuzzy(Evaluacion datos, string perspectiva)
+        {
+            Console.WriteLine("Entrando a prepararEvaluacionFuzzy: " + perspectiva);
+
+            List<double> importanciaSubcarFuncionalidad = new List<double>(obtenerImportanciaSubcarFuncionalidad(datos.Grados.SbcFuncionalidad));
+            List<double> importanciaSubcarUsabilidad = new List<double>(obtenerImportanciaSubcarUsabilidad(datos.Grados.SbcUsabilidad));
+            List<double> importanciaSubcarMantenibilidad = new List<double>(obtenerImportanciaSubcarMantenibilidad(datos.Grados.SbcMantenibilidad));
+
+            if (perspectiva.Equals("Interna"))
+            {
+                if (datos.DatosMetricas.FuncionalidadInterna)
+                {
+                    MTCfuncionalidadInterna =  new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadInterna));
+                    MTCAGfuncionalidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadInterna, datos.CargaMetricas.FuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadInterna, importanciaSubcarFuncionalidad));
+                }
+
+                if (datos.DatosMetricas.UsabilidadInterna)
+                {
+                    MTCusabilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadInterna));
+                    MTCAGusabilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadInterna, datos.CargaMetricas.UsabilidadInterna));
+                    FUsabilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadInterna));
+                    FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
+                    FUsabilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadInterna, importanciaSubcarUsabilidad));
+                }
+
+                if (datos.DatosMetricas.MantenibilidadInterna)
+                {
+                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadInterna));
+                    MTCAGmantenibilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadInterna, datos.CargaMetricas.MantenibilidadInterna));
+                    FMantenibilidadIntena = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
+                    FMantenibilidadIntena = new List<double>(normalizarSubcaracteristicas(FMantenibilidadIntena));
+                    FMantenibilidadIntena = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadIntena, importanciaSubcarMantenibilidad));
+                }
             }
             else
             {
-                // calcular formulas
-                // agrupar por subcaracteristicas
-                // agrupar por caracteristicas
-                // promediar y aplicar importancia
-                // mandar a controlador 
-                btnCalcSubExterna.IsEnabled = true;
+                if (datos.DatosMetricas.FuncionalidadExterna)
+                {
+                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadExterna));
+                    MTCAGfuncionalidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadExterna, datos.CargaMetricas.FuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadExterna, importanciaSubcarFuncionalidad));
+                }
+
+                if (datos.DatosMetricas.UsabilidadExterna)
+                {
+                    MTCusabilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadExterna));
+                    MTCAGusabilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadExterna, datos.CargaMetricas.UsabilidadExterna));
+                    FUsabilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadExterna));
+                    FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
+                    FUsabilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadExterna, importanciaSubcarUsabilidad));
+                }
+
+                if (datos.DatosMetricas.MantenibilidadExterna)
+                {
+                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadExterna));
+                    MTCAGmantenibilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadExterna, datos.CargaMetricas.MantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadExterna, importanciaSubcarMantenibilidad));
+                }
             }
+        }
+
+        // Cargas datos desde modulo evaluacion
+
+        public void cargarModuloEvaluacion(Evaluacion datos, string perspectiva)
+        {
+            Console.WriteLine("Pagina calidad cargarModuloEvaluacion");
+
+            miEvaluacion = datos;
+
+            if (perspectiva.Equals("Interna"))
+                btnCalcSubInterna.IsEnabled = true;
+            else
+                btnCalcSubExterna.IsEnabled = true;
         }
         
         // Eventos de movimiento
@@ -285,7 +744,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             dtColumnas.Columns.Add("subcaracterística", typeof(string));
             dtColumnas.Columns.Add("característica", typeof(string));
-            dtColumnas.Columns.Add("grado importancia", typeof(string));
+            dtColumnas.Columns.Add("importancia", typeof(string));
             dtColumnas.Columns.Add("valor", typeof(string));
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 
@@ -299,32 +758,22 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-            /*if (calcularFormulasmetricas())
-            {
-                if (calcularFuzzySubcaracteristicas())
-                {
-                    btnCalcCaractInterna.IsEnabled = true;
-                }
-                else
-                {
-                    btnCalcCaractInterna.IsEnabled = false;
-                }
-            }*/
+            prepararEvaluacionFuzzy(miEvaluacion, "Interna");
+            
+            /*if (calcularFuzzySubcaracteristicas())
+                btnCalcCaractInterna.IsEnabled = true;
+            else
+                btnCalcCaractInterna.IsEnabled = false;*/
         }
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
         {
-           /* if (calcularFormulasmetricas())
-            {
-                if (calcularFuzzySubcaracteristicas())
-                {
-                    btnCalcCaractExterna.IsEnabled = true;
-                }
-                else
-                {
-                    btnCalcCaractExterna.IsEnabled = false;
-                }
-            }*/
+            prepararEvaluacionFuzzy(miEvaluacion, "Externa");
+
+            /*if (calcularFuzzySubcaracteristicas())
+                btnCalcCaractInterna.IsEnabled = true;
+            else
+                btnCalcCaractInterna.IsEnabled = false;*/
         }
 
         // ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
@@ -385,7 +834,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             DataTable dtColumnas = new DataTable();
 
             dtColumnas.Columns.Add("característica", typeof(string));
-            dtColumnas.Columns.Add("grado importancia", typeof(string));
+            dtColumnas.Columns.Add("importancia", typeof(string));
             dtColumnas.Columns.Add("valor", typeof(string));
             dtColumnas.Columns.Add("etiqueta", typeof(string));
 

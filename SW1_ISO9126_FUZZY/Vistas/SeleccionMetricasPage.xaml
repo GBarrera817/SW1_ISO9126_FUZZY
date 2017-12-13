@@ -49,7 +49,7 @@
                     </ScrollViewer>
 
                     <GroupBox Header="Selección de metodo evaluación" Height="149" Margin="0,88,10,-115" VerticalAlignment="Top" Background="#FF33A133" BorderBrush="#FF33A133">
-                        <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" Margin="-4,-5,-4,-5" BorderThickness="2" BorderBrush="White"/>
+                        <DataGrid x:Name="dataGridDetalleMetrica" SelectionMode="Extended" CanUserAddRows="False" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Margin="-4,-5,-4,-5" BorderThickness="2" BorderBrush="White"/>
                     </GroupBox>
 
                     <GroupBox Header="Descripción de los parámetros" HorizontalAlignment="Left" Margin="0,241,0,-230" Width="750" Background="#FF33A133" BorderBrush="#FF33A133">

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
     /// <summary>
@@ -20,6 +15,24 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
         private int peorValor;
 
         public MTEvaluacion() { }
+
+        public override string ToString()
+        {
+            string str = "";
+            str += "\nID: " + id;
+            str += "\nFormula: " + formula;
+
+            for (int i = 0; i < parametros.Length; i++)
+            {
+                str += "\nParametro: " + parametros[i];
+                str += "\nvalor: " + valores[i];
+            }
+
+            str += "\nMejor Valor: " + mejorValor;
+            str += "\nPeor Valor: " + peorValor;
+
+            return str;
+        }
 
         public int Id { get => id; set => id = value; }
         public string Formula { get => formula; set => formula = value; }

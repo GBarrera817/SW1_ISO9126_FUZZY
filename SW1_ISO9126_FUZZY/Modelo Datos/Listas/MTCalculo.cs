@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
 {
     /// <summary>
@@ -15,10 +10,19 @@ namespace SW1_ISO9126_FUZZY.Modelo_Datos.Listas
         private int id;
         private double resultado;
 
-        public MTCalculo(int id, double resultado)
+        public MTCalculo()
         {
             this.Id = 0;
             this.Resultado = 0;
+        }
+
+        public override string ToString()
+        {
+            string str = "";
+            str += "\nID: " + id;
+            str += "\nResultado: " + resultado;
+
+            return str;
         }
 
         public int Id { get => id; set => id = value; }

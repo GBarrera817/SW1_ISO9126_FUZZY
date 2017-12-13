@@ -952,8 +952,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         // Eventos botones
 
         private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
-        {
-            /*if (calcularFuzzyCalidad())
+        { 
+			/*if (calcularFuzzyCalidad())
             {
                 btnGenerarPDF.IsEnabled = true;
             }
@@ -961,9 +961,26 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 btnGenerarPDF.IsEnabled = false;
             }*/
-        }
+		}
 
-        private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
+		//Datos configuración del PDF
+		private List<string> obtenerDatosInforme()
+		{
+			List<string> datos = new List<string>();
+			string[] cadena = calendario.DisplayDate.ToString().Split(' ');
+			string fecha = cadena[0];
+
+			datos.Add(txtNombreArchivo.Text);
+			datos.Add(cmboxTipoFuente.Text);
+			datos.Add(dudtTamFuente.Text);
+			datos.Add(txtObjetivos.Text);
+			datos.Add(txtObservacion.Text);
+			datos.Add(fecha);
+
+			return datos;
+		}
+
+		private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
         {
             if (validarDatosReporte())
             {
@@ -987,7 +1004,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 					if (saveFileDialog1.ShowDialog() == DialogResult.OK)
 					{
-						Reportes r = new Reportes(saveFileDialog1.FileName);
+						Reportes r = new Reportes(saveFileDialog1.FileName, miEvaluacion, obtenerDatosInforme());
 				Xceed.Wpf.Toolkit.MessageBox.Show("El archivo se ha creado correctamente");
 					}
 

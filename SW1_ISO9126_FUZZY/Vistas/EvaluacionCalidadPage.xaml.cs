@@ -359,16 +359,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
             for (int i = 0; i < subcaracteristicas.Count; i++)
             {
                 resultado = subcaracteristicas[i] / valor;
-                normalizacion.Add(resultado);
+                normalizacion.Add(Math.Round(resultado, 2));
             }
 
             Console.WriteLine("\nLista de salida normalizada");
             Console.WriteLine("-----------------------------");
 
             for (int i = 0; i < normalizacion.Count; i++)
-            {
                 Console.WriteLine("Valor: " + normalizacion[i]);
-            }
 
             return normalizacion;
         }

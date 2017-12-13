@@ -199,30 +199,88 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return listaCalculo;
         }
 
-        // Agrupa la lista de metricas por subcaracteristicas
+        // Agrupa la lista de calculo de metricas por subcaracteristicas
 
         private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
         {
+            // Son 2 listas, una con los calculos de las subcaracteristicas  (original) y la otra (metricas) con informacion de las subcaracteristias
+            // entonces como en la de los calculos solo guardo los calculos, para separarla en sublistas comparo los id de la lista de metricas
+            // con el id de la lista de calculo y las separo en sublistas.
+
+
             Console.WriteLine("Modulo: agruparSubcaracteristicas");
 
-            List<List<MTCalculo>> lista = new List<List<MTCalculo>>();
-            List<MTCalculo> sublista = new List<MTCalculo>();
-            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas));
-            string subcarateristica = local[0].Subcaracteristica;
+            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas)); //Lista de informacion
+
+            List<List<MTCalculo>> lista = new List<List<MTCalculo>>(); // Lista de salida
+            List<MTCalculo> sublista = new List<MTCalculo>(); // sublista para iterar
+
+
+            string subcarateristica = local[0].Subcaracteristica; // obtengo primer elemento para comparar
 
             for (int i = 0; i < original.Count; i++)
             {
-
+                Console.WriteLine("comparar : " + subcarateristica + " VS " + local[i].Subcaracteristica);
                 if (string.Equals(subcarateristica, local[i].Subcaracteristica))
                 {
                     sublista.Add(original[i]);
+                    Console.WriteLine("Agregado a la lista actual: " + original[i].Id);
                 }
                 else
                 {
-                    lista.Add(sublista);
+                    lista.Add(new List<MTCalculo>(sublista)); // lo hice con lata.add(sublista) y el mismo problema
+                                                              // al hacer esto new List<MTCalculo>(sublista), se copia la lista
+                                                              // para no tener problemas de referencia
 
-                    if (sublista.Count != 0)
-                        sublista.Clear();
+                    Console.WriteLine("Sublistas creadas");
+                    Console.WriteLine("-----------------");
+
+                    foreach (List<MTCalculo> sublist in lista)
+                    {
+                        Console.WriteLine("Sublista");
+
+                        foreach (MTCalculo item in sublista)
+                        {
+                            Console.WriteLine("ID: " + item.Id);
+                        }
+                    }
+
+                    /* Console.WriteLine("Imprimir sublista");
+
+                     for (int k = 0; k < sublista.Count; k++)
+                     {
+                         Console.WriteLine("ID: " + sublista[k].Id);
+                     }*/
+
+                    sublista = new List<MTCalculo>();
+
+                    sublista.Add(original[i]);
+                    subcarateristica = local[i].Subcaracteristica;
+                    Console.WriteLine("Agregado a la lista nueva: " + original[i].Id);
+                }
+            }
+
+            lista.Add(new List<MTCalculo>(sublista));
+
+         /*   Console.WriteLine("Imprimir sublista");
+
+            for (int k = 0; k < sublista.Count; k++)
+            {
+                Console.WriteLine("ID: " + sublista[k].Id);
+            }
+
+            */
+
+            Console.WriteLine("Sublistas creadas");
+            Console.WriteLine("-----------------");
+
+            foreach (List<MTCalculo> sublist in lista)
+            {
+                Console.WriteLine("Sublista");
+
+                foreach (MTCalculo item in sublista)
+                {
+                    Console.WriteLine("ID: " + item.Id);
                 }
             }
 
@@ -282,6 +340,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 resultado = valor / temporal.Count;
                 promedios.Add(resultado);
             }
+
             return promedios;
         }
 

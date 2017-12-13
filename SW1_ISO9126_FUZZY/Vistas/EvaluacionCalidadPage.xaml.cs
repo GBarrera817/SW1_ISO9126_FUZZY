@@ -203,20 +203,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private List<List<MTCalculo>> agruparSubcaracteristicas(List<MTCalculo> original, List<JMetrica> metricas)
         {
-            // Son 2 listas, una con los calculos de las subcaracteristicas  (original) y la otra (metricas) con informacion de las subcaracteristias
-            // entonces como en la de los calculos solo guardo los calculos, para separarla en sublistas comparo los id de la lista de metricas
-            // con el id de la lista de calculo y las separo en sublistas.
-
-
             Console.WriteLine("Modulo: agruparSubcaracteristicas");
 
-            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas)); //Lista de informacion
+            List<JMetrica> local = new List<JMetrica>(obtenerListaReal(original, metricas));
+            List<List<MTCalculo>> lista = new List<List<MTCalculo>>(); 
+            List<MTCalculo> sublista = new List<MTCalculo>(); 
 
-            List<List<MTCalculo>> lista = new List<List<MTCalculo>>(); // Lista de salida
-            List<MTCalculo> sublista = new List<MTCalculo>(); // sublista para iterar
-
-
-            string subcarateristica = local[0].Subcaracteristica; // obtengo primer elemento para comparar
+            string subcarateristica = local[0].Subcaracteristica; 
 
             for (int i = 0; i < original.Count; i++)
             {
@@ -228,29 +221,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
                 else
                 {
-                    lista.Add(new List<MTCalculo>(sublista)); // lo hice con lata.add(sublista) y el mismo problema
-                                                              // al hacer esto new List<MTCalculo>(sublista), se copia la lista
-                                                              // para no tener problemas de referencia
+                    lista.Add(sublista); 
 
-                    Console.WriteLine("Sublistas creadas");
-                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Imprimir sublista iteracion: "+i);
 
-                    foreach (List<MTCalculo> sublist in lista)
+                    for (int k = 0; k < sublista.Count; k++)
                     {
-                        Console.WriteLine("Sublista");
-
-                        foreach (MTCalculo item in sublista)
-                        {
-                            Console.WriteLine("ID: " + item.Id);
-                        }
+                        Console.WriteLine("ID: " + sublista[k].Id);
                     }
-
-                    /* Console.WriteLine("Imprimir sublista");
-
-                     for (int k = 0; k < sublista.Count; k++)
-                     {
-                         Console.WriteLine("ID: " + sublista[k].Id);
-                     }*/
 
                     sublista = new List<MTCalculo>();
 
@@ -260,16 +238,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
             }
 
-            lista.Add(new List<MTCalculo>(sublista));
+            lista.Add(sublista);
 
-         /*   Console.WriteLine("Imprimir sublista");
+            Console.WriteLine("Imprimir sublista");
 
             for (int k = 0; k < sublista.Count; k++)
             {
                 Console.WriteLine("ID: " + sublista[k].Id);
             }
-
-            */
 
             Console.WriteLine("Sublistas creadas");
             Console.WriteLine("-----------------");
@@ -278,10 +254,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 Console.WriteLine("Sublista");
 
-                foreach (MTCalculo item in sublista)
-                {
-                    Console.WriteLine("ID: " + item.Id);
-                }
+                foreach (MTCalculo item in sublist)           
+                    Console.WriteLine("ID: " + item.Id);              
             }
 
             return lista;

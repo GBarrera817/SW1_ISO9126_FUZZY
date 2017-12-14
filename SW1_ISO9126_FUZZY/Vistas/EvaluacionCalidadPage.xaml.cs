@@ -684,81 +684,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return mantenibilidad;
         }
 
-        // Prepara la lista de calculos para realizar la evaluacion difusa
-
-        private void prepararEvaluacionDifusaSubcaracteristicas(Evaluacion datos, string perspectiva)
-        {
-            Console.WriteLine("Entrando a prepararEvaluacionFuzzy: " + perspectiva);
-
-            List<double> importanciaSubcarFuncionalidad = new List<double>(obtenerImportanciaSubcarFuncionalidad(datos.Grados.SbcFuncionalidad));
-            List<double> importanciaSubcarUsabilidad = new List<double>(obtenerImportanciaSubcarUsabilidad(datos.Grados.SbcUsabilidad));
-            List<double> importanciaSubcarMantenibilidad = new List<double>(obtenerImportanciaSubcarMantenibilidad(datos.Grados.SbcMantenibilidad));
-
-            if (perspectiva.Equals("Interna"))
-            {
-                if (datos.DatosMetricas.FuncionalidadInterna)
-                {
-                    MTCfuncionalidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadInterna));
-                    MTCAGfuncionalidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadInterna, datos.CargaMetricas.FuncionalidadInterna));
-                    FFuncionalidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadInterna));
-                    FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));
-                    FFuncionalidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadInterna, importanciaSubcarFuncionalidad));
-                    FFuncionalidadInterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadInterna));
-                }
-
-                if (datos.DatosMetricas.UsabilidadInterna)
-                {
-                    MTCusabilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadInterna));
-                    MTCAGusabilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadInterna, datos.CargaMetricas.UsabilidadInterna));
-                    FUsabilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadInterna));
-                    FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
-                    FUsabilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadInterna, importanciaSubcarUsabilidad));
-                    FUsabilidadInterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadInterna));
-                }
-
-                if (datos.DatosMetricas.MantenibilidadInterna)
-                {
-                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadInterna));
-                    MTCAGmantenibilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadInterna, datos.CargaMetricas.MantenibilidadInterna));
-                    FMantenibilidadIntena = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
-                    FMantenibilidadIntena = new List<double>(normalizarSubcaracteristicas(FMantenibilidadIntena));
-                    FMantenibilidadIntena = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadIntena, importanciaSubcarMantenibilidad));
-                    FMantenibilidadIntena = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadIntena));
-                }
-            }
-            else
-            {
-                if (datos.DatosMetricas.FuncionalidadExterna)
-                {
-                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadExterna));
-                    MTCAGfuncionalidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadExterna, datos.CargaMetricas.FuncionalidadExterna));
-                    FFuncionalidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadExterna));
-                    FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
-                    FFuncionalidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadExterna, importanciaSubcarFuncionalidad));
-                    FFuncionalidadExterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadExterna));
-                }
-
-                if (datos.DatosMetricas.UsabilidadExterna)
-                {
-                    MTCusabilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadExterna));
-                    MTCAGusabilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadExterna, datos.CargaMetricas.UsabilidadExterna));
-                    FUsabilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadExterna));
-                    FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
-                    FUsabilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadExterna, importanciaSubcarUsabilidad));
-                    FUsabilidadExterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadExterna));
-                }
-
-                if (datos.DatosMetricas.MantenibilidadExterna)
-                {
-                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadExterna));
-                    MTCAGmantenibilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadExterna, datos.CargaMetricas.MantenibilidadExterna));
-                    FMantenibilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadExterna));
-                    FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
-                    FMantenibilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadExterna, importanciaSubcarMantenibilidad));
-                    FMantenibilidadExterna = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadExterna));
-                }
-            }
-        }
+        // Asigna las subcaracteristicas a la posicion de la lista correspondiente y valor cero a las no seleccionadas
 
         private List<double> asignarSCFuncionalidadControlador(Evaluacion datos, List<double> subcaracteristicas)
         {
@@ -825,9 +751,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             lista.Add(cumplimientoFuncional);
 
             foreach (double item in lista)
-                Console.WriteLine("Valor: "+ item);
+                Console.WriteLine("Valor: " + item);
 
-            if (cuadratura == subcaracteristicas.Count)        
+            if (cuadratura == subcaracteristicas.Count)
                 Console.WriteLine("Cuadra");
             else
                 Console.WriteLine("No cuadra");
@@ -983,6 +909,82 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 Console.WriteLine("No cuadra");
 
             return lista;
+        }
+
+        // Prepara la lista de calculos para realizar la evaluacion difusa
+
+        private void prepararEvaluacionDifusaSubcaracteristicas(Evaluacion datos, string perspectiva)
+        {
+            Console.WriteLine("Entrando a prepararEvaluacionFuzzy: " + perspectiva);
+
+            List<double> importanciaSubcarFuncionalidad = new List<double>(obtenerImportanciaSubcarFuncionalidad(datos.Grados.SbcFuncionalidad));
+            List<double> importanciaSubcarUsabilidad = new List<double>(obtenerImportanciaSubcarUsabilidad(datos.Grados.SbcUsabilidad));
+            List<double> importanciaSubcarMantenibilidad = new List<double>(obtenerImportanciaSubcarMantenibilidad(datos.Grados.SbcMantenibilidad));
+
+            if (perspectiva.Equals("Interna"))
+            {
+                if (datos.DatosMetricas.FuncionalidadInterna)
+                {
+                    MTCfuncionalidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadInterna));
+                    MTCAGfuncionalidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadInterna, datos.CargaMetricas.FuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));
+                    FFuncionalidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadInterna, importanciaSubcarFuncionalidad));
+                    FFuncionalidadInterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadInterna));
+                }
+
+                if (datos.DatosMetricas.UsabilidadInterna)
+                {
+                    MTCusabilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadInterna));
+                    MTCAGusabilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadInterna, datos.CargaMetricas.UsabilidadInterna));
+                    FUsabilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadInterna));
+                    FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
+                    FUsabilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadInterna, importanciaSubcarUsabilidad));
+                    FUsabilidadInterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadInterna));
+                }
+
+                if (datos.DatosMetricas.MantenibilidadInterna)
+                {
+                    MTCmantenibilidadInterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadInterna));
+                    MTCAGmantenibilidadInterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadInterna, datos.CargaMetricas.MantenibilidadInterna));
+                    FMantenibilidadIntena = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
+                    FMantenibilidadIntena = new List<double>(normalizarSubcaracteristicas(FMantenibilidadIntena));
+                    FMantenibilidadIntena = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadIntena, importanciaSubcarMantenibilidad));
+                    FMantenibilidadIntena = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadIntena));
+                }
+            }
+            else
+            {
+                if (datos.DatosMetricas.FuncionalidadExterna)
+                {
+                    MTCfuncionalidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.FuncionalidadExterna));
+                    MTCAGfuncionalidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCfuncionalidadExterna, datos.CargaMetricas.FuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
+                    FFuncionalidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadExterna, importanciaSubcarFuncionalidad));
+                    FFuncionalidadExterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadExterna));
+                }
+
+                if (datos.DatosMetricas.UsabilidadExterna)
+                {
+                    MTCusabilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.UsabilidadExterna));
+                    MTCAGusabilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCusabilidadExterna, datos.CargaMetricas.UsabilidadExterna));
+                    FUsabilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadExterna));
+                    FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
+                    FUsabilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadExterna, importanciaSubcarUsabilidad));
+                    FUsabilidadExterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadExterna));
+                }
+
+                if (datos.DatosMetricas.MantenibilidadExterna)
+                {
+                    MTCmantenibilidadExterna = new List<MTCalculo>(calcularResultadoFormulas(datos.Fomulario.MantenibilidadExterna));
+                    MTCAGmantenibilidadExterna = new List<List<MTCalculo>>(agruparSubcaracteristicas(MTCmantenibilidadExterna, datos.CargaMetricas.MantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
+                    FMantenibilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadExterna, importanciaSubcarMantenibilidad));
+                    FMantenibilidadExterna = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadExterna));
+                }
+            }
         }
 
         /* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )

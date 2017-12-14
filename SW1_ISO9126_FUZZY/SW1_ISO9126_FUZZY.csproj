@@ -121,6 +121,7 @@
     <Compile Include="Archivos_configuracion\Test_JMetricas.cs" />
     <Compile Include="Evaluacion Calidad\Calculos\Normalizacion.cs" />
     <Compile Include="Evaluacion Calidad\Calculos\Formula.cs" />
+    <Compile Include="Evaluacion Calidad\EtiquetasDifusas.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasMantenibilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasUsabilidad.cs" />

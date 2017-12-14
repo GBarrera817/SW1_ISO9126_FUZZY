@@ -43,6 +43,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private List<List<MTCalculo>> MTCAGmantenibilidadExterna;
 
         // Lista final de subcaracteristicas
+        private List<double> FFuncionalidadInterna;
+        private List<double> FUsabilidadInterna;
+        private List<double> FMantenibilidadInterna;
+        private List<double> FFuncionalidadExterna;
+        private List<double> FUsabilidadExterna;
+        private List<double> FMantenibilidadExterna;
+
+        // Diccionario final de subcaracteristicas
         private Dictionary<string, double> dicFuncionalidadInterna;
         private Dictionary<string, double> dicUsabilidadInterna;
         private Dictionary<string, double> dicMantenibilidadInterna;
@@ -75,6 +83,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCfuncionalidadInterna = new List<MTCalculo>();
                 MTCAGfuncionalidadInterna = new List<List<MTCalculo>>();
+                FFuncionalidadInterna = new List<double>();
                 dicFuncionalidadInterna = new Dictionary<string, double>();
             }
               
@@ -82,6 +91,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCusabilidadInterna = new List<MTCalculo>();
                 MTCAGusabilidadInterna = new List<List<MTCalculo>>();
+                FUsabilidadInterna = new List<double>();
                 dicUsabilidadInterna = new Dictionary<string, double>();
             }               
 
@@ -89,6 +99,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCmantenibilidadInterna = new List<MTCalculo>();
                 MTCAGmantenibilidadInterna = new List<List<MTCalculo>>();
+                FMantenibilidadInterna = new List<double>();
                 dicMantenibilidadInterna = new Dictionary<string, double>();
             }          
                 
@@ -96,6 +107,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCfuncionalidadExterna = new List<MTCalculo>();
                 MTCAGfuncionalidadExterna = new List<List<MTCalculo>>();
+                FFuncionalidadExterna = new List<double>();
                 dicFuncionalidadExterna = new Dictionary<string, double>();
             }
                 
@@ -103,6 +115,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCusabilidadExterna = new List<MTCalculo>();
                 MTCAGusabilidadExterna = new List<List<MTCalculo>>();
+                FUsabilidadExterna = new List<double>();
                 dicUsabilidadExterna = new Dictionary<string, double>();
             }
                 
@@ -110,6 +123,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 MTCmantenibilidadExterna = new List<MTCalculo>();
                 MTCAGmantenibilidadExterna = new List<List<MTCalculo>>();
+                FMantenibilidadExterna = new List<double>();
                 dicMantenibilidadExterna = new Dictionary<string, double>();
             }            
         }
@@ -316,6 +330,285 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return lista;
         }
 
+        // Carga los resultados de las subcaracteristicas evaluadas
+
+        private ArrayList cargarResultadosSubcaracteristicas(Evaluacion datos, string perspectiva)
+        {
+            ArrayList lista = new ArrayList();
+            ArrayList info = new ArrayList();
+            ArrayList grados = new ArrayList();
+            ArrayList resultados = new ArrayList();
+            ArrayList etiquetas = new ArrayList();
+           
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Adecuación"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Adecuacion);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FFuncionalidadInterna[0]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadInterna[0]));
+                }
+                else
+                {
+                    resultados.Add(FFuncionalidadExterna[0]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadExterna[0]));
+                }       
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Exactitud"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Exactitud);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FFuncionalidadInterna[1]);
+                    etiquetas.Add(EtiquetasDifusas2.getEtiquetaLinguistica(FFuncionalidadInterna[1]));
+                }
+                else
+                {
+                    resultados.Add(FFuncionalidadExterna[1]);
+                    etiquetas.Add(EtiquetasDifusas2.getEtiquetaLinguistica(FFuncionalidadExterna[1]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstInteroperabilidad)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Interoperabilidad"));
+                grados.Add(datos.Grados.SbcFuncionalidad.Interoperabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FFuncionalidadInterna[2]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadInterna[2]));
+                }
+                else
+                {
+                    resultados.Add(FFuncionalidadExterna[2]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadExterna[2]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstSeguridadAcceso)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Seguridad Acceso"));
+                grados.Add(datos.Grados.SbcFuncionalidad.SeguridadAcceso);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FFuncionalidadInterna[3]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadInterna[3]));
+                }
+                else
+                {
+                    resultados.Add(FFuncionalidadExterna[3]);
+                    etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(FFuncionalidadExterna[3]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstCumplimientoFuncional)
+            {
+                info.Add(new Tuple<string, string>("Funcionalidad", "Cumplimiento Funcional"));
+                grados.Add(datos.Grados.SbcFuncionalidad.CumplimientoFuncional);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FFuncionalidadInterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FFuncionalidadInterna[4]));
+                }
+                else
+                {
+                    resultados.Add(FFuncionalidadExterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FFuncionalidadExterna[4]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Comprensibilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Comprensibilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FUsabilidadInterna[0]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadInterna[0]));
+                }
+                else
+                {
+                    resultados.Add(FUsabilidadExterna[0]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadExterna[0]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAprendizaje)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Aprendizaje"));
+                grados.Add(datos.Grados.SbcUsabilidad.Aprendizaje);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FUsabilidadInterna[1]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadInterna[1]));
+                }
+                else
+                {
+                    resultados.Add(FUsabilidadExterna[1]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadExterna[1]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstOperabilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Operabilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Operabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FUsabilidadInterna[2]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadInterna[2]));
+                }
+                else
+                {
+                    resultados.Add(FUsabilidadExterna[2]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FUsabilidadExterna[2]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAtractividad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Atractividad"));
+                grados.Add(datos.Grados.SbcUsabilidad.Atractividad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FUsabilidadInterna[3]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FUsabilidadInterna[3]));
+                }
+                else
+                {
+                    resultados.Add(FUsabilidadExterna[3]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FUsabilidadExterna[3]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstCumplimientoUsabilidad)
+            {
+                info.Add(new Tuple<string, string>("Usabilidad", "Cumplimiento Usabilidad"));
+                grados.Add(datos.Grados.SbcUsabilidad.CumplimientoUsabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FUsabilidadInterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FUsabilidadInterna[4]));
+                }
+                else
+                {
+                    resultados.Add(FUsabilidadExterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FUsabilidadExterna[4]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Facilidad Análisis"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Analizabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FMantenibilidadInterna[0]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadInterna[0]));
+                }
+                else
+                {
+                    resultados.Add(FMantenibilidadExterna[0]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadExterna[0]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstModificabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Modificabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Modificabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FMantenibilidadInterna[1]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadInterna[1]));
+                }
+                else
+                {
+                    resultados.Add(FMantenibilidadExterna[1]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadExterna[1]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Estabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Estabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FMantenibilidadInterna[2]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FMantenibilidadInterna[2]));
+                }
+                else
+                {
+                    resultados.Add(FMantenibilidadExterna[2]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FMantenibilidadExterna[2]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Testeabilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.Testeabilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FMantenibilidadInterna[3]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadInterna[3]));
+                }
+                else
+                {
+                    resultados.Add(FMantenibilidadExterna[3]);
+                    etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(FMantenibilidadExterna[3]));
+                }
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
+            {
+                info.Add(new Tuple<string, string>("Mantenibilidad", "Cumplimiento Mantenibilidad"));
+                grados.Add(datos.Grados.SbcMantenibilidad.CumplimientoMantenibilidad);
+
+                if (perspectiva.Equals("Interna"))
+                {
+                    resultados.Add(FMantenibilidadInterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FMantenibilidadInterna[4]));
+                }
+                else
+                {
+                    resultados.Add(FMantenibilidadExterna[4]);
+                    etiquetas.Add(EtiquetasDifusas3.getEtiquetaLinguistica(FMantenibilidadExterna[4]));
+                }
+            }
+
+            Tuple<string, string>[] subcaracteristicas = (Tuple<string, string>[])info.ToArray(typeof(Tuple<string, string>));
+            double[] importancia = (double[])grados.ToArray(typeof(double));
+            double[] numResultados = (double[])resultados.ToArray(typeof(double));
+            string[] lingResultados = (string[])etiquetas.ToArray(typeof(string));
+
+            lista.Add(subcaracteristicas);
+            lista.Add(importancia);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
+
+            return lista;
+        }
+
         // Cargar tablas subcaracteristicas 
 
         private void cargarTablaSubcaracteristicas(DataGrid visual, Tuple<string, string>[] subcaracteristicas, double[] importancia, double[] numResultados, string[] lingResultados)
@@ -500,6 +793,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 }
 
                 resultado = valor / temporal.Count;
+
+                if (resultado == 0)
+                    resultado = 1;
 
                 Console.WriteLine("Promedio: " + resultado);
                 promedios.Add(resultado);
@@ -686,6 +982,233 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 Console.WriteLine("Importancia " + i + ": " + mantenibilidad[i]);
 
             return mantenibilidad;
+        }
+
+        // ESPECIAL -------------------------------------------------------------
+
+        private List<double> asignarSCFuncionalidadControlador2(Evaluacion datos, List<double> subcaracteristicas)
+        {
+            Console.WriteLine("metodo: asignarSCFuncionalidadControlador");
+
+            int cuadratura = 0;
+            double adecuacion, exactitud, interoperabilidad, seguridadAcceso, cumplimientoFuncional;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
+            {
+                adecuacion = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                adecuacion = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+            {
+                exactitud = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                exactitud = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstInteroperabilidad)
+            {
+                interoperabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                interoperabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstSeguridadAcceso)
+            {
+                seguridadAcceso = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                seguridadAcceso = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstCumplimientoFuncional)
+            {
+                cumplimientoFuncional = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoFuncional = 0;
+            }
+
+            lista.Add(adecuacion);
+            lista.Add(exactitud);
+            lista.Add(interoperabilidad);
+            lista.Add(seguridadAcceso);
+            lista.Add(cumplimientoFuncional);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: " + item);
+
+            if (cuadratura == subcaracteristicas.Count)
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
+        }
+
+        private List<double> asignarSCUsabilidadControlador2(Evaluacion datos, List<double> subcaracteristicas)
+        {
+            Console.WriteLine("metodo: asignarSCUsabilidadControlador");
+
+            int cuadratura = 0;
+            double comprensibilidad, aprendizaje, operabilidad, atractividad, cumplimientoUsabilidad;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
+            {
+                comprensibilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                comprensibilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAprendizaje)
+            {
+                aprendizaje = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                aprendizaje = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstOperabilidad)
+            {
+                operabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                operabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAtractividad)
+            {
+                atractividad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                atractividad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstCumplimientoUsabilidad)
+            {
+                cumplimientoUsabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoUsabilidad = 0;
+            }
+
+            lista.Add(comprensibilidad);
+            lista.Add(aprendizaje);
+            lista.Add(operabilidad);
+            lista.Add(atractividad);
+            lista.Add(cumplimientoUsabilidad);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: " + item);
+
+            if (cuadratura == subcaracteristicas.Count)
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
+        }
+
+        private List<double> asignarSCMantenibilidadControlador2(Evaluacion datos, List<double> subcaracteristicas)
+        {
+            Console.WriteLine("metodo: asignarSCMantenibilidadControlador");
+
+            int cuadratura = 0;
+            double facilidadAnalisis, modificabilidad, estabilidad, testeabilidad, cumplimientoMantenibilidad;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
+            {
+                facilidadAnalisis = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                facilidadAnalisis = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstModificabilidad)
+            {
+                modificabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                modificabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
+            {
+                estabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                estabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
+            {
+                testeabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                testeabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
+            {
+                cumplimientoMantenibilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoMantenibilidad = 0;
+            }
+
+            lista.Add(facilidadAnalisis);
+            lista.Add(modificabilidad);
+            lista.Add(estabilidad);
+            lista.Add(testeabilidad);
+            lista.Add(cumplimientoMantenibilidad);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: " + item);
+
+            if (cuadratura == subcaracteristicas.Count)
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
         }
 
         // Crea el diccionario de datos <subcaracteristica, valor> 
@@ -973,8 +1496,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void prepararEvaluacionDifusaSubcaracteristicas(Evaluacion datos, string perspectiva)
         {
             Console.WriteLine("Entrando a prepararEvaluacionFuzzy: " + perspectiva);
-            List<double> FFuncionalidadInterna, FUsabilidadInterna, FMantenibilidadInterna;
-            List<double> FFuncionalidadExterna, FUsabilidadExterna, FMantenibilidadExterna;
 
             List<double> importanciaSubcarFuncionalidad = new List<double>(obtenerImportanciaSubcarFuncionalidad(datos.Grados.SbcFuncionalidad));
             List<double> importanciaSubcarUsabilidad = new List<double>(obtenerImportanciaSubcarUsabilidad(datos.Grados.SbcUsabilidad));
@@ -990,6 +1511,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FFuncionalidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadInterna));
                     FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));
                     FFuncionalidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadInterna, importanciaSubcarFuncionalidad));
+                    FFuncionalidadInterna = new List<double>(asignarSCFuncionalidadControlador2(datos, FFuncionalidadInterna));
                     dicFuncionalidadInterna = asignarSCFuncionalidadControlador(datos, FFuncionalidadInterna);
                 }
 
@@ -1000,6 +1522,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FUsabilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadInterna));
                     FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
                     FUsabilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadInterna, importanciaSubcarUsabilidad));
+                    FUsabilidadInterna = new List<double>(asignarSCUsabilidadControlador2(datos, FUsabilidadInterna));
                     dicUsabilidadInterna = asignarSCUsabilidadControlador(datos, FUsabilidadInterna);
                 }
 
@@ -1010,6 +1533,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FMantenibilidadInterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
                     FMantenibilidadInterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadInterna));
                     FMantenibilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadInterna, importanciaSubcarMantenibilidad));
+                    FMantenibilidadInterna = new List<double>(asignarSCMantenibilidadControlador2(datos, FMantenibilidadInterna));
                     dicMantenibilidadInterna = asignarSCMantenibilidadControlador(datos, FMantenibilidadInterna);
                 }
             }
@@ -1022,6 +1546,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FFuncionalidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGfuncionalidadExterna));
                     FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
                     FFuncionalidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadExterna, importanciaSubcarFuncionalidad));
+                    FFuncionalidadExterna = new List<double>(asignarSCFuncionalidadControlador2(datos, FFuncionalidadExterna));
                     dicFuncionalidadExterna = asignarSCFuncionalidadControlador(datos, FFuncionalidadExterna);
                 }
 
@@ -1032,6 +1557,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FUsabilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGusabilidadExterna));
                     FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
                     FUsabilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadExterna, importanciaSubcarUsabilidad));
+                    FUsabilidadExterna = new List<double>(asignarSCUsabilidadControlador2(datos, FUsabilidadExterna));
                     dicUsabilidadExterna = asignarSCUsabilidadControlador(datos, FUsabilidadExterna);
                 }
 
@@ -1042,6 +1568,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FMantenibilidadExterna = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadExterna));
                     FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
                     FMantenibilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadExterna, importanciaSubcarMantenibilidad));
+                    FMantenibilidadExterna = new List<double>(asignarSCMantenibilidadControlador2(datos, FMantenibilidadExterna));
                     dicMantenibilidadExterna = asignarSCMantenibilidadControlador(datos, FMantenibilidadExterna);
                 }
             }
@@ -1060,27 +1587,33 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
-            ReglasFuncionabilidad reglasFunc = new ReglasFuncionabilidad();
-            ReglasUsabilidad reglasUsab = new ReglasUsabilidad();
-            ReglasMantenibilidad reglasMant = new ReglasMantenibilidad();
+            /*  ReglasFuncionabilidad reglasFunc = new ReglasFuncionabilidad();
+              ReglasUsabilidad reglasUsab = new ReglasUsabilidad();
+              ReglasMantenibilidad reglasMant = new ReglasMantenibilidad();*/
+
+            ArrayList temporal = new ArrayList();
 
             prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Interna");
+            temporal = cargarResultadosSubcaracteristicas(miEvaluacion, "Interna");
+            cargarTablaSubcaracteristicas(tbSubCarInterna, (Tuple<string, string>[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
 
-            if (miEvaluacion.DatosMetricas.FuncionalidadInterna)
-            {
-                evaluacionDifusaSubcaracteristicas(dicFuncionalidadInterna, variablesSCFuncionalidad(), reglasFunc.RFunc);
-            }
+            btnCalcCaractInterna.IsEnabled = true;
 
-            if (miEvaluacion.DatosMetricas.UsabilidadInterna)
-            {
-                evaluacionDifusaSubcaracteristicas(dicUsabilidadInterna, variablesSCUsabilidad(), reglasUsab.RUsab);
-            }
+            /*  if (miEvaluacion.DatosMetricas.FuncionalidadInterna)
+              {
+                  evaluacionDifusaSubcaracteristicas(dicFuncionalidadInterna, variablesSCFuncionalidad(), reglasFunc.RFunc);
+              }
 
-            if (miEvaluacion.DatosMetricas.MantenibilidadInterna)
-            {
-                evaluacionDifusaSubcaracteristicas(dicMantenibilidadInterna, variablesSCMantenibilidad(), reglasMant.RMant);
-            }
+              if (miEvaluacion.DatosMetricas.UsabilidadInterna)
+              {
+                  evaluacionDifusaSubcaracteristicas(dicUsabilidadInterna, variablesSCUsabilidad(), reglasUsab.RUsab);
+              }
 
+              if (miEvaluacion.DatosMetricas.MantenibilidadInterna)
+              {
+                  evaluacionDifusaSubcaracteristicas(dicMantenibilidadInterna, variablesSCMantenibilidad(), reglasMant.RMant);
+              }
+            */
             /*if (calcularFuzzySubcaracteristicas())
                 btnCalcCaractInterna.IsEnabled = true;
             else
@@ -1089,7 +1622,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
         {
+            ArrayList temporal = new ArrayList();
+
             prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Externa");
+            temporal = cargarResultadosSubcaracteristicas(miEvaluacion, "Externa");
+            cargarTablaSubcaracteristicas(tbSubCarExterna, (Tuple<string, string>[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
+
+            btnCalcCaractInterna.IsEnabled = true;
 
             /*if (calcularFuzzySubcaracteristicas())
                 btnCalcCaractInterna.IsEnabled = true;
@@ -1108,7 +1647,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
             ArrayList grados = new ArrayList();
             int activadas = 0;
 
-            if(datos.DatosMetricas.FuncionalidadInterna || datos.DatosMetricas.FuncionalidadExterna)
+            if (datos.DatosMetricas.FuncionalidadInterna || datos.DatosMetricas.FuncionalidadExterna)
             {
                 info.Add("Funcionalidad");
                 grados.Add(datos.Grados.Funcionalidad);
@@ -1129,8 +1668,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 activadas++;
             }
 
-            string[] caracteristicas = (string[]) info.ToArray(typeof(string));
-            double[] importancia = (double[]) grados.ToArray(typeof(double));
+            string[] caracteristicas = (string[])info.ToArray(typeof(string));
+            double[] importancia = (double[])grados.ToArray(typeof(double));
             double[] numResultados = new double[activadas];
             string[] lingResultados = new string[activadas];
 
@@ -1139,6 +1678,54 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 numResultados[i] = 0;
                 lingResultados[i] = "NINGUNA";
             }
+
+            lista.Add(caracteristicas);
+            lista.Add(importancia);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
+
+            return lista;
+        }
+
+        // Carga los resultado de la evluacion de caracteristicas
+
+        private ArrayList cargarResultadosCaracteristicas(Evaluacion datos, string perspectiva, List<double> resultado)
+        {
+            ArrayList lista = new ArrayList();
+            ArrayList info = new ArrayList();
+            ArrayList grados = new ArrayList();
+            ArrayList resultados = new ArrayList();
+            ArrayList etiquetas = new ArrayList();
+
+
+            if (datos.DatosMetricas.FuncionalidadInterna || datos.DatosMetricas.FuncionalidadExterna)
+            {
+                info.Add("Funcionalidad");
+                grados.Add(datos.Grados.Funcionalidad);
+                resultados.Add(resultado[0]);
+                etiquetas.Add(EtiquetasDifusas1.getEtiquetaLinguistica(resultado[0]));
+            }
+
+            if (datos.DatosMetricas.UsabilidadInterna || datos.DatosMetricas.UsabilidadExterna)
+            {
+                info.Add("Usabilidad");
+                grados.Add(datos.Grados.Usabilidad);
+                resultados.Add(resultado[1]);
+                etiquetas.Add(EtiquetasDifusas4.getEtiquetaLinguistica(resultado[1]));
+            }
+
+            if (datos.DatosMetricas.MantenibilidadInterna || datos.DatosMetricas.MantenibilidadExterna)
+            {
+                info.Add("Mantenibilidad");
+                grados.Add(datos.Grados.Mantenibilidad);
+                resultados.Add(resultado[2]);
+                etiquetas.Add(EtiquetasDifusas5.getEtiquetaLinguistica(resultado[2]));
+            }
+
+            string[] caracteristicas = (string[])info.ToArray(typeof(string));
+            double[] importancia = (double[])grados.ToArray(typeof(double));
+            double[] numResultados = (double[])resultados.ToArray(typeof(double));
+            string[] lingResultados = (string[])etiquetas.ToArray(typeof(string));
 
             lista.Add(caracteristicas);
             lista.Add(importancia);
@@ -1228,6 +1815,36 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 numResultados[i] = 0;
                 lingResultados[i] = "NINGUNA";
             }
+
+            lista.Add(atributos);
+            lista.Add(numResultados);
+            lista.Add(lingResultados);
+
+            return lista;
+        }
+
+        // Cargar respuestas calidad final
+
+        private ArrayList cargarResultadosCalidad(List<double> resultados)
+        {
+            int contenido = 3;
+            ArrayList lista = new ArrayList();
+
+            string[] atributos = new string[contenido];
+            double[] numResultados = new double[contenido];
+            string[] lingResultados = new string[contenido];
+
+            atributos[0] = "Calidad Interna";
+            atributos[1] = "Calidad Externa";
+            atributos[2] = "Calidad Final";
+
+            numResultados[0] = resultados[0];
+            numResultados[1] = resultados[1];
+            numResultados[2] = resultados[2];
+
+            lingResultados[0] = EtiquetasDifusas1.getEtiquetaLinguistica(resultados[0]);
+            lingResultados[1] = EtiquetasDifusas1.getEtiquetaLinguistica(resultados[1]);
+            lingResultados[2] = EtiquetasDifusas1.getEtiquetaLinguistica(resultados[2]);
 
             lista.Add(atributos);
             lista.Add(numResultados);

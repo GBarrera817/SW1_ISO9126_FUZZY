@@ -1,54 +1,71 @@
 ﻿using SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
-	/// <summary>
-	/// Clase para crear los valores linguisticos del controlador difuso
-	/// </summary>
-	public class ValorLinguistico
-	{
-		private string _nombre;
-		private FuncionMembresia _funcionMembresia;
-		private double _valorMembresia;
+    /// <summary>
+    /// Clase para lod valores linguisticos de la logica difusa.
+    /// </summary>
+    public class ValorLinguistico
+    {
+        private string nombre;
+        private FuncionPertenencia fp;
+        private double gradoPertenencia;
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="nombre"></param>
-		/// <param name="funcionMembresia"></param>
-		public ValorLinguistico(string nombre, FuncionMembresia funcionMembresia)
-		{
-			_nombre = nombre;
-			_funcionMembresia = funcionMembresia;
-			_valorMembresia = -1;
-		}
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="fp"></param>
+        public ValorLinguistico(string nombre, FuncionPertenencia fp)
+        {
+            Nombre = nombre;
+            Fp = fp;
+            GradoPertenencia = -1; // grado de pertenencia por defecto.
+        }
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="nombre"></param>
-		/// <param name="funcionMembresia"></param>
-		/// <param name="valorPertenencia"></param>
-		public ValorLinguistico(string nombre, FuncionMembresia funcionMembresia, double valorMembresia)
-		{
-			_nombre = nombre;
-			_funcionMembresia = funcionMembresia;
-			_valorMembresia = valorMembresia; //valor de membresia por defecto
-		}
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="fp"></param>
+        /// <param name="grado"></param>
+        public ValorLinguistico(string nombre, FuncionPertenencia fp, double grado)
+        {
+            Nombre = nombre;
+            Fp = fp;
+            GradoPertenencia = grado; // grado de pertenencia por defecto.
+        }
 
-		/// <summary>
-		/// Calcula el valor de membresia del valor lingüístico
-		/// </summary>
-		/// <param name="valor"></param>
-		public void CalcularValorMembresia(double valor)
-		{
-			_valorMembresia = FuncionMembresia.ValorMembresia(valor);
-		}
+        /// <summary>
+        /// Calcula el grado de pertenencia del valor linguistico.
+        /// </summary>
+        /// <param name="valor"></param>
+        public void CalcularGradoPertenencia(double valor)
+        {
+            GradoPertenencia = Fp.GradoPertenencia(valor);
+        }
 
-		//Accesores
-		public string Nombre { get => _nombre; set => _nombre = value; }
-		public FuncionMembresia FuncionMembresia { get => _funcionMembresia; set => _funcionMembresia = value; }
-		public double ValorMembresia { get => _valorMembresia; set => _valorMembresia = value; }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
 
-	}
+        public FuncionPertenencia Fp
+        {
+            get { return fp; }
+            set { fp = value; }
+        }
+
+        public double GradoPertenencia
+        {
+            get { return gradoPertenencia; }
+            set { gradoPertenencia = value; }
+        }
+    }
 }

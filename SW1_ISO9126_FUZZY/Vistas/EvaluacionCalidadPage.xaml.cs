@@ -16,6 +16,7 @@ using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
 using SW1_ISO9126_FUZZY.Logica_Difusa;
 using SW1_ISO9126_FUZZY.Evaluacion_Calidad;
 using SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas;
+using SW1_ISO9126_FUZZY.Evaluacion_Difusa.Reglas_Produccion;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -1059,8 +1060,27 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
         {
+            ReglasFuncionabilidad reglasFunc = new ReglasFuncionabilidad();
+            ReglasUsabilidad reglasUsab = new ReglasUsabilidad();
+            ReglasMantenibilidad reglasMant = new ReglasMantenibilidad();
+
             prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Interna");
-            
+
+            if (miEvaluacion.DatosMetricas.FuncionalidadInterna)
+            {
+                evaluacionDifusaSubcaracteristicas(dicFuncionalidadInterna, variablesSCFuncionalidad(), reglasFunc.RFunc);
+            }
+
+            if (miEvaluacion.DatosMetricas.UsabilidadInterna)
+            {
+                evaluacionDifusaSubcaracteristicas(dicUsabilidadInterna, variablesSCUsabilidad(), reglasUsab.RUsab);
+            }
+
+            if (miEvaluacion.DatosMetricas.MantenibilidadInterna)
+            {
+                evaluacionDifusaSubcaracteristicas(dicMantenibilidadInterna, variablesSCMantenibilidad(), reglasMant.RMant);
+            }
+
             /*if (calcularFuzzySubcaracteristicas())
                 btnCalcCaractInterna.IsEnabled = true;
             else

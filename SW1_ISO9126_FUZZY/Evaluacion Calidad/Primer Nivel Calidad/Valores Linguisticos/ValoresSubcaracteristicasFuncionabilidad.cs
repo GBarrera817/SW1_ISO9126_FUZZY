@@ -17,46 +17,46 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Valores_Linguisticos
 		public ValoresFuncionabilidad()
 		{
 			//Adecuación
-			A_muy_mala = new ValorLinguistico("muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			A_mala = new ValorLinguistico("mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			A_promedio = new ValorLinguistico("promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			A_buena = new ValorLinguistico("buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			A_excelente = new ValorLinguistico("excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			A_muy_mala = new ValorLinguistico("muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			A_mala = new ValorLinguistico("mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			A_promedio = new ValorLinguistico("promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			A_buena = new ValorLinguistico("buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			A_excelente = new ValorLinguistico("excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Exactitud
-			E_nunca = new ValorLinguistico("nunca", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			E_pocas_veces = new ValorLinguistico("pocas_veces", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			E_algunas_veces = new ValorLinguistico("algunas_veces", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			E_casi_siempre = new ValorLinguistico("casi_siempre", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			E_siempre = new ValorLinguistico("siempre", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			E_nunca = new ValorLinguistico("nunca", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			E_pocas_veces = new ValorLinguistico("pocas_veces", new FuncionTriangular(0.1, 0.3, 0.5));
+			E_algunas_veces = new ValorLinguistico("algunas_veces", new FuncionTriangular(0.3, 0.5, 0.7));
+			E_casi_siempre = new ValorLinguistico("casi_siempre", new FuncionTriangular(0.5, 0.7, 0.9));
+			E_siempre = new ValorLinguistico("siempre", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Interoperabilidad
-			I_muy_mala = new ValorLinguistico("muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			I_mala = new ValorLinguistico("mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			I_promedio = new ValorLinguistico("promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			I_buena = new ValorLinguistico("buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			I_excelente = new ValorLinguistico("excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			I_muy_mala = new ValorLinguistico("muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			I_mala = new ValorLinguistico("mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			I_promedio = new ValorLinguistico("promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			I_buena = new ValorLinguistico("buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			I_excelente = new ValorLinguistico("excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Seguridad de Acceso
-			S_muy_mala = new ValorLinguistico("muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			S_mala = new ValorLinguistico("mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			S_promedio = new ValorLinguistico("promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			S_buena = new ValorLinguistico("buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			S_excelente = new ValorLinguistico("excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			S_muy_mala = new ValorLinguistico("muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			S_mala = new ValorLinguistico("mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			S_promedio = new ValorLinguistico("promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			S_buena = new ValorLinguistico("buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			S_excelente = new ValorLinguistico("excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Cumplimiento de Funcionabilidad
-			CF_no = new ValorLinguistico("no", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			CF_poco = new ValorLinguistico("poco", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			CF_medianamente = new ValorLinguistico("medianamente", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			CF_casi_todo = new ValorLinguistico("casi_todo", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			CF_completamente = new ValorLinguistico("completamente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			CF_no = new ValorLinguistico("no", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			CF_poco = new ValorLinguistico("poco", new FuncionTriangular(0.1, 0.3, 0.5));
+			CF_medianamente = new ValorLinguistico("medianamente", new FuncionTriangular(0.3, 0.5, 0.7));
+			CF_casi_todo = new ValorLinguistico("casi_todo", new FuncionTriangular(0.5, 0.7, 0.9));
+			CF_completamente = new ValorLinguistico("completamente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Funcionabilidad
-			F_muy_mala = new ValorLinguistico("muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			F_mala = new ValorLinguistico("mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			F_promedio = new ValorLinguistico("promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			F_buena = new ValorLinguistico("buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			F_excelente = new ValorLinguistico("excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			F_muy_mala = new ValorLinguistico("muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			F_mala = new ValorLinguistico("mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			F_promedio = new ValorLinguistico("promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			F_buena = new ValorLinguistico("buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			F_excelente = new ValorLinguistico("excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 		}
 
 

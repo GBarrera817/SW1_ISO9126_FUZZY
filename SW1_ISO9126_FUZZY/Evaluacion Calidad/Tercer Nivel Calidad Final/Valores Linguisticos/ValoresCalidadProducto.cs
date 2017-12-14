@@ -17,25 +17,25 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final.Valore
 		public ValoresCalidadProducto()
 		{
 			//Calidad Interna
-			muy_mala = new ValorLinguistico("muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			mala = new ValorLinguistico("mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			promedio = new ValorLinguistico("promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			buena = new ValorLinguistico("buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			excelente = new ValorLinguistico("excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			muy_mala = new ValorLinguistico("muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			mala = new ValorLinguistico("mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			promedio = new ValorLinguistico("promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			buena = new ValorLinguistico("buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			excelente = new ValorLinguistico("excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Calidad Externa
-			no_tiene = new ValorLinguistico("no_tiene", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			baja = new ValorLinguistico("baja", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			regular = new ValorLinguistico("regular", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			alta = new ValorLinguistico("alta", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			muy_alta = new ValorLinguistico("muy_alta", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			no_tiene = new ValorLinguistico("no_tiene", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			baja = new ValorLinguistico("baja", new FuncionTriangular(0.1, 0.3, 0.5));
+			regular = new ValorLinguistico("regular", new FuncionTriangular(0.3, 0.5, 0.7));
+			alta = new ValorLinguistico("alta", new FuncionTriangular(0.5, 0.7, 0.9));
+			muy_alta = new ValorLinguistico("muy_alta", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Calidad Final
-			CF_muy_mala = new ValorLinguistico("CF_muy_mala", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			CF_mala = new ValorLinguistico("CF_mala", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			CF_promedio = new ValorLinguistico("CF_promedio", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			CF_buena = new ValorLinguistico("CF_buena", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			CF_excelente = new ValorLinguistico("CF_excelente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			CF_muy_mala = new ValorLinguistico("CF_muy_mala", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			CF_mala = new ValorLinguistico("CF_mala", new FuncionTriangular(0.1, 0.3, 0.5));
+			CF_promedio = new ValorLinguistico("CF_promedio", new FuncionTriangular(0.3, 0.5, 0.7));
+			CF_buena = new ValorLinguistico("CF_buena", new FuncionTriangular(0.5, 0.7, 0.9));
+			CF_excelente = new ValorLinguistico("CF_excelente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 		}
 
 		//Calidad Interna

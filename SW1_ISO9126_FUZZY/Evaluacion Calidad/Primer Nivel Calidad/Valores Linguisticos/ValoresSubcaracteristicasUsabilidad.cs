@@ -17,46 +17,46 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Valores_Linguisticos
 		public ValoresUsabilidad()
 		{
 			//Aprendizaje
-			AP_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			AP_dificil = new ValorLinguistico("dificil", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			AP_normal = new ValorLinguistico("normal", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			AP_facil = new ValorLinguistico("faci", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			AP_muy_facil = new ValorLinguistico("muy_facil", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			AP_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			AP_dificil = new ValorLinguistico("dificil", new FuncionTriangular(0.1, 0.3, 0.5));
+			AP_normal = new ValorLinguistico("normal", new FuncionTriangular(0.3, 0.5, 0.7));
+			AP_facil = new ValorLinguistico("faci", new FuncionTriangular(0.5, 0.7, 0.9));
+			AP_muy_facil = new ValorLinguistico("muy_facil", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Comprensibilidad
-			COM_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			COM_dificil = new ValorLinguistico("dificil", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			COM_normal = new ValorLinguistico("normal", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			COM_facil = new ValorLinguistico("facil", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			COM_muy_facil = new ValorLinguistico("muy_facil", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			COM_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			COM_dificil = new ValorLinguistico("dificil", new FuncionTriangular(0.1, 0.3, 0.5));
+			COM_normal = new ValorLinguistico("normal", new FuncionTriangular(0.3, 0.5, 0.7));
+			COM_facil = new ValorLinguistico("facil", new FuncionTriangular(0.5, 0.7, 0.9));
+			COM_muy_facil = new ValorLinguistico("muy_facil", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Operabilidad
-			OP_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			OP_dificil = new ValorLinguistico("dificil", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			OP_normal = new ValorLinguistico("normal", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			OP_facil = new ValorLinguistico("faci", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			OP_muy_facil = new ValorLinguistico("muy_facil", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			OP_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			OP_dificil = new ValorLinguistico("dificil", new FuncionTriangular(0.1, 0.3, 0.5));
+			OP_normal = new ValorLinguistico("normal", new FuncionTriangular(0.3, 0.5, 0.7));
+			OP_facil = new ValorLinguistico("faci", new FuncionTriangular(0.5, 0.7, 0.9));
+			OP_muy_facil = new ValorLinguistico("muy_facil", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Atractividad
-			AT_no = new ValorLinguistico("no", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			AT_poco = new ValorLinguistico("poco", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			AT_medianamente = new ValorLinguistico("medianamente", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			AT_casi_todo = new ValorLinguistico("casi_todo", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			AT_completamente = new ValorLinguistico("completamente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			AT_no = new ValorLinguistico("no", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			AT_poco = new ValorLinguistico("poco", new FuncionTriangular(0.1, 0.3, 0.5));
+			AT_medianamente = new ValorLinguistico("medianamente", new FuncionTriangular(0.3, 0.5, 0.7));
+			AT_casi_todo = new ValorLinguistico("casi_todo", new FuncionTriangular(0.5, 0.7, 0.9));
+			AT_completamente = new ValorLinguistico("completamente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Cumplimiento de Usabilidad
-			CU_no = new ValorLinguistico("no", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			CU_poco = new ValorLinguistico("poco", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			CU_medianamente = new ValorLinguistico("medianamente", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			CU_casi_todo = new ValorLinguistico("casi_todo", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			CU_completamente = new ValorLinguistico("completamente", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			CU_no = new ValorLinguistico("no", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			CU_poco = new ValorLinguistico("poco", new FuncionTriangular(0.1, 0.3, 0.5));
+			CU_medianamente = new ValorLinguistico("medianamente", new FuncionTriangular(0.3, 0.5, 0.7));
+			CU_casi_todo = new ValorLinguistico("casi_todo", new FuncionTriangular(0.5, 0.7, 0.9));
+			CU_completamente = new ValorLinguistico("completamente", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 
 			//Usabilidad
-			U_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionMembresiaTrapezoidal(0.0, 0.0, 0.1, 0.3));
-			U_dificil = new ValorLinguistico("dificil", new FuncionMembresiaTriangular(0.1, 0.3, 0.5));
-			U_normal = new ValorLinguistico("normal", new FuncionMembresiaTriangular(0.3, 0.5, 0.7));
-			U_facil = new ValorLinguistico("facil", new FuncionMembresiaTriangular(0.5, 0.7, 0.9));
-			U_muy_facil = new ValorLinguistico("muy_facil", new FuncionMembresiaTrapezoidal(0.7, 0.9, 1.0, 1.0));
+			U_muy_dificil = new ValorLinguistico("muy_dificil", new FuncionTrapezoidal(0.0, 0.0, 0.1, 0.3));
+			U_dificil = new ValorLinguistico("dificil", new FuncionTriangular(0.1, 0.3, 0.5));
+			U_normal = new ValorLinguistico("normal", new FuncionTriangular(0.3, 0.5, 0.7));
+			U_facil = new ValorLinguistico("facil", new FuncionTriangular(0.5, 0.7, 0.9));
+			U_muy_facil = new ValorLinguistico("muy_facil", new FuncionTrapezoidal(0.7, 0.9, 1.0, 1.0));
 		}
 
 		//Aprendizaje

@@ -1,127 +1,148 @@
 ﻿using SW1_ISO9126_FUZZY.Logica_Difusa.Funciones_Membresia;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SW1_ISO9126_FUZZY.Logica_Difusa
 {
-	/// <summary>
-	/// Clase para crear las variables lingüísticas del controlador difuso
-	/// </summary>
-	public class VariableLinguistica
-	{
-		private string _nombreVariable;
-		private double _valorMinimo, _valorMaximo;
-		private Dictionary<string, ValorLinguistico> _valoresLinguisticos;
+    /// <summary>
+    /// Clase para las variables linguisticas de la logica difusa.
+    /// </summary>
+    public class VariableLinguistica
+    {
+        private string nombre;
+        private double min, max;
+        private Dictionary<string, ValorLinguistico> valores;
 
+        /// <summary>
+        /// Constructor, recibe el nombre de la variable linguistica.
+        /// Sse inicializara sin valores linguisticos.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public VariableLinguistica(string nombre, double min, double max)
+        {
+            Nombre = nombre;
+            Max = max;
+            Min = min;
+            Valores = new Dictionary<string, ValorLinguistico>();
+        }
 
-		/// <summary>
-		/// Constructor por defecto para crear una variable lingüística
-		/// Se inicializa sin valores lingüísticos
-		/// </summary>
-		public VariableLinguistica(string nombre, double min, double max)
-		{
-			_nombreVariable = nombre;
-			_valorMinimo = max;
-			_valorMaximo = min;
-			_valoresLinguisticos = new Dictionary<string, ValorLinguistico>();
-		}
+        /// <summary>
+        /// Constructor. Forma segura de "clonar" una variable linguistica.
+        /// </summary>
+        /// <param name="variable"></param>
+        public VariableLinguistica(VariableLinguistica variable)
+        {
+            Nombre = variable.Nombre;
+            Max = variable.Max;
+            Min = variable.Min;
+            // al inicializar los Valores se evita el transpaso de clases por parametro.
+            Valores = new Dictionary<string, ValorLinguistico>();
+            foreach(KeyValuePair<string, ValorLinguistico> valor in variable.Valores)
+            {
+                AgregarValorLinguistico(valor.Value);
+            }
+        }
 
-		/// <summary>
-		/// Constructor. Forma segura de clonar una Variable Lingüística
-		/// </summary>
-		/// <param name="variableLinguistica"></param>
-		public VariableLinguistica(VariableLinguistica variableLinguistica)
-		{
-			_nombreVariable = variableLinguistica.NombreVariable;
-			_valorMinimo = variableLinguistica.ValorMaximo;
-			_valorMaximo = variableLinguistica.ValorMinimo;
-			_valoresLinguisticos = new Dictionary<string, ValorLinguistico>();
+        /// <summary>
+        /// Agrega un valor linguistico a la variable linguistica.
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns>Retorna true si se ha agrega el valor con exito, de lo contrario false.</returns>
+        public bool AgregarValorLinguistico(string nombre, FuncionPertenencia fp)
+        {
+            // IMPLEMENTAR: COMPROBAR QUE EL VALOR LINGUISTICO NO SE SALGA DEL RANGO DE LA VARIABLE LINGUISTICA.
+            ValorLinguistico vl = new ValorLinguistico(nombre, fp);
+            valores.Add(vl.Nombre, vl);
 
-			foreach (KeyValuePair<string, ValorLinguistico> valor in variableLinguistica.ValoresLinguisticos)
-				AgregarValorLinguistico(valor.Value);
-		}
+            return true;
+        }
 
+        /// <summary>
+        /// Agrega un valor linguistico a la variable linguistica.
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns>Retorna true si se ha agrega el valor con exito, de lo contrario false.</returns>
+        public bool AgregarValorLinguistico(ValorLinguistico valor)
+        {
+            // IMPLEMENTAR: COMPROBAR QUE EL VALOR LINGUISTICO NO SE SALGA DEL RANGO DE LA VARIABLE LINGUISTICA.
+            ValorLinguistico vl = new ValorLinguistico(valor.Nombre, valor.Fp, valor.GradoPertenencia);
+            valores.Add(vl.Nombre, vl);
+            return true;
+        }
 
-		/// <summary>
-		/// Agrega un valor linguistico a la variable lingüística.
-		/// </summary>
-		/// <param name="nombre"></param>
-		/// <param name="funcionMembresia"></param>
-		/// <returns></returns>
-		public bool AgregarValorLinguistico(string nombre, FuncionMembresia funcionMembresia)
-		{
-			ValorLinguistico vl = new ValorLinguistico(nombre, funcionMembresia);
-			_valoresLinguisticos.Add(vl.Nombre, vl);
+        /// <summary>
+        /// Fuzzifica la variable, obteniendo el grado de pertenencia para cada valor linguistico.
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
+        public bool Fuzzificar(double dato)
+        {
+            if ( dato >= Min && dato <= Max )
+            {
+                foreach (KeyValuePair<string, ValorLinguistico> valor in Valores)
+                {
+                    valor.Value.CalcularGradoPertenencia(dato);
+                }
+                return true;
+            }
 
-			return true;
-		}
+            return false;
+        }
 
+        /// <summary>
+        /// Elimina un valor linguistico de la variable linguistica.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns>Retorna true si se a eliminado el valor con exito, de lo contrario false.</returns>
+        public bool EliminiarValorLinguistico(string nombre)
+        {
+            // IMPLEMENTAR: COMPROBAR QUE EL VALOR LINGUISTICO EXISTA.
+            Valores.Remove(nombre);
+            return true;
+        }
 
-		/// <summary>
-		/// Agrega un valor linguistico a la variable lingüística.
-		/// </summary>
-		/// <param name="valorLinguistico"></param>
-		/// <returns></returns>
-		public bool AgregarValorLinguistico(ValorLinguistico valorLinguistico)
-		{
-			ValorLinguistico vl = new ValorLinguistico(valorLinguistico.Nombre, valorLinguistico.FuncionMembresia, valorLinguistico.ValorMembresia);
-			//Console.WriteLine("\n" + vl.Nombre + " " + vl.FuncionMembresia + " " + vl.ValorMembresia);
-			_valoresLinguisticos.Add(vl.Nombre, vl);
-			return true;
-		}
+        /// <summary>
+        /// Retorna un valor linguistico segun el nombre.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
+        public ValorLinguistico ValorLinguistico(string nombre)
+        {
+            if( Valores.ContainsKey(nombre) )
+            {
+                return Valores[nombre];
+            }
 
+            return null;
+        }
 
-		/// <summary>
-		/// Fuzzifica la variable, obteniendo el grado de pertenencia por cada valor lingüístico
-		/// </summary>
-		/// <param name="valorEntrada"></param>
-		/// <returns></returns>
-		public bool Fuzzificar(double valorEntrada)
-		{
-			if (valorEntrada >= _valorMinimo && valorEntrada <= _valorMaximo)
-			{
-				foreach (KeyValuePair<string, ValorLinguistico> valor in _valoresLinguisticos)
-					valor.Value.CalcularValorMembresia(valorEntrada);
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
 
-				return true;
-			}
-			return false;
-		}
+        public Dictionary<string, ValorLinguistico> Valores
+        {
+            get { return valores; }
+            set { valores = value; }
+        }
 
-		/// <summary>
-		/// Elimina un valor lingüístico de la variable lingüística en caso de que exista
-		/// </summary>
-		/// <param name="nombreValorLinguistico"></param>
-		/// <returns></returns>
-		public bool EliminarValorLinguistico(string nombreValorLinguistico)
-		{
-			//REVISAR
-			if (_valoresLinguisticos.ContainsKey(nombreValorLinguistico))
-			{
-				_valoresLinguisticos.Remove(nombreValorLinguistico);
-				return true;
-			}
-			return false;
-		}
+        public double Max
+        {
+            get { return max; }
+            set { max = value; }
+        }
 
-		/// <summary>
-		/// Retorna un valor lingüístico según el nombre
-		/// </summary>
-		/// <param name="nombreValorLinguistico"></param>
-		/// <returns></returns>
-		public ValorLinguistico ValorLinguistico(string nombreValorLinguistico)
-		{
-			if (_valoresLinguisticos.ContainsKey(nombreValorLinguistico))
-				return _valoresLinguisticos[nombreValorLinguistico];
-
-			return null;
-		}
-
-
-		//Accesores
-		public string NombreVariable { get => _nombreVariable; set => _nombreVariable = value; }
-		public double ValorMinimo { get => _valorMinimo; set => _valorMinimo = value; }
-		public double ValorMaximo { get => _valorMaximo; set => _valorMaximo = value; }
-		public Dictionary<string, ValorLinguistico> ValoresLinguisticos { get => _valoresLinguisticos; set => _valoresLinguisticos = value; }
-	}
+        public double Min
+        {
+            get { return min; }
+            set { min = value; }
+        }
+    }
 }

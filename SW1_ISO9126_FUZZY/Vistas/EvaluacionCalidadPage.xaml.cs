@@ -13,6 +13,9 @@ using System.IO;
 using SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos;
 using SW1_ISO9126_FUZZY.JSON;
 using SW1_ISO9126_FUZZY.Modelo_Datos.Importancias;
+using SW1_ISO9126_FUZZY.Logica_Difusa;
+using SW1_ISO9126_FUZZY.Evaluacion_Calidad;
+using SW1_ISO9126_FUZZY.Evaluacion_Difusa.Variables_Linguisticas;
 
 namespace SW1_ISO9126_FUZZY.Vistas
 {
@@ -920,6 +923,50 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return lista;
         }
 
+        // Crea la lista de variables linguisticas por subcaracteristicas
+
+        private List<VariableLinguistica> variablesSCFuncionalidad()
+        {
+            List<VariableLinguistica> salida = new List<VariableLinguistica>();
+            VariablesFuncionabilidad variables = new VariablesFuncionabilidad();
+
+            salida.Add(variables.Adecuacion);
+            salida.Add(variables.Exactitud);
+            salida.Add(variables.Interoperabilidad);
+            salida.Add(variables.SeguridadAcceso);
+            salida.Add(variables.CumplimientoFuncionabilidad);
+
+            return salida;
+        }
+
+        private List<VariableLinguistica> variablesSCUsabilidad()
+        {
+            List<VariableLinguistica> salida = new List<VariableLinguistica>();
+            VariablesUsabilidad variables = new VariablesUsabilidad();
+
+            salida.Add(variables.Comprensibilidad);
+            salida.Add(variables.Aprendizaje);
+            salida.Add(variables.Operabilidad);
+            salida.Add(variables.Atractividad);
+            salida.Add(variables.CumplimientoUsabilidad);
+
+            return salida;
+        }
+
+        private List<VariableLinguistica> variablesSCMantenibilidad()
+        {
+            List<VariableLinguistica> salida = new List<VariableLinguistica>();
+            VariablesMantenibilidad variables = new VariablesMantenibilidad();
+
+            salida.Add(variables.Analizabilidad);
+            salida.Add(variables.Modificabilidad);
+            salida.Add(variables.Estabilidad);
+            salida.Add(variables.Testeabilidad);
+            salida.Add(variables.CumplimientoMantenibilidad);
+
+            return salida;
+        }
+
         // Prepara la lista de calculos para realizar la evaluacion difusa
 
         private void prepararEvaluacionDifusaSubcaracteristicas(Evaluacion datos, string perspectiva)
@@ -999,39 +1046,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas)
+        private double evaluacionDifusaSubcaracteristicas(Dictionary<string, double> subcaracteristicas, List<VariableLinguistica> variablesSubcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas)
         {
-           /* Dictionary<string, string> reglas = new Dictionary<string, string>();
-            ReglasMatching reglasM = new ReglasMatching(); // Obtengo reglas del modelo 
-            VariablesMatching variablesM = new VariablesMatching(); // Obtengo variables de modelo 
+            double resultado = 0;
 
-            //Dictionary<string, Tuple<double, double>> datos = new Dictionary<string, Tuple<double, double>>();
-            Dictionary<string, double> datos = new Dictionary<string, double>();
-            List<VariableLinguistica> variables = new List<VariableLinguistica>();
-            AdminPerfil ap = new AdminPerfil();
-            double totalImportancia = 0;
+            resultado = EvaluacionDifusa.Evaluacion(subcaracteristicas, variablesSubcaracteristicas, reglasSubcaracteristicas);
 
-            // Normalizamos lso puntajes y evaluamos la igualdad de las HB, HD, Y CF.
-            HBS.Puntaje = (HBS.Puntaje * HBS.Importancia) / 100;
-            HBT.Puntaje = (HBT.Puntaje * HBS.Importancia) / 100;
-            compatibilidadHB = EvaluarCompatibilidad(HBS, HBT);
-            datos.Add("HB", compatibilidadHB);
-            HDS.Puntaje = (HDS.Puntaje * HDS.Importancia) / 100;
-            HDT.Puntaje = (HDT.Puntaje * HDS.Importancia) / 100;
-            compatibilidadHD = EvaluarCompatibilidad(HDS, HDT);
-            datos.Add("HD", compatibilidadHD);
-            CFS.Puntaje = (CFS.Puntaje * CFS.Importancia) / 100;
-            CFT.Puntaje = (CFT.Puntaje * CFS.Importancia) / 100;
-            compatibilidadCF = EvaluarCompatibilidad(CFS, CFT);
-            datos.Add("CF", compatibilidadCF);
-
-            reglas = reglasM.Capacidad;
-            variables.Add(variablesM.HB);
-            variables.Add(variablesM.HD);
-            variables.Add(variablesM.CF);
-            variables.Add(variablesM.Trabajador); // Consecuente.
-
-            capacidad = EvaluacionDifusa.Evaluacion(datos, variables, reglas);*/
+            return resultado;
         }
 
         // Eventos botones

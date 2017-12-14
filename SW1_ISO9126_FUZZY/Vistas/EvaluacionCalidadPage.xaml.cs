@@ -684,15 +684,15 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return mantenibilidad;
         }
 
-        // Asigna las subcaracteristicas a la posicion de la lista correspondiente y valor cero a las no seleccionadas
+        // Crea el diccionario de datos <subcaracteristica, valor> 
 
-        private List<double> asignarSCFuncionalidadControlador(Evaluacion datos, List<double> subcaracteristicas)
+        private Dictionary<string, double> asignarSCFuncionalidadControlador(Evaluacion datos, List<double> subcaracteristicas)
         {
             Console.WriteLine("metodo: asignarSCFuncionalidadControlador");
 
             int cuadratura = 0;
             double adecuacion, exactitud, interoperabilidad, seguridadAcceso, cumplimientoFuncional;
-            List<double> lista = new List<double>();
+            Dictionary<string, double> lista = new Dictionary<string, double>();
 
             if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
             {
@@ -744,15 +744,18 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cumplimientoFuncional = 0;
             }
 
-            lista.Add(adecuacion);
-            lista.Add(exactitud);
-            lista.Add(interoperabilidad);
-            lista.Add(seguridadAcceso);
-            lista.Add(cumplimientoFuncional);
+            lista.Add("adecuacion",adecuacion);
+            lista.Add("exactitud",exactitud);
+            lista.Add("interoperabilidad",interoperabilidad);
+            lista.Add("seguridad",seguridadAcceso);
+            lista.Add("cumplimiento_funcional",cumplimientoFuncional);
 
-            foreach (double item in lista)
-                Console.WriteLine("Valor: " + item);
+            Console.WriteLine("Contenido diccionario");
+            Console.WriteLine("---------------------");
 
+            foreach (KeyValuePair<string, double> result in lista)           
+                Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
+            
             if (cuadratura == subcaracteristicas.Count)
                 Console.WriteLine("Cuadra");
             else
@@ -761,13 +764,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return lista;
         }
 
-        private List<double> asignarSCUsabilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
+        private Dictionary<string, double> asignarSCUsabilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
         {
             Console.WriteLine("metodo: asignarSCUsabilidadControlador");
 
             int cuadratura = 0;
             double comprensibilidad, aprendizaje, operabilidad, atractividad, cumplimientoUsabilidad;
-            List<double> lista = new List<double>();
+            Dictionary<string, double> lista = new Dictionary<string, double>();
 
             if (datos.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
             {
@@ -819,14 +822,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cumplimientoUsabilidad = 0;
             }
 
-            lista.Add(comprensibilidad);
-            lista.Add(aprendizaje);
-            lista.Add(operabilidad);
-            lista.Add(atractividad);
-            lista.Add(cumplimientoUsabilidad);
+            lista.Add("comprensibilidad",comprensibilidad);
+            lista.Add("facilidad_aprendizaje",aprendizaje);
+            lista.Add("operabilidad",operabilidad);
+            lista.Add("atractividad",atractividad);
+            lista.Add("cumplimiento_usabilidad",cumplimientoUsabilidad);
 
-            foreach (double item in lista)
-                Console.WriteLine("Valor: " + item);
+            Console.WriteLine("Contenido diccionario");
+            Console.WriteLine("---------------------");
+
+            foreach (KeyValuePair<string, double> result in lista)
+                Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
 
             if (cuadratura == subcaracteristicas.Count)
                 Console.WriteLine("Cuadra");
@@ -836,13 +842,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return lista;
         }
 
-        private List<double> asignarSCMantenibilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
+        private Dictionary<string, double> asignarSCMantenibilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
         {
             Console.WriteLine("metodo: asignarSCMantenibilidadControlador");
 
             int cuadratura = 0;
             double facilidadAnalisis, modificabilidad, estabilidad, testeabilidad, cumplimientoMantenibilidad;
-            List<double> lista = new List<double>();
+            Dictionary<string, double> lista = new Dictionary<string, double>();
 
             if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
             {
@@ -894,14 +900,17 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 cumplimientoMantenibilidad = 0;
             }
 
-            lista.Add(facilidadAnalisis);
-            lista.Add(modificabilidad);
-            lista.Add(estabilidad);
-            lista.Add(testeabilidad);
-            lista.Add(cumplimientoMantenibilidad);
+            lista.Add("analizabilidad",facilidadAnalisis);
+            lista.Add("modificabilidad",modificabilidad);
+            lista.Add("estabilidad",estabilidad);
+            lista.Add("testeabilidad",testeabilidad);
+            lista.Add("cumplimiento_mantenibilidad",cumplimientoMantenibilidad);
 
-            foreach (double item in lista)
-                Console.WriteLine("Valor: " + item);
+            Console.WriteLine("Contenido diccionario");
+            Console.WriteLine("---------------------");
+
+            foreach (KeyValuePair<string, double> result in lista)
+                Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
 
             if (cuadratura == subcaracteristicas.Count)
                 Console.WriteLine("Cuadra");
@@ -987,10 +996,40 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        /* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
-         {
+        private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
+        {
+           /* Dictionary<string, string> reglas = new Dictionary<string, string>();
+            ReglasMatching reglasM = new ReglasMatching(); // Obtengo reglas del modelo 
+            VariablesMatching variablesM = new VariablesMatching(); // Obtengo variables de modelo 
 
-         }*/
+            //Dictionary<string, Tuple<double, double>> datos = new Dictionary<string, Tuple<double, double>>();
+            Dictionary<string, double> datos = new Dictionary<string, double>();
+            List<VariableLinguistica> variables = new List<VariableLinguistica>();
+            AdminPerfil ap = new AdminPerfil();
+            double totalImportancia = 0;
+
+            // Normalizamos lso puntajes y evaluamos la igualdad de las HB, HD, Y CF.
+            HBS.Puntaje = (HBS.Puntaje * HBS.Importancia) / 100;
+            HBT.Puntaje = (HBT.Puntaje * HBS.Importancia) / 100;
+            compatibilidadHB = EvaluarCompatibilidad(HBS, HBT);
+            datos.Add("HB", compatibilidadHB);
+            HDS.Puntaje = (HDS.Puntaje * HDS.Importancia) / 100;
+            HDT.Puntaje = (HDT.Puntaje * HDS.Importancia) / 100;
+            compatibilidadHD = EvaluarCompatibilidad(HDS, HDT);
+            datos.Add("HD", compatibilidadHD);
+            CFS.Puntaje = (CFS.Puntaje * CFS.Importancia) / 100;
+            CFT.Puntaje = (CFT.Puntaje * CFS.Importancia) / 100;
+            compatibilidadCF = EvaluarCompatibilidad(CFS, CFT);
+            datos.Add("CF", compatibilidadCF);
+
+            reglas = reglasM.Capacidad;
+            variables.Add(variablesM.HB);
+            variables.Add(variablesM.HD);
+            variables.Add(variablesM.CF);
+            variables.Add(variablesM.Trabajador); // Consecuente.
+
+            capacidad = EvaluacionDifusa.Evaluacion(datos, variables, reglas);*/
+        }
 
         // Eventos botones
 

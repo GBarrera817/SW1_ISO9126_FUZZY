@@ -1,8 +1,11 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using SW1_ISO9126_FUZZY.Vistas;
+using System.Collections.Generic;
 
 namespace SW1_ISO9126_FUZZY.Archivos {
 
@@ -16,17 +19,54 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 		private Font titleFont;
 		private Font subTitleFont;
 		private Font boldTableFont;
-		private Font endingMessageFont;
 		private Font bodyFont;
 
-		public Reportes(string nombreArchivo)
+		private Evaluacion miEvaluacion;
+
+		private List<string> datosPDF;
+
+		public Reportes(string nombreArchivo, Evaluacion nueva, List<string> confPDF)
 		{
+			miEvaluacion = nueva;
+			datosPDF = confPDF;
+
 			imageURL = @"D:/Documentos/Visual Studio 2017/Projects/SW1_ISO9126_FUZZY/SW1_ISO9126_FUZZY/Imagenes/";
-			titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
-			subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
-			boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
-			endingMessageFont = FontFactory.GetFont("Arial", 10, Font.ITALIC);
-			bodyFont = FontFactory.GetFont("Arial", 12, Font.NORMAL);
+			//titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
+			//subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
+			//boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+			//endingMessageFont = FontFactory.GetFont("Arial", 10, Font.ITALIC);
+
+			if (datosPDF[1].Equals("ARIAL"))
+			{
+				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
+				subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
+				boldTableFont = FontFactory.GetFont("Arial", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Arial", datosPDF[2]);
+			}
+
+			if (datosPDF[1].Equals("HELVETICA"))
+			{
+				titleFont = FontFactory.GetFont("Helvetica", 24, Font.BOLD);
+				subTitleFont = FontFactory.GetFont("Helvetica", 18, Font.BOLD | Font.UNDERLINE);
+				boldTableFont = FontFactory.GetFont("Helvetica", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Helvetica", datosPDF[2]);
+			}
+
+			if (datosPDF[1].Equals("COURIER"))
+			{
+				titleFont = FontFactory.GetFont("Courier", 24, Font.BOLD);
+				subTitleFont = FontFactory.GetFont("Courier", 18, Font.BOLD | Font.UNDERLINE);
+				boldTableFont = FontFactory.GetFont("Courier", datosPDF[2], Font.BOLD);
+				bodyFont = FontFactory.GetFont("Courier", datosPDF[2]);
+			}
+
+			/*
+			if (datosPDF[1].Equals("TIMES NEW ROMAN"))
+			{
+				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
+				subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
+				boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+			}*/
 
 			try
 			{
@@ -39,14 +79,14 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				// ENCABEZADO
 				Image logoISO = Image.GetInstance(imageURL + "/logoPDF.jpg");
 				//logoISO.ScalePercent(0.2f * 100);
-				logoISO.ScaleAbsoluteHeight(60);
-				logoISO.ScaleAbsoluteWidth(60);
+				logoISO.ScaleAbsoluteHeight(80);
+				logoISO.ScaleAbsoluteWidth(80);
 				logoISO.SetAbsolutePosition(460, 740);
 				doc.Add(logoISO);
 
 				Image logoULS = Image.GetInstance(imageURL + "/logoIngecomp.jpg");
-				logoULS.ScaleAbsoluteHeight(60);
-				logoULS.ScaleAbsoluteWidth(60);
+				logoULS.ScaleAbsoluteHeight(80);
+				logoULS.ScaleAbsoluteWidth(80);
 				logoULS.SetAbsolutePosition(60, 740);
 				doc.Add(logoULS);
 
@@ -73,9 +113,9 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblDatosEv.SetWidths(new int[] { 2, 4 });
 
 				tblDatosEv.AddCell(new Phrase("Nombre del evaluador: ", bodyFont));
-				tblDatosEv.AddCell(new Phrase("Gabriela Barrera", bodyFont)); //tblPrueba.AddCell("txtCampo.Text");
+				tblDatosEv.AddCell(new Phrase(miEvaluacion.Informacion.Evaluador, bodyFont)); //tblPrueba.AddCell("txtCampo.Text");
 				tblDatosEv.AddCell("Tipo de usuario: ");
-				tblDatosEv.AddCell("Evaluador: ");
+				tblDatosEv.AddCell(miEvaluacion.Informacion.Tipo);
 
 				doc.Add(tblDatosEv);
 
@@ -91,13 +131,16 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblRegSW.SetWidths(new int[] { 2, 4 });
 
 				tblRegSW.AddCell(new Phrase("Nombre del software: ", bodyFont));
-				tblRegSW.AddCell("Academic Evaluator");
+				tblRegSW.AddCell(miEvaluacion.Informacion.Nombre);
 				tblRegSW.AddCell(new Phrase("Desarrollador(es): "));
-				tblRegSW.AddCell("precio"); //tblPrueba.AddCell(Convert.ToDecimal(txtTotalPrice.Text).ToString("c"));
+				for (int i = 0; i < miEvaluacion.Informacion.Desarrollador.Length; i++)
+				{
+					tblRegSW.AddCell(miEvaluacion.Informacion.Desarrollador[i]);
+				}
 				tblRegSW.AddCell(new Phrase("Manual de usuario: ", bodyFont));
-				tblRegSW.AddCell("SI");
+				tblRegSW.AddCell(miEvaluacion.Informacion.Manual);
 				tblRegSW.AddCell(new Phrase("Descripcìón del software: "));
-				tblRegSW.AddCell("asdjkasjdaspdakcnaosdqiwjeopasjdm");
+				tblRegSW.AddCell(miEvaluacion.Informacion.Descripcion);
 
 				doc.Add(tblRegSW);
 
@@ -119,6 +162,7 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblCalidadCaracteristicaInt.AddCell(new Phrase("Resultado", boldTableFont));
 				tblCalidadCaracteristicaInt.AddCell(new Phrase("Etiqueta", boldTableFont));
 
+				/******************** COMPLETAR *******************/
 				//AGREGAR DATOS A LA TABLA
 				for (int i = 0; i < 3; i++)
 				{
@@ -130,6 +174,8 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 
 				doc.Add(tblCalidadCaracteristicaInt);
 
+
+				/******************** COMPLETAR *******************/
 				//TABLA CARACTERÍSTICAS EXTERNAS
 				PdfPTable tblCalidadCaracteristicaExt = new PdfPTable(4);
 				tblCalidadCaracteristicaExt.SpacingBefore = 4;
@@ -145,6 +191,8 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblCalidadCaracteristicaExt.AddCell(new Phrase("Resultado", boldTableFont));
 				tblCalidadCaracteristicaExt.AddCell(new Phrase("Etiqueta", boldTableFont));
 
+
+				/******************** COMPLETAR *******************/
 				//AGREGAR DATOS A LA TABLA
 				for (int i = 0; i < 3; i++)
 				{
@@ -171,6 +219,8 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblCalidadFinal.AddCell(new Phrase("Resultado", boldTableFont));
 				tblCalidadFinal.AddCell(new Phrase("Etiqueta", boldTableFont));
 
+
+				/******************** COMPLETAR *******************/
 				//AGREGAR DATOS A LA TABLA
 				for (int i = 0; i < 3; i++)
 				{
@@ -183,18 +233,18 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 
 				//CAMPO DE OBSERVACIONES
 				doc.Add(new Phrase("Objetivo de la evaluación", subTitleFont));
-				string objetivo = "Ingrese información acerca del objetivo, alcances o restricciones de la evaluación";
+				string objetivo = confPDF[3];
 				doc.Add(new Paragraph(objetivo));
 				doc.Add(Chunk.NEWLINE);
 
 				doc.Add(new Phrase("Observaciones", subTitleFont));
-				string observaciones = "Ingrese comentarios sobre la evaluación del producto software";
+				string observaciones = confPDF[4];
 				doc.Add(new Paragraph(observaciones));
 
 				//FECHA DE LA EVALUACIÓN
 				doc.Add(new Phrase("Fecha de la evaluación", subTitleFont));
 				doc.Add(Chunk.NEWLINE);
-				doc.Add(new Phrase("06-12-17"));
+				doc.Add(new Phrase(confPDF[5]));
 
 				doc.Close();
 				writer.Close();

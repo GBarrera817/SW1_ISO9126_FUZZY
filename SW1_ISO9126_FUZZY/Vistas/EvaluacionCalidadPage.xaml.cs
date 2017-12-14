@@ -1890,8 +1890,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
         // Eventos botones
 
         private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
-        {
-            /*if (calcularFuzzyCalidad())
+        { 
+			/*if (calcularFuzzyCalidad())
             {
                 btnGenerarPDF.IsEnabled = true;
             }
@@ -1899,21 +1899,38 @@ namespace SW1_ISO9126_FUZZY.Vistas
             {
                 btnGenerarPDF.IsEnabled = false;
             }*/
-        }
+		}
 
-        private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
+		//Datos configuración del PDF
+		private List<string> obtenerDatosInforme()
+		{
+			List<string> datos = new List<string>();
+			string[] cadena = calendario.DisplayDate.ToString().Split(' ');
+			string fecha = cadena[0];
+
+			datos.Add(txtNombreArchivo.Text);
+			datos.Add(cmboxTipoFuente.Text);
+			datos.Add(dudtTamFuente.Text);
+			datos.Add(txtObjetivos.Text);
+			datos.Add(txtObservacion.Text);
+			datos.Add(fecha);
+
+			return datos;
+		}
+
+		private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
         {
             if (validarDatosReporte())
             {
                 if (validarConfigPDF())
                 {
-                    /*if (validarEvaluacion())
-                    {
+                    //if (validarEvaluacion())
+                   // {
                         
 
                 					Stream myStream = null;
 			
-					SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+					System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 					string ruta = saveFileDialog1.FileName;
 					saveFileDialog1.InitialDirectory = "c:\\Documentos";
 					saveFileDialog1.FileName = txtNombreArchivo.Text;
@@ -1923,16 +1940,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					saveFileDialog1.FilterIndex = 2;
 					saveFileDialog1.RestoreDirectory = true;
 
-					if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+					if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 					{
-						Reportes r = new Reportes(saveFileDialog1.FileName);
+						Reportes r = new Reportes(saveFileDialog1.FileName, miEvaluacion, obtenerDatosInforme());
 				Xceed.Wpf.Toolkit.MessageBox.Show("El archivo se ha creado correctamente");
 					}
 
 
 
-                    }
-                    */
+                    //}
+                    
                 }
                 else
                 {

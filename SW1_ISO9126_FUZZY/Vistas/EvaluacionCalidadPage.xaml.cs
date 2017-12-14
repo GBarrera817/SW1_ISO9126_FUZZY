@@ -723,7 +723,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     FMantenibilidadIntena = new List<double>(promedioSubcaracteristicas(MTCAGmantenibilidadInterna));
                     FMantenibilidadIntena = new List<double>(normalizarSubcaracteristicas(FMantenibilidadIntena));
                     FMantenibilidadIntena = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadIntena, importanciaSubcarMantenibilidad));
-                    FMantenibilidadIntena = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadIntena);
+                    FMantenibilidadIntena = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadIntena));
                 }
             }
             else

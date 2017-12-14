@@ -754,10 +754,235 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-       /* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
+        private List<double> asignarSCFuncionalidadControlador(Evaluacion datos, List<double> subcaracteristicas)
         {
+            Console.WriteLine("metodo: asignarSCFuncionalidadControlador");
 
-        }*/
+            int cuadratura = 0;
+            double adecuacion, exactitud, interoperabilidad, seguridadAcceso, cumplimientoFuncional;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstAdecuacion)
+            {
+                adecuacion = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                adecuacion = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstExactitud)
+            {
+                exactitud = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                exactitud = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstInteroperabilidad)
+            {
+                interoperabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                interoperabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstSeguridadAcceso)
+            {
+                seguridadAcceso = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                seguridadAcceso = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarfuncionalidad.EstCumplimientoFuncional)
+            {
+                cumplimientoFuncional = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoFuncional = 0;
+            }
+
+            lista.Add(adecuacion);
+            lista.Add(exactitud);
+            lista.Add(interoperabilidad);
+            lista.Add(seguridadAcceso);
+            lista.Add(cumplimientoFuncional);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: "+ item);
+
+            if (cuadratura == subcaracteristicas.Count)        
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
+        }
+
+        private List<double> asignarSCUsabilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
+        {
+            Console.WriteLine("metodo: asignarSCUsabilidadControlador");
+
+            int cuadratura = 0;
+            double comprensibilidad, aprendizaje, operabilidad, atractividad, cumplimientoUsabilidad;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstComprensibilidad)
+            {
+                comprensibilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                comprensibilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAprendizaje)
+            {
+                aprendizaje = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                aprendizaje = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstOperabilidad)
+            {
+                operabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                operabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstAtractividad)
+            {
+                atractividad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                atractividad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarusabilidad.EstCumplimientoUsabilidad)
+            {
+                cumplimientoUsabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoUsabilidad = 0;
+            }
+
+            lista.Add(comprensibilidad);
+            lista.Add(aprendizaje);
+            lista.Add(operabilidad);
+            lista.Add(atractividad);
+            lista.Add(cumplimientoUsabilidad);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: " + item);
+
+            if (cuadratura == subcaracteristicas.Count)
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
+        }
+
+        private List<double> asignarSCMantenibilidadControlador(Evaluacion datos, List<double> subcaracteristicas)
+        {
+            Console.WriteLine("metodo: asignarSCMantenibilidadControlador");
+
+            int cuadratura = 0;
+            double facilidadAnalisis, modificabilidad, estabilidad, testeabilidad, cumplimientoMantenibilidad;
+            List<double> lista = new List<double>();
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstAnalizabilidad)
+            {
+                facilidadAnalisis = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                facilidadAnalisis = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstModificabilidad)
+            {
+                modificabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                modificabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstEstabilidad)
+            {
+                estabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                estabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstTesteabilidad)
+            {
+                testeabilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                testeabilidad = 0;
+            }
+
+            if (datos.EstSubcaracteristicas.SubCarmantenibilidad.EstCumplimientoMantenibilidad)
+            {
+                cumplimientoMantenibilidad = subcaracteristicas[cuadratura];
+                cuadratura++;
+            }
+            else
+            {
+                cumplimientoMantenibilidad = 0;
+            }
+
+            lista.Add(facilidadAnalisis);
+            lista.Add(modificabilidad);
+            lista.Add(estabilidad);
+            lista.Add(testeabilidad);
+            lista.Add(cumplimientoMantenibilidad);
+
+            foreach (double item in lista)
+                Console.WriteLine("Valor: " + item);
+
+            if (cuadratura == subcaracteristicas.Count)
+                Console.WriteLine("Cuadra");
+            else
+                Console.WriteLine("No cuadra");
+
+            return lista;
+        }
+
+        /* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
+         {
+
+         }*/
 
         // Eventos botones
 

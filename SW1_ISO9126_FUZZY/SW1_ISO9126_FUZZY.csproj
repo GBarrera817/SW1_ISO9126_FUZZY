@@ -127,7 +127,7 @@
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasUsabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasMantebilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasUsabilidad.cs" />
-    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSucaracteristicasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasMantenibilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasUsabilidad.cs" />

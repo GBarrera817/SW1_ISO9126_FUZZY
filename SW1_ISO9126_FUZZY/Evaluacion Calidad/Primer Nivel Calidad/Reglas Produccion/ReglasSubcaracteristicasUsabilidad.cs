@@ -7,11 +7,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Reglas_Produccion
 	/// </summary>
 	public class ReglasUsabilidad
 	{
-		private Dictionary<string, string> _usabilidad;
+		private Dictionary<string, string> _rUsab;
 
 		public ReglasUsabilidad()
 		{
-			_usabilidad = ReglasUsab();
+			_rUsab = ReglasUsab();
 		}
 
 		/// <summary>
@@ -3152,6 +3152,6 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Reglas_Produccion
 			return reglasUsabilidad;
 		}
 
-		public Dictionary<string, string> Usabilidad { get => _usabilidad; }
+		public Dictionary<string, string> RUsab { get => _rUsab; }
 	}
 }

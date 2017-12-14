@@ -754,6 +754,11 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+       /* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
+        {
+
+        }*/
+
         // Eventos botones
 
         private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)

@@ -7,12 +7,14 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Reglas_Produccion
 	/// </summary>
 	public class ReglasFuncionabilidad
 	{
-		private Dictionary<string, string> _funcionabilidad;
+		private Dictionary<string, string> _rFunc;
 
 		public ReglasFuncionabilidad()
 		{
-			_funcionabilidad = ReglasFunc();
+			_rFunc = ReglasFunc();
 		}
+
+		
 
 		/// <summary>
 		/// Define las reglas para inferir el nivel de calidad de la Característica Funcionabilidad
@@ -3152,6 +3154,6 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Difusa.Reglas_Produccion
 	}
 
 		//Accesores
-		public Dictionary<string, string> Funcionabilidad { get => _funcionabilidad; }
+		public Dictionary<string, string> RFunc { get => _rFunc; }
 	}
 }

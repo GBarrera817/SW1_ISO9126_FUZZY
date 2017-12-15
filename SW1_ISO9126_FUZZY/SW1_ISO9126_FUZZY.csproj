@@ -121,22 +121,34 @@
     <Compile Include="Archivos_configuracion\Test_JMetricas.cs" />
     <Compile Include="Evaluacion Calidad\Calculos\Normalizacion.cs" />
     <Compile Include="Evaluacion Calidad\Calculos\Formula.cs" />
+    <Compile Include="Evaluacion Calidad\EtiquetasDifusas.cs" />
     <Compile Include="Evaluacion Calidad\EvaluacionDifusa.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\EvaluacionCalidadCaracteristicas.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasMantenibilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Reglas Produccion\ReglasSubcaracteristicasUsabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasMantebilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasUsabilidad.cs" />
-    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSucaracteristicasFuncionabilidad.cs" />
+    <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Valores Linguisticos\ValoresSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasFuncionabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasMantenibilidad.cs" />
     <Compile Include="Evaluacion Calidad\Primer Nivel Calidad\Variables Linguisticas\VariablesSubcaracteristicasUsabilidad.cs" />
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Reglas Produccion\ReglasPerspectiva.cs" />
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Valores Linguisticos\ValoresPerspectiva.cs" />
     <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\Variables Linguisticas\VariablesPerspectiva.cs" />
+    <Compile Include="Evaluacion Calidad\Segundo Nivel Calidad Perspectiva\EvaluacionCalidadPerspectiva.cs" />
+    <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\EvaluacionCalidadProducto.cs" />
     <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Reglas Produccion\ReglasCalidadProducto.cs" />
     <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Valores Linguisticos\ValoresCalidadProducto.cs" />
     <Compile Include="Evaluacion Calidad\Tercer Nivel Calidad Final\Variables Linguisticas\VariablesCalidadProducto.cs" />
+    <Compile Include="Fuzzy\FuzzyRule.cs" />
+    <Compile Include="Fuzzy\FuzzyTerm.cs" />
+    <Compile Include="Fuzzy\FuzzyVariable.cs" />
+    <Compile Include="Fuzzy\GenericFuzzySystem.cs" />
+    <Compile Include="Fuzzy\InferenceMethod.cs" />
+    <Compile Include="Fuzzy\MamdaniFuzzySystem.cs" />
+    <Compile Include="Fuzzy\MembershipFunction.cs" />
+    <Compile Include="Fuzzy\RuleParser.cs" />
     <Compile Include="Inferencia Difusa\Inferencia.cs" />
     <Compile Include="Logica Difusa\AgregacionReglas.cs" />
     <Compile Include="Logica Difusa\DefuzzificacionCentroide.cs" />
@@ -369,5 +381,6 @@
     <Resource Include="Imagenes\logoIngecomp.jpg" />
     <Resource Include="Imagenes\logoPDF.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

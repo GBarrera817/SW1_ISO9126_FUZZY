@@ -12704,11 +12704,12 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Primer_Nivel_Calidad
 			fvCumpMantenibilidad.Terms.Add(new FuzzyTerm("completamente", new TrapezoidMembershipFunction(0.7, 0.9, 1.0, 1.0)));
 			fsCalidadCaracteristicaMantenibilidad.Input.Add(fvCumpMantenibilidad);
 
+
 			FuzzyVariable fvMantenibilidad = new FuzzyVariable("mantenibilidad", 0.0, 1.0);
 			fvMantenibilidad.Terms.Add(new FuzzyTerm("muy_baja", new TrapezoidMembershipFunction(0.0, 0.0, 0.1, 0.3)));
 			fvMantenibilidad.Terms.Add(new FuzzyTerm("baja", new TriangularMembershipFunction(0.1, 0.3, 0.5)));
 			fvMantenibilidad.Terms.Add(new FuzzyTerm("mediana", new TriangularMembershipFunction(0.3, 0.5, 0.7)));
-			fvMantenibilidad.Terms.Add(new FuzzyTerm("todo", new TriangularMembershipFunction(0.5, 0.7, 0.9)));
+			fvMantenibilidad.Terms.Add(new FuzzyTerm("casi_todo", new TriangularMembershipFunction(0.5, 0.7, 0.9)));
 			fvMantenibilidad.Terms.Add(new FuzzyTerm("completamente", new TrapezoidMembershipFunction(0.7, 0.9, 1.0, 1.0)));
 			fsCalidadCaracteristicaMantenibilidad.Output.Add(fvMantenibilidad);
 
@@ -19036,14 +19037,14 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Primer_Nivel_Calidad
 			}
 
 			//Antecedentes
-			FuzzyVariable fvAprendizaje = _fsCalidadCaracteristicaFuncionalidad.InputByName("aprendizaje");
-			FuzzyVariable fvComprensibilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("comprensibilidad");
-			FuzzyVariable fvOperabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("operabilidad");
-			FuzzyVariable fvAtractividad = _fsCalidadCaracteristicaFuncionalidad.InputByName("atractividad");
-			FuzzyVariable fvCumpUsabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("cumplimiento_usabilidad");
+			FuzzyVariable fvAprendizaje = _fsCalidadCaracteristicaUsabilidad.InputByName("facilidad_aprendizaje");
+			FuzzyVariable fvComprensibilidad = _fsCalidadCaracteristicaUsabilidad.InputByName("comprensibilidad");
+			FuzzyVariable fvOperabilidad = _fsCalidadCaracteristicaUsabilidad.InputByName("operabilidad");
+			FuzzyVariable fvAtractividad = _fsCalidadCaracteristicaUsabilidad.InputByName("atractividad");
+			FuzzyVariable fvCumpUsabilidad = _fsCalidadCaracteristicaUsabilidad.InputByName("cumplimiento_usabilidad");
 
 			//Consecuente
-			FuzzyVariable fvUsabilidad = _fsCalidadCaracteristicaFuncionalidad.OutputByName("usabilidad");
+			FuzzyVariable fvUsabilidad = _fsCalidadCaracteristicaUsabilidad.OutputByName("usabilidad");
 
 
 			Dictionary<FuzzyVariable, double> inputValues = new Dictionary<FuzzyVariable, double>();
@@ -19053,7 +19054,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Primer_Nivel_Calidad
 			inputValues.Add(fvAtractividad, valores[3]);
 			inputValues.Add(fvCumpUsabilidad, valores[4]);
 
-			Dictionary<FuzzyVariable, double> resultado = _fsCalidadCaracteristicaFuncionalidad.Calculate(inputValues);
+			Dictionary<FuzzyVariable, double> resultado = _fsCalidadCaracteristicaUsabilidad.Calculate(inputValues);
 
 			if (resultado[fvUsabilidad].ToString("f1").Equals("NeuN"))
 			{
@@ -19082,11 +19083,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Primer_Nivel_Calidad
 			}
 
 			//Antecedentes
-			FuzzyVariable fvAnalizabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("analizabilidad");
-			FuzzyVariable fvModificabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("modificabilidad");
-			FuzzyVariable fvEstabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("estabilidad");
-			FuzzyVariable fvTesteabilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("testeabilidad");
-			FuzzyVariable fvCumpMantenibilidad = _fsCalidadCaracteristicaFuncionalidad.InputByName("cumplimiento_mantenibilidad");
+			FuzzyVariable fvAnalizabilidad = _fsCalidadCaracteristicaMantenibilidad.InputByName("analizabilidad");
+			FuzzyVariable fvModificabilidad = _fsCalidadCaracteristicaMantenibilidad.InputByName("modificabilidad");
+			FuzzyVariable fvEstabilidad = _fsCalidadCaracteristicaMantenibilidad.InputByName("estabilidad");
+			FuzzyVariable fvTesteabilidad = _fsCalidadCaracteristicaMantenibilidad.InputByName("testeabilidad");
+			FuzzyVariable fvCumpMantenibilidad = _fsCalidadCaracteristicaMantenibilidad.InputByName("cumplimiento_mantenibilidad");
 
 			//Consecuente
 			FuzzyVariable fvMantenibilidad = _fsCalidadCaracteristicaMantenibilidad.OutputByName("mantenibilidad");
@@ -19099,7 +19100,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Primer_Nivel_Calidad
 			inputValues.Add(fvTesteabilidad, valores[3]);
 			inputValues.Add(fvCumpMantenibilidad, valores[4]);
 
-			Dictionary<FuzzyVariable, double> resultado = _fsCalidadCaracteristicaFuncionalidad.Calculate(inputValues);
+			Dictionary<FuzzyVariable, double> resultado = _fsCalidadCaracteristicaMantenibilidad.Calculate(inputValues);
 
 			if (resultado[fvMantenibilidad].ToString("f1").Equals("NeuN"))
 			{

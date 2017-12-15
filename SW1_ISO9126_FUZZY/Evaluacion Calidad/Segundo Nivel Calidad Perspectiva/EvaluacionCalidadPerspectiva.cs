@@ -69,11 +69,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 				MamdaniFuzzyRule r12 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is normal) and (mantenibilidad is muy_baja) then calidad_producto is mala");
 				MamdaniFuzzyRule r13 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is normal) and (mantenibilidad is muy_baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r14 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is normal) and (mantenibilidad is muy_baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r15 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad isfacil) and (mantenibilidad is muy_baja) then calidad_producto is mala");
-				MamdaniFuzzyRule r16 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad isfacil) and (mantenibilidad is muy_baja) then calidad_producto is mala");
-				MamdaniFuzzyRule r17 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad isfacil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r18 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad isfacil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r19 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad isfacil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r15 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is facil) and (mantenibilidad is muy_baja) then calidad_producto is mala");
+				MamdaniFuzzyRule r16 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is facil) and (mantenibilidad is muy_baja) then calidad_producto is mala");
+				MamdaniFuzzyRule r17 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is facil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r18 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is facil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r19 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is facil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r20 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is muy_facil) and (mantenibilidad is muy_baja) then calidad_producto is mala");
 				MamdaniFuzzyRule r21 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is muy_facil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r22 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is muy_facil) and (mantenibilidad is muy_baja) then calidad_producto is regular");
@@ -94,11 +94,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 				MamdaniFuzzyRule r37 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is normal) and (mantenibilidad is baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r38 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is normal) and (mantenibilidad is baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r39 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is normal) and (mantenibilidad is baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r40 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad isfacil) and (mantenibilidad is baja) then calidad_producto is mala");
-				MamdaniFuzzyRule r41 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad isfacil) and (mantenibilidad is baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r42 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad isfacil) and (mantenibilidad is baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r43 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad isfacil) and (mantenibilidad is baja) then calidad_producto is regular");
-				MamdaniFuzzyRule r44 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad isfacil) and (mantenibilidad is baja) then calidad_producto is buena");
+				MamdaniFuzzyRule r40 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is facil) and (mantenibilidad is baja) then calidad_producto is mala");
+				MamdaniFuzzyRule r41 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is facil) and (mantenibilidad is baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r42 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is facil) and (mantenibilidad is baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r43 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is facil) and (mantenibilidad is baja) then calidad_producto is regular");
+				MamdaniFuzzyRule r44 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is facil) and (mantenibilidad is baja) then calidad_producto is buena");
 				MamdaniFuzzyRule r45 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is muy_facil) and (mantenibilidad is baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r46 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is muy_facil) and (mantenibilidad is baja) then calidad_producto is regular");
 				MamdaniFuzzyRule r47 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is muy_facil) and (mantenibilidad is baja) then calidad_producto is regular");
@@ -119,11 +119,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 				MamdaniFuzzyRule r62 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is normal) and (mantenibilidad is mediana) then calidad_producto is regular");
 				MamdaniFuzzyRule r63 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is normal) and (mantenibilidad is mediana) then calidad_producto is regular");
 				MamdaniFuzzyRule r64 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is normal) and (mantenibilidad is mediana) then calidad_producto is buena");
-				MamdaniFuzzyRule r65 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad isfacil) and (mantenibilidad is mediana) then calidad_producto is regular");
-				MamdaniFuzzyRule r66 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad isfacil) and (mantenibilidad is mediana) then calidad_producto is regular");
-				MamdaniFuzzyRule r67 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad isfacil) and (mantenibilidad is mediana) then calidad_producto is regular");
-				MamdaniFuzzyRule r68 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad isfacil) and (mantenibilidad is mediana) then calidad_producto is buena");
-				MamdaniFuzzyRule r69 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad isfacil) and (mantenibilidad is mediana) then calidad_producto is buena");
+				MamdaniFuzzyRule r65 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is facil) and (mantenibilidad is mediana) then calidad_producto is regular");
+				MamdaniFuzzyRule r66 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is facil) and (mantenibilidad is mediana) then calidad_producto is regular");
+				MamdaniFuzzyRule r67 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is facil) and (mantenibilidad is mediana) then calidad_producto is regular");
+				MamdaniFuzzyRule r68 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is facil) and (mantenibilidad is mediana) then calidad_producto is buena");
+				MamdaniFuzzyRule r69 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is facil) and (mantenibilidad is mediana) then calidad_producto is buena");
 				MamdaniFuzzyRule r70 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is muy_facil) and (mantenibilidad is mediana) then calidad_producto is regular");
 				MamdaniFuzzyRule r71 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is muy_facil) and (mantenibilidad is mediana) then calidad_producto is regular");
 				MamdaniFuzzyRule r72 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is muy_facil) and (mantenibilidad is mediana) then calidad_producto is buena");
@@ -144,11 +144,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 				MamdaniFuzzyRule r87 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is normal) and (mantenibilidad is casi_todo) then calidad_producto is regular");
 				MamdaniFuzzyRule r88 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is normal) and (mantenibilidad is casi_todo) then calidad_producto is buena");
 				MamdaniFuzzyRule r89 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is normal) and (mantenibilidad is casi_todo) then calidad_producto is buena");
-				MamdaniFuzzyRule r90 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad isfacil) and (mantenibilidad is casi_todo) then calidad_producto is regular");
-				MamdaniFuzzyRule r91 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad isfacil) and (mantenibilidad is casi_todo) then calidad_producto is regular");
-				MamdaniFuzzyRule r92 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad isfacil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
-				MamdaniFuzzyRule r93 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad isfacil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
-				MamdaniFuzzyRule r94 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad isfacil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
+				MamdaniFuzzyRule r90 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is facil) and (mantenibilidad is casi_todo) then calidad_producto is regular");
+				MamdaniFuzzyRule r91 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is facil) and (mantenibilidad is casi_todo) then calidad_producto is regular");
+				MamdaniFuzzyRule r92 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is facil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
+				MamdaniFuzzyRule r93 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is facil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
+				MamdaniFuzzyRule r94 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is facil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
 				MamdaniFuzzyRule r95 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is muy_facil) and (mantenibilidad is casi_todo) then calidad_producto is regular");
 				MamdaniFuzzyRule r96 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is muy_facil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
 				MamdaniFuzzyRule r97 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is muy_facil) and (mantenibilidad is casi_todo) then calidad_producto is buena");
@@ -169,11 +169,11 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 				MamdaniFuzzyRule r112 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is normal) and (mantenibilidad is completamente) then calidad_producto is buena");
 				MamdaniFuzzyRule r113 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is normal) and (mantenibilidad is completamente) then calidad_producto is buena");
 				MamdaniFuzzyRule r114 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is normal) and (mantenibilidad is completamente) then calidad_producto is buena");
-				MamdaniFuzzyRule r115 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad isfacil) and (mantenibilidad is completamente) then calidad_producto is regular");
-				MamdaniFuzzyRule r116 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad isfacil) and (mantenibilidad is completamente) then calidad_producto is buena");
-				MamdaniFuzzyRule r117 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad isfacil) and (mantenibilidad is completamente) then calidad_producto is buena");
-				MamdaniFuzzyRule r118 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad isfacil) and (mantenibilidad is completamente) then calidad_producto is buena");
-				MamdaniFuzzyRule r119 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad isfacil) and (mantenibilidad is completamente) then calidad_producto is excelente");
+				MamdaniFuzzyRule r115 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is facil) and (mantenibilidad is completamente) then calidad_producto is regular");
+				MamdaniFuzzyRule r116 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is facil) and (mantenibilidad is completamente) then calidad_producto is buena");
+				MamdaniFuzzyRule r117 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is facil) and (mantenibilidad is completamente) then calidad_producto is buena");
+				MamdaniFuzzyRule r118 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is buena) and (usabilidad is facil) and (mantenibilidad is completamente) then calidad_producto is buena");
+				MamdaniFuzzyRule r119 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is excelente) and (usabilidad is facil) and (mantenibilidad is completamente) then calidad_producto is excelente");
 				MamdaniFuzzyRule r120 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is muy_mala) and (usabilidad is muy_facil) and (mantenibilidad is completamente) then calidad_producto is buena");
 				MamdaniFuzzyRule r121 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is mala) and (usabilidad is muy_facil) and (mantenibilidad is completamente) then calidad_producto is buena");
 				MamdaniFuzzyRule r122 = fsCalidadPerspectiva.ParseRule("if (funcionalidad is promedio) and (usabilidad is muy_facil) and (mantenibilidad is completamente) then calidad_producto is buena");
@@ -331,15 +331,15 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Tercer_Nivel_Calidad_Final
 			}
 
 			//Antecedentes
-			FuzzyVariable fvFuncionabilidad = _fsCalidadPerspectiva.InputByName("funcionalidad");
+			FuzzyVariable fvFuncionalidad = _fsCalidadPerspectiva.InputByName("funcionalidad");
 			FuzzyVariable fvUsabilidad = _fsCalidadPerspectiva.InputByName("usabilidad");
 			FuzzyVariable fvMantenibilidad = _fsCalidadPerspectiva.InputByName("mantenibilidad");
 
 			//Consecuente
-			FuzzyVariable fvCalidadPerspectiva = _fsCalidadPerspectiva.InputByName("calidad_producto");
+			FuzzyVariable fvCalidadPerspectiva = _fsCalidadPerspectiva.OutputByName("calidad_producto");
 
 			Dictionary<FuzzyVariable, double> inputValues = new Dictionary<FuzzyVariable, double>();
-			inputValues.Add(fvFuncionabilidad, valores[0]);
+			inputValues.Add(fvFuncionalidad, valores[0]);
 			inputValues.Add(fvUsabilidad, valores[1]);
 			inputValues.Add(fvMantenibilidad, valores[2]);
 

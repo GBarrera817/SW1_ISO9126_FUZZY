@@ -52,6 +52,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private List<double> calidadCaracteristicasInternas;
 		private List<double> calidadCaracteristicasExternas;
+		private List<double> calidadFinal;
 
 		private double calidadInterna;
 		private double calidadExterna;
@@ -134,6 +135,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			calidadCaracteristicasInternas = new List<double>();
 			calidadCaracteristicasExternas = new List<double>();
+			calidadFinal = new List<double>();
 		}
 
 		// Limpia las columnas de la tabla
@@ -713,6 +715,16 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			return mantenibilidad;
 		}
 
+		private List<double> redondearResultados(List<double> redondearResultados)
+		{
+			List<double> salida = new List<double>(); 
+
+			for (int i = 0; i < redondearResultados.Count; i++)		
+				salida.Add(Math.Round(redondearResultados[i],2));
+			
+			return salida;
+		}
+
 		// Prepara la lista de calculos para realizar la evaluacion difusa
 
 		private void prepararEvaluacionDifusaSubcaracteristicas(Evaluacion datos, string perspectiva)
@@ -733,6 +745,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FFuncionalidadInterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadInterna));
 					FFuncionalidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadInterna, importanciaSubcarFuncionalidad));
 					FFuncionalidadInterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadInterna));
+					FFuncionalidadInterna = new List<double>(redondearResultados(FFuncionalidadInterna));
 				}
 
 				if (datos.DatosMetricas.UsabilidadInterna)
@@ -743,6 +756,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FUsabilidadInterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadInterna));
 					FUsabilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadInterna, importanciaSubcarUsabilidad));
 					FUsabilidadInterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadInterna));
+					FUsabilidadInterna = new List<double>(redondearResultados(FUsabilidadInterna));
 				}
 
 				if (datos.DatosMetricas.MantenibilidadInterna)
@@ -753,6 +767,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FMantenibilidadInterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadInterna));
 					FMantenibilidadInterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadInterna, importanciaSubcarMantenibilidad));
 					FMantenibilidadInterna = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadInterna));
+					FMantenibilidadInterna = new List<double>(redondearResultados(FMantenibilidadInterna));
 				}
 			} else
 			{
@@ -764,6 +779,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FFuncionalidadExterna = new List<double>(normalizarSubcaracteristicas(FFuncionalidadExterna));
 					FFuncionalidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FFuncionalidadExterna, importanciaSubcarFuncionalidad));
 					FFuncionalidadExterna = new List<double>(asignarSCFuncionalidadControlador(datos, FFuncionalidadExterna));
+					FFuncionalidadExterna = new List<double>(redondearResultados(FFuncionalidadExterna));
 				}
 
 				if (datos.DatosMetricas.UsabilidadExterna)
@@ -774,6 +790,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FUsabilidadExterna = new List<double>(normalizarSubcaracteristicas(FUsabilidadExterna));
 					FUsabilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FUsabilidadExterna, importanciaSubcarUsabilidad));
 					FUsabilidadExterna = new List<double>(asignarSCUsabilidadControlador(datos, FUsabilidadExterna));
+					FUsabilidadExterna = new List<double>(redondearResultados(FUsabilidadExterna));
 				}
 
 				if (datos.DatosMetricas.MantenibilidadExterna)
@@ -784,6 +801,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 					FMantenibilidadExterna = new List<double>(normalizarSubcaracteristicas(FMantenibilidadExterna));
 					FMantenibilidadExterna = new List<double>(aplicarImportanciaSubcaracteristicas(FMantenibilidadExterna, importanciaSubcarMantenibilidad));
 					FMantenibilidadExterna = new List<double>(asignarSCMantenibilidadControlador(datos, FMantenibilidadExterna));
+					FMantenibilidadExterna = new List<double>(redondearResultados(FMantenibilidadExterna));
 				}
 			}
 		}
@@ -998,24 +1016,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			return lista;
 		}
 
-		/* private void evaluacionDifusaSubcaracteristicas(List<double> subcaracteristicas, Dictionary<string, string> reglasSubcaracteristicas, )
-         {
-
-         }*/
-
 		// Eventos botones
 
 		private void btnCalcSubInterna_Click(object sender, RoutedEventArgs e)
-		{
-			/*
-			prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Interna");
-			ecc.obtenerCalidadFuncionalidad(FFuncionalidadInterna);
-			Console.WriteLine(ecc.obtenerCalidadFuncionalidad(FFuncionalidadInterna));
-			/*if (calcularFuzzySubcaracteristicas())
-                btnCalcCaractInterna.IsEnabled = true;
-            else
-                btnCalcCaractInterna.IsEnabled = false;*/
-
+		{	
 			ArrayList temporal = new ArrayList();
 
 			prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Interna");
@@ -1026,23 +1030,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 		}
 
 		private void btnCalcSubExterna_Click(object sender, RoutedEventArgs e)
-		{
-			//prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Externa");
-
-
-			/*if (calcularFuzzySubcaracteristicas())
-                btnCalcCaractInterna.IsEnabled = true;
-            else
-                btnCalcCaractInterna.IsEnabled = false;*/
-
+		{ 
 			ArrayList temporal = new ArrayList();
 
 			prepararEvaluacionDifusaSubcaracteristicas(miEvaluacion, "Externa");
 			temporal = cargarResultadosSubcaracteristicas(miEvaluacion, "Externa");
 			cargarTablaSubcaracteristicas(tbSubCarExterna, (Tuple<string, string>[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
 
-			btnCalcCaractInterna.IsEnabled = true;
-
+			btnCalcCaractExterna.IsEnabled = true;
 		}
 
 		// ------------------------------- PAGINA CALIDAD CARACTERISTICAS ----------------------------------------
@@ -1176,45 +1171,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			double resultadoFInt, resultadoUInt, resultadoMInt;
 			ArrayList temporal = new ArrayList();
 
-			/* if (calcularFuzzyCacteristicas())
-			 {
-				 if (comprobarEstadoEvaCar())
-				 {
-					 btnCalcCalidadFinal.IsEnabled = true;
-				 }
-				 else
-				 {
-					 btnCalcCalidadFinal.IsEnabled = false;
-				 }
-			 }*/
-
 			if (miEvaluacion.DatosMetricas.FuncionalidadInterna)
-			{
 				resultadoFInt = controladorCaracteristica.obtenerCalidadFuncionalidad(FFuncionalidadInterna);
-			} else
-			{
+			else		
 				resultadoFInt = 0;
-			}
-
-			if (miEvaluacion.DatosMetricas.UsabilidadInterna)
-			{
+			
+			if (miEvaluacion.DatosMetricas.UsabilidadInterna)		
 				resultadoUInt = controladorCaracteristica.obtenerCalidadUsabilidad(FUsabilidadInterna);
-			} else
-			{
+			else		
 				resultadoUInt = 0;
-			}
-
-			if (miEvaluacion.DatosMetricas.MantenibilidadInterna)
-			{
+			
+			if (miEvaluacion.DatosMetricas.MantenibilidadInterna)		
 				resultadoMInt = controladorCaracteristica.obtenerCalidadMantenibilidad(FMantenibilidadInterna);
-			} else
-			{
+	        else		
 				resultadoMInt = 0;
-			}
-
-			calidadCaracteristicasInternas.Add(resultadoFInt);
-			calidadCaracteristicasInternas.Add(resultadoUInt);
-			calidadCaracteristicasInternas.Add(resultadoMInt);
+			
+			calidadCaracteristicasInternas.Add(Math.Round(resultadoFInt, 2));
+			calidadCaracteristicasInternas.Add(Math.Round(resultadoUInt, 2));
+			calidadCaracteristicasInternas.Add(Math.Round(resultadoMInt, 2));
 
 			temporal = cargarResultadosCaracteristicas(miEvaluacion, "Interna", calidadCaracteristicasInternas);
 			cargarTablaCaracteristicas(tbcarInterna, (string[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
@@ -1223,7 +1197,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			if(estadoCalidadExterna)
 				btnCalcCalidadFinal.IsEnabled = true;
-
 		}
 
 		private void btnCalcCaractExterna_Click(object sender, RoutedEventArgs e)
@@ -1231,45 +1204,24 @@ namespace SW1_ISO9126_FUZZY.Vistas
 			double resultadoFExt, resultadoUExt, resultadoMExt;
 			ArrayList temporal = new ArrayList();
 
-			/* if (calcularFuzzyCacteristicas())
-			 {
-				 if (comprobarEstadoEvaCar())
-				 {
-					 btnCalcCalidadFinal.IsEnabled = true;
-				 }
-				 else
-				 {
-					 btnCalcCalidadFinal.IsEnabled = false;
-				 }
-			 }*/
-
 			if (miEvaluacion.DatosMetricas.FuncionalidadExterna)
-			{
 				resultadoFExt = controladorCaracteristica.obtenerCalidadFuncionalidad(FFuncionalidadExterna);
-			} else
-			{
+			else
 				resultadoFExt = 0;
-			}
 
 			if (miEvaluacion.DatosMetricas.UsabilidadExterna)
-			{
 				resultadoUExt = controladorCaracteristica.obtenerCalidadUsabilidad(FUsabilidadExterna);
-			} else
-			{
+			else
 				resultadoUExt = 0;
-			}
-
-			if (miEvaluacion.DatosMetricas.MantenibilidadExterna)
-			{
+			
+			if (miEvaluacion.DatosMetricas.MantenibilidadExterna)			
 				resultadoMExt = controladorCaracteristica.obtenerCalidadMantenibilidad(FMantenibilidadExterna);
-			} else
-			{
+			else			
 				resultadoMExt = 0;
-			}
-
-			calidadCaracteristicasExternas.Add(resultadoFExt);
-			calidadCaracteristicasExternas.Add(resultadoUExt);
-			calidadCaracteristicasExternas.Add(resultadoMExt);
+			
+			calidadCaracteristicasExternas.Add(Math.Round(resultadoFExt, 2));
+			calidadCaracteristicasExternas.Add(Math.Round(resultadoUExt, 2));
+			calidadCaracteristicasExternas.Add(Math.Round(resultadoMExt, 2));
 
 			temporal = cargarResultadosCaracteristicas(miEvaluacion, "Externa", calidadCaracteristicasExternas);
 			cargarTablaCaracteristicas(tbcarExterna, (string[])temporal[0], (double[])temporal[1], (double[])temporal[2], (string[])temporal[3]);
@@ -1278,7 +1230,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			if (estadoCalidadInterna)
 				btnCalcCalidadFinal.IsEnabled = true;
-
 		}
 
 		// ----------------------------------- PAGINA CALIDAD FINAL ----------------------------------------------
@@ -1641,20 +1592,8 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnCalcCalidadFinal_Click(object sender, RoutedEventArgs e)
 		{
-
 			List<double> listaCalidadPerspectiva = new List<double>();
-			List<double> resultadosFinales = new List<double>();
 			ArrayList temporal = new ArrayList(); 
-
-			/*if (calcularFuzzyCalidad())
-            {
-                btnGenerarPDF.IsEnabled = true;
-            }
-            else
-            {
-                btnGenerarPDF.IsEnabled = false;
-            }*/
-
 
 			calidadInterna = controladorPerspectiva.obtenerCalidadPerspectiva(calidadCaracteristicasInternas);
 			calidadExterna = controladorPerspectiva.obtenerCalidadPerspectiva(calidadCaracteristicasExternas);
@@ -1664,13 +1603,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 			calidadProducto = controladorProducto.obtenerCalidadProducto(listaCalidadPerspectiva);
 
-			resultadosFinales.Add(calidadInterna);
-			resultadosFinales.Add(calidadExterna);
-			resultadosFinales.Add(calidadProducto);
+			calidadFinal.Add(Math.Round(calidadInterna, 2));
+			calidadFinal.Add(Math.Round(calidadExterna, 2));
+			calidadFinal.Add(Math.Round(calidadProducto, 2));
 
-			temporal = cargarResultadosCalidad(resultadosFinales);
+			temporal = cargarResultadosCalidad(calidadFinal);
 			cargarTablaCalidad(tbCalidadFinal, (string[])temporal[0], (double[])temporal[1], (string[])temporal[2]);
 
+			estadoCalidadFinal = true;
 			btnGenerarPDF.IsEnabled = true;
 		}
 
@@ -1693,16 +1633,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 		private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
 		{
+			ArrayList interna = cargarResultadosCaracteristicas(miEvaluacion, "Interna", calidadCaracteristicasInternas);
+			ArrayList externa = cargarResultadosCaracteristicas(miEvaluacion, "Externa", calidadCaracteristicasExternas);
+			ArrayList final = cargarResultadosCalidad(calidadFinal);
+
 			if (validarDatosReporte())
 			{
 				if (validarConfigPDF())
-				{
-					//if (validarEvaluacion())
-                    //{
-                        
-
-                					Stream myStream = null;
-			
+				{			
 					System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 					string ruta = saveFileDialog1.FileName;
 					saveFileDialog1.InitialDirectory = "c:\\Documentos";
@@ -1715,13 +1653,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
 					if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 					{
-						//Reportes r = new Reportes(saveFileDialog1.FileName, miEvaluacion, datosInforme());
-				Xceed.Wpf.Toolkit.MessageBox.Show("El archivo se ha creado correctamente");
+						Reportes r = new Reportes(saveFileDialog1.FileName, miEvaluacion, obtenerDatosInforme(), interna, externa, final);
+						Xceed.Wpf.Toolkit.MessageBox.Show("El reporte se ha creado correctamente", "Reporte calidad",MessageBoxButton.OK, MessageBoxImage.Information);
 					}
-
-
-
-                    //}
                     
 				} else
 				{

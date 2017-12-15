@@ -112,10 +112,12 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 			{
                 Console.WriteLine("Formula -> (Sum(Trc)-Sum(Tsn))/N  || -> (Sum(Tout)-Sum(Tin))/N");
 
-                if (param3 == 0)
-				{
+				if(param2 > param1)
 					return 0;
-				}
+
+                if (param3 == 0)
+					return 0;
+	
 				resultado = (param1 - param2) / param3;
 				return Math.Round(resultado, 2);
 			}
@@ -129,6 +131,7 @@ namespace SW1_ISO9126_FUZZY.Evaluacion_Calidad.Calculos
 					return 0;
 				}
 				resultado = (param1 / param2) / param3;
+				return Math.Round(resultado, 2);
 			}
 			return resultado;
 		}

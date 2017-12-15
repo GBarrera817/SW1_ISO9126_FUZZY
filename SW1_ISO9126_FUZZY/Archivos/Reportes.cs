@@ -1,15 +1,15 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
-using System;
 using System.IO;
-using System.Windows.Forms;
-using SW1_ISO9126_FUZZY.Vistas;
 using System.Collections.Generic;
+using System.Collections;
+using System;
 
-namespace SW1_ISO9126_FUZZY.Archivos {
+namespace SW1_ISO9126_FUZZY.Archivos
+{
 
-    public class Reportes
+	public class Reportes
 	{
 		private string imageURL;
 		private Document doc;
@@ -25,7 +25,7 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 
 		private List<string> datosPDF;
 
-		public Reportes(string nombreArchivo, Evaluacion nueva, List<string> confPDF)
+		public Reportes(string nombreArchivo, Evaluacion nueva, List<string> confPDF, ArrayList interna, ArrayList externa, ArrayList final)
 		{
 			miEvaluacion = nueva;
 			datosPDF = confPDF;
@@ -38,26 +38,29 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 
 			if (datosPDF[1].Equals("ARIAL"))
 			{
-				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD);
+				titleFont = FontFactory.GetFont("Arial", 24, Font.BOLD | Font.ITALIC);
 				subTitleFont = FontFactory.GetFont("Arial", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Arial", datosPDF[2], Font.BOLD);
-				bodyFont = FontFactory.GetFont("Arial", datosPDF[2]);
+				//boldTableFont = FontFactory.GetFont("Arial", Convert.ToInt32(datosPDF[2]), Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+				bodyFont = FontFactory.GetFont("Arial", Convert.ToInt32(datosPDF[2]));
 			}
 
 			if (datosPDF[1].Equals("HELVETICA"))
 			{
 				titleFont = FontFactory.GetFont("Helvetica", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Helvetica", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Helvetica", datosPDF[2], Font.BOLD);
-				bodyFont = FontFactory.GetFont("Helvetica", datosPDF[2]);
+				//boldTableFont = FontFactory.GetFont("Helvetica", Convert.ToInt32(datosPDF[2]), Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+				bodyFont = FontFactory.GetFont("Helvetica", Convert.ToInt32(datosPDF[2]));
 			}
 
 			if (datosPDF[1].Equals("COURIER"))
 			{
 				titleFont = FontFactory.GetFont("Courier", 24, Font.BOLD);
 				subTitleFont = FontFactory.GetFont("Courier", 18, Font.BOLD | Font.UNDERLINE);
-				boldTableFont = FontFactory.GetFont("Courier", datosPDF[2], Font.BOLD);
-				bodyFont = FontFactory.GetFont("Courier", datosPDF[2]);
+				//boldTableFont = FontFactory.GetFont("Courier", Convert.ToInt32(datosPDF[2]), Font.BOLD);
+				boldTableFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+				bodyFont = FontFactory.GetFont("Courier", Convert.ToInt32(datosPDF[2]));
 			}
 
 			/*
@@ -94,7 +97,7 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				Paragraph tituloInforme = new Paragraph("Informe de evaluación ", titleFont);
 				tituloInforme.Alignment = Element.ALIGN_CENTER;
 				tituloInforme.SpacingBefore = 60;
-				Paragraph fuzzisoft = new Paragraph("Fuzzisoft 9126", FontFactory.GetFont("Arial", 22, Font.BOLD));
+				Paragraph fuzzisoft = new Paragraph("Fuzzisoft 9126", FontFactory.GetFont("Arial", 22, Font.BOLD | Font.ITALIC));
 				fuzzisoft.Alignment = Element.ALIGN_CENTER;
 				doc.Add(tituloInforme);
 				doc.Add(fuzzisoft);
@@ -110,12 +113,12 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblDatosEv.SpacingBefore = 4;
 				tblDatosEv.SpacingAfter = 10;
 				tblDatosEv.DefaultCell.Border = 0;
-				tblDatosEv.SetWidths(new int[] { 2, 4 });
+				tblDatosEv.SetWidths(new int[] { 2, 6 });
 
-				tblDatosEv.AddCell(new Phrase("Nombre del evaluador: ", bodyFont));
+				tblDatosEv.AddCell("Nombre del evaluador: ");
 				tblDatosEv.AddCell(new Phrase(miEvaluacion.Informacion.Evaluador, bodyFont)); //tblPrueba.AddCell("txtCampo.Text");
 				tblDatosEv.AddCell("Tipo de usuario: ");
-				tblDatosEv.AddCell(miEvaluacion.Informacion.Tipo);
+				tblDatosEv.AddCell(new Phrase(miEvaluacion.Informacion.Tipo, bodyFont));
 
 				doc.Add(tblDatosEv);
 
@@ -130,15 +133,20 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblRegSW.DefaultCell.Border = 0;
 				tblRegSW.SetWidths(new int[] { 2, 4 });
 
-				tblRegSW.AddCell(new Phrase("Nombre del software: ", bodyFont));
-				tblRegSW.AddCell(miEvaluacion.Informacion.Nombre);
+				tblRegSW.AddCell("Nombre del software: ");
+				tblRegSW.AddCell(new Phrase(miEvaluacion.Informacion.Nombre, bodyFont));
 				tblRegSW.AddCell(new Phrase("Desarrollador(es): "));
 				for (int i = 0; i < miEvaluacion.Informacion.Desarrollador.Length; i++)
 				{
-					tblRegSW.AddCell(miEvaluacion.Informacion.Desarrollador[i]);
+					if( i != (miEvaluacion.Informacion.Desarrollador.Length -1) )
+						tblRegSW.AddCell(miEvaluacion.Informacion.Desarrollador[i] + ", ");
+					else
+						tblRegSW.AddCell(miEvaluacion.Informacion.Desarrollador[i]);
+
+					doc.Add(Chunk.NEWLINE);
 				}
-				tblRegSW.AddCell(new Phrase("Manual de usuario: ", bodyFont));
-				tblRegSW.AddCell(miEvaluacion.Informacion.Manual);
+				tblRegSW.AddCell("Manual de usuario: ");
+				tblRegSW.AddCell(new Phrase(miEvaluacion.Informacion.Manual, bodyFont));
 				tblRegSW.AddCell(new Phrase("Descripcìón del software: "));
 				tblRegSW.AddCell(miEvaluacion.Informacion.Descripcion);
 
@@ -162,20 +170,24 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblCalidadCaracteristicaInt.AddCell(new Phrase("Resultado", boldTableFont));
 				tblCalidadCaracteristicaInt.AddCell(new Phrase("Etiqueta", boldTableFont));
 
-				/******************** COMPLETAR *******************/
+				// Obtener informacion lista interna				
+
+				string[] nomCarInt = (string[])interna[0];
+				double[] impCarInt = (double[])interna[1];
+				double[] resCarInt = (double[])interna[2];
+				string[] linCarInt = (string[])interna[3];
+
 				//AGREGAR DATOS A LA TABLA
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < nomCarInt.Length; i++)
 				{
-					tblCalidadCaracteristicaInt.AddCell("Funcionalidad");
-					tblCalidadCaracteristicaInt.AddCell("0.6");
-					tblCalidadCaracteristicaInt.AddCell("60%");
-					tblCalidadCaracteristicaInt.AddCell("buena");
+					tblCalidadCaracteristicaInt.AddCell(nomCarInt[i]);
+					tblCalidadCaracteristicaInt.AddCell(impCarInt[i].ToString());
+					tblCalidadCaracteristicaInt.AddCell(resCarInt[i].ToString());
+					tblCalidadCaracteristicaInt.AddCell(linCarInt[i]);
 				}
 
 				doc.Add(tblCalidadCaracteristicaInt);
 
-
-				/******************** COMPLETAR *******************/
 				//TABLA CARACTERÍSTICAS EXTERNAS
 				PdfPTable tblCalidadCaracteristicaExt = new PdfPTable(4);
 				tblCalidadCaracteristicaExt.SpacingBefore = 4;
@@ -191,15 +203,20 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 				tblCalidadCaracteristicaExt.AddCell(new Phrase("Resultado", boldTableFont));
 				tblCalidadCaracteristicaExt.AddCell(new Phrase("Etiqueta", boldTableFont));
 
+				// Obtener informacion lista externa				
 
-				/******************** COMPLETAR *******************/
+				string[] nomCarExt = (string[])externa[0];
+				double[] impCarExt = (double[])externa[1];
+				double[] resCarExt = (double[])externa[2];
+				string[] linCarExt = (string[])externa[3];
+
 				//AGREGAR DATOS A LA TABLA
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < nomCarExt.Length; i++)
 				{
-					tblCalidadCaracteristicaExt.AddCell("Funcionalidad"); //Característica
-					tblCalidadCaracteristicaExt.AddCell("0.6"); //Grado de importancia
-					tblCalidadCaracteristicaExt.AddCell("60%"); //Resultado
-					tblCalidadCaracteristicaExt.AddCell("buena"); //Etiqueta
+					tblCalidadCaracteristicaExt.AddCell(nomCarExt[i]);
+					tblCalidadCaracteristicaExt.AddCell(impCarExt[i].ToString());
+					tblCalidadCaracteristicaExt.AddCell(resCarExt[i].ToString());
+					tblCalidadCaracteristicaExt.AddCell(linCarExt[i]);
 				}
 
 				doc.Add(tblCalidadCaracteristicaExt);
@@ -217,16 +234,20 @@ namespace SW1_ISO9126_FUZZY.Archivos {
 
 				tblCalidadFinal.AddCell(new Phrase("Atributo", boldTableFont));
 				tblCalidadFinal.AddCell(new Phrase("Resultado", boldTableFont));
-				tblCalidadFinal.AddCell(new Phrase("Etiqueta", boldTableFont));
+				tblCalidadFinal.AddCell(new Phrase("Etiqueta", boldTableFont));					
 
+				// Obtener informacion lista final	
 
-				/******************** COMPLETAR *******************/
+				string[] nomAtrib = (string[])final[0];
+				double[] resAtrib = (double[])final[1];
+				string[] linAtrib = (string[])final[2];
+
 				//AGREGAR DATOS A LA TABLA
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < nomAtrib.Length; i++)
 				{
-					tblCalidadFinal.AddCell("Funcionalidad"); //Característica
-					tblCalidadFinal.AddCell("60%"); //Resultado
-					tblCalidadFinal.AddCell("buena"); //Etiqueta
+					tblCalidadFinal.AddCell(nomAtrib[i]); //Característica
+					tblCalidadFinal.AddCell(resAtrib[i].ToString()); //Resultado
+					tblCalidadFinal.AddCell(linAtrib[i]); //Etiqueta
 				}
 
 				doc.Add(tblCalidadFinal);

@@ -74,6 +74,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarJson()
         {
             //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
+            string ruta, output;
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();      
             openFileDialog1.Filter = "Archivos JSON (.json)|*.json";
@@ -95,8 +96,14 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 // Cargar evaluacion desde JSON, json object to .net object
 
+                ruta = openFileDialog1.FileName;
+                Console.WriteLine("Archivo: "+ruta);
+
+                miEvaluacion = JsonConvert.DeserializeObject<Evaluacion>(File.ReadAllText(ruta));
+                output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
+                Console.WriteLine(output);
+
                 estadoEvaluacion = true;
-                miEvaluacion.Estado = estadoEvaluacion;
 
                 Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación cargada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.NavigationService.Navigate(paginaRegistro);

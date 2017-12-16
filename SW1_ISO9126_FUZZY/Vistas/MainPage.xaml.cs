@@ -75,6 +75,27 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        // Leer archivo json 
+
+        private string leerArchivo(string nombre)
+        {
+            String linea = "";
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(nombre))
+                {               
+                    linea = sr.ReadToEnd();
+                    return linea;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return string.Empty;
+            }
+        }
+
         // Verifica la estructura del json
 
         private bool validarJson(string datos)
@@ -85,16 +106,26 @@ namespace SW1_ISO9126_FUZZY.Vistas
             JSchemaGenerator generator = new JSchemaGenerator();
             JSchema schema = generator.Generate(typeof(Evaluacion));
 
-            JObject evaluacion = JObject.Parse(datos);
-
-            validacion = evaluacion.IsValid(schema, out messages);
-
-            Console.WriteLine(messages.Count);
-
-            if(messages.Count != 0)
+            try
             {
-                for (int i = 0; i < messages.Count; i++)
-                    Console.WriteLine(messages[i].ToString());
+                // Se cae aqui da error de parseo, buscar un mejor ejemplo
+                JObject evaluacion = JObject.Parse(datos);
+
+                validacion = evaluacion.IsValid(schema, out messages);
+
+                if (messages.Count != 0)
+                {
+                    Console.WriteLine("Número de errores:  "+ messages.Count);
+
+                    for (int i = 0; i < messages.Count; i++)
+                        Console.WriteLine("Error :"+(i+1)+"\n\n"+messages[i].ToString());
+                }
+
+                return validacion;
+            }
+            catch
+            {
+                validacion = false;
             }
 
             return validacion;
@@ -103,7 +134,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
         private void cargarJson()
         {
             //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
-            string ruta, output;
+            string ruta, salida, output;
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();      
             openFileDialog1.Filter = "Archivos JSON (.json)|*.json";
@@ -118,27 +149,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 ruta = openFileDialog1.FileName;
                 Console.WriteLine("Archivo: " + ruta);
 
-                try
-                {
-                    miEvaluacion = JsonConvert.DeserializeObject<Evaluacion>(File.ReadAllText(ruta));
-                    output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
-                    Console.WriteLine(output);
+                salida = leerArchivo(ruta);
 
-                    if (validarJson(output))
+                Console.WriteLine(salida);
+
+                if (validarJson(salida))
+                {
+                    try
                     {
+                        miEvaluacion = JsonConvert.DeserializeObject<Evaluacion>(File.ReadAllText(ruta));
+                        output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
+                       // Console.WriteLine(output);
+                                         
                         estadoEvaluacion = true;
 
                         Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación cargada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.NavigationService.Navigate(paginaRegistro);
+                        this.NavigationService.Navigate(paginaRegistro);                        
                     }
-                    else
+                    catch
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto (Serializer)", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
-                catch
+                else
                 {
-                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto (Schema)", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 

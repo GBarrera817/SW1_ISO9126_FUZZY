@@ -1,6 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Schema.Generation;
 using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -71,6 +75,31 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
+        // Verifica la estructura del json
+
+        private bool validarJson(string datos)
+        {
+            bool validacion = false;
+            IList<string> messages;
+
+            JSchemaGenerator generator = new JSchemaGenerator();
+            JSchema schema = generator.Generate(typeof(Evaluacion));
+
+            JObject evaluacion = JObject.Parse(datos);
+
+            validacion = evaluacion.IsValid(schema, out messages);
+
+            Console.WriteLine(messages.Count);
+
+            if(messages.Count != 0)
+            {
+                for (int i = 0; i < messages.Count; i++)
+                    Console.WriteLine(messages[i].ToString());
+            }
+
+            return validacion;
+        }
+
         private void cargarJson()
         {
             //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
@@ -85,45 +114,38 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
             if (resultado == DialogResult.OK)
             {
-                /* validar Json
-                if (validarJson())
-                {
-                    // Cargar evaluacion desde JSON, json object to .net object
-                }else{
-                    mensaje de error
-                }*/
-
-
                 // Cargar evaluacion desde JSON, json object to .net object
-
                 ruta = openFileDialog1.FileName;
-                Console.WriteLine("Archivo: "+ruta);
+                Console.WriteLine("Archivo: " + ruta);
 
-                miEvaluacion = JsonConvert.DeserializeObject<Evaluacion>(File.ReadAllText(ruta));
-                output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
-                Console.WriteLine(output);
+                try
+                {
+                    miEvaluacion = JsonConvert.DeserializeObject<Evaluacion>(File.ReadAllText(ruta));
+                    output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
+                    Console.WriteLine(output);
 
-                estadoEvaluacion = true;
+                    if (validarJson(output))
+                    {
+                        estadoEvaluacion = true;
 
-                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación cargada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.NavigationService.Navigate(paginaRegistro);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación cargada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.NavigationService.Navigate(paginaRegistro);
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Error al cargar evaluación, archivo corrupto", "Inicio", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
             if (resultado == DialogResult.Cancel)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("Carga de evaluación desde archivo cancelada", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-        }
-
-        private bool validarJson()
-        {
-            // Verifica la estructura del json
-            return true;
-        }
-
-        private void loadMessenger()
-        {
-            Navigation.Navigation.Navigate(new Uri("https://www.messenger.com/login.php"));
         }
 
         // Evento botones
@@ -170,6 +192,13 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 guardarEvaluacion();       
             else         
                 Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para poder guardarla", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);     
+        }
+
+        // Carga ventana con la pagina de menssenger
+
+        private void loadMessenger()
+        {
+            Navigation.Navigation.Navigate(new Uri("https://www.messenger.com/login.php"));
         }
 
         /* Ejemplos de MessageBox

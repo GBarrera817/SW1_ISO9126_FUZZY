@@ -26,7 +26,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion, EvaluacionCalidadPage paginaCalidad)
         {
-
             InitializeComponent();
 
             this.miEvaluacion = nueva;
@@ -278,7 +277,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        private void resgistrarDatos()
+        // Guarda el contenido en la evaluacion
+
+        private void registrarDatos()
         {
             // Obtener desde la interfaz grafica
             guardarDatosSw();
@@ -440,7 +441,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
                 return false;
         }
 
-        // validar valores 
+        // validar valores subcaracteristicas 
 
         private bool validar_valores_subcaracteristicas_funcionabilidad()
         {
@@ -547,6 +548,101 @@ namespace SW1_ISO9126_FUZZY.Vistas
             return true;
         }
 
+        // Validar seccion caracteristica
+
+        private bool validarSeccionFuncionalidad()
+        {
+            if (lblFuncionalidad.IsChecked == true)
+            {
+                if (validar_valor_caracteristica_funcionalidad())
+                {
+                    if (validar_seleccion_subcaracteristicas_funcionabilidad())
+                    {
+                        if (validar_valores_subcaracteristicas_funcionabilidad())
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+            return false;
+        }
+
+        private bool validarSeccionUsabilidad()
+        {
+            if (lblUsabilidad.IsChecked == true)
+            {
+                if (validar_valor_caracteristica_usabilidad())
+                {
+                    if (validar_seleccion_subcaracteristicas_usabilidad())
+                    {
+                        if (validar_valores_subcaracteristicas_usabilidad())
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+            return false;
+        }
+
+        private bool validarSeccionMantenibilidad()
+        {
+            if (lblMantenibilidad.IsChecked == true)
+            {
+                if (validar_valor_caracteristica_mantenibilidad())
+                {
+                    if (validar_seleccion_subcaracteristicas_mantenibilidad())
+                    {
+                        if (validar_valores_subcaracteristicas_mantenibilidad())
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+            return false;
+        }
+
         // combinatoria de casos validos 
 
         private bool validarCasos(bool funcionalidad, bool usabilidad, bool mantenibilidad)
@@ -628,89 +724,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
                     
                     if (validar_seleccion_caracteristicas())
                     {
-
-
-                        if (lblFuncionalidad.IsChecked == true)
-                        {
-                            if (validar_valor_caracteristica_funcionalidad())
-                            {
-                                if (validar_seleccion_subcaracteristicas_funcionabilidad())
-                                {
-                                    if (validar_valores_subcaracteristicas_funcionabilidad())
-                                    {
-                                        funcionalidad = true;
-                                    }
-                                    else
-                                    {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                            }
-                            else
-                            {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica funcionabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                        }
-
-
-                        if (lblUsabilidad.IsChecked == true)
-                        {
-                            if (validar_valor_caracteristica_usabilidad())
-                            {
-                                if (validar_seleccion_subcaracteristicas_usabilidad())
-                                {
-                                    if (validar_valores_subcaracteristicas_usabilidad())
-                                    {
-                                        usabilidad = true;
-                                    }
-                                    else
-                                    {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                            }
-                            else
-                            {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica usabilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                        }
-
-
-                        if (lblMantenibilidad.IsChecked == true)
-                        {
-                            if (validar_valor_caracteristica_mantenibilidad())
-                            {
-                                if (validar_seleccion_subcaracteristicas_mantenibilidad())
-                                {
-                                    if (validar_valores_subcaracteristicas_mantenibilidad())
-                                    {
-                                        mantenibilidad = true;
-                                    }
-                                    else
-                                    {
-                                        Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la subcaracterística de mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar al menos una subcaracterística para mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                            }
-                            else
-                            {
-                                Xceed.Wpf.Toolkit.MessageBox.Show("Debe seleccionar un valor válido para la característica mantenibilidad", "Selección e importancia", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                        }
-
-
+                        funcionalidad = validarSeccionFuncionalidad();
+                        usabilidad = validarSeccionUsabilidad();
+                        mantenibilidad = validarSeccionMantenibilidad();
                     }
                     else
                     {
@@ -725,7 +741,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 if ((datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
                 {
-                    resgistrarDatos();
+                    registrarDatos();
 
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
                    

@@ -26,7 +26,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         public RegistroSWPage(Evaluacion nueva, VistaPreviaSeleccionMetricaPage paginaMetrica, FormularioEvaluacionPage paginaEvaluacion, EvaluacionCalidadPage paginaCalidad)
         {
-
             InitializeComponent();
 
             this.miEvaluacion = nueva;
@@ -278,7 +277,9 @@ namespace SW1_ISO9126_FUZZY.Vistas
             }
         }
 
-        private void resgistrarDatos()
+        // Guarda el contenido en la evaluacion
+
+        private void registrarDatos()
         {
             // Obtener desde la interfaz grafica
             guardarDatosSw();
@@ -740,7 +741,7 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
                 if ((datosSW == true) && (validarCasos(funcionalidad, usabilidad, mantenibilidad)))
                 {
-                    resgistrarDatos();
+                    registrarDatos();
 
                     Xceed.Wpf.Toolkit.MessageBox.Show("Datos de evaluador, software y grados de importancia almacenados correctamente", "Registro datos evaluación", MessageBoxButton.OK, MessageBoxImage.Information);
                    

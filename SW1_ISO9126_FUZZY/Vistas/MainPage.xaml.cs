@@ -1,5 +1,8 @@
-﻿using SW1_ISO9126_FUZZY.Modelo_Datos;
+﻿using Newtonsoft.Json;
+using SW1_ISO9126_FUZZY.Modelo_Datos;
 using System;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -28,13 +31,52 @@ namespace SW1_ISO9126_FUZZY.Vistas
             this.paginaRegistro = pagina;
         }
 
+        // Crea un archivo en disco
+
+        public void crearArchivo(string nombre, string info)
+        {
+            // crear el path
+            var archivo = nombre;
+
+            // crear el fichero
+            using (var fileStream = File.Create(archivo))
+            {
+                var texto = new UTF8Encoding(true).GetBytes(info);
+                fileStream.Write(texto, 0, texto.Length);
+                fileStream.Flush();
+            }
+        }
+
+        // Guarda la evaluacion en formato JSON
+
+        private void guardarEvaluacion()
+        {
+            string ruta, output;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            
+            saveFileDialog.InitialDirectory = "c:\\Documentos";
+            saveFileDialog.Filter = "Archivos JSON (.json)|*.json";
+            saveFileDialog.DefaultExt = "json";
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ruta = saveFileDialog.FileName;
+                output = JsonConvert.SerializeObject(miEvaluacion, Formatting.Indented);
+                crearArchivo(ruta, output);
+              
+                Xceed.Wpf.Toolkit.MessageBox.Show("Evaluación guardada satisfactoriamente", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
         private void cargarJson()
         {
             //string filtro "Archivos JSON (.json)|*.json|Todos los archivos (*.*)|*.*";
 
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            string filtro = "Archivos JSON (.json)|*.json";
-            openFileDialog1.Filter = filtro;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();      
+            openFileDialog1.Filter = "Archivos JSON (.json)|*.json";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Multiselect = false;
 
@@ -77,7 +119,6 @@ namespace SW1_ISO9126_FUZZY.Vistas
             Navigation.Navigation.Navigate(new Uri("https://www.messenger.com/login.php"));
         }
 
-
         // Evento botones
 
         private void btnComenzarEvaluacion_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -118,14 +159,10 @@ namespace SW1_ISO9126_FUZZY.Vistas
 
         private void btnGuardarEvaluacion_Click(object sender, RoutedEventArgs e)
         {
-            if (estadoEvaluacion)
-            {
-
-            }
-            else
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para guardar", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            if (estadoEvaluacion)           
+                guardarEvaluacion();       
+            else         
+                Xceed.Wpf.Toolkit.MessageBox.Show("Debe crear la evaluación para poder guardarla", "Inicio", MessageBoxButton.OK, MessageBoxImage.Information);     
         }
 
         /* Ejemplos de MessageBox
